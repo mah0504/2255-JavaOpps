@@ -1,2 +1,13 @@
-Test
-essai
+-fournisseur:  fournit à l’utilisateur des robots et composantes en échange d'argent, lui transmet le numéro de série unique du robot et les fils de connexion . Chacun peut être localisé en filtrant à travers Robotix. Pour devenir fournisseur il faut avoir une compagnie et remplir son profil et capacité de fabrication.
+
+-utilisateur: client qui interagit avec le système pour l'acquisition de robots et de composants, la planification de tâches, et la participation à des activités individuelles ou collaboratives avec sa flotte de robots. il peut également devenir fournisseur, accéder aux métriques de chaque robot, être informé  des anomalies, et intervenir si nécessaire.
+
+-création: conception et mise en œuvre de quelque chose ( applications, actions, projets, tâches ou robots) . 
+
+-activité: ensemble de tâches liées entre elles qui contribuent à la réalisation d'un objectif plus large.Par exemple:contrôler un ou plusieurs robots.
+
+
+-tâche : une séquence d'actions spécifiques et simples à réaliser dans le cadred'une activité plus vaste, telles que trouver un fournisseur de composants pour les robots ou signaler un problème à un robot. 
+
+-action : le plus petit composant d'une tâche,l'exécution de plusieurs actions permet de former une tâche. Par exemple une tâche serait chercher un fournisseur,une des actions est d'ouvrir la barrer de recherche.
+
