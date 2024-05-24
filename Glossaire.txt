@@ -11,3 +11,19 @@
 
 -action : le plus petit composant d'une tâche,l'exécution de plusieurs actions permet de former une tâche. Par exemple une tâche serait chercher un fournisseur,une des actions est d'ouvrir la barrer de recherche.
 
+
+
+Système :
+Ensemble des composantes qui, par le biais de tâches, interagissent ensemble afin d'atteindre un objectif cible. Dans le cas de Robotix, cela se traduit principalement par l'utilisation de robots, d'interfaces, de capteurs et au moyen des utilisateurs.
+
+Numéro de série :
+Identifiant propre et unique que possède chaque robot et chaque composante. L'unicité de l'identification permet de faciliter le suivi des différentes opérations au sein de l'organisation. 
+
+Efficacité énergétique :
+Différence entre la quantité d'énergie fournie par le robot (énergie utile) et la quantité d'énergie utilisée pour le faire fonctionner (énergie consommée). Ce rapport vise à réduire les coûts et à optimiser la façon dont les ressources sont exploitées.
+
+Stationnement :
+Endroit spécifique où les robots doivent s'arrêter (interruption de tout mouvement) après avoir reçu cette tâche. C'est le système qui contrôle les mouvements des robots. 
+
+Métrique :
+Outil qui mesure (de façon quantitative) multiples éléments en robotique, essentiellement l'état des robots, leur performance et la gestion des ressources. La métrique est principalement calculée à l'aide d'un indicateur et elle aide à la prise de décisions et donne des informations quant à la flotte des robots.
