@@ -1,4 +1,4 @@
--fournisseur:  fournit à l’utilisateur des robots et composantes en échange d'argent, lui transmet le numéro de série unique du robot et les fils de connexion . Chacun peut être localisé en filtrant à travers Robotix. Pour devenir fournisseur il faut avoir une compagnie et remplir son profil et capacité de fabrication.
+-fournisseur:  fournit à l’utilisateur des robots et des composantes en échange d'argent, lui transmet le numéro de série unique du robot et les fils de connexion . Chacun peut être localisé en filtrant à travers Robotix. Pour devenir fournisseur il faut avoir une compagnie et remplir son profil et capacité de fabrication.
 
 -utilisateur: client qui interagit avec le système pour l'acquisition de robots et de composants, la planification de tâches, et la participation à des activités individuelles ou collaboratives avec sa flotte de robots. il peut également devenir fournisseur, accéder aux métriques de chaque robot, être informé  des anomalies, et intervenir si nécessaire.
 
@@ -11,7 +11,7 @@
 
 -action : le plus petit composant d'une tâche,l'exécution de plusieurs actions permet de former une tâche. Par exemple une tâche serait chercher un fournisseur,une des actions est d'ouvrir la barrer de recherche.
 
-
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Système :
 Ensemble des composantes qui, par le biais de tâches, interagissent ensemble afin d'atteindre un objectif cible. Dans le cas de Robotix, cela se traduit principalement par l'utilisation de robots, d'interfaces, de capteurs et au moyen des utilisateurs.
@@ -25,5 +25,12 @@ Différence entre la quantité d'énergie fournie par le robot (énergie utile) 
 Stationnement :
 Endroit spécifique où les robots doivent s'arrêter (interruption de tout mouvement) après avoir reçu cette tâche. C'est le système qui contrôle les mouvements des robots. 
 
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 Métrique :
 Outil qui mesure (de façon quantitative) multiples éléments en robotique, essentiellement l'état des robots, leur performance et la gestion des ressources. La métrique est principalement calculée à l'aide d'un indicateur et elle aide à la prise de décisions et donne des informations quant à la flotte des robots.
+
+État : Conditions actuelles d’un robot telles que sa position, sa vitesse, le niveau de sa batterie, sa consommation CPU et mémoire.
+Usage : Évolution périodique des données recueillies par les capteurs d’un robot, offrant une trace historique de son activité.
+Éducation : Type d’activité pour laquelle des robots sont utilisés pour enseigner à l’utilisateur différentes compétences telles que les langues, la programmation, les mathématiques, les sciences et l’histoire.
+// Inventaire : Mécanisme d’inventorisation des robots et de leurs composantes disponibles, permettant leur suivi et gestion efficace. Il fournit pour chaque robot des détails tels que son numéro de série, son nom, son type et son état.
