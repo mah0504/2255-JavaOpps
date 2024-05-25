@@ -34,3 +34,15 @@ Outil qui mesure (de façon quantitative) multiples éléments en robotique, ess
 Usage : Évolution périodique des données recueillies par les capteurs d’un robot, offrant une trace historique de son activité.
 Éducation : Type d’activité pour laquelle des robots sont utilisés pour enseigner à l’utilisateur différentes compétences telles que les langues, la programmation, les mathématiques, les sciences et l’histoire.
 // Inventaire : Mécanisme d’inventorisation des robots et de leurs composantes disponibles, permettant leur suivi et gestion efficace. Il fournit pour chaque robot des détails tels que son numéro de série, son nom, son type et son état.
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+action : opération spécifique qu'un robot peut exécuter. C’est une unité de capacité indépendante au robot. Un ensemble d’actions permet la configuration et le paramétrage du système et des ses composants afin de faire exécuter des mouvements physiques au robot. 
+
+robot : un outil industriel, programmé pour réaliser des tâches de manière autonome. Il contient plusieurs composants matériels qui lui permettent de collecter et traiter des informations, comme la CPU qui interprète et exécute un ensemble de commandes/instructions. La conception et le réglage d’un robot varie selon les objectifs qu’on lui attribue. 
+
+flotte : l’ensemble des robots et des composants qui ont été regroupés et aménagés pour la réalisation d’une ou plusieurs tâches communément. La gestion d’une flotte nécessite la planification des missions, la configuration des différents composantes et s’assurer une mise en oeuvre efficace du système. 
+
+composante: Une partie identifiable d’un système ou d’un robot. Il est possible de l’intégrer à d’autre composantes pour former un ensemble plus complet et élaboré. Une composante assure le fonctionnement d’une tâche spécifique. Elle peut être matérielle comme une CPU,  ou un capteur , ou logicielle comme une bibliothèque ou une API. 
+
+jeu : activité ludique où les participants (utilisateurs) sont offerts des défis et des règles et s’engagent le plus souvent dans une compétition. C’est une activité désignée à procurer du plaisir et du divertissement. 
