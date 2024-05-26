@@ -17,7 +17,7 @@ Système :
 Ensemble des composantes qui, par le biais de tâches, interagissent ensemble afin d'atteindre un objectif cible. Dans le cas de Robotix, cela se traduit principalement par l'utilisation de robots, d'interfaces, de capteurs et au moyen des utilisateurs.
 
 Numéro de série :
-Identifiant propre et unique que possède chaque robot et chaque composante. L'unicité de l'identification permet de faciliter le suivi des différentes opérations au sein de l'organisation. 
+Identifiant propre et unique que possède chaque robot et chaque composante. L'unicité de l'identification permet de faciliter le suivi des différentes opérations au sein de l'organisation. Le numéro de série peut être représenté sous forme d'un numéro séquentiel ou d'un UUID.
 
 Efficacité énergétique :
 Différence entre la quantité d'énergie fournie par le robot (énergie utile) et la quantité d'énergie utilisée pour le faire fonctionner (énergie consommée). Ce rapport vise à réduire les coûts et à optimiser la façon dont les ressources sont exploitées.
