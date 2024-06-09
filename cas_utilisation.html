@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+     <meta charset="UTF-8">
+    <title>IFT2255 E24 DM1</title>
+    <style type="text/css">
+        table
+        {
+            border: outset 2px black;
+            border-collapse: collapse;
+        }
+        th
+        {
+            border-bottom: double 2px black;
+        }
+        td
+        { 
+            border-bottom: solid 1px black;
+        }
+        .first_col
+        {
+            border-right: double 2px black;
+        }
+        div.CU {
+        width: 80%;
+        padding: 10px;
+        border: 5px solid gray;
+        margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>Tâche 3 : Cas d'utilisation</h2>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> S'inscrire.<br>
+            <span style="font-weight: bold;">But :</span> Permettre à un utilisateur ou un fournisseur de créer un compte sur le logiciel Robotix.<br>
+            <span style="font-weight: bold;">Préconditions :</span>  
+            <ul>
+                <li>Avoir une adresse mail valide.</li>
+                <li>Avoir un numéro de téléphone valide.</li>
+                <li>La compagnie est déjà enregistrée sur Robotix.</li>
+            </ul>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur / Fournisseur (principal)<br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            1. L'utilisateur ouvre la page d'inscription de Robotix.<br>
+            2. L'utilisateur ajoute ses données personnelles.<br>
+            &emsp;2.1. ajouter nom et prénom.<br>
+            &emsp;2.2. ajouter pseudo.<br>
+            &emsp;2.3. ajouter adresse email.<br>
+            &emsp;2.4. ajouter mot de passe.<br>
+            &emsp;2.5. confirmer mot de passe.<br>
+            &emsp;2.6. ajouter téléphone.<br>
+            &emsp;2.7. choisir nom de la compagnie à partir d’une liste déroulante.<br>
+            3. Le système vérifie la validité des informations.<br>
+            4. Le système envoie un email de confirmation à l'adresse fournie.<br>
+            5. L'utilisateur clique sur le lien de confirmation dans l'email.<br>
+            6. Le système confirme l'inscription.<br>
+            <span style="font-weight: bold;">Scénarios alternatifs :</span><br>
+            <ul>
+                <li>Scénario alternatif 1 :</li>
+                2.2a.1. L'utilisateur choisit un pseudo déjà utilisé.<br>
+                2.2a.2. Le système lui demande de choisir un autre pseudo.<br>
+                <br>
+                <li>Scénario alternatif 2 :</li>
+                2.5a.1 L’utilisateur entre un mot de passe différent.<br>
+                2.5a.2 Le système lui demande d’entrer le même mot de passe.<br>
+                <br>
+                <li>Scénario alternatif 3 :</li>
+                4a.1.  L’utilisateur ne reçoit pas de mail de confirmation.<br>
+                4a.2. L'utilisateur demande un nouvel envoi de l'email de confirmation.<br>
+                <br>
+                <li>Scénario alternatif 4 :</li>
+                (1-6)b. Le fournisseur suit les mêmes étapes pour créer un compte.<br>
+                <br>
+            </ul>
+            <span style="font-weight: bold;">Postcondition :</span> L'utilisateur possède un compte sur Robotix.<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> Se connecter.<br>
+            <span style="font-weight: bold;">But :</span> Permettre à un utilisateur de visualiser les métriques pour refléter la performance de ses robots.<br>
+            <span style="font-weight: bold;">Précondition :</span> Être connecté à Robotix.<br>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur/ Fournisseur (principal)<br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            1.L'utilisateur ouvre la page de connection de Robotix.<br>
+            2. L'utilisateur s’authentifie.<br>
+            &emsp;2.1 L’utlisateur entre son pseudo.<br>
+            &emsp;2.2 L’utilisateur entre son mot de passe.<br>
+            3. Le système vérifie les informations.<br>
+            4. Le système donne accès au logiciel.<br>
+            <span style="font-weight: bold;">Scénarios alternatifs :</span><br>
+            <ul>
+                <li>Scénario alternatif 1 :</li>
+                2.1.a.1. L'utilisateur oublie son pseudo.<br>
+                2.1.a.2. Le système demande à l’utilisateur son email.<br>
+                2.1.a.3. L’utilisateur récupère son pseudo.<br>
+                <br>
+                <li>Scénario alternatif 2 :</li>
+                2.2.a.1. L'utilisateur oublie son mot de passe.<br>
+                2.2.a.2. Le système demande à l’utilisateur son email.<br>
+                2.2.a.3. L’utilisateur récupère son mot de passe.<br> 
+                <br>
+                <li>Scénario alternatif 3 :</li>
+                3a.1. L’authentification n’aboutit pas.<br>
+                3a.2. Le système affiche un message d’erreur. Retour à l’étape 2.<br>
+                <br>
+                <li>Scénario alternatif 4 :</li>
+                (1-4)b. Le fournisseur suit les mêmes étapes pour se connecter.<br>
+                <br>
+            </ul>
+            <span style="font-weight: bold;">Postcondition :</span> L'utilisateur est connecté à Robotix.<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> Accéder aux métriques.<br>
+            <span style="font-weight: bold;">But :</span> Permettre à un utilisateur ou un fournisseur de se connecter à Robotix pour contrôler les robots ou fournir des composantes.<br>
+            <span style="font-weight: bold;">Précondition :</span> Avoir un compte sur Robotix.<br>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur (principal)<br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            1. L'utilisateur choisit un robot.<br>
+            2. L'utilisateur accède à la section métriques de ce robot.<br>
+            3. Le système affiche une liste des métriques de ce robot.<br>
+            4. L'utilisateur clique sur une des métriques pour afficher plus d’informations.<br>
+            <span style="font-weight: bold;">Scénarios alternatifs :</span><br>
+            <ul>
+                <li>Scénario alternatif 1 :</li>
+                1a.1. L’utilisateur choisit une flotte.<br>
+                1a.2. L’utilisateur choisit un robot dans la flotte.<br>
+                <br>
+                <li>Scénario alternatif 2 :</li>
+                1b. L’utilisateur choisit une flotte.<br>
+                2b. L'utilisateur accède à la section métriques de cette flotte.<br> 
+                3b. Le système affiche une liste des métriques de cette flotte.<br>
+                4b. L’utilisateur choisit un robot dans la flotte. Retour à l’étape 1 dans le scénario principal.<br>
+                <br>
+                <li>Scénario alternatif 3 :</li>
+                1a.1. Pas de robot enregistré.<br>
+                1a.2. Le système demande à l’utilisateur s’il souhaite enregistrer un robot.<br>
+                <br>
+            </ul>
+            <span style="font-weight: bold;">Postcondition :</span> Les métriques sont affichées et vues par l’utilisateur.<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> Traiter une erreur.<br>
+            <span style="font-weight: bold;">But :</span> Permettre à un utilisateur de corriger les erreurs et les problèmes signalés par le système.<br>
+            <span style="font-weight: bold;">Précondition :</span>
+            <ul>
+                <li>Être connecté à Robotix.</li>
+                <li>Avoir accès aux métriques des robots.</li>
+            </ul>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur (principal)<br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            1. Le système détecte une erreur.<br>
+            2. Le système affiche une alerte et donne les détails du problème, notamment à quel robot l’erreur survient.<br>
+            3. L’utilisateur choisit le robot où l’erreur s’est produite.<br>
+            &emsp;3.1. L'utilisateur accède à la section métriques de ce robot.<br>
+            &emsp;3.2. Le système affiche la liste des métriques de ce robot.<br>
+            4. L'utilisateur analyse l'erreur.<br>
+            5. L’utilisateur alloue une action pour résoudre l’erreur.<br>
+            6. Le système exécute l'action.<br>
+            <span style="font-weight: bold;">Scénario alternatif :</span><br>
+            5a.1. Le système proposes une liste de solutions/actions pour résoudre l’erreur.<br>
+            5a.2. L'utilisateur choisit une des solutions/actions.<br>
+            <span style="font-weight: bold;">Postconditions :</span> 
+            <ul>
+                <li>L'erreur est traitée.</li>
+                <li>Le système confirme qu’il n’y a pas d’erreur.</li>
+            </ul>
+        </p>
+    </div>
+
+</body>
+</html>
