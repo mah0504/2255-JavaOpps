@@ -1,1 +1,118 @@
+- je pourrais enlever mes scénarios alternatifs + postconditions since they're facultatifs & also very poorly made - sab
+
+FOURNIR DES COMPOSANTES
+Cas d'utilisation : Fournir des composantes.
+But : Le fournisseur souhaite fournir des composantes aux utilisateurs. 
+Préconditions : Posséder une compagnie, un compte ‘’fournisseur’’ et posséder des composantes à fournir. 
+Acteurs : Fournisseur.
+Scénario principal :  
+1-	Un utilisateur trouve un fournisseur qui possède les composantes qu’il désire.
+2-	L’utilisateur achète les composantes qu’il veut.
+3-	 Le fournisseur envoie les composantes achetées par l’utilisateur.
+Scénarios alternatifs : 
+2a- L’achat de la composante de la part de l’utilisateur ne fonctionne pas.
+2a.1 La compagnie du fournisseur est en rupture de stock quant à la composante désirée par l’utilisateur.
+2a.2 L’utilisateur est renvoyé sur la page d’accueil.
+2a.3 Le scénario reprend à l’étape 2.
+
+Postconditions : 
+-	L’utilisateur peut utiliser les composantes achetées pour améliorer son robot
+-	Le fournisseur vient de gagner des fonds, un (nouveau) client et doit revérifier son inventaire
+-	Robotix is good
+
+
+
+
+PARTICIPER À DES ACTIVITÉS
+Cas d'utilisation : Participer à des activités
+But : Les utilisateurs désirent enrichir leurs expériences, partager avec d’autres utilisateurs et explorer leur créativité.
+Préconditions : Posséder un ou des robots  + les robots doivent posséder les composantes nécessaire pour participer aux activités.
+Acteurs : Utilisateur 
+Scénario principal : 
+
+1-	 L’utilisateur inscrit ses robots à des activités offertes.
+2-	L’utilisateur communique, échange avec d’autres utilisateurs (au moment des activités).
+Scénarios alternatifs : 
+1a- Il manque une composante au robot et il ne peut donc pas participer aux activités.
+1a. Le scénario se termine.
+
+Postconditions : Robotix is great.  
+
+
+
+
+COLLABORATION
+Cas d'utilisation : Collaboration
+But :  Échanger avec d’autres utilisateurs afin d’en apprendre davantage à propos des robots.
+Préconditions : Posséder des robots + participer à des activités
+Acteurs : Utilisateur
+Scénario principal : 
+1-	Les utilisateurs se rendent aux activités avec leurs robots.
+2-	Les utilisateurs échangent entre eux et s’enrichissent grâce à la communication avec autrui.
+
+Scénarios alternatifs :  
+1a- Il n’y a pas d’autres utilisateurs présents à l’activité en question.
+1b- Pas d’enrichissement, le scénario s’arrête là. 
+
+Postconditions : Robotix est toujours good. 
+
+
+JEUX
+Cas d'utilisation : Jeux
+But : Divertissement pour l’utilisateur. 
+Préconditions : Participer à une activité, comme il s’agit d’un cas spécifique du fait de participer à une activité.
+Acteurs : Utilisateur
+Scénario principal : 
+1-	L’utilisateur se présente à l’activité dans la catégorie ‘jeux’ avec ses robots.
+2-	L’utilisateur fait des quiz, des énigmes, des défis, des jeux de société avec son robot
+
+Scénarios alternatifs : ramifications du déroulement principal, alternatives possibles à certaines étapes
+1a- L’utilisateur a oublié de s’inscrire aux ‘jeux’.
+1b- L’utilisateur ne peut pas participer aux activités
+1c- Le scénario s’arrête là. 
+
+Postconditions : Robotix tient toujours en place. 
+
+
+
+
+ÉDUCATION
+Cas d'utilisation : Éducation
+But : Enseigner plusieurs domaines aux utilisateurs, peu importe leur âge.
+Préconditions : Participer à une activité, comme il s’agit d’un cas spécifique du fait de participer à une activité.
+Acteurs : Utilisateur
+Scénario principal : 
+1-	L’utilisateur se présente à l’activité avec ses robots. 
+2-	L’utilisateur en apprend beaucoup sur différents sujets (maths, science, info…).
+
+Scénarios alternatifs :  
+1a- L’utilisateur a oublié de s’inscrire aux ‘jeux’.
+1b- L’utilisateur ne peut pas participer aux activités
+1c- Le scénario s’arrête là. 
+
+Postconditions : Robotix is good.
+
+
+
+
+CRÉATION
+Cas d'utilisation : Création
+But : Création d’objets réels ou virtuels à l’aide d’outils numériques grâce à des logiciels de conception assistée par ordinateur (CAO) ou par impression 3D.
+Préconditions : Participer à une activité, comme il s’agit d’un cas spécifique du fait de participer à une activité.
+Acteurs : Utilisateur
+Scénario principal :  
+
+1-	L’utilisateur se présente à l’activité avec ses robots. 
+2-	L’utilisateur crée des objets réels/virtuels
+
+Scénarios alternatifs : 
+1a- L’utilisateur a oublié de s’inscrire aux ‘jeux’.
+1b- L’utilisateur ne peut pas participer aux activités
+1c- Le scénario s’arrête là. 
+
+2a – La machine 3d plante
+2b- L’utilisateur ne peut pas créer d’objet virtuel ou réel
+2c- Le scénario se termine.
+
+Postconditions : robotix is still standing but i don’t know if I can say the same about me tbh.
 
