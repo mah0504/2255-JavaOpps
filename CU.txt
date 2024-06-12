@@ -358,21 +358,23 @@ Acteurs :
 
 Scénario principal :
 1. L'utilisateur choisit un robot.
-2. L'utilisateur accède à la section métriques de ce robot.
-3. Le système affiche une liste des métriques de ce robot.
-4. L'utilisateur clique sur une des métriques pour afficher plus d’informations.
+2. L'utilisateur consulte l'inventaire du robot.
+3. L'utilisateur accède à la section métriques de ce robot.
+4. Le système affiche une liste des métriques de ce robot.
+5. L'utilisateur clique sur une des métriques pour afficher plus d’informations.
 
 Scénarios alternatifs :
 1a.1. L’utilisateur choisit une flotte.
 1a.2. L’utilisateur choisit un robot dans la flotte.
 
 1b. L’utilisateur choisit une flotte.
-2b. L'utilisateur accède à la section métriques de cette flotte.
-3b. Le système affiche une liste des métriques de cette flotte.
-4b. L’utilisateur choisit un robot dans la flotte. Retour à l’étape 1 dans le scénario principal.
+2b. L'utilisateur consulte l'inventaire de  cette flotte.
+3b. L'utilisateur accède à la section métriques de cette flotte.
+4b. Le système affiche une liste des métriques de cette flotte.
+5b. L’utilisateur choisit un robot dans la flotte. Retour à l’étape 1 dans le scénario principal.
 
 1a.1. Pas de robot enregistré.
-1a.2. Le système demande à l’utilisateur s’il souhaite enregistrer un robot
+1a.2. Le système demande à l’utilisateur s’il souhaite enregistrer un robot.
 
 Postconditions :
 - Les métriques sont affichées et vues par l’utilisateur.
