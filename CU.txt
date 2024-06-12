@@ -1,4 +1,5 @@
-- je pourrais enlever mes scénarios alternatifs + postconditions since they're facultatifs & also very poorly made - sab
+*** Signifie que le bloc a été modifié (sab)
+
 
 FOURNIR DES COMPOSANTES
 Cas d'utilisation : Fournir des composantes.
@@ -23,20 +24,18 @@ Postconditions :
 
 
 
-PARTICIPER À DES ACTIVITÉS
+***PARTICIPER À DES ACTIVITÉS
 Cas d'utilisation : Participer à des activités
 But : Les utilisateurs désirent enrichir leurs expériences, partager avec d’autres utilisateurs et explorer leur créativité.
-Préconditions : Posséder un ou des robots  + les robots doivent posséder les composantes nécessaire pour participer aux activités.
+Préconditions : Posséder un ou des robots et les robots doivent posséder les composantes nécessaires pour participer aux activités.
 Acteurs : Utilisateur 
 Scénario principal : 
+1-	L’utilisateur navigue à travers le système de Robotix pour y trouver les activités offertes et disponibles.
+2-	L’utilisateur sélectionne une ou plusieurs activités qui l’intéressent.
+3-	L’utilisateur inscrit ses robots aux activités sélectionnées.
+4-	Au moment prévu, l’utilisateur (avec ses robots) participe aux activités auxquelles il s’était inscrit. 
+5-	Durant les activités, l’utilisateur communique et échange avec les autres utilisateurs présents à l’activité.
 
-1-	 L’utilisateur inscrit ses robots à des activités offertes.
-2-	L’utilisateur communique, échange avec d’autres utilisateurs (au moment des activités).
-Scénarios alternatifs : 
-1a- Il manque une composante au robot et il ne peut donc pas participer aux activités.
-1a. Le scénario se termine.
-
-Postconditions : Robotix is great.  
 
 
 
