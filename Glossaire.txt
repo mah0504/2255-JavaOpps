@@ -1,35 +1,35 @@
-Fournisseur :  Entité qui vend aux utilisateurs les robots et les composantes. Il fournit le numéro de série des robots et les fils de connexion. Il est associé à une compagnie et a une capacité de fabrication.
-
-Utilisateur : Client qui souhaite trouver un fournisseur, enregistrer ses robots, les contrôler (tâches, activités) ou en faire le suivi (métriques, anomalies, intervention).
-
-Création : Activité où l’utilisateur peut créer des objets virtuels en utilisant des outils numériques tels que les logiciels de conception assistée par ordinateur (CAO) et en créer des réels avec l’impression 3D.
+Action : Opération spécifique qu’un robot peut exécuter s’il a les composantes nécessaires. Elles sont créées indépendamment des robots et peuvent être assignées aux tâches. Le robot peut bouger (déplacement, stationnement), diffuser des sons, parler, écouter, afficher du texte ou des graphiques, etc.
 
 Activité : Ensemble de tâches liées entre elles qui contribuent à la réalisation d'un objectif plus large. L’utilisateur peut participer à des activités individuelles ou collaboratives avec sa flotte de robots.
 
-Tâche : Séquence d'actions réalisées dans un ordre. L’utilisateur peut les créer, les affecter à ses robots et les planifier (horaire spécifique, action déclencheur) pour qu’elles soient réalisées sans son intervention.
+Composante : Partie identifiable d’un robot telles que CPU (Wi-Fi, Bluetooth), roues, bras, hélice, caméra, haut-parleur, micro et écran. Certaines composantes sont essentielles pour réaliser certaines actions.
 
-Action : Opération spécifique qu’un robot peut exécuter s’il a les composantes nécessaires. Elles sont créées indépendamment des robots et peuvent être assignées aux tâches. Le robot peut bouger (déplacement, stationnement), diffuser des sons, parler, écouter, afficher du texte ou des graphiques, etc.
-
-Système : Ensemble des composantes qui, par le biais de tâches, interagissent pour atteindre un objectif cible. Dans le cas de Robotix, cela se traduit principalement par l'utilisation de robots, d'interfaces, de capteurs et au moyen des utilisateurs.
-
-Numéro de série : Identifiant (numéro séquentiel ou UUID) propre et unique du CPU que possède chaque robot. L'unicité de l'identification permet de faciliter le suivi des robots au sein du système. 
-
-Efficacité énergétique : Différence entre la quantité d'énergie fournie par le robot (énergie utile) et la quantité d'énergie utilisée pour le faire fonctionner (énergie consommée). Ce rapport vise à réduire les coûts et à optimiser la façon dont les ressources sont exploitées.
-
-Métrique : Indicateur ou ratio quantitatif qui est utilisé pour mesurer et surveiller la performance (disponibilité, état et utilisation généraux) d’un robot ou d’une flotte. Elle communique des informations qui aident l’utilisateur à gérer les ressources et prendre des décisions.
-
-État : Conditions actuelles d’un robot telles que sa position, sa vitesse, le niveau de sa batterie, sa consommation CPU et mémoire.
-
-Usage : Évolution périodique des données recueillies par les capteurs d’un robot. Permet de suivre l’activité d’un robot.
+Création : Activité où l’utilisateur peut créer des objets virtuels en utilisant des outils numériques tels que les logiciels de conception assistée par ordinateur (CAO) et en créer des réels avec l’impression 3D.
 
 Éducation : Activité où les robots sont utilisés pour enseigner à l’utilisateur différentes compétences telles que les langues, la programmation, les mathématiques, les sciences et l’histoire.
 
-Inventaire : Mécanisme d’inventorisation des robots et des composantes disponibles, permettant leur suivi et gestion efficace. Il fournit pour chaque robot des détails tels que son numéro de série, son nom, son type et ses métriques.
+Efficacité énergétique : Différence entre la quantité d'énergie fournie par le robot (énergie utile) et la quantité d'énergie utilisée pour le faire fonctionner (énergie consommée). Ce rapport vise à réduire les coûts et à optimiser la façon dont les ressources sont exploitées.
 
-Robot : Outil programmable pour réaliser des tâches de manière autonome et traiter de l’information (commandes, instructions). Il doit avoir au moins un CPU et une autre composante. La conception d’un robot dépend de son rôle dans le système. 
+État : Conditions actuelles d’un robot telles que sa position, sa vitesse, le niveau de sa batterie, sa consommation CPU et mémoire.
 
 Flotte : Ensemble de robots regroupés pour réaliser de façon collaborative différentes activités. La gestion d’une flotte nécessite la planification des missions, la configuration des différentes composantes et une mise en œuvre efficace du système. 
 
-Composante : Partie identifiable d’un robot telles que CPU (Wi-Fi, Bluetooth), roues, bras, hélice, caméra, haut-parleur, micro et écran. Certaines composantes sont essentielles pour réaliser certaines actions.
+Fournisseur :  Client qui vend aux utilisateurs les robots et les composantes. Il fournit le numéro de série des robots et les fils de connexion. Il est associé à une compagnie et a une capacité de fabrication. Il est identifié dans le système par un nom unique.
+
+Inventaire : Mécanisme d’inventorisation des robots et des composantes disponibles, permettant leur suivi et gestion efficace. Il fournit pour chaque robot des détails tels que son numéro de série, son nom, son type et ses métriques.
 
 Jeu : Activité ludique où les participants (utilisateurs) sont offerts des défis et des règles et s’engagent le plus souvent dans une compétition.
+
+Métrique : Indicateur ou ratio quantitatif qui est utilisé pour mesurer et surveiller la performance (disponibilité, état et utilisation généraux) d’un robot ou d’une flotte. Elle communique des informations qui aident l’utilisateur à gérer les ressources et prendre des décisions.
+
+Numéro de série : Identifiant (numéro séquentiel ou UUID) propre et unique du CPU que possède chaque robot. L'unicité de l'identification permet de faciliter le suivi des robots au sein du système.
+
+Robot : Outil programmable pour réaliser des tâches de manière autonome et traiter de l’information (commandes, instructions). Il doit avoir au moins un CPU et une autre composante. La conception d’un robot dépend de son rôle dans le système.
+
+Système : Ensemble des composantes qui, par le biais de tâches, interagissent pour atteindre un objectif cible. Dans le cas de Robotix, cela se traduit principalement par l'utilisation de robots, d'interfaces, de capteurs et au moyen des utilisateurs.
+
+Tâche : Séquence d'actions réalisées dans un ordre. L’utilisateur peut les créer, les affecter à ses robots et les planifier (horaire spécifique, action déclencheur) pour qu’elles soient réalisées sans son intervention.
+
+Usage : Évolution périodique des données recueillies par les capteurs d’un robot. Permet de suivre l’activité d’un robot.
+
+Utilisateur : Client qui souhaite trouver un fournisseur, enregistrer ses robots, les contrôler (tâches, activités) ou en faire le suivi (métriques, anomalies, intervention). Il est identifié dans le système par un pseudo unique.
