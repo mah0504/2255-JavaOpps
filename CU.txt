@@ -163,15 +163,32 @@ Scénarios Alternatifs:
 
 
 
-ALLOUER UNE ACTION 
-Cas d'utilisation : Allouer une action 
+
+
+CRÉER UNE TÂCHE 
+Cas d'utilisation : Créer une tâche 
 Acteur : L'utilisateur ( principal ) 
 Préconditions : L'utilisateur doit être connecté à son compte robotix et avoit cliqué sur 'allouer une tâche' sur le menu principal 
-Postconditions: L'Utilisateur a réussi à allouer une action 
-1- Après avoir cliqué sur 'allouer une tâche' l'
+Postconditions: L'Utilisateur a réussi à créer une tâche 
+1- Après avoir cliqué sur 'allouer une tâche' l'utilisateur clique sur 'créer une tâche' 
+2 - Le système demande à l'utilisateur de lui attribuer un nom et type ( mouvement , affichage...) et une petite description 
+3- L'utilisateur entre les informations nécessaires 
+4- Le système confirme le choix de l'utilisateur
+5- Le système affiche la liste d'actions déjà existentes à l'utilisateur et leurs descriptions ,composantes nécessaires pour les exécuter ... il affiche en bas l'option de créer une nouvelle action aussi. Ces actions rassemblées en ordre logique constituent une tâche 
+6- L'utilisateur choisit l'action qui l'interesse  **
+7- Le système l'ajoute à la nouvelle tâche et affiche encore la liste d'actions précédentes que l'utilisateur peut ajouter 
+8- L'utilisateur continue d'ajouter les actions qui l'interessent , elles sont ajoutées en ordre et sont exécutées en cet ordre là 
+9- Après ajout de la énième action , l'utilisateur confirme son choix d'actions allouées à la tâche 
+10- le système confirme le choix de l'utilisateur et lui demande de confirmer la tâche qu'il vient de créer 
+11- L'utilisateur confirme son choix
+12- Le système valide et ajoute la nouvelle tâche au répertoire de tâches avec la date de création , nom... 
 
+Scénarios Altérnatifs : 
+6-a . L'utilisateur choisit de créer une nouvelle action 
+6- a.1 Le système se dirige alors vers 'créer une action' c'est un cas d'utilisation séparé qui est déclenché comme extension d'allouer une action 
+6-a . 2 Après execution de ce cas d'utilisation retour à l'étape 7 
 
-
+------------------------------------------
 
 
 
