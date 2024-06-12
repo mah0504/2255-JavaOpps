@@ -257,3 +257,123 @@ Scénarios alternatifs :
 5a. Les champs sont laissés vides, ils dépassent la limite de caractères ou ils contiennent des caractères invalides.
 5a.1 Retourner à l’étape 5.
 Postconditions : Robotix affiche à nouveau le menu principal à l’écran. Si l’utilisateur a enregistré un nouveau robot, Robotix l’a ajouté à son inventaire.
+
+----------------------------------------------------------------------------------------------------------------
+Cas d'utilisation : S'inscrire
+
+But :
+Permettre à un utilisateur ou un fournisseur de créer un compte sur le logiciel Robotix.
+
+Préconditions :
+- Avoir une adresse mail valide.
+- Avoir un numéro de téléphone valide
+- La compagnie est déjà enregistrée sur Robotix.
+
+
+Acteurs :
+- Principal : Utilisateur/ Fournisseur
+
+Scénario principal :
+1. L'utilisateur ouvre la page d'inscription de Robotix.
+2. L'utilisateur ajoute ses données personnelles
+	2.1. ajouter nom et prénom,
+	2.2. ajouter pseudo
+	2.3. ajouter adresse email
+	2.4. ajouter mot de passe
+	2.5. confirmer mot de passe
+	2.6. ajouter téléphone
+	2.7. choisir nom de la compagnie à partir d’une liste déroulante.
+3. Le système vérifie la validité des informations.
+4. Le système envoie un email de confirmation à l'adresse fournie.
+5. L'utilisateur clique sur le lien de confirmation dans l'email.
+6. Le système confirme l'inscription.
+
+Scénarios alternatifs :
+2.2a.1. L'utilisateur choisit un pseudo déjà utilisé.
+2.2a.2. Le système lui demande de choisir un autre pseudo.
+
+2.5a.1 L’utilisateur entre un mot de passe différent.
+2.5a.2 Le système lui demande d’entrer le même mot de passe.
+
+
+4a.1.  L’utilisateur ne reçoit pas de mail de confirmation.
+4a.2. L'utilisateur demande un nouvel envoi de l'email de confirmation.
+
+(1-6)b. Le fournisseur suit les même s étapes pour créer un compte
+
+Postconditions :
+- L'utilisateur possède un compte sur Robotix.
+
+###############################################################
+
+Cas d'utilisation : Se connecter
+
+But :
+Permettre à un utilisateur ou un fournisseur de se connecter à Robotix pour contrôler les robots ou fournir des composantes.
+
+Préconditions :
+- Avoir un compte sur Robotix.
+
+Acteurs :
+-  Principal : Utilisateur/ Fournisseur
+
+Scénario principal :
+1.L'utilisateur ouvre la page de connection de Robotix.
+2. L'utilisateur s’authentifie
+	2.1 L’utlisateur entre son pseudo
+	2.2 L’utilisateur entre son mot de passe.
+3. Le système vérifie les informations.
+4. Le système donne accès au logiciel
+
+
+Scénarios alternatifs :
+2.1.a.1. L'utilisateur oublie son pseudo.
+2.1.a.2. Le système demande à l’utilisateur son email.
+2.1.a.3. L’utilisateur récupère son pseudo.
+
+2.2.a.1. L'utilisateur oublie son mot de passe.
+2.2.a.2. Le système demande à l’utilisateur son email.
+2.2.a.3. L’utilisateur récupère son mot de passe.
+
+3a.1. L’authentification n’aboutit pas.
+3a.2. Le système affiche un message d’erreur. Retour à l’étape 2.
+
+(1-4)b. Le fournisseur suit les même s étapes pour se connecter.
+
+Postconditions :
+- L'utilisateur est connecté à Robotix.
+
+########################################################
+Cas d'utilisation : Accéder aux métriques
+
+But :
+Permettre à un utilisateur de visualiser les métriques pour refléter la performance de ses robots
+.
+
+Préconditions :
+-Être connecté à Robotix.
+
+Acteurs :
+-  Principal : Utilisateur
+
+Scénario principal :
+1. L'utilisateur choisit un robot.
+2. L'utilisateur accède à la section métriques de ce robot.
+3. Le système affiche une liste des métriques de ce robot.
+4. L'utilisateur clique sur une des métriques pour afficher plus d’informations.
+
+Scénarios alternatifs :
+1a.1. L’utilisateur choisit une flotte.
+1a.2. L’utilisateur choisit un robot dans la flotte.
+
+1b. L’utilisateur choisit une flotte.
+2b. L'utilisateur accède à la section métriques de cette flotte.
+3b. Le système affiche une liste des métriques de cette flotte.
+4b. L’utilisateur choisit un robot dans la flotte. Retour à l’étape 1 dans le scénario principal.
+
+1a.1. Pas de robot enregistré.
+1a.2. Le système demande à l’utilisateur s’il souhaite enregistrer un robot
+
+Postconditions :
+- Les métriques sont affichées et vues par l’utilisateur.
+
