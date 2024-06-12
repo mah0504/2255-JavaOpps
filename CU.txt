@@ -171,3 +171,39 @@ Postconditions: L'Utilisateur a réussi à allouer une action
 1- Après avoir cliqué sur 'allouer une tâche' l'
 
 
+
+
+
+
+
+
+
+
+Cas d’utilisation : Trouver un fournisseur de composantes
+But : Un utilisateur peut naviguer à travers la liste de fournisseurs enregistrés dans Robotix. 
+Préconditions : L’utilisateur est déjà inscrit à Robotix et il est connecté à son compte.
+Acteurs : Un utilisateur (principal).
+Scénario principal :
+1. L’utilisateur choisit l’option « Trouver un fournisseur » dans le menu principal.
+2. Robotix affiche une liste défilante de tous les fournisseurs enregistrés dans le système.
+3. L’utilisateur utilise le mécanisme « Filtrer » (pays, ville, compagnie, composante, etc.) ou « Rechercher » pour affiner les résultats de recherche.
+3.1 Robotix trie la liste des fournisseurs en fonction du mécanisme choisi.
+3.2 Robotix affiche la liste triée.
+4. L’utilisateur clique sur le profil d’un fournisseur.
+4.1 Robotix affiche les détails du fournisseur (compagnie, nom, adresse, email, téléphone, etc.).
+5. L’utilisateur sélectionne une composante à acheter.
+5.1 Appel du cas Acheter une composante.
+6. L’utilisateur clique sur l’option « Quitter ».
+6.1 Robotix ramène l’utilisateur au menu principal.
+Scénarios alternatifs :
+2a. Robotix ne trouve aucun fournisseur.
+2a.1 Robotix affiche « Aucun fournisseur inscrit » à l’écran.
+2a.2 Le scénario se termine.
+3a L’utilisateur n’utilise pas ces mécanismes.
+3a.1 Passer à l’étape 4.
+4a. L’utilisateur ne sélectionne aucun fournisseur.
+4a.1 Passer à l’étape 6.
+5a. L’utilisateur n’achète pas de composantes.
+5a.1 Passer à l’étape 6.
+Postconditions : Robotix affiche à nouveau le menu principal à l’écran.
+
