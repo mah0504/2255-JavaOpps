@@ -116,3 +116,58 @@ Scénarios alternatifs :
 
 Postconditions : robotix is still standing but i don’t know if I can say the same about me tbh.
 
+--------------------------------------------------------------------------------------------------------------------------
+maha ;) 
+** = scénario alternatif ( à modifier après ) 
+ALLOUER UNE TÂCHE 
+Cas d'utilisation : allouer une tâche 
+But: Permettre à l'utilisateur d'allouer une tâche à un robot instantanément, planifier l'execution de cette tâche ou encore définit l'event qui déclenche son exécution 
+Acteur: Utilisateur ( principal ) 
+Précondition : L'utilisateur doit être connecté à son compte robotix ( en tant qu'utilisateur!!) 
+Postcondition : L'utilisateur a pu allouer une tâche à un robot
+
+Scénario principal: 
+1- l'utilisateur est sur le menu principal et clique sur 'allouer une tâche' 
+2- le système affiche une liste de tâches déjà existentes et si l'utilisateur clique sur l'une d'elles il a accès à sa description mais aussi à la séquence d'actions ordonnées qui la constituent , le système affiche aussi l'option de 'créer une tâche' plus en bas 
+3- L'utilisateur clique sur l'une des tâches de la liste  **
+4- le système valide le choix de l'utilisateur  et affiche la flotte de robots de l'utilisateur 
+5- Le système demande à l'utilisateur de choisir le robot auquel il veut allouer la tâche 
+6- l'utilisateur fait son choix 
+7- Le système vérifie si le robot choisi  est disponible et s'il a les composantes nécessaires pour effectuer cette tâche **
+8- Le système valide le choix de l'utilisateur et lui demande s'il veut exécuter cette tâche une ou plusieurs fois 
+9- L'utilisateur choisit d'exécuter la tâche une fois **  ( fréquence ) 
+10- Le système lui propose de choisir s'il exécute instantanément ou s'il veut choisir un horaire 
+11- L'utilisateur clique sur ' planifier l'horaire d'éxecution' et choisit la plage horaire qui lui convient 
+12- le système valide le choix de l'utilisateur
+13- Le système propose à l'utilisateur de choisir un autre robot pour la même tâche // à vérifier, reformuler 
+14- l'utilisateur clique sur non 
+15- Le système comfirme et affiche une onglet qui précise à quel robot la tâche a été allouée et pour quand 
+
+Scénarios Alternatifs: 
+3-a. l'utilisateur clique sur créer une tâche 
+3-b Le cas d'utilisation 'créer une tâche' est déclenché comme extension d'allouer une tâche, après exécution retour à l'étape 4 
+
+7- a.1. Le robot choisit n'a pas les composantes nécessaires  pour exécuter la tâche 
+ 7-a.2. Le système signale à l'utilisateur l'absence es composantes nécessaires et lui demande de choisir un autre robot
+// commentaire !! : l'option d'acheter composante necessaire pour l'attribuer au robot choisit est trop compliquée / longue à mentionner ici so je ne le fais pas 
+7-a.3- Retour à l'étape 5
+
+9-a L'utilisateur choisit d'allouer la tâche au robot choisi de manière cyclique
+9-a.1 Le système demande à l'utilisateur s'il peut planifier l'exécution de la tâche selon un horaire ou le déclenchement d'un evénement spécifique 
+9-a.2.1 -L'utilisateur choisit de programmer l'execution selon un horaire temporel 
+9-a.2.1.1- L'utilisateur choisit la plage horaire et la fréquence d'exécution 
+9-a.2.2 -L'utilisatuer choisit de programmer l'execution selon une action produite par le robot 
+9-a.2.2.1 Le système affiche à l'utilisateur une liste d'actions qui vont déclencher l'exécution 
+9-a.2.2.2 L'utilisateur choisit l'action qu'Il veut et valide son choix 
+9-a.2 Le système valide le choix de l'utilisateur et retour à l'étape 13 
+
+
+
+ALLOUER UNE ACTION 
+Cas d'utilisation : Allouer une action 
+Acteur : L'utilisateur ( principal ) 
+Préconditions : L'utilisateur doit être connecté à son compte robotix et avoit cliqué sur 'allouer une tâche' sur le menu principal 
+Postconditions: L'Utilisateur a réussi à allouer une action 
+1- Après avoir cliqué sur 'allouer une tâche' l'
+
+
