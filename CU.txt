@@ -33,6 +33,18 @@ Scénario principal :
 	4- Au moment prévu, l’utilisateur (avec ses robots) participe aux activités auxquelles il s’était inscrit. 
 	5- Durant les activités, l’utilisateur communique et échange avec les autres utilisateurs présents à l’activité.
 
+***CRÉATION
+Cas d'utilisation : Création
+But : Création d’objets réels ou virtuels à l’aide d’outils numériques tels que des logiciels de conception assistée par ordinateur (CAO) et/ou de l’impression 3D.
+Préconditions : Participer à une activité, comme il s’agit d’un cas spécifique du fait de participer à une activité.
+Acteurs : Utilisateur
+Scénario principal :  
+	1- L’utilisateur se présente à l’activité avec ses robots. 
+	2- L’utilisateur s’assure que ses robots soient prêts à être utilisés pour l’activité de création.
+	3- L’utilisateur ouvre l’outil numérique utilisé (CAO ou impression 3D) pour participer à l’activité.
+	4- L’utilisateur crée des objets réels et/ou virtuels, tel que désiré.
+
+
 
 COLLABORATION
 Cas d'utilisation : Collaboration
@@ -84,30 +96,6 @@ Scénarios alternatifs :
 1c- Le scénario s’arrête là. 
 
 Postconditions : Robotix is good.
-
-
-
-
-CRÉATION
-Cas d'utilisation : Création
-But : Création d’objets réels ou virtuels à l’aide d’outils numériques grâce à des logiciels de conception assistée par ordinateur (CAO) ou par impression 3D.
-Préconditions : Participer à une activité, comme il s’agit d’un cas spécifique du fait de participer à une activité.
-Acteurs : Utilisateur
-Scénario principal :  
-
-1-	L’utilisateur se présente à l’activité avec ses robots. 
-2-	L’utilisateur crée des objets réels/virtuels
-
-Scénarios alternatifs : 
-1a- L’utilisateur a oublié de s’inscrire aux ‘jeux’.
-1b- L’utilisateur ne peut pas participer aux activités
-1c- Le scénario s’arrête là. 
-
-2a – La machine 3d plante
-2b- L’utilisateur ne peut pas créer d’objet virtuel ou réel
-2c- Le scénario se termine.
-
-Postconditions : robotix is still standing but i don’t know if I can say the same about me tbh.
 
 --------------------------------------------------------------------------------------------------------------------------
 maha ;) 
