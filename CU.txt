@@ -195,7 +195,7 @@ Scénarios Altérnatifs :
 
 
 
-
+#8
 Cas d’utilisation : Trouver un fournisseur de composantes
 But : Un utilisateur peut naviguer à travers la liste de fournisseurs enregistrés dans Robotix. 
 Préconditions : L’utilisateur est déjà inscrit à Robotix et il est connecté à son compte.
@@ -203,24 +203,57 @@ Acteurs : Un utilisateur (principal).
 Scénario principal :
 1. L’utilisateur choisit l’option « Trouver un fournisseur » dans le menu principal.
 2. Robotix affiche une liste défilante de tous les fournisseurs enregistrés dans le système.
-3. L’utilisateur utilise le mécanisme « Filtrer » (pays, ville, compagnie, composante, etc.) ou « Rechercher » pour affiner les résultats de recherche.
+3. L’utilisateur utilise le mécanisme « Filtrer » (pays, ville, compagnie, composante, alphabétique, etc.) ou « Rechercher » pour affiner les résultats de recherche.
 3.1 Robotix trie la liste des fournisseurs en fonction du mécanisme choisi.
 3.2 Robotix affiche la liste triée.
 4. L’utilisateur clique sur le profil d’un fournisseur.
 4.1 Robotix affiche les détails du fournisseur (compagnie, nom, adresse, email, téléphone, etc.).
-5. L’utilisateur sélectionne une composante à acheter.
+5. L’utilisateur choisi l’option « Acheter chez ce fournisseur »  à l’écran.
 5.1 Appel du cas Acheter une composante.
-6. L’utilisateur clique sur l’option « Quitter ».
-6.1 Robotix ramène l’utilisateur au menu principal.
+6. Robotix ramène l’utilisateur au menu principal.
 Scénarios alternatifs :
+(1-5)a. L’utilisateur choisi l’option « Annuler » à l’écran.
+(1-5)a.1 Passer à l’étape 6.
 2a. Robotix ne trouve aucun fournisseur.
 2a.1 Robotix affiche « Aucun fournisseur inscrit » à l’écran.
-2a.2 Le scénario se termine.
+2a.2 Passer à l’étape 6.
 3a L’utilisateur n’utilise pas ces mécanismes.
 3a.1 Passer à l’étape 4.
-4a. L’utilisateur ne sélectionne aucun fournisseur.
-4a.1 Passer à l’étape 6.
-5a. L’utilisateur n’achète pas de composantes.
-5a.1 Passer à l’étape 6.
-Postconditions : Robotix affiche à nouveau le menu principal à l’écran.
+5a. L’utilisateur choisi l’option « Retour » à l’écran.
+5a.1 Passer à l’étape 2.
+Postconditions : Robotix affiche à nouveau le menu principal à l’écran. Si l’utilisateur a fait l’achat de composantes, Robotix les aura ajoutés à son inventaire.
 
+
+
+#10
+Cas d’utilisation : Enregistrer un robot
+But : Un utilisateur peut enregistrer un nouveau robot à son inventaire.
+Préconditions : L’utilisateur est déjà inscrit à Robotix et il est connecté à son compte.
+Acteurs : Un utilisateur (principal).
+Scénario principal :
+1. L’utilisateur choisit l’option « Enregistrer un robot » dans le menu principal.
+2. Robotix affiche une liste défilante des composantes disponibles dans l’inventaire de l’utilisateur.
+3. L’utilisateur utilise le mécanisme « Filtrer » (type de composante, date d’achat, alphabétique, etc.) ou « Rechercher » pour affiner les résultats de recherche.
+3.1 Robotix trie la liste des composantes en fonction du mécanisme choisi.
+3.2 Robotix affiche la liste triée.
+4. L’utilisateur sélectionne les composantes qu’il souhaite ajouter au robot.
+4.1 L’utilisateur enregistre son choix.
+5. L’utilisateur saisit un nom et un type pour identifier son robot.
+6. L’utilisateur choisir l’option « Enregistrer » à l’écran.
+6.1 Robotix ajoute le nouveau robot à l’inventaire de l’utilisateur.
+7. Robotix affiche les détails du robot à l’écran : numéro de série (du CPU, il est donné par le fournisseur), nom, type, composantes et date de création.
+8. Robotix ramène l’utilisateur au menu principal.
+Scénarios alternatifs :
+(1-7)a. L’utilisateur choisi l’option « Annuler » à l’écran.
+(1-7)a.1 Passer à l’étape 8.
+2a. L’inventaire de l’utilisateur ne contient pas au minimum un CPU et une composante d’un autre type.
+2a.1 Robotix affiche « Composantes insuffisantes » à l’écran.
+2a.2 Passer à l’étape 8.
+3a. L’utilisateur n’utilise pas ces mécanismes.
+3a.1 Passer à l’étape 4.
+4a. Le choix des composantes est invalide.
+4a.1 Robotix affiche « Veuillez sélectionner au minimum un CPU et une composante d’un autre type. » à l’écran.
+4a.2 Retourner à l’étape 4.
+5a. Les champs sont laissés vides, ils dépassent la limite de caractères ou ils contiennent des caractères invalides.
+5a.1 Retourner à l’étape 5.
+Postconditions : Robotix affiche à nouveau le menu principal à l’écran. Si l’utilisateur a enregistré un nouveau robot, Robotix l’a ajouté à son inventaire.
