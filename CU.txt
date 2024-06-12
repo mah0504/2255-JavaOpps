@@ -1,27 +1,24 @@
-*** Signifie que le bloc a été modifié (sab)
+*** Signifie que le bloc a été modifié (sab) (je les ai mis en haut pour qu'ils soient faciles à repérer)
 
 
-FOURNIR DES COMPOSANTES
+***FOURNIR DES COMPOSANTES
 Cas d'utilisation : Fournir des composantes.
 But : Le fournisseur souhaite fournir des composantes aux utilisateurs. 
 Préconditions : Posséder une compagnie, un compte ‘’fournisseur’’ et posséder des composantes à fournir. 
-Acteurs : Fournisseur.
+Acteurs : Fournisseur, utilisateur.
 Scénario principal :  
-1-	Un utilisateur trouve un fournisseur qui possède les composantes qu’il désire.
-2-	L’utilisateur achète les composantes qu’il veut.
-3-	 Le fournisseur envoie les composantes achetées par l’utilisateur.
+	1- Le fournisseur se connecte à son compte Robotix.
+	2- Le fournisseur ajoute des nouvelles composantes (et leur description) à son inventaire
+	3- Le fournisseur consulte régulièrement son profil pour s’assurer que les quantités mises à disposition (dans l’inventaire) soient à jour.
+	4- Un utilisateur trouve un fournisseur qui possède les composantes qu’il désire.
+	5- L’utilisateur achète les composantes désirées au sein du fournisseur.
+	6- Le fournisseur reçoit une notification de la commande et entame la préparation de cette dernière.
+	7- Le fournisseur expédie la commande chez l’utilisateur.
 Scénarios alternatifs : 
-2a- L’achat de la composante de la part de l’utilisateur ne fonctionne pas.
-2a.1 La compagnie du fournisseur est en rupture de stock quant à la composante désirée par l’utilisateur.
-2a.2 L’utilisateur est renvoyé sur la page d’accueil.
-2a.3 Le scénario reprend à l’étape 2.
-
-Postconditions : 
--	L’utilisateur peut utiliser les composantes achetées pour améliorer son robot
--	Le fournisseur vient de gagner des fonds, un (nouveau) client et doit revérifier son inventaire
--	Robotix is good
-
-
+	2a- L’achat de la composante de la part de l’utilisateur ne fonctionne pas.
+		2a.1 La compagnie du fournisseur est en rupture de stock quant à la composante désirée par l’utilisateur.
+		2a.2 L’utilisateur est renvoyé sur la page d’accueil ou la page des composantes.
+		2a.3 Le scénario reprend à l’étape 2.
 
 
 ***PARTICIPER À DES ACTIVITÉS
@@ -30,14 +27,11 @@ But : Les utilisateurs désirent enrichir leurs expériences, partager avec d’
 Préconditions : Posséder un ou des robots et les robots doivent posséder les composantes nécessaires pour participer aux activités.
 Acteurs : Utilisateur 
 Scénario principal : 
-1-	L’utilisateur navigue à travers le système de Robotix pour y trouver les activités offertes et disponibles.
-2-	L’utilisateur sélectionne une ou plusieurs activités qui l’intéressent.
-3-	L’utilisateur inscrit ses robots aux activités sélectionnées.
-4-	Au moment prévu, l’utilisateur (avec ses robots) participe aux activités auxquelles il s’était inscrit. 
-5-	Durant les activités, l’utilisateur communique et échange avec les autres utilisateurs présents à l’activité.
-
-
-
+	1- L’utilisateur navigue à travers le système de Robotix pour y trouver les activités offertes et disponibles.
+	2- L’utilisateur sélectionne une ou plusieurs activités qui l’intéressent.
+	3- L’utilisateur inscrit ses robots aux activités sélectionnées.
+	4- Au moment prévu, l’utilisateur (avec ses robots) participe aux activités auxquelles il s’était inscrit. 
+	5- Durant les activités, l’utilisateur communique et échange avec les autres utilisateurs présents à l’activité.
 
 
 COLLABORATION
