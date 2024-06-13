@@ -1,1 +1,7 @@
 
+
+
+
+4- Une fuite des données personnelles des clients et des informations sensibles des robots. Le système pourrait contenir une faille qui le rend vulnérable aux attaques informatiques. Cela pourrait compromettre le bon fonctionnement du système, permettre des accès non autorisés et exposer des informations sensibles sur les clients et les robots. Une lacune à ce niveau peut porter atteinte à l’image de marque de Robotix et entraîner des conséquences juridiques.
+
+5- Les avantages obtenus à la suite du développement du produit ne sont pas suffisants pour justifier les effectifs investis. Le produit n'attire pas la clientèle attendue malgré l'étude du marché. Robotix ne serait donc pas un investissement rentable.
