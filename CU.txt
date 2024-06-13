@@ -149,6 +149,7 @@ Scénarios Alternatifs:
 CRÉER UNE TÂCHE 
 Cas d'utilisation : Créer une tâche 
 Acteur : L'utilisateur ( principal ) 
+But: permettre à l'utilisateur de créer une nouvelle tâche et de l'ajouter au répertoire des tâches déjà existentes. 
 Préconditions : L'utilisateur doit être connecté à son compte robotix et avoit cliqué sur 'allouer une tâche' sur le menu principal 
 Postconditions: L'Utilisateur a réussi à créer une tâche 
 1- Après avoir cliqué sur 'allouer une tâche' l'utilisateur clique sur 'créer une tâche' 
