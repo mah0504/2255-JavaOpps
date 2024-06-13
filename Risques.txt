@@ -1,4 +1,6 @@
+- corruption dees métriques des robots: La mauvaise collecte des métriques par les capteurs remet en question la crédibilité des capacités du robot à participer à une activité ou encore sa disponibilité elle-même. L'utilisation d'un robot robot non fonctionnel peut entrainer des pannes dans le logiciel menant alors à son dysfonctionnement. 
 
+- erreurs de communication: le manque de communication entre les utilisateurs et les fournisseurs peut causer plusieurs embûches. Robotix n'intègre pas de système pour gérer les interactions entre le client et le fournisseur. Par exemple lors d'une commande incomplète l'utilisateur n'a nul part où réclamer ses composantes manquantes.
 
 
 
