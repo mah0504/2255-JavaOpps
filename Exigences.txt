@@ -1,1 +1,7 @@
+- corruption dees métriques des robots: La mauvaise collecte des métriques par les capteurs remet en question la crédibilité des capacités du robot à participer à une activité ou encore sa disponibilité elle-même. L'utilisation d'un robot robot non fonctionnel peut entrainer des pannes dans le logiciel menant alors à son dysfonctionnement. 
+
+- confidentialité : les données personnelles des clients doivent être protégées. Par exemple pour les utilisateurs, le système donne seuelement accès à son pseudo, son nom et son prénom. Pour le fournisseur, il donne accès à sa compagnie, son nom, son adresse, son courriel et son numéro de téléphone. 
+
+- portabilité: La facilité à intégrer et à déplacer le logiciel d'un environnement à un autre sans avoir besoin de modifier ni de dégrader la performance du logiciel. Le système doit être flexible et facilement adaptable à toutes les plateformes matérielles ( ordinateur portalbe, fixe, smartphone...) et logicielles (OS, Android, Linux...)
+
 
