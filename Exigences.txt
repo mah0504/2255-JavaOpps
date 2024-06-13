@@ -1,6 +1,9 @@
+1- Utilisabilité : Le système doit être simple, détaillé, commenté et intuitif, afin que les de faciliter aux futurs utilisateurs la compréhension du produit et la prise de contrôle des robots.
 
-- confidentialité : les données personnelles des clients doivent être protégées. Par exemple pour les utilisateurs, le système donne seuelement accès à son pseudo, son nom et son prénom. Pour le fournisseur, il donne accès à sa compagnie, son nom, son adresse, son courriel et son numéro de téléphone. 
+2- Confidentialité : les données personnelles des clients doivent être protégées. Par exemple pour les utilisateurs, le système donne seuelement accès à son pseudo, son nom et son prénom. Pour le fournisseur, il donne accès à sa compagnie, son nom, son adresse, son courriel et son numéro de téléphone. 
 
-- portabilité: La facilité à intégrer et à déplacer le logiciel d'un environnement à un autre sans avoir besoin de modifier ni de dégrader la performance du logiciel. Le système doit être flexible et facilement adaptable à toutes les plateformes matérielles ( ordinateur portalbe, fixe, smartphone...) et logicielles (OS, Android, Linux...)
+3- Portabilité: La facilité à intégrer et à déplacer le logiciel d'un environnement à un autre sans avoir besoin de modifier ni de dégrader la performance du logiciel. Le système doit être flexible et facilement adaptable à toutes les plateformes matérielles ( ordinateur portalbe, fixe, smartphone...) et logicielles (OS, Android, Linux...)
 
+4- Performance : Les activités et les tâches réalisées par les robots doivent se faire sans accroc et rapidement. Pour ce faire, les commandes et les actions doivent être implémentés avec des algorithmes efficaces qui privilégient la meilleure complexité temporelle et spatiale.
 
+5- Fiabilité : Le système doit pouvoir être accessible et utilisable en tout temps. Dans le cas d’une panne et/ou de mise à jour du système, le temps d’inaccessibilité à Robotix doit être limité pour pouvoir offrir aux utilisateurs et aux fournisseurs la meilleure expérience possible.
