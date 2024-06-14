@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>IFT2255 E24 DM1</title>
+    <link rel="stylesheet" href="style.css">    
+    
+</head>
+<body>
+    <h1 style="text-align: center;">IFT 2255 - Été 2024- Devoir 1</h1>
+    <h2>Information générale</h2>
+    <p><span style="font-weight: bold;">Nom de l'équipe: </span>Équipe Java opps 🎀❤️</p>
+    <p>
+        <a href="https://github.com/audreylvo/2255-JavaOpps">Lien vers dépôt GitHub</a><br>  
+    </p>
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Maha Amhaouch<br />
+        <span style="font-weight: bold;">Matricule: </span>20272882<br />
+        <span style="font-weight: bold;">Courriel: </span>maha.amhaouch@umontreal.ca<br />
+        <span style="font-weight: bold;">temps mis: </span>
+    </p>
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Sabrina Aoude<br />
+        <span style="font-weight: bold;">Matricule: </span>20279873<br />
+        <span style="font-weight: bold;">Courriel: </span>sabrina.aoude@umontreal.ca<br />
+        <span style="font-weight: bold;">temps mis: </span>
+    </p>
+    <p>
+        <span style="font-weight: bold;">Nom: </span> Audrey-Maude Lavoie<br />
+        <span style="font-weight: bold;">Matricule: </span>20246095<br />
+        <span style="font-weight: bold;">Courriel: </span>audrey-maude.lavoie@umontreal.ca<br />
+        <span style="font-weight: bold;">temps mis: </span>
+    </p>
+    <p>
+        <span style="font-weight: bold;">Nom: </span>Chaimaa Dannane<br />
+        <span style="font-weight: bold;">Matricule: </span>20139572<br />
+        <span style="font-weight: bold;">Courriel: </span>chaimaa.dannane@umontreal.ca<br />
+        <span style="font-weight: bold;">temps mis: 8 heures </span>
+    </p>
+    <h2>Distribution des tâches</h2>
+    <p><span style="font-weight: bold;">Soumissionaire: </span>Audrey-Maude Lavoie</p>
+    <table>
+        <thead>
+            <tr>
+                <th class="first_col">Tâche</th>
+                <th>Maha</th>
+                <th>Audrey</th>
+                <th>Sabrina</th>
+                <th>Chaimaa</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="first_col"> Glossaire</td>
+                <td> 25 %</td>
+                <td>25 %</td>
+                <td>25 %</td>
+                <td>25 %</td>
+            </tr>
+            <tr>
+                <td class="first_col">Diagramme de cas d'utilisation UML</td>
+                <td>20 %</td>
+                <td>20 %</td>
+                <td>30 % </td>
+                <td>30 %</td>
+            </tr>
+            <tr>
+                <td class="first_col">Description des Cas d'utilisation</td>
+                <td>25 %</td>
+                <td>25 %</td>
+                <td>25 %</td>
+                <td>25 % </td>
+            </tr>
+            <tr>
+                <td class="first_col">Risques </td>
+                <td>20 %</td>
+                <td>30 %</td>
+                <td> 30 %</td></td>
+                <td>30%</td>
+            </tr>
+            <tr>
+                <td class="first_col">Exigences non fonctionnelles </td>
+                <td>30 %</td>
+                <td>20 %</td>
+                <td> 30 %</td></td>
+                <td>20 %</td>
+            </tr>
+            <tr>
+                <td class="first_col">Prototype en Java </td>
+                <td>40 %</td>
+                <td>0 %</td>
+                <td> 60 %</td></td>
+                <td>0%</td>
+            </tr>
+        </tbody>
+    </table>
+    <br><br>
+
+    <h2>Github et Insights</h2>
+    <p>L'étudiante Chaimaa Dannane a utilisé deux comptes pour mettre à jour le dépot, sous deux différents pseudo @ChayMaDan et @micha</p>
+    <p>De plus, aux environs de 10 commits réalisées par Chaimaa ne sont que des commits pour réorganiser nos fichiers sources.</p>
+    <img src="" alt="Capture d'écran Insights" />
+    <br><br>
+    
+    <br><h2>Tâche 1 : Glossaire</h2><br>
+    <keyterm style="font-weight: bold; color:limegreen;">Utilisateur : </keyterm>
+    <description>Client qui souhaite trouver un fournisseur, enregistrer ses robots, les contrôler (tâches, activités) ou en faire le suivi (métriques, anomalies, intervention). Il est identifié dans le système par un pseudo unique.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Système : </keyterm>
+    <description>Ensemble des composantes qui, par le biais de tâches, interagissent pour atteindre un objectif cible. Dans le cas de Robotix, cela se traduit principalement par l'utilisation de robots, d'interfaces, de capteurs et au moyen des utilisateurs.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Robot : </keyterm>
+    <description>Outil programmable pour réaliser des tâches de manière autonome et traiter de l’information (commandes, instructions). Il doit avoir au moins un CPU et une autre composante. La conception d’un robot dépend de son rôle dans le système.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Flotte : </keyterm>
+    <description>Ensemble de robots regroupés pour réaliser de façon collaborative différentes activités. La gestion d’une flotte nécessite la planification des missions, la configuration des différentes composantes et une mise en œuvre efficace du système. </description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Composante : </keyterm>
+    <description>Partie identifiable d’un robot telles que CPU (Wi-Fi, Bluetooth), roues, bras, hélice, caméra, haut-parleur, micro et écran. Certaines composantes sont essentielles pour réaliser certaines actions.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Numéro de série : </keyterm>
+    <description>Identifiant (numéro séquentiel ou UUID) propre et unique du CPU que possède chaque robot. L'unicité de l'identification permet de faciliter le suivi des robots au sein du système.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Inventaire : </keyterm>
+    <description>Mécanisme d’inventorisation des robots et des composantes disponibles, permettant leur suivi et gestion efficace. Il fournit pour chaque robot des détails tels que son numéro de série, son nom, son type et ses métriques.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Fournisseur :  </keyterm>
+    <description>Client qui vend aux utilisateurs les robots et les composantes. Il fournit le numéro de série des robots et les fils de connexion. Il est associé à une compagnie et a une capacité de fabrication. Il est identifié dans le système par un nom unique.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Action : </keyterm>
+    <description>Opération spécifique qu’un robot peut exécuter s’il a les composantes nécessaires. Elles sont créées indépendamment des robots et peuvent être assignées aux tâches. Le robot peut bouger (déplacement, stationnement), diffuser des sons, parler, écouter, afficher du texte ou des graphiques, etc.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Tâche : </keyterm>
+    <description>Séquence d'actions réalisées dans un ordre. L’utilisateur peut les créer, les affecter à ses robots et les planifier (horaire spécifique, action déclencheur) pour qu’elles soient réalisées sans son intervention.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Activité : </keyterm>
+    <description>Ensemble de tâches liées entre elles qui contribuent à la réalisation d'un objectif plus large. L’utilisateur peut participer à des activités individuelles ou collaboratives avec sa flotte de robots.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Jeu : </keyterm>
+    <description>Activité ludique où les participants (utilisateurs) sont offerts des défis et des règles et s’engagent le plus souvent dans une compétition.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Création : </keyterm>
+    <description>Activité où l’utilisateur peut créer des objets virtuels en utilisant des outils numériques tels que les logiciels de conception assistée par ordinateur (CAO) et en créer des réels avec l’impression 3D.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Éducation : </keyterm>
+    <description>Activité où les robots sont utilisés pour enseigner à l’utilisateur différentes compétences telles que les langues, la programmation, les mathématiques, les sciences et l’histoire.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Efficacité énergétique : </keyterm>
+    <description>Différence entre la quantité d'énergie fournie par le robot (énergie utile) et la quantité d'énergie utilisée pour le faire fonctionner (énergie consommée). Ce rapport vise à réduire les coûts et à optimiser la façon dont les ressources sont exploitées.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Usage : </keyterm>
+    <description>Évolution périodique des données recueillies par les capteurs d’un robot. Permet de suivre l’activité d’un robot.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">Métrique : </keyterm>
+    <description>Indicateur ou ratio quantitatif qui est utilisé pour mesurer et surveiller la performance (disponibilité, état et utilisation généraux) d’un robot ou d’une flotte. Elle communique des informations qui aident l’utilisateur à gérer les ressources et prendre des décisions.</description><br>
+    <br>
+    <keyterm style="font-weight: bold; color:limegreen;">État : </keyterm>
+    <description>Conditions actuelles d’un robot telles que sa position, sa vitesse, le niveau de sa batterie, sa consommation CPU et mémoire.</description><br>
+    <br><br>
+
+    <br><h2>Tâche 2 : Diagramme de cas d'utilisation UML</h2><br>
+    <a href="CU.vpp">Lien vers fichiers Visual Paradigm</a><br>
+    <br><br>
+    <img src="diagramme_CU.png" alt="Diagramme de cas d'utilisation" />
+    <br><br>
+
+
+
+    <br><h2>Tâche 3 : Descrpition des cas d'utilisation</h2><br>
+    <br>
+        <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation : </span> <span style="font-size: 1.5em ;color: blue;"> S'inscrire.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Permettre à un utilisateur ou un fournisseur de créer un compte sur le logiciel Robotix.<br>
+            <br>
+            <span style="font-weight: bold;">Préconditions :</span>  
+            <ul>
+                <li>Avoir une adresse mail valide.</li>
+                <li>Avoir un numéro de téléphone valide.</li>
+                <li>La compagnie est déjà enregistrée sur Robotix.</li>
+            </ul>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur / Fournisseur (principal)<br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1. L'utilisateur ouvre la page d'inscription de Robotix.<br>
+            &emsp;2. L'utilisateur ajoute ses données personnelles.<br>
+            &emsp;&emsp;&emsp;2.1. ajouter nom et prénom.<br>
+            &emsp;&emsp;&emsp;2.2. ajouter pseudo.<br>
+            &emsp;&emsp;&emsp;2.3. ajouter adresse email.<br>
+            &emsp;&emsp;&emsp;2.4. ajouter mot de passe.<br>
+            &emsp;&emsp;&emsp;2.5. confirmer mot de passe.<br>
+            &emsp;&emsp;&emsp;2.6. ajouter téléphone.<br>
+            &emsp;&emsp;&emsp;2.7. choisir nom de la compagnie à partir d’une liste déroulante.<br>
+            &emsp;3. Le système vérifie la validité des informations.<br>
+            &emsp;4. Le système envoie un email de confirmation à l'adresse fournie.<br>
+            &emsp;5. L'utilisateur clique sur le lien de confirmation dans l'email.<br>
+            &emsp;6. Le système confirme l'inscription.<br>
+            <br>
+            <span style="font-weight: bold;">Scénarios alternatifs :</span><br>
+            <ul>
+                <li>Scénario alternatif 1 :</li>
+                &emsp;2.2a.1. L'utilisateur choisit un pseudo déjà utilisé.<br>
+                &emsp;2.2a.2. Le système lui demande de choisir un autre pseudo.<br>
+                <br>
+                <li>Scénario alternatif 2 :</li>
+                &emsp;2.5a.1 L’utilisateur entre un mot de passe différent.<br>
+                &emsp;2.5a.2 Le système lui demande d’entrer le même mot de passe.<br>
+                <br>
+                <li>Scénario alternatif 3 :</li>
+                &emsp;4a.1.  L’utilisateur ne reçoit pas de mail de confirmation.<br>
+                &emsp;4a.2. L'utilisateur demande un nouvel envoi de l'email de confirmation.<br>
+                <br>
+                <li>Scénario alternatif 4 :</li>
+                &emsp;(1-6)b. Le fournisseur suit les mêmes étapes pour créer un compte.<br>
+                <br>
+            </ul>
+            <span style="font-weight: bold;">Postcondition :</span> L'utilisateur possède un compte sur Robotix.<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> <span style="font-size: 1.5em ;color: blue;">Se connecter.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Permettre à un utilisateur ou un fournisseur de se connecter à Robotix pour contrôler les robots ou fournir des composantes.<br>
+            <br>
+            <span style="font-weight: bold;">Précondition :</span> Avoir un compte sur Robotix.<br>
+            <br>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur/ Fournisseur (principal)<br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1.L'utilisateur ouvre la page de connection de Robotix.<br>
+            &emsp;2. L'utilisateur s’authentifie.<br>
+            &emsp;&emsp;&emsp;2.1 L’utlisateur entre son pseudo.<br>
+            &emsp;&emsp;&emsp;2.2 L’utilisateur entre son mot de passe.<br>
+            &emsp;3. Le système vérifie les informations.<br>
+            &emsp;4. Le système donne accès au logiciel.<br>
+            <br>
+            <span style="font-weight: bold;">Scénarios alternatifs :</span><br>
+            <ul>
+                <li>Scénario alternatif 1 :</li>
+                &emsp;2.1.a.1. L'utilisateur oublie son pseudo.<br>
+                &emsp;2.1.a.2. Le système demande à l’utilisateur son email.<br>
+                &emsp;2.1.a.3. L’utilisateur récupère son pseudo.<br>
+                <br>
+                <li>Scénario alternatif 2 :</li>
+                &emsp;2.2.a.1. L'utilisateur oublie son mot de passe.<br>
+                &emsp;2.2.a.2. Le système demande à l’utilisateur son email.<br>
+                &emsp;2.2.a.3. L’utilisateur récupère son mot de passe.<br> 
+                <br>
+                <li>Scénario alternatif 3 :</li>
+                &emsp;3a.1. L’authentification n’aboutit pas.<br>
+                &emsp;3a.2. Le système affiche un message d’erreur. Retour à l’étape 2.<br>
+                <br>
+                <li>Scénario alternatif 4 :</li>
+                &emsp;(1-4)b. Le fournisseur suit les mêmes étapes pour se connecter.<br>
+                <br>
+            </ul>
+            <span style="font-weight: bold;">Postcondition :</span> L'utilisateur est connecté à Robotix.<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> <span style="font-size: 1.5em ;color: blue;">Enregistrer un robot.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Un utilisateur peut enregistrer un nouveau robot à son inventaire.<br>
+            <br>
+            <span style="font-weight: bold;">Précondition :</span> L’utilisateur est déjà inscrit à Robotix et il est connecté à son compte.<br>
+            <br>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur (principal)<br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1. L’utilisateur choisit l’option « Enregistrer un robot » dans le menu principal.<br>
+            &emsp;2. Robotix affiche une liste défilante des composantes disponibles dans l’inventaire de l’utilisateur.<br>
+            &emsp;3. L’utilisateur utilise le mécanisme « Filtrer » (type de composante, date d’achat, alphabétique, etc.) ou « Rechercher » pour affiner les résultats de recherche.<br>
+            &emsp;&emsp;&emsp;3.1 Robotix trie la liste des composantes en fonction du mécanisme choisi.<br>
+            &emsp;&emsp;&emsp;3.2 Robotix affiche la liste triée.<br>
+            &emsp;4. L’utilisateur sélectionne les composantes qu’il souhaite ajouter au robot.<br>
+            &emsp;&emsp;&emsp;4.1 L’utilisateur enregistre son choix.<br>
+            &emsp;5. L’utilisateur saisit un nom et un type pour identifier son robot.<br>
+            &emsp;6. L’utilisateur choisir l’option « Enregistrer » à l’écran.<br>
+            &emsp;&emsp;&emsp;6.1 Robotix ajoute le nouveau robot à l’inventaire de l’utilisateur.<br>
+            &emsp;7. Robotix affiche les détails du robot à l’écran : numéro de série (du CPU, il est donné par le fournisseur), nom, type, composantes et date de création.<br>
+            &emsp;8. Robotix ramène l’utilisateur au menu principal.<br>
+            <br>
+            <span style="font-weight: bold;">Scénarios alternatifs :</span><br>
+            <ul>
+                <li>Scénario alternatif 1 :</li>
+                &emsp;(1-7)a. L’utilisateur choisi l’option « Annuler » à l’écran.<br>
+                &emsp;&emsp;&emsp;(1-7)a.1 Passer à l’étape 8.<br>
+                <br>
+                <li>Scénario alternatif 2 :</li>
+                &emsp;2b. L’inventaire de l’utilisateur ne contient pas au minimum un CPU et une composante d’un autre type.
+                &emsp;&emsp;&emsp;2b.1. Robotix affiche « Composantes insuffisantes » à l’écran.
+                &emsp;&emsp;&emsp;2b.2. Passer à l’étape 8.
+                <br>
+                <li>Scénario alternatif 3 :</li>
+                &emsp;3b. L’utilisateur n’utilise pas ces mécanismes.<br>
+                &emsp;&emsp;&emsp;3b.1. Passer à l’étape 4.<br>
+                <br>
+                <li>Scénario alternatif 4 :</li>
+                &emsp;4b. Le choix des composantes est invalide.<br>
+                &emsp; &emsp; &emsp;4b.1. Robotix affiche « Veuillez sélectionner au minimum un CPU et une composante d’un autre type. » à l’écran.<br>
+                &emsp; &emsp; &emsp;4b.2. Retourner à l’étape 4.<br>
+                <br>
+                <li>Scénario alternatif 5 :</li>
+                &emsp;5b. Les champs sont laissés vides, ils dépassent la limite de caractères ou ils contiennent des caractères invalides.<br>
+                &emsp;&emsp;5b.1. Retourner à l’étape 5.<br>
+                <br>
+            </ul>
+            <span style="font-weight: bold;">Postcondition :</span> Robotix affiche à nouveau le menu principal à l’écran. Si l’utilisateur a enregistré un nouveau robot, Robotix l’a ajouté à son inventaire.<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> <span style="font-size: 1.5em ;color: blue;">Accéder aux métriques.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Permettre à un utilisateur de visualiser les métriques pour refléter la performance de ses robots.<br>
+            <br>
+            <span style="font-weight: bold;">Précondition :</span> Être connecté à Robotix.<br>
+            <br>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur (principal)<br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1. L'utilisateur choisit un robot.<br>
+            &emsp;2. L'utilisateur accède à la section métriques de ce robot.<br>
+            &emsp;3. Le système affiche une liste des métriques de ce robot.<br>
+            &emsp;4. L'utilisateur clique sur une des métriques pour afficher plus d’informations.<br>
+            <br>
+            <span style="font-weight: bold;">Scénarios alternatifs :</span><br>
+            <ul>
+                <li>Scénario alternatif 1 :</li>
+                &emsp;1a.1. L’utilisateur choisit une flotte.<br>
+                &emsp;1a.2. L’utilisateur choisit un robot dans la flotte.<br>
+                <br>
+                <li>Scénario alternatif 2 :</li>
+                &emsp;1b. L’utilisateur choisit une flotte.<br>
+                &emsp;2b. L'utilisateur accède à la section métriques de cette flotte.<br> 
+                &emsp;3b. Le système affiche une liste des métriques de cette flotte.<br>
+                &emsp;4b. L’utilisateur choisit un robot dans la flotte. Retour à l’étape 1 dans le scénario principal.<br>
+                <br>
+                <li>Scénario alternatif 3 :</li>
+                &emsp;1c.1. Pas de robot enregistré.<br>
+                &emsp;1c.2. Le système demande à l’utilisateur s’il souhaite enregistrer un robot.<br>
+                <br>
+            </ul>
+            <span style="font-weight: bold;">Postcondition :</span> Les métriques sont affichées et vues par l’utilisateur.<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> <span style="font-size: 1.5em ;color: blue;">Créer une tâche.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Permettre à l'utilisateur de créer une nouvelle tâche et de l'ajouter au répertoire des tâches déjà existantes.<br>
+            <br>
+            <span style="font-weight: bold;">Préconditions :</span>  
+            <ul>
+                <li>Être connecté à son compte robotix.</li>
+                <li>Avoir cliqué sur 'allouer une tâche' sur le menu principal.</li>
+            </ul>
+            <span style="font-weight: bold;">Acteurs :</span> Fournisseur , Utilisateur (principal)<br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1. Après avoir cliqué sur 'allouer une tâche' l'utilisateur clique sur 'créer une tâche'.<br>
+            &emsp;2. Le système demande à l'utilisateur de lui attribuer un nom et type ( mouvement , affichage...) et une petite description.<br>
+            &emsp;3. L'utilisateur entre les informations nécessaires.<br>
+            &emsp;4. Le système confirme le choix de l'utilisateur.<br>
+            &emsp;5. Le système affiche la liste d'actions déjà existantes à l'utilisateur et leurs descriptions ,composantes nécessaires pour les exécuter ... il affiche en bas l'option de créer une nouvelle action aussi. Ces actions rassemblées en ordre logique constituent une tâche.<br>
+            &emsp;6. L'utilisateur choisit l'action qui l'intéresse.<br>
+            &emsp;7. Le système l'ajoute à la nouvelle tâche et affiche encore la liste d'actions précédentes que l'utilisateur peut ajouter.<br>
+            &emsp;8. L'utilisateur continue d'ajouter les actions qui l'intéressent , elles sont ajoutées en ordre et sont exécutées en cet ordre là.<br>
+            &emsp;9. Après ajout de la énième action , l'utilisateur confirme son choix d'actions allouées à la tâche.<br>
+            &emsp;10. le système confirme le choix de l'utilisateur et lui demande de confirmer la tâche qu'il vient de créer.<br>
+            &emsp;11. L'utilisateur confirme son choix.<br>
+            &emsp;12. Le système valide et ajoute la nouvelle tâche au répertoire de tâches avec la date de création , nom... <br>
+            <br>
+            <span style="font-weight: bold;">Scénario alternatif :</span><br>
+            &emsp;6.a . L'utilisateur choisit de créer une nouvelle action.<br>
+            &emsp;&emsp;&emsp;6a.1. Le système se dirige alors vers 'créer une action' c'est un cas d'utilisation séparé qui est déclenché comme extension d'allouer une action.<br>
+            &emsp;&emsp;&emsp;6a.2. Après execution de ce cas d'utilisation retour à l'étape 7.<br>
+            <br>
+            <span style="font-weight: bold;">Postcondition :</span> L'utilisateur a réussi à créer une tâche .<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> <span style="font-size: 1.5em ;color: blue;">Allouer une tâche.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Permettre à l'utilisateur d'allouer une tâche à un robot instantanément, planifier l'execution de cette tâche ou encore définit l'event qui déclenche son exécution.<br>
+            <br>
+            <span style="font-weight: bold;">Précondition :</span> Être connecté à son compte robotix.<br>
+            <br>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur (principal) <br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1. L’utilisateur est sur le menu principal et clique sur 'allouer une tâche.<br>
+            &emsp;2. Le système affiche une liste de tâches déjà existantes et si l'utilisateur clique sur l'une d'elles il a accès à sa description mais aussi à la séquence d'actions ordonnées qui la constituent , le système affiche aussi l'option de 'créer une tâche' plus en bas.<br>
+            &emsp;3. L'utilisateur clique sur l'une des tâches de la liste.<br>
+            &emsp;4. Le système valide le choix de l'utilisateur  et affiche la flotte de robots de l'utilisateur.<br>
+            &emsp;5. Le système demande à l'utilisateur de choisir le robot auquel il veut allouer la tâche.<br>
+            &emsp;6. L’utilisateur fait son choix.<br>
+            &emsp;7. Le système vérifie si le robot choisi  est disponible et s'il a les composantes nécessaires pour effectuer cette tâche.<br>
+            &emsp;8. Le système valide le choix de l'utilisateur et lui demande s'il veut exécuter cette tâche une ou plusieurs fois.<br>
+            &emsp;9. L'utilisateur choisit d'exécuter la tâche une fois.<br>
+            &emsp;10. Le système lui propose de choisir s'il exécute instantanément ou s'il veut choisir un horaire.<br>
+            &emsp;11. L'utilisateur clique sur ' planifier l'horaire d’exécution et choisit la plage horaire qui lui convient.<br>
+            &emsp;12. Le système valide le choix de l'utilisateur.<br>
+            &emsp;13. Le système propose à l'utilisateur de choisir un autre robot pour la même tâche.<br>
+            &emsp;14. L’utilisateur clique sur non.<br>
+            &emsp;15. Le système confirme et affiche une onglet qui précise à quel robot la tâche a été allouée et pour quand.<br>
+            <br>
+            <span style="font-weight: bold;">Scénarios alternatifs :</span><br>
+            <ul>
+                <li>Scénario alternatif 1 :</li>
+                &emsp;3.a. l'utilisateur clique sur créer une tâche.<br>
+                &emsp;3.b. Le cas d'utilisation 'créer une tâche' est déclenché comme extension d'allouer une tâche, après exécution retour à l'étape 4.<br>
+                <br>
+                <li>Scénario alternatif 2 :</li>
+                &emsp;7a.1. Le robot choisit n'a pas les composantes nécessaires  pour exécuter la tâche.<br>
+                &emsp;7a.2. Le système signale à l'utilisateur l'absence es composantes nécessaires et lui demande de choisir un autre robot.<br>
+                &emsp;7a.3. Retour à l'étape 5.<br>          
+                <br>
+                <li>Scénario alternatif 3 :</li>
+                &emsp;9a. L'utilisateur choisit d'allouer la tâche au robot choisi de manière cyclique.<br> 
+                &emsp;&emsp;&emsp;9a.1 Le système demande à l'utilisateur s'il peut planifier l'exécution de la tâche selon un horaire ou le déclenchement d'un evénement spécifique.<br> 
+                &emsp;9a.2. L'utilisateur choisit de programmer l'execution selon un horaire temporel.<br> 
+                &emsp;&emsp;9a.2.1. L'utilisateur choisit la plage horaire et la fréquence d'exécution.<br> 
+                &emsp;&emsp;9a.2.2. L'utilisatuer choisit de programmer l'execution selon une action produite par le robot.<br> 
+                &emsp;&emsp;&emsp;&emsp;9a.2.2.1 Le système affiche à l'utilisateur une liste d'actions qui vont déclencher l'exécution.<br> 
+                &emsp;&emsp;&emsp;&emsp;9a.2.2.2 L'utilisateur choisit l'action qu'Il veut et valide son choix.<br> 
+                &emsp;9a.3 Le système valide le choix de l'utilisateur et retour à l'étape 13.<br> 
+                <br>
+            </ul>
+            <span style="font-weight: bold;">Postcondition :</span> L'utilisateur a pu allouer une tâche à un robot.<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> <span style="font-size: 1.5em ;color: blue;">Participer à des activités.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Les utilisateurs désirent enrichir leurs expériences, partager avec d’autres utilisateurs et explorer leur créativité.<br>
+            <br>
+            <span style="font-weight: bold;">Précondition :</span> Posséder un ou des robots et les robots doivent posséder les composantes nécessaires pour participer aux activités.<br>
+            <br>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur (principal)<br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1. L’utilisateur navigue à travers le système de Robotix pour y trouver les activités offertes et disponibles.<br>
+            &emsp;2. L’utilisateur sélectionne une ou plusieurs activités qui l’intéressent.<br>
+            &emsp;3. L’utilisateur inscrit ses robots aux activités sélectionnées.<br>
+            &emsp;4. Au moment prévu, l’utilisateur (avec ses robots) participe aux activités auxquelles il s’était inscrit.<br>
+            &emsp;5. Durant les activités, l’utilisateur communique et échange avec les autres utilisateurs présents à l’activité.<br>
+            <br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> <span style="font-size: 1.5em ;color: blue;"> Création.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Création d’objets réels ou virtuels à l’aide d’outils numériques tels que des logiciels de conception assistée par ordinateur (CAO) et/ou de l’impression 3D.<br>
+            <br>
+            <span style="font-weight: bold;">Précondition :</span> Participer à une activité, comme il s’agit d’un cas spécifique du fait de participer à une activité.<br>
+            <br>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur (principal)<br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1. L’utilisateur se présente à l’activité avec ses robots. <br>
+            &emsp;2. L’utilisateur s’assure que ses robots soient prêts à être utilisés pour l’activité de création.<br>
+            &emsp;3. L’utilisateur ouvre l’outil numérique utilisé (CAO ou impression 3D) pour participer à l’activité.<br>
+            &emsp;4. L’utilisateur crée des objets réels et/ou virtuels, tel que désiré.<br>
+            <br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> <span style="font-size: 1.5em ;color: blue;">Trouver un fournisseur ce componsantes.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Un utilisateur peut naviguer à travers la liste de fournisseurs enregistrés dans Robotix.<br>
+            <br>
+            <span style="font-weight: bold;">Précondition :</span> Être connecté à son compte robotix.<br>
+            <br>
+            <span style="font-weight: bold;">Acteurs :</span> Utilisateur (principal) <br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1. L’utilisateur choisit l’option « Trouver un fournisseur » dans le menu principal.<br>
+            &emsp;2. Robotix affiche une liste défilante de tous les fournisseurs enregistrés dans le système.<br>
+            &emsp;3. L’utilisateur utilise le mécanisme « Filtrer » (pays, ville, compagnie, composante, alphabétique, etc.) ou « Rechercher » pour affiner les résultats de recherche.<br>
+            &emsp;&emsp;&emsp;3.1 Robotix trie la liste des fournisseurs en fonction du mécanisme choisi.<br>
+            &emsp;&emsp;&emsp;3.2 Robotix affiche la liste triée.<br>
+            &emsp;4. L’utilisateur clique sur le profil d’un fournisseur.<br>
+            &emsp;&emsp;&emsp;4.1 Robotix affiche les détails du fournisseur (compagnie, nom, adresse, email, téléphone, etc.)<br>
+            &emsp;5. L’utilisateur choisi l’option « Acheter chez ce fournisseur »  à l’écran.<br>
+            &emsp;&emsp;&emsp;5.1 Appel du cas Acheter une composante.<br>
+            &emsp;6. Robotix ramène l’utilisateur au menu principal.<br>
+            <br>
+            <span style="font-weight: bold;">Scénarios alternatifs :</span><br>
+            <ul>
+                <li>Scénario alternatif 1 :</li>
+                &emsp;(1-5)a. L’utilisateur choisi l’option « Annuler » à l’écran.<br>
+                &emsp;&emsp;&emsp;(1-5)a.1 Passer à l’étape 6.<br>
+                <br>
+                <li>Scénario alternatif 2 :</li>
+                &emsp;2b. Robotix ne trouve aucun fournisseur.<br>
+                &emsp;&emsp;&emsp;2b.1 Robotix affiche « Aucun fournisseur inscrit » à l’écran.<br>
+                &emsp;&emsp;&emsp;2b.2 Passer à l’étape 6.<br>  
+                <br>
+                <li>Scénario alternatif 3 :</li>
+                &emsp;3b. L’utilisateur n’utilise pas ces mécanismes.<br>
+                &emsp;&emsp;&emsp;3b.1 Passer à l’étape 4.<br>
+                <br>
+                <li>Scénario alternatif 4 :</li>
+                &emsp;5b. L’utilisateur choisi l’option « Retour » à l’écran.<br>
+                &emsp;&emsp;&emsp;5b.1 Passer à l’étape 2.<br>
+                <br>
+            </ul>
+            <span style="font-weight: bold;">Postcondition :</span> Robotix affiche à nouveau le menu principal à l’écran. Si l’utilisateur a fait l’achat de composantes, Robotix les aura ajoutés à son inventaire.<br>
+        </p>
+    </div>
+    <br>
+    <div class="CU">
+        <p>
+            <span style="font-weight: bold;">Cas d'utilisation :</span> <span style="font-size: 1.5em ;color: blue;">Fournir des composantes.</span><br>
+            <br>
+            <span style="font-weight: bold;">But :</span> Le fournisseur souhaite fournir des composantes aux utilisateurs.<br>
+            <br>
+            <span style="font-weight: bold;">Préconditions :</span>  
+            <ul>
+                <li>Posséder une compagnie.</li>
+                <li>Posséder un compte pour fournisseur.</li>
+                <li>posséder des composantes à fournir</li>
+            </ul>
+            <span style="font-weight: bold;">Acteurs :</span> Fournisseur , Utilisateur (principal)<br>
+            <br>
+            <span style="font-weight: bold;">Scénario principal :</span><br>
+            &emsp;1. Le fournisseur se connecte à son compte Robotix.<br>
+            &emsp;2. Le fournisseur ajoute des nouvelles composantes (et leur description) à son inventaire.<br>
+            &emsp;3. Le fournisseur consulte régulièrement son profil pour s’assurer que les quantités mises à disposition (dans l’inventaire) soient à jour.<br>
+            &emsp;4. Un utilisateur trouve un fournisseur qui possède les composantes qu’il désire.<br>
+            &emsp;5. L’utilisateur achète les composantes désirées au sein du fournisseur.<br>
+            &emsp;6. Le fournisseur reçoit une notification de la commande et entame la préparation de cette dernière.<br>
+            &emsp;7. Le fournisseur expédie la commande chez l’utilisateur.<br>
+            <br>
+            <span style="font-weight: bold;">Scénario alternatif :</span><br>
+        	&emsp;2a. L’achat de la composante de la part de l’utilisateur ne fonctionne pas.<br>
+            &emsp;&emsp;&emsp;2a.1. La compagnie du fournisseur est en rupture de stock quant à la composante désirée par l’utilisateur.<br>
+            &emsp;&emsp;&emsp;2a.2. L’utilisateur est renvoyé sur la page d’accueil ou la page des composantes.<br>
+            &emsp;&emsp;&emsp;2a.3. Le scénario reprend à l’étape 2.<br>
+            <br>
+        </p>
+    </div>
+    <br>
+
+
+
+    <br><h2>Tâche 4 : Risques</h2><br>
+    <p style="font-weight: bold; color:red;">Classés par ordre de sévérité</p>
+    <risque style="font-weight: bold;"> Fuite des données personnelles </risque><br>
+    <definition_risque>Une fuite des données personnelles des clients et des informations sensibles des robots. Le système pourrait contenir une faille qui le rend vulnérable aux attaques informatiques. Cela pourrait compromettre le bon fonctionnement du système, permettre des accès non autorisés et exposer des informations sensibles sur les clients et les robots. Une lacune à ce niveau peut porter atteinte à l’image de marque de Robotix et entraîner des conséquences juridiques.</definition_risque><br>
+    <br>
+    <risque style="font-weight: bold;">Rendement </risque><br>
+    <definition_risque> Les avantages obtenus à la suite du développement du produit ne sont pas suffisants pour justifier les effectifs investis. Le produit n'attire pas la clientèle attendue malgré l'étude du marché. Robotix ne serait donc pas un investissement rentable.</definition_risque><br>
+    <br>
+    <risque style="font-weight: bold;"> Corruption des métriques des robots: </risque><br>
+    <definition_risque> La mauvaise collecte des métriques par les capteurs remet en question la crédibilité des capacités du robot à participer à une activité ou encore sa disponibilité elle-même. L'utilisation d'un robot robot non fonctionnel peut entrainer des pannes dans le logiciel menant alors à son dysfonctionnement. </definition_risque><br>
+    <br>
+    <risque style="font-weight: bold;"> Erreur de communication:  </risque><br>
+    <definition_risque>le manque de communication entre les utilisateurs et les fournisseurs peut causer plusieurs embûches. Robotix n'intègre pas de système pour gérer les interactions entre le client et le fournisseur. Par exemple lors d'une commande incomplète l'utilisateur n'a nul part où réclamer ses composantes manquantes.  </definition_risque><br>
+    <br>
+    <risque style="font-weight: bold;">Non-compatibilité des composantes:  </risque><br>
+    <definition_risque>Nous pouvons nous retrouver dans le besoin d’une composante pour compléter notre flotte qui n’est pas compatible avec le reste de notre système. Il n’est pas rare d’acheter des composantes provenant de différents fournisseurs entrainant ainsi une révision sur tout le projet. Il existe aussi un risque que notre initial achat ne soit pas le bon ou qu’il existe une meilleure version, plus adéquate à nos besoins. </definition_risque><br>
+    <br><br>
+    
+
+
+    <br><h2>Tâche 5 : Exigences non-fonctionnelles</h2><br>
+    <br>
+    <exigence style="font-weight: bold;">Utilisabilité : </exigence><br>
+    <definition_exigence>Le système doit être simple, détaillé, commenté et intuitif, afin de faciliter aux futurs utilisateurs la compréhension du produit et la prise de contrôle des robots.</definition_exigence><br>
+    <br>
+    <exigence style="font-weight: bold;">Confidentialité : </exigence><br>
+    <definition_exigence>Les données personnelles des clients doivent être protégées. Par exemple, pour les utilisateurs, le système donne seulement accès à son pseudo, son nom et son prénom. Pour le fournisseur, il donne accès à sa compagnie, son nom, son adresse, son adresse courriel et son numéro de téléphone.</definition_exigence><br>
+    <br>
+    <exigence style="font-weight: bold;">Portabilité : </exigence><br>
+    <definition_exigence>Facilité à intégrer et  déplacer  le logiciel d’un environnement à un autre sans nécessité de modification ni de dégradation de performance du logiciel. Le système doit être flexible et facilement adaptable à toutes les plateformes matérielles ( ordinateur portable, fixe ,smartphone…) et logicielles ( OS, android, Linux…) </definition_exigence><br>
+    <br>
+    <exigence style="font-weight: bold;">Performance : </exigence><br>
+    <definition_exigence>Les activités et les tâches réalisées par les robots doivent se faire sans accroc et rapidement. Pour ce faire, les commandes et les actions doivent être implémentés avec des algorithmes efficaces qui privilégient la meilleure complexité temporelle et spatiale.</definition_exigence><br>
+    <br>
+    <exigence style="font-weight: bold;"></exigence><br>
+    <definition_exigence></definition_exigence><br>
+
+    <br><br>
+    <br><br>
+
+</body>
+</html>
