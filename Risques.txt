@@ -2,7 +2,7 @@
 
 2- Erreurs de communication: le manque de communication entre les utilisateurs et les fournisseurs peut causer plusieurs embûches. Robotix n'intègre pas de système pour gérer les interactions entre le client et le fournisseur. Par exemple lors d'une commande incomplète l'utilisateur n'a nul part où réclamer ses composantes manquantes.
 
-3- Nous pouvons nous retrouver dans le besoin d’une composante ou d’un robot pour compléter notre flotte qui n’est pas compatible avec le reste de notre système. Il n’est pas rare d’acheter des composantes provenant de différents fournisseurs entrainant ainsi une révision sur tout le projet. Il existe aussi un risque que notre initial achat ne soit pas le bon ou qu’il existe une meilleure version, plus adéquate à nos besoins.
+3- Non-compatibilité des composantes: Nous pouvons nous retrouver dans le besoin d’une composante  pour compléter notre flotte qui n’est pas compatible avec le reste de notre système. Il n’est pas rare d’acheter des composantes provenant de différents fournisseurs entrainant ainsi une révision sur tout le projet. Il existe aussi un risque que notre initial achat ne soit pas le bon ou qu’il existe une meilleure version, plus adéquate à nos besoins.
 
 4- Une fuite des données personnelles des clients et des informations sensibles des robots. Le système pourrait contenir une faille qui le rend vulnérable aux attaques informatiques. Cela pourrait compromettre le bon fonctionnement du système, permettre des accès non autorisés et exposer des informations sensibles sur les clients et les robots. Une lacune à ce niveau peut porter atteinte à l’image de marque de Robotix et entraîner des conséquences juridiques.
 
