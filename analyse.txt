@@ -1,0 +1,20 @@
+1. Quelles parties seront informatisées et comment ?
+Interface Humain Machine :  Les humains communiquent avec la machine pour passer des commandes. Ces commandes incluent l’inscription, l’authentification et la modification des comptes pour les utilisateurs et les fournisseurs, enregistrer ou acheter des robots ou des composantes ( pour les deux aussi) et participer à des activités. (Composantes d’entrées)
+
+Gestion de la flotte : les robots et différentes composantes requiert des programmes pour contrôler leurs mouvements et visualiser leurs métriques. 
+
+Métriques ( soit elle est inclut dans la gestion de flotte soit elle est à part, ça rejoint aussi l’Interface Machine Humain ) Les robots, la flotte en général communiquent avec les humains travers les métriques, ou si on a des composantes sorties.
+
+2. Où seront stockées les données ?
+Des bases de données, sur des serveurs comme le cloud.
+
+3.  Quel matériel sera nécessaire ?
+Des robots et composantes/ capteurs , un outil de connexion à l’application (ordinateur, téléphone, tablette ), une application ( Robotix), des serveurs pour stocker les données 
+
+4. Comment le système Robotix que vous développez interagira avec les autres systèmes ?
+Avec le système qui l’héberge : permission restraintes (on ne peut changer le core de l’application
+Avec le système des fournisseurs : accéder à l’inventaire
+Avec le système des banques pour les achats ??
+
+5. Comment les utilisateurs interagiront avec le système ?
+Si sur Robotix est hébergé sur le Web, l’utilisateur communiquera à travers le navigateur Web, sinon l’application mobile ou autre. Tout ce qui touche à l’interface Machine Humain ( composantes de sorties : écran, haut parleur, …)
