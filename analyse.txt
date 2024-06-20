@@ -5,16 +5,33 @@ Gestion de la flotte : les robots et différentes composantes requiert des progr
 
 Métriques ( soit elle est inclut dans la gestion de flotte soit elle est à part, ça rejoint aussi l’Interface Machine Humain ) Les robots, la flotte en général communiquent avec les humains travers les métriques, ou si on a des composantes sorties.
 
+Informatisé au complet
+-> interface interactive supporte les opérations
+-> en ligne de commande
+-> en langage Java (Orienté objet) 
+
+
 2. Où seront stockées les données ?
 Des bases de données, sur des serveurs comme le cloud.
 
+fichier csv
+
 3.  Quel matériel sera nécessaire ?
 Des robots et composantes/ capteurs , un outil de connexion à l’application (ordinateur, téléphone, tablette ), une application ( Robotix), des serveurs pour stocker les données 
+
+bases de données accessibles via internet
+ordinateurs supportent le logiciel (configurations requises par le logiciel)
 
 4. Comment le système Robotix que vous développez interagira avec les autres systèmes ?
 Avec le système qui l’héberge : permission restraintes (on ne peut changer le core de l’application
 Avec le système des fournisseurs : accéder à l’inventaire
 Avec le système des banques pour les achats ??
 
+Capteurs des robots envoient les données (qui permettent le suivi et les métriques) à Robotix (protocole de communication entre deux machines -> via Wifi? Bluetooth?) 
+
 5. Comment les utilisateurs interagiront avec le système ?
 Si sur Robotix est hébergé sur le Web, l’utilisateur communiquera à travers le navigateur Web, sinon l’application mobile ou autre. Tout ce qui touche à l’interface Machine Humain ( composantes de sorties : écran, haut parleur, …)
+
+Expérience intuitive/responsive/fluide, sur divers appareils
+Interface en ligne de commande 
+
