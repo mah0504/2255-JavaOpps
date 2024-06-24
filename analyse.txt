@@ -35,3 +35,38 @@ Si sur Robotix est hébergé sur le Web, l’utilisateur communiquera à travers
 Expérience intuitive/responsive/fluide, sur divers appareils
 Interface en ligne de commande 
 
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+Draft pour tâche 1
+
+Quelles parties seront informatisées et comment ?
+* Étant donné que le but du projet est de créer et implémenter un outil qui nous permet de contrôler des robots, on peut penser que presque toute les parties du projet peuvent être informatisées.
+* Commençant par la flotte (robot + composantes) qui sont sûrement informatisés si on souhaite créer un outil qui les contrôle
+* L’outil qui contrôle et passe des commandes aux différents composants électriques : le logiciel
+* Ajoutons à ça les capteurs : qui collecte une certaine donnée … et doit être en mesure de transformer ces informations en un langage que peut interpréter le logiciel (transformation en binaire ???)
+* Enfin les données en soi doivent être informatisées pour faciliter leur stockage et leur interprétation. Ces données sont les données personnelles des utilisateurs, les informations sur les fournisseurs et les composantes, les programmes qui contrôlent les robots, les historiques des activités, ....
+* Le langage de programmation choisi pour effectuer ce projet est Java.
+
+Où seront stockées les données ?
+* Il y a deux façons de voir les choses : Stockage des données dans une une structure de données et un stockage “physique” des fichiers qui contiennent nos données. 
+* Les différents TAD : tableaux dynamiques, listes, listes doublement chainées, piles, ….
+* Le disque dur de l’ordinateur, la mémoire interne d’un téléphone ( mais c’est embêtant car si on travaille sur l’ordi et puis on switch vers le téléphone, on ne récupère pas les dernières modifications) 
+* Un stockage de fichiers basé sur le cloud ( facile à partager et à modifier entre plusieurs utilisateurs) 
+* NB: on peut ajouter un stockage sur disque dur chaque mois pour ne pas risquer de perdre nos données. 
+
+Quel matériel sera nécessaire ?
+* Des robots et des composantes pour notre flotte 
+* Des capteurs qui collecte des données 
+* Un support pour le logiciel : ordinateur + téléphone + tablette
+* Un serveur ou base de données : espace sur le cloud ou disque dur externe ( reste à checker )
+
+Comment le système Robotix que vous développez interagira avec les autres systèmes ?
+* Systèmes des capteurs : le système Robotix reçoit des données à partir des capteurs qu’il interprète puis intègre dans ses calculs / commandes
+* Système des fournisseurs : Le système Robotix aura accès à l’inventaire des fournisseurs et utilise cette plateforme pour chercher et acheter de nouvelles composantes. 
+* Système des Banques : Le système Robotix se base sur ce système pour permettre un achat en ligne sécuritaire et fiable. 
+
+Comment les utilisateurs interagiront avec le système ?
+* L’utilisateur communique avec Robotix à travers des lignes de commandes 
+* Robotic communique avec l’utilisateur par courriel ou par notifications sur ordi et tél 
+* Il faut faire en sorte que l’utilisateur doit interagir le moins possible avec le système, d’une manière simple et rapide. ( à cette étape, l’utilisateur doit être en mesure de naviguer le logiciel sans l’aide d’un expert  et passer de commandes sans avoir besoin d’être un expert sur le sujet, toute l’interface est censé être intuitive et fluide) 
+
