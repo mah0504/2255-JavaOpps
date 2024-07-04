@@ -1,11 +1,10 @@
 public class Composantes {
 
-    private int inventaire;
+    private int inventaire=0;
     private String nom;
     private Float prix;
 
-    public Composantes() {
-    }
+
 
     // Getter pour accéder au tableau
     public Float getPrix() {
@@ -20,4 +19,17 @@ public class Composantes {
     // incrementer et decrementer
 
 
-}
+
+    // Method to increment inventaire
+    public void incrementInventaire() {
+        this.inventaire++;
+    }
+
+    // Setter for inventaire
+    public void setInventaire(int inventaire) {
+        this.inventaire = inventaire;
+    }
+
+    }
+
+

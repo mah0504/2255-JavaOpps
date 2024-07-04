@@ -156,6 +156,7 @@ public class Main {
                 " \n [5] : Gérer ses intérêts \n [6] : Suivre un utilisateur \n[7]: S'Inscrire à une activité \n [8] :" +
                 "Se souscrire à un intérêt \n [9] : Voir létat de ses robots \n [10] : Voir les métriques \n [11]: Voir " +
                 " ses + notifications \n");
+        // pk pas de gerer tache dans les fonctionnalités de l"utilisateur?
         try {
             int choix2 = scanner.nextInt();
             switch (choix2) {

@@ -3,6 +3,8 @@ import java.util.*;
 public class Action{
 
     private ArrayList<Action> listeActions;
+    private String type;
+    private String nom;
 
 
     public ArrayList<Action> getListeActions(){
@@ -19,4 +21,17 @@ public class Action{
     public void modifier(Action action, int index) {
 
     }
+
+
+    // verifier composantes
+    // caract
+    public String setNom(){
+        return "egrvd";
+    }
+
+    public String setType(){
+        return "egrvd";
+    }  // modifier apres
+
+
 }
