@@ -1,32 +1,29 @@
 import java.util.*;
 
-
 // petit PSA à audrey surtt: les commentaires sont temporaires pls don't yap abt
-//  how unprofessional they are gracias ;-(
-
+//  how unprofessional they are gracias ;-)  #météo
 
 // parallele ou sequentielle ? preciser
 // prorio de transition
-public class Tache {
+
+public class Tache extends Gestionnaire{
     private String nom;
 
-    private ArrayList<Tache> listeTaches;  // liste de tâches déjà créées
 
-    private ArrayList<Action> singTask; // "singular" vu qu'1 tâche est un ensemble d'actions
+//    @Override
+//    public void ajouter(Gestionnaire gestionnaire) {
+//        // à détailler
+//        gestionnaire.getListeTaches().add();
+//
+//    }
 
-
-    public void modifier(Tache tache){
-        // remove / add action on appelle action ig?
+    @Override
+    public void supprimer(Gestionnaire gestionnaire, int index) {
+        gestionnaire.getListeTaches().remove(index);  //enlever l'elem de la liste
     }
 
-    public void  creer(Tache tache){
-
-        // à détailler
-    }
-
-
-    public void supprimer(Tache tache){
-        listeTaches.remove(tache);  // enlever la tachee selectionnee de la ArrayList
+    @Override
+    public void modifier(Gestionnaire gestionnaire, int index) {
 
     }
 
