@@ -6,12 +6,16 @@ public abstract class Gestionnaire {
     private ArrayList<Tache> listeTaches;  // liste de tâches déjà créées
 
     private ArrayList<Action> listeActions ;
+    private ArrayList<Utilisateur> listeUtilisateurs;
 
 
     public ArrayList<Action> getListeActions(){
         return listeActions;
     }
 
+    public ArrayList<Utilisateur> getListeUtilisateurs(){
+        return listeUtilisateurs;
+    }
 
     public ArrayList<Tache> getListeTaches(){
         return listeTaches;
@@ -19,7 +23,7 @@ public abstract class Gestionnaire {
     }
 
 
-    /*public abstract void ajouter(Gestionnaire gestionnaire);*/
+
 
     public abstract void supprimer(Gestionnaire gestionnaire, int index);
 

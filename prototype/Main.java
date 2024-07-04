@@ -2,12 +2,11 @@ import java.util.*;
 import java.util.InputMismatchException;
 public class Main {
 
-//
-//    "Veuillez choisir quelle fonctionnalité effectuer \n [1] : Récupérer la liste des utilisateurs\n " +
-//            "[2] Rechercher un utilisateur\n [3]: Voir le profil d'un utilisateur \n [4]: Récupérer la liste des" +
-//            "activités \n [5] : Récupérer la liste des intérêts \n [6] : Récupérer la liste des fournisse");
+
 
     public static void main(String[] args) {
+       // Gestionnaire donnees = new Gestionnaire();
+
         Main n = new Main();;
         n.choixProfil();
     }
@@ -21,7 +20,6 @@ public class Main {
             int choix = scanner.nextInt();
 
             switch (choix) {
-
 
                 case 1:
                     // Code for Profil publique
@@ -76,6 +74,8 @@ public class Main {
 
     }
 
+
+
     // return false si connexion réussie sinon true
     public boolean seConnecter(){
         return false;
@@ -83,13 +83,10 @@ public class Main {
         // continuer se connecter , ( update fichier avec l'utilisateur , ses données )
     }
 
-
     public boolean sInscrire(){
         System.out.println("Email de comfirmation envoyé!");
         return false;
     }
-
-
 
     public void afficherMenu(Fournisseur fournisseur){
         Scanner scanner = new Scanner(System.in);
@@ -120,8 +117,36 @@ public class Main {
         }
 
     }
+    public void afficherMenu(Publique publique){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Veuillez choisir quelle fonctionnalité effectuer \n [0]: Retour au menu principal " +" " +
+                "[1]: Récupérer la liste des utilisateurs \n [2]: Rechercher un utilisateur \n [3]: Voir le profil" +
+                "d'un utilisateur \n [4]: Récupérer la liste des activités \n [5]: Récupérer la liste des intérêts \n" +
+                "[6]: Récupérer la liste des fournisseurs \n [7]: Rechercher un fournisseur \n [8]: Voir le profil d'un" +
+                "fournisseur \n [9]: Rechercher une composante \n ");
+        try {
+            int choix3 = scanner.nextInt();
+            switch (choix3) {
+                // mettre le lien avec la classe utilisateur
+                case 0:
+                    choixProfil();
+                    break;
+                case 1:
+
+                    break;
+                    // mettre les autres cases
+                default:
+                    afficherMenu(publique);
+                    break;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+            scanner.next();
+
+        }
 
 
+    }
     // menu des actions de l'Utilisateur
     public void afficherMenu(Utilisateur utilisateur) {
 
