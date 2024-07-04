@@ -32,4 +32,7 @@ public class Utilisateur {
     }
 
 
+    // utilisateur a un inventaire de composantes
+
+
 }

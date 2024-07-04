@@ -10,13 +10,4 @@ public class Composantes {
         return composantes;
     }
 
-    // Une méthode pour imprimer un message de test
-    public void printEssai() {
-        System.out.print("essai1");
-    }
-
-    public static void main(String[] args) {
-        Composantes composantes = new Composantes();
-        composantes.printEssai();
-    }
 }
