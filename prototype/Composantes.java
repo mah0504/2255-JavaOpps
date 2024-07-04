@@ -1,13 +1,23 @@
 public class Composantes {
-    private String[] composantes;
+
+    private int inventaire;
+    private String nom;
+    private Float prix;
 
     public Composantes() {
-
     }
 
     // Getter pour accéder au tableau
-    public String[] getComposantes() {
-        return composantes;
+    public Float getPrix() {
+        return prix;
     }
+
+    // au moins 2 composantes
+
+    public int getInventaire() {
+        return inventaire;
+    }
+    // incrementer et decrementer
+
 
 }

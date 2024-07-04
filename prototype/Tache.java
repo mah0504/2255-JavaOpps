@@ -6,24 +6,25 @@ import java.util.*;
 // parallele ou sequentielle ? preciser
 // prorio de transition
 
-public class Tache extends Gestionnaire{
+
+public class Tache {
+
     private String nom;
 
 
-//    @Override
-//    public void ajouter(Gestionnaire gestionnaire) {
-//        // à détailler
-//        gestionnaire.getListeTaches().add();
-//
-//    }
+    private ArrayList<Tache> listeTaches;  // liste de tâches déjà créées
 
-    @Override
-    public void supprimer(Gestionnaire gestionnaire, int index) {
-        gestionnaire.getListeTaches().remove(index);  //enlever l'elem de la liste
+    public ArrayList<Tache> getListeTaches(){
+        return listeTaches;
+
     }
 
-    @Override
-    public void modifier(Gestionnaire gestionnaire, int index) {
+
+    public void supprimer(Tache tache, int index) {
+        getListeTaches().remove(index);  //enlever l'elem de la liste
+    }
+
+    public void modifier(Tache tache, int index) {
     }
 
 

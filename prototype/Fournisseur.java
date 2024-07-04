@@ -1,4 +1,4 @@
-public class Fournisseur {
+public class Fournisseur implements Acteur {
     
     private int capacitéDeFabrication ,numero;
     private String adresse, nom, prenom; 
@@ -6,20 +6,20 @@ public class Fournisseur {
 
 
 
-    public Fournisseur(){
-        Fournisseur fournir = new Fournisseur(); 
-        // capacité pour chaque composante ? 
-
+    @Override
+    public void modifierSonProfil() {
     }
 
-
-    // créer un tab avec chaque composante et son stock or not ? numero du CPU aussi ?  
-
-    public int getNumero(){
-        return numero;  // numero de serie du robot 
+    @Override
+    public void sInscrire() {
     }
 
-    public void fournirComposante (Composantes compo){
+    @Override
+    public void validerMDP() {
+    }
+
+    @Override
+    public void seConnecter() {
 
     }
 

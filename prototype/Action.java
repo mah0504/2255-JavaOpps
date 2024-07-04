@@ -1,28 +1,22 @@
 
 import java.util.*;
-public class Action extends Gestionnaire{
+public class Action{
 
     private ArrayList<Action> listeActions;
 
-    public List<Action> getAction(){
+
+    public ArrayList<Action> getListeActions(){
         return listeActions;
     }
 
-
-//    @Override
-//    public void ajouter(Gestionnaire gestionnaire) {
-//
-//    }
-
-    @Override
-    public void supprimer(Gestionnaire gestionnaire, int index) {
-        gestionnaire.getListeActions().remove(index);
+    public void supprimer(Action action, int index) {
+        action.getListeActions().remove(index);
 
          // index ?
     }
 
-    @Override
-    public void modifier(Gestionnaire gestionnaire, int index) {
+
+    public void modifier(Action action, int index) {
 
     }
 }
