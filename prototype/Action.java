@@ -2,7 +2,7 @@
 import java.util.*;
 public class Action{
 
-    private ArrayList<Action> listeActions;
+    private ArrayList<Action> listeActions = new ArrayList<>();
     private String type;
     private String nom;
 
@@ -17,11 +17,9 @@ public class Action{
          // index ?
     }
 
-
     public void modifier(Action action, int index) {
 
     }
-
 
     // verifier composantes
     // caract
@@ -34,4 +32,5 @@ public class Action{
     }  // modifier apres
 
 
+    // mouvement , diffusion de son, parler , ecouter, afficher du texte/ graphique
 }

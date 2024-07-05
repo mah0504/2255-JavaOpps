@@ -11,7 +11,7 @@ public class Tache {
 
 
     private String nom;
-    private ArrayList<Tache> listeTaches;  // liste de tâches déjà créées
+    private ArrayList<Tache> listeTaches= new ArrayList<>();  // liste de tâches déjà créées
 
     public Tache() {
 

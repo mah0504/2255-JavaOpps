@@ -1,9 +1,15 @@
 public class CPU extends Composantes {
-    private long numDeSerie;
+    private int numDeSerie;
+
+    public CPU(String nom, int inventaire) {
+        super(nom, inventaire);
+    }
 
 
-
-    public long getNumDeSerie() {
+    public int getNumDeSerie() {
         return numDeSerie;
     }
+
+
+
 }

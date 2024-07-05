@@ -2,9 +2,8 @@ import java.util.*;
 public class Fournisseur implements Acteur {
     
     private int capacitéDeFabrication ,numero;
-    private String adresse, nom, prenom; 
-
-    private List<Composantes> listeComposantes;
+    private String adresse, nom, prenom;
+    private List<Composantes> listeComposantes = new ArrayList<>();
 
 
     @Override
@@ -29,6 +28,5 @@ public class Fournisseur implements Acteur {
     public void comfirmerInscription() {
 
     }
-
 
 }
