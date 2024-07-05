@@ -1,13 +1,25 @@
 import java.util.*;
 
 public class Flotte {
-    private List<Robot> listeRobots;
-    private List<Composantes> listeComposantes;
-
-    private int nbrRobots;
+    private List<Robot> listeRobots =new ArrayList<>();
+    private List<Composantes> listeComposantes =new ArrayList<>();
     private int nomRobot; // id, numero de serie
     private boolean disponibilite;
 
+
+
+
+    public Flotte() {
+        this.listeRobots = new ArrayList<>();
+        this.listeComposantes = new ArrayList<>();
+    }
+    public List<Robot> getListeRobots() {
+        return listeRobots;
+    }
+
+    public List<Composantes> getListeComposantes() {
+        return listeComposantes;
+    }
 
     public int getNumeroDeSerie(Robot robot) {
         return nomRobot;
@@ -44,50 +56,77 @@ public class Flotte {
     // si le robot n'a pas de composante de même type alors on la rajoute et décrémente de la liste des compo ...
     // choisir la composante depuis listeComposantes
 
-    public void assignerComposante(Robot robot, Composantes composante) {
-        // traiter le cas particulier si la composante ajoutée est un CPU ?
 
-        boolean trouve = false;
-
+    // robot déjà créé
+    public boolean assignerComposante(Robot robot, Composantes composante) {
         for (Composantes c : robot.getComposantesRobot()) {
             if (c.getClass() == composante.getClass()) {
-                trouve = true;
                 if (composante.getInventaire() > 0) {
                     c.incrementInventaire(); // Incrémenter l'inventaire du robot sélectionné
                     composante.setInventaire(composante.getInventaire() - 1); // Décrémenter de la liste globale de composantes
-                    // indépendantes
+                    return true;
                 } else {
-                    System.out.println("La composante " + composante.getClass().getSimpleName() + " est introuvable en " +
-                            "inventaire ! Veuillez l'acheter ! \n");
+                    System.out.println("La composante " + composante.getClass().getSimpleName() + " est introuvable en inventaire ! Veuillez l'acheter ! \n");
+                    return false;
                 }
-                break; // Sortir de la boucle si une correspondance est trouvée
             }
         }
 
-        if (!trouve) {
-            if (composante.getInventaire() > 0) {
-                robot.getComposantesRobot().add(composante); // rajouter dans la liste des composantes du robot
-                composante.setInventaire(composante.getInventaire() - 1);
-                // Décrémenter de la liste des composantes distinctes
-
-            } else {
-                System.out.println("La composante " + composante.getClass().getSimpleName() + " est introuvable en" +
-                        " inventaire ! Veuillez l'acheter ! \n");
-            }
+        if (composante.getInventaire() > 0) {
+            robot.getComposantesRobot().add(composante); // ajouter à la liste des composantes du robot
+            composante.setInventaire(composante.getInventaire() - 1); // Décrémenter de la liste des composantes distinctes
+            return true;
+        } else {
+            System.out.println("La composante " + composante.getClass().getSimpleName() + " est introuvable en inventaire ! Veuillez l'acheter ! \n");
+            return false;
         }
-
     }
 
-    public void ajouterRobot (Robot robot){
-        // instancier robot dans main puis l'ajouter ici?
 
+    public void enregistrerRobot(Robot robot) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Veuillez choisir quelles composantes ajouter : ");
+        for (int i = 0; i < listeComposantes.size(); i++) {
+            System.out.println(i + ": " + listeComposantes.get(i).toString()); // imprime la composante et son index
+        }
 
-        // avant d'ajouter le robot faut appeler assigner une composante avec au moins CPU et une autre
-        // composante, inclu verifier l'inventaire etc
+        int choix = scan.nextInt(); // le choix entré par l'utilisateur
+        Composantes composanteChoisie = listeComposantes.get(choix);
 
+        // Assigner le CPU et vérifier la disponibilité
+        boolean cpuAssigne = false;
+        for (Composantes c : listeComposantes) {
+            if (c instanceof CPU) {
+                cpuAssigne = assignerComposante(robot, c);
+                break;
+            }
+        }
+
+        if (!cpuAssigne) {
+            System.out.println("Aucun CPU disponible. Enregistrement du robot annulé.");
+            return; // Annuler l'enregistrement si aucun CPU n'est disponible
+        }
+
+        // Assigner la composante choisie et vérifier la disponibilité
+        if (!assignerComposante(robot, composanteChoisie)) {
+            System.out.println("La composante choisie n'est pas disponible. Enregistrement du robot annulé.");
+            return; // Annuler l'enregistrement si la composante choisie n'est pas disponible
+        }
+
+        // Ajouter le robot à la flotte
         listeRobots.add(robot);
-        // lui associer son CPU ...
+        System.out.println("Entrez le type du robot: ");
+        String type = scan.next();
+        robot.setType(type);
 
+        System.out.println("Entrez le nom du robot: ");
+        String nom = scan.next();
+        robot.setNom(nom);
 
+        System.out.println("Le robot a été enregistré avec succès.");
     }
+
+
 }
+
+

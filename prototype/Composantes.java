@@ -4,18 +4,23 @@ public class Composantes {
     private String nom;
     private Float prix;
 
+
+
+    public Composantes(String nom, int inventaire) {
+        this.nom = nom;
+        this.inventaire = inventaire;
+    }
+
     // Getter pour accéder au tableau
     public Float getPrix() {
         return prix;
     }
-
     // au moins 2 composantes
 
     public int getInventaire() {
         return inventaire;
     }
     // incrementer et decrementer
-
 
     // Method to increment inventaire
     public void incrementInventaire() {
