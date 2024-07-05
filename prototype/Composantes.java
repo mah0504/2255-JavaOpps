@@ -11,6 +11,13 @@ public class Composantes {
         this.inventaire = inventaire;
     }
 
+
+
+    public Composantes(String nom, int inventaire) {
+        this.nom = nom;
+        this.inventaire = inventaire;
+    }
+
     // Getter pour accéder au tableau
     public Float getPrix() {
         return prix;
