@@ -6,7 +6,6 @@ public class Composantes {
     private String type;
 
 
-
     public Composantes(String nom, int inventaire) {
         this.nom = nom;
         this.inventaire = inventaire;
@@ -27,11 +26,6 @@ public class Composantes {
     public void incrementInventaire() {
         this.inventaire++;
     }
-
-
-   public String toString(Composantes composante ){
-        return "type=" + type ;
-   }
 
     // Setter for inventaire
     public void setInventaire(int inventaire) {

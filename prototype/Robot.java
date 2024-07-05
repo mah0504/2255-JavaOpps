@@ -10,18 +10,19 @@ public class Robot {
 
     private List<Composantes> composantesRobot = new ArrayList<>() ;
 
-    public List<Composantes> getComposantesRobot(){
+    public Composantes getElemComposantesRobot(int i){
+        return composantesRobot.get(i);  // retourne un element recherche de la liste
+        // faut-il ajouter un getString?
+    }
+    public List<Composantes> getListCompoRobot(){
         return composantesRobot;
     }
 
 
-
-
-    public void ParcourirCompo(List<Composantes> composantesRobot, Composantes composante){
-        this.composantesRobot = composantesRobot;
-        for ( Composantes c :  composantesRobot){
-        }
-    }
+//    public void ParcourirCompo(List<Composantes> composantesRobot, Composantes composante){
+//        this.composantesRobot = composantesRobot;
+//
+//    }
 
     public void setNumeroDeSerie(int numeroDeSerie) {
         this.numeroDeSerie = numeroDeSerie;  //  celui fournit depuis le CPU
@@ -30,7 +31,6 @@ public class Robot {
     public void setNom(String nom) {
         this.nom = nom;
     }
-
 
     public void setType(String type) {
         this.type = type;
