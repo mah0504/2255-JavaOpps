@@ -35,7 +35,6 @@ public class Flotte {
 
 
 
-
     public void acheterComposante(Composantes composante) {
         if (verifierComposante(composante)) {
             composante.incrementInventaire();
@@ -80,7 +79,8 @@ public class Flotte {
         }
     }
 
-    public void enregistrerRobot(){
+    public void enregistrerRobot(Robot robot , int nbr, Composantes composante){
+        // voir le diagramme
 
     }
 
