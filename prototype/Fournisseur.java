@@ -25,5 +25,10 @@ public class Fournisseur implements Acteur {
 
     }
 
+    @Override
+    public void comfirmerInscription() {
+
+    }
+
 
 }
