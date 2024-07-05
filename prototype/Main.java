@@ -1,11 +1,20 @@
 import java.util.*;
 import java.util.InputMismatchException;
 public class Main {
+    private Publique publique;
+    private Fournisseur fournisseur;
+    private Utilisateur utilisateur;
 
+    public Main() {
+        publique = new Publique();
+        fournisseur = new Fournisseur();
+        utilisateur = new Utilisateur();
+    }
 
 
     public static void main(String[] args) {
        // Gestionnaire donnees = new Gestionnaire();
+
 
         Main n = new Main();;
         n.choixProfil();
@@ -22,9 +31,11 @@ public class Main {
             switch (choix) {
 
                 case 1:
-                    // Code for Profil publique
+                   // Publique publique = new Publique();
+                    afficherMenu(publique);
                     break;
                 case 2:
+                  //  Utilisateur utilisateur = new Utilisateur(); // pk instancier ici?
                     choixConnecterInscrire();
                     break;
                 case 3:
@@ -73,7 +84,6 @@ public class Main {
         }
 
     }
-
 
 
     // return false si connexion réussie sinon true
@@ -134,7 +144,18 @@ public class Main {
                 case 1:
 
                     break;
+                case 2:
+
+                    break;
+
                     // mettre les autres cases
+                case 7:
+
+                    break;
+
+                case 8:
+                    publique.voirProfil(fournisseur);
+                    break;
                 default:
                     afficherMenu(publique);
                     break;
@@ -148,6 +169,8 @@ public class Main {
 
     }
     // menu des actions de l'Utilisateur
+
+    //
     public void afficherMenu(Utilisateur utilisateur) {
 
         Scanner scanner = new Scanner(System.in);

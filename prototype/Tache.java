@@ -9,16 +9,19 @@ import java.util.*;
 
 public class Tache {
 
+
     private String nom;
-
-
     private ArrayList<Tache> listeTaches;  // liste de tâches déjà créées
 
-    public ArrayList<Tache> getListeTaches(){
-        return listeTaches;
+    public Tache() {
 
     }
 
+
+
+    public ArrayList<Tache> getListeTaches(){
+        return listeTaches;
+    }
 
     public void supprimer(Tache tache, int index) {
         getListeTaches().remove(index);  //enlever l'elem de la liste
@@ -26,7 +29,4 @@ public class Tache {
 
     public void modifier(Tache tache, int index) {
     }
-
-
-
 }
