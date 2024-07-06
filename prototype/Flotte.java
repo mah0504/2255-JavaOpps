@@ -51,6 +51,7 @@ public class Flotte {
         switch (choix){
             case 1:
                 acheterComposante(composantes.choisirCompo());
+
                 break;
             case 2:
                 assignerComposante(choisirRobot(), composantes.choisirCompo());
