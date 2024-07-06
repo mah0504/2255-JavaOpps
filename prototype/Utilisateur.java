@@ -74,6 +74,16 @@ public class Utilisateur implements Acteur{
         return listeUsers;
     }
 
+    
+    public void ajouterNouvUtilisateur(Utilisateur utilisateur) {
+        listeUtilisateurs.add(utilisateur);  // après connexion on ajoute
+        // voir methode se connecter puis harmoniser 
+    }
+
+
+
+    
+
     public void setListeUsers(ArrayList<Utilisateur> listeUsers) {
         this.listeUsers = listeUsers;
     }
@@ -269,6 +279,20 @@ public class Utilisateur implements Acteur{
         }
     }
 
+    
+    public void voirMetriques(Robot robot) {
+        robot.getEtats();
+    }
+
+    
+
+
+
+
+
+
+
+    
     public void gererFlotte() {
     }
 
