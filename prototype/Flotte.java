@@ -51,7 +51,6 @@ public class Flotte {
         switch (choix){
             case 1:
                 acheterComposante(composantes.choisirCompo());
-
                 break;
             case 2:
                 assignerComposante(choisirRobot(), composantes.choisirCompo());
@@ -121,7 +120,7 @@ public class Flotte {
 
             }  else if (!(composante.getClass()== c.getClass()) && verifierComposante(composante) ){
 
-               robot.getListCompoRobot().add(composante); // on ajoute la composante à la liste des composantes du robot
+                robot.getListCompoRobot().add(composante); // on ajoute la composante à la liste des composantes du robot
                 composante.setInventaire(composante.getInventaire() -1 ); // on décrémente la composante dans notre flotte
                 return;
 
@@ -135,7 +134,7 @@ public class Flotte {
         }
     }
 
-// peut etre mettre la fonction ailleurs ?
+    // peut etre mettre la fonction ailleurs ?
     public boolean comfirmer(){
         boolean comfi;
         Scanner scanner = new Scanner(System.in);
