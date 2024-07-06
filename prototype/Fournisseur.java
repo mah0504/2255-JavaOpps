@@ -7,7 +7,7 @@ public class Fournisseur implements Acteur {
     private String motDePasse;
     private String telephone;
     private String capaciteFabrication;
-    private ArrayList<Composantes> composantes;
+    //private ArrayList<Composantes> composantes;
     private ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
 
     // Constructor
@@ -19,7 +19,8 @@ public class Fournisseur implements Acteur {
         this.telephone = telephone;
         this.capaciteFabrication = capaciteFabrication;
     }
-
+    public Fournisseur() {
+    }
     // Getters and Setters
     public String getNom() {
         return nom;
@@ -220,11 +221,6 @@ public class Fournisseur implements Acteur {
         }
     }
 
-    @Override
-    public void comfirmerInscription() {
-
-    }
-
     public void gererComposantes() {
     }
 
@@ -242,4 +238,3 @@ public class Fournisseur implements Acteur {
 
     }
 }
-

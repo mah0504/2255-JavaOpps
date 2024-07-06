@@ -1,7 +1,7 @@
 import java.util.*;
 import java.util.regex.*;
 
-public class Utilisateur implements Acteur{
+public class Utilisateur implements Acteur {
     private String nom;
     private String prenom;
     private String pseudo;
@@ -10,9 +10,9 @@ public class Utilisateur implements Acteur{
     private String telephone;
     private ArrayList<Utilisateur> listeUsers;
     private ArrayList<String> listePseudos;
-    private ArrayList<Interet> listeInterets;
+    private ArrayList<Interets> listeInterets;
 
-    public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, ArrayList<Interet> listeInterets) {
+    public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, ArrayList<Interets> listeInterets) {
         this.nom = nom;
         this.prenom = prenom;
         this.pseudo = pseudo;
@@ -21,6 +21,10 @@ public class Utilisateur implements Acteur{
         this.telephone = telephone;
         this.listeInterets = listeInterets;
         listePseudos.add(pseudo);
+    }
+
+    public Utilisateur(){
+
     }
 
     public String getNom() {
@@ -75,25 +79,15 @@ public class Utilisateur implements Acteur{
         return listeUsers;
     }
 
-
-    public void ajouterNouvUtilisateur(Utilisateur utilisateur) {
-        listeUsers.add(utilisateur);  // après connexion on ajoute
-        // voir methode se connecter puis harmoniser
-    }
-
-
-
-
-
     public void setListeUsers(ArrayList<Utilisateur> listeUsers) {
         this.listeUsers = listeUsers;
     }
 
-    public ArrayList<Interet> getListeInterets() {
+    public ArrayList<Interets> getListeInterets() {
         return listeInterets;
     }
 
-    public void setListeInterets(ArrayList<Interet> listeInterets) {
+    public void setListeInterets(ArrayList<Interets> listeInterets) {
         this.listeInterets = listeInterets;
     }
 
@@ -106,17 +100,11 @@ public class Utilisateur implements Acteur{
                 ", motDePasse='" + motDePasse + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
-                ", listeUsers=" + listeUsers +
                 ", listeInterets=" + listeInterets +
                 '}';
     }
 
-
-    @Override
-    public void modifierSonProfil() {
-
-    }
-
+    // Méthodes
     @Override
     public void sInscrire() {
         try (Scanner scanner = new Scanner(System.in)) {
@@ -153,7 +141,7 @@ public class Utilisateur implements Acteur{
                 throw new IllegalArgumentException("Le numéro de téléphone doit contenir uniquement des chiffres.");
             }
 
-            Interet.initialiserListeInterets();
+            Interets.initialiserListeInterets();
 
             System.out.println("Choisissez vos intérêts (entrez le numéro):");
             for (int i = 0; i < listeInterets.size(); i++) {
@@ -164,7 +152,7 @@ public class Utilisateur implements Acteur{
                 System.out.print("Choix " + (i + 1) + ": ");
                 int choix = scanner.nextInt();
                 if (choix >= 1 && choix <= listeInterets.size()) {
-                    Interet interet = listeInterets.get(choix - 1);
+                    Interets interet = listeInterets.get(choix - 1);
                     interet.souscrire(this);
                 } else {
                     System.out.println("Choix invalide. Réessayez.");
@@ -181,18 +169,12 @@ public class Utilisateur implements Acteur{
         System.out.println("Inscription réussie!");
     }
 
-    @Override
-    public void validerMDP() {
-
-    }
-
     private static boolean emailValide(String email) {
         String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
         Pattern pattern = Pattern.compile(emailPattern);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-
 
     @Override
     public void seConnecter() {
@@ -218,11 +200,6 @@ public class Utilisateur implements Acteur{
         } catch (Exception e) {
             System.out.println("Erreur lors de la connexion : " + e.getMessage());
         }
-    }
-
-    @Override
-    public void comfirmerInscription() {
-
     }
 
     @Override
@@ -294,20 +271,6 @@ public class Utilisateur implements Acteur{
         }
     }
 
-
-    public void voirMetriques(Robot robot) {
-        robot.getEtats();
-    }
-
-
-
-
-
-
-
-
-
-
     public void gererFlotte() {
     }
 
@@ -329,6 +292,16 @@ public class Utilisateur implements Acteur{
 
     public void voirNotifications() {
     }
+
+    /*public void enregistrerRobot(Robot robot) {
+        this.robots.add(robot);
+    }
+
+    public void afficherRobots() {
+        for (Robot robot : this.robots) {
+            System.out.println(robot);
+        }
+    }*/
 
     public void initialiserUtilisateurs() {
 
