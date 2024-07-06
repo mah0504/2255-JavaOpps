@@ -24,7 +24,7 @@ public class BrouillonExec
 //      //  flotte.enregistrerRobot(robot);
 //    }
 
-        Activites activites = new Activites();
+        Activite activites = new Activite();
         Publique pub = new Publique();
 
         // exemple d'activites a ajouter
