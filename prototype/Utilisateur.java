@@ -10,9 +10,9 @@ public class Utilisateur implements Acteur {
     private String telephone;
     private ArrayList<Utilisateur> listeUsers;
     private ArrayList<String> listePseudos;
-    private ArrayList<Interets> listeInterets;
+    private ArrayList<Interet> listeInterets;
 
-    public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, ArrayList<Interets> listeInterets) {
+    public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, ArrayList<Interet> listeInterets) {
         this.nom = nom;
         this.prenom = prenom;
         this.pseudo = pseudo;
@@ -83,11 +83,11 @@ public class Utilisateur implements Acteur {
         this.listeUsers = listeUsers;
     }
 
-    public ArrayList<Interets> getListeInterets() {
+    public ArrayList<Interet> getListeInterets() {
         return listeInterets;
     }
 
-    public void setListeInterets(ArrayList<Interets> listeInterets) {
+    public void setListeInterets(ArrayList<Interet> listeInterets) {
         this.listeInterets = listeInterets;
     }
 
@@ -141,7 +141,7 @@ public class Utilisateur implements Acteur {
                 throw new IllegalArgumentException("Le numéro de téléphone doit contenir uniquement des chiffres.");
             }
 
-            Interets.initialiserListeInterets();
+            Interet.initialiserListeInterets();
 
             System.out.println("Choisissez vos intérêts (entrez le numéro):");
             for (int i = 0; i < listeInterets.size(); i++) {
@@ -152,7 +152,7 @@ public class Utilisateur implements Acteur {
                 System.out.print("Choix " + (i + 1) + ": ");
                 int choix = scanner.nextInt();
                 if (choix >= 1 && choix <= listeInterets.size()) {
-                    Interets interet = listeInterets.get(choix - 1);
+                    Interet interet = listeInterets.get(choix - 1);
                     interet.souscrire(this);
                 } else {
                     System.out.println("Choix invalide. Réessayez.");

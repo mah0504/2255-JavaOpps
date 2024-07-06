@@ -2,15 +2,13 @@ import java.util.*;
 
 public class Robot {
 
-
-    // utiliser constructeur avec les données comme paramètre à chaque fois?
     private int numeroDeSerie;
     private String nom;
     private String type;
     private boolean disponibilite;
     private Object[] etats = new Object[4]; // Tableau pour stocker les états
 
-
+    private List<Composantes> composantesRobot = new ArrayList<>();
 
     public void afficherInformations() {
         System.out.println("Numéro de série : " + numeroDeSerie);
@@ -18,34 +16,17 @@ public class Robot {
         System.out.println("Type : " + type);
         System.out.println("Disponibilité : " + (disponibilite ? "Disponible" : "Non disponible"));
         System.out.println("États : ");
-        getEtats();
-    }
-
-
-    public Object[] getEtats(){
-        for (int i=0;i<etats.length; i++){
-            System.out.println(getEtats()[i]); // imprimer les elements du tableau
+        for (Object etat : etats) {
+            System.out.println(etat);
         }
-        return this.etats;
-    }
-
-    private List<Composantes> composantesRobot = new ArrayList<>() ;
-
-    public Composantes getElemComposantesRobot(int i){
-        return this.composantesRobot.get(i);  // retourne un element recherche de la liste
     }
 
     public List<Composantes> getListCompoRobot(){
         return this.composantesRobot;
     }
 
-//    public void ParcourirCompo(List<Composantes> composantesRobot, Composantes composante){
-//        this.composantesRobot = composantesRobot;
-//
-//    }
-
     public void setNumeroDeSerie(int numeroDeSerie) {
-        this.numeroDeSerie = numeroDeSerie;  //  celui fournit depuis le CPU
+        this.numeroDeSerie = numeroDeSerie;
     }
 
     public void setNom(String nom) {
@@ -56,13 +37,23 @@ public class Robot {
         this.type = type;
     }
 
-    @Override
-
-    public String toString() {
-        return "Robot{" +
-                "nom='" + nom  + ", type='" + type + ", numeroDeSerie=" + numeroDeSerie +
-                ", composantesRobot=" + composantesRobot + '}';
+    public boolean isDisponibilite() {
+        return disponibilite;
     }
 
-}
+    public void setDisponibilite(boolean disponibilite) {
+        this.disponibilite = disponibilite;
+    }
 
+    @Override
+    public String toString() {
+        return "Robot{" +
+                "numeroDeSerie=" + numeroDeSerie +
+                ", nom='" + nom + '\'' +
+                ", type='" + type + '\'' +
+                ", disponibilite=" + disponibilite +
+                ", etats=" + Arrays.toString(etats) +
+                ", composantesRobot=" + composantesRobot +
+                '}';
+    }
+}

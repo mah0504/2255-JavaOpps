@@ -18,11 +18,11 @@ public class BrouillonExec
 //        Composantes composante=new Composantes();
 //        composante.choisirCompo();
 //
-//
 //        // Enregistrement d'un nouveau robot
 //        Robot robot = new Robot();
 //      //  flotte.enregistrerRobot(robot);
 //    }
+
 
         Activite activites = new Activite();
         Publique pub = new Publique();
@@ -36,6 +36,14 @@ public class BrouillonExec
         activites.addActivites("Assigner une composante à un robot");
 
         pub.RecupListeActivites(activites);
+
+        Robot r= new Robot();
+        r.setNom("IJWFVN");
+        r.setType("Mouvement");
+        r.setNumeroDeSerie(1234);
+
+        r.afficherInformations();
+
 
 
     }

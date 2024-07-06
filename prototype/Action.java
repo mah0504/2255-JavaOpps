@@ -6,7 +6,6 @@ public class Action{
     private String type;
     private String nom;
 
-
     public ArrayList<Action> getListeActions(){
         return listeActions;
     }
@@ -14,7 +13,6 @@ public class Action{
     public void supprimer(Action action, int index) {
         action.getListeActions().remove(index);
 
-         // index ?
     }
 
     public void modifier(Action action, int index) {
