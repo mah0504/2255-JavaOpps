@@ -9,11 +9,40 @@ public class Flotte {
 
     // gerer sa flotte - menu de recherche pr invoquer chaque methode ig ?
     public Flotte() {
-        this.listeRobots = new ArrayList<>();
-        this.listeComposantes = new ArrayList<>();
+        this.listeRobots = new ArrayList<>(); // liste
+        this.listeComposantes = new ArrayList<>(); // liste des composantes de  la flotte
     }
 
-    public void afficherChoix(){
+
+    // bsn pour assigner les composantes, les taches aussi plus tars et activites
+    public Robot choisirRobot( ){
+
+        System.out.println("Veuillez choisir quelle composante utiliser :");
+        Scanner scanner =new Scanner(System.in);
+        for (int i = 0; i < listeRobots.size(); i++) {
+            System.out.println("[" + i +"]"+ ": " + listeRobots.get(i));
+        }
+        int choix= scanner.nextInt();
+
+        if (choix >= 0 && choix < listeRobots.size()) {
+
+            try {
+
+                System.out.println( listeRobots.get(choix));
+                return listeRobots.get(choix);
+
+            } catch (Exception e) {
+
+                e.printStackTrace();
+
+            }
+
+        } System.out.println("Veuillez effectuer un choix valide !");
+        return null;
+
+    }
+
+    public void afficherChoix(Composantes composantes){
         Scanner scanner= new Scanner(System.in);
         System.out.println("Veuillez choisir quelle fonctionnalité effectuer dans votre flotte: " +
                 "[1] : Acheter une composante \n [2] : Assigner une composante à un robot \n [3]" +
@@ -21,19 +50,21 @@ public class Flotte {
         int choix = scanner.nextInt();
         switch (choix){
             case 1:
-                acheterComposante(Composantes);
+                acheterComposante(composantes.choisirCompo());
+
                 break;
             case 2:
-                assignerComposante(Robot, Composantes);
+                assignerComposante(choisirRobot(), composantes.choisirCompo());
                 break;
             case 3:
-                enregistrerRobot( new Robot(), Composantes);
+                enregistrerRobot( new Robot(), composantes.choisirCompo() );
                 break;
             default:
                 System.out.println("Veuillez entrer un choix valide !");
                 break;
         }
     }
+
 
 
     public List<Robot> getListeRobots() {
@@ -118,7 +149,6 @@ public class Flotte {
             case "non":
                 comfi= false;
                 break;
-
             default:
                 comfi= false;
                 System.out.println("Operation annulee !");
@@ -185,9 +215,7 @@ public class Flotte {
                 System.out.println("Nombre de composantes dans la flotte insuffisant , veuillez en acheter!");
                 return;
             }
-
         }
-
     }
 
 }

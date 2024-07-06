@@ -19,6 +19,10 @@ public class Robot {
     }
 
 
+//    public void ParcourirCompo(List<Composantes> composantesRobot, Composantes composante){
+//        this.composantesRobot = composantesRobot;
+//
+//    }
 
     public void setNumeroDeSerie(int numeroDeSerie) {
         this.numeroDeSerie = numeroDeSerie;  //  celui fournit depuis le CPU

@@ -12,12 +12,7 @@ public class Composantes {
             CPU.class, Roue.class, Bras.class, Helice.class, Camera.class, HautParleur.class, Micro.class, Ecran.class));
 
 
-
-
-
-   public  Composantes choisirCompo(){
-
-
+   public Composantes choisirCompo(){
        System.out.println("Veuillez choisir quelle composante utiliser :");
        Scanner scanner =new Scanner(System.in);
        for (int i = 0; i < listeSousClasses.size(); i++) {
@@ -31,19 +26,18 @@ public class Composantes {
        if (choix >= 0 && choix < listeSousClasses.size()) {
            try {
                // Utiliser la réflexion pour instancier la classe correspondante
+               System.out.println( listeSousClasses.get(choix));
 
+               Class<? extends Composantes> classeChoisie = listeSousClasses.get(choix);
+               return classeChoisie.getDeclaredConstructor().newInstance();
 
            } catch (Exception e) {
                e.printStackTrace();
            }
-          // return ;
 
-       }
-
-
-
+       } System.out.println("Veuillez effectuer un choix valide !");
+       return null;
    }
-
 
     // Getter pour accéder au tableau
     public Float getPrix() {

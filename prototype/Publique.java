@@ -8,6 +8,7 @@ public class Publique {
         // voir la liste d'utilisateurs , chercher le nom puis imprimer son yapping normalement
         // voir comment on structure les donnees de l'utilisateur et fournisseur
         // on i
+
     }
 
     public void voirProfil(Acteur acteur){
