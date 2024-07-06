@@ -10,13 +10,46 @@ public class Activite {
     private int points;
     private int classement;
 
+    private List<Interet> listedInterets = new ArrayList<>();
+
 
 
    // la plateforme doit notifier les utilisateurs quand une nouvelle activité correspondant aux
     // intérêts d'un utilisateur est créée.
 
 
+    public void ajouterActivite(Activite activite ){
 
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Veuillez choisir un nom pour votre activité: ");
+        String choix= scanner.nextLine();
+        activite.setNom(choix);
+
+
+        Scanner scanner1 = new Scanner(System.in);
+        System.out.println("Veuillez choisir le type de l'activité: ");
+        // check si on a des types predefinis ou si on veut choisir parmis ceux dispo
+
+        String choix1= scanner1.nextLine();
+        activite.setType(choix1);
+
+        Scanner scanner2 = new Scanner(System.in);
+        System.out.println("Veuillez choisir le nombre d'interets que vous voulez associer à l'activité:");
+
+        int choix2 = scanner2.nextInt();
+
+
+
+    }
+
+    public void setNom(String string){
+        this.nom = string;
+    }
+
+    public void setType(String string){
+        this.type= string;
+    }
     public List<String> getListedActivites(){
         return listedActivites;
     }
