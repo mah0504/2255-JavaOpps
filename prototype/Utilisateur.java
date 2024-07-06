@@ -12,6 +12,7 @@ public class Utilisateur implements Acteur {
     private ArrayList<String> listePseudos;
     private ArrayList<Interet> listeInterets;
 
+
     public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, ArrayList<Interet> listeInterets) {
         this.nom = nom;
         this.prenom = prenom;
