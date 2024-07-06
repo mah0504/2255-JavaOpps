@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Fournisseur {
+public class Fournisseur implements Acteur {
     private String nom;
     private String adresse;
     private String email;
@@ -70,6 +70,7 @@ public class Fournisseur {
     }
 
     // Méthodes
+    @Override
     public void sInscrire() {
         try (Scanner scanner = new Scanner(System.in)) {
 
@@ -123,6 +124,7 @@ public class Fournisseur {
         return false;
     }
 
+    @Override
     public void seConnecter() {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Entrez votre nom : ");
@@ -147,6 +149,7 @@ public class Fournisseur {
         }
     }
 
+    @Override
     public void modifierProfil() {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Que voulez-vous modifier ?");
