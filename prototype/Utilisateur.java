@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class Utilisateur {
+public class Utilisateur implements Acteur{
     private String nom;
     private String prenom;
     private String pseudo;
@@ -101,7 +101,9 @@ public class Utilisateur {
     }
 
     // Méthodes
-    public void sInscrire(ArrayList<Utilisateur> listeUsers) {
+    
+    @Override
+    public void sInscrire() {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Entrez votre nom: ");
             String nom = scanner.nextLine();
@@ -172,6 +174,7 @@ public class Utilisateur {
     }
 
 
+    @Override
     public void seConnecter() {
 
         try (Scanner scanner = new Scanner(System.in)) {
@@ -197,7 +200,7 @@ public class Utilisateur {
         }
     }
 
-
+    @Override
     public void modifierProfil() {
         try (Scanner scanner = new Scanner(System.in)) {
     
