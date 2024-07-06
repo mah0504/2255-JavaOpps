@@ -290,5 +290,40 @@ public class Utilisateur implements Acteur{
 
     public void voirNotifications() {
     }
+
+    public void initialiserUtilisateurs() {
+  
+        Utilisateur utilisateur1 = new Utilisateur("Dannane", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", listeInterets);
+        listeUsers.add(utilisateur1);
+    
+        Utilisateur utilisateur2 = new Utilisateur("nom2", "Maha", "maha", "maha@example.com", "motdepasse2", "2468013579",listeInterets);
+        listeUsers.add(utilisateur2);
+    
+        Utilisateur utilisateur3 = new Utilisateur("nom3","Sabrina", "miaou", "miaou@example.com", "motdepasse3", "9753124680", listeInterets);
+        listeUsers.add(utilisateur3);
+    
+        Utilisateur utilisateur4 = new Utilisateur("nom4", "Audrey", "aude", "aude@example.com", "motdepasse4", "0864213579", listeInterets);
+        listeUsers.add(utilisateur4);
+    
+        Utilisateur utilisateur5 = new Utilisateur("nom5", "prenom5", "nprenom5", "nprenom5@example.com", "motdepasse5", "3332221111", listeInterets);
+        listeUsers.add(utilisateur5);
+
+        Utilisateur utilisateur6 = new Utilisateur("nom6", "prenom6", "nprenom6", "nprenom6@example.com", "motdepasse6", "2221113333", listeInterets);
+        listeUsers.add(utilisateur6);
+
+        Utilisateur utilisateur7 = new Utilisateur("nom7", "prenom7", "nprenom7", "nprenom7@example.com", "motdepasse7", "6665554444", listeInterets);
+        listeUsers.add(utilisateur7);
+
+        Utilisateur utilisateur8 = new Utilisateur("nom8", "prenom8", "nprenom8", "nprenom8@example.com", "motdepasse8", "5554446666", listeInterets);
+        listeUsers.add(utilisateur8);
+
+        Utilisateur utilisateur9 = new Utilisateur("nom9", "prenom9", "nprenom9", "nprenom9@example.com", "motdepasse9", "8889997777", listeInterets);
+        listeUsers.add(utilisateur9);
+
+        Utilisateur utilisateur10 = new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", listeInterets);
+        listeUsers.add(utilisateur10);
+    
+    
+    }
 }
 
