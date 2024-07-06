@@ -11,14 +11,7 @@ public class Robot {
     private Object[] etats = new Object[4]; // Tableau pour stocker les états
 
 
-    public Robot(int numeroDeSerie,String nom, String type ,boolean disponibilite, Object[] etats ){
-        this.numeroDeSerie = numeroDeSerie;
-        this.nom = nom;
-        this.type = type;
-        this.disponibilite = disponibilite;
-        this.etats = etats;
 
-    }
     public void afficherInformations() {
         System.out.println("Numéro de série : " + numeroDeSerie);
         System.out.println("Nom : " + nom);

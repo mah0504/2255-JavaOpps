@@ -7,7 +7,7 @@ public class Fournisseur implements Acteur {
     private String motDePasse;
     private String telephone;
     private String capaciteFabrication;
-    private ArrayList<Composante> composantes;
+    private ArrayList<Composantes> composantes;
     private ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
 
     // Constructor
@@ -218,6 +218,11 @@ public class Fournisseur implements Acteur {
         } catch (Exception e) {
             System.out.println("Erreur lors de la modification du profil : " + e.getMessage());
         }
+    }
+
+    @Override
+    public void comfirmerInscription() {
+
     }
 
     public void gererComposantes() {

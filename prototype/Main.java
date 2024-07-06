@@ -7,8 +7,7 @@ public class Main {
 
     public Main() {
         publique = new Publique();
-        fournisseur = new Fournisseur();
-        utilisateur = new Utilisateur();
+
     }
 
 
