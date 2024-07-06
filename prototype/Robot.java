@@ -1,23 +1,50 @@
 import java.util.*;
 
 public class Robot {
-   // private Object[] metriques;
 
+
+    // utiliser constructeur avec les données comme paramètre à chaque fois?
     private int numeroDeSerie;
     private String nom;
     private String type;
     private boolean disponibilite;
+    private Object[] etats = new Object[4]; // Tableau pour stocker les états
+
+
+    public Robot(int numeroDeSerie,String nom, String type ,boolean disponibilite, Object[] etats ){
+        this.numeroDeSerie = numeroDeSerie;
+        this.nom = nom;
+        this.type = type;
+        this.disponibilite = disponibilite;
+        this.etats = etats;
+
+    }
+    public void afficherInformations() {
+        System.out.println("Numéro de série : " + numeroDeSerie);
+        System.out.println("Nom : " + nom);
+        System.out.println("Type : " + type);
+        System.out.println("Disponibilité : " + (disponibilite ? "Disponible" : "Non disponible"));
+        System.out.println("États : ");
+        getEtats();
+    }
+
+
+    public Object[] getEtats(){
+        for (int i=0;i<etats.length; i++){
+            System.out.println(getEtats()[i]); // imprimer les elements du tableau
+        }
+        return this.etats;
+    }
 
     private List<Composantes> composantesRobot = new ArrayList<>() ;
 
     public Composantes getElemComposantesRobot(int i){
-        return composantesRobot.get(i);  // retourne un element recherche de la liste
-        // faut-il ajouter un getString?
-    }
-    public List<Composantes> getListCompoRobot(){
-        return composantesRobot;
+        return this.composantesRobot.get(i);  // retourne un element recherche de la liste
     }
 
+    public List<Composantes> getListCompoRobot(){
+        return this.composantesRobot;
+    }
 
 //    public void ParcourirCompo(List<Composantes> composantesRobot, Composantes composante){
 //        this.composantesRobot = composantesRobot;
@@ -36,7 +63,6 @@ public class Robot {
         this.type = type;
     }
 
-    // pr
     @Override
     public String toString() {
         return "Robot{" +
@@ -44,10 +70,5 @@ public class Robot {
                 ", composantesRobot=" + composantesRobot + '}';
     }
 
-// L'état d'un robot présente sa position, sa vitesse, son niveau de batterie, sa consommation CPU et mémoire
-
-// Les métriques (indicateurs, ratios agrégés par période)
-
-
-
 }
+
