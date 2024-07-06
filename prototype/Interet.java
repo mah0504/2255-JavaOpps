@@ -1,17 +1,19 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
-public class Interet {
-
-
+public class Interet{
     private String nom;
+    private static ArrayList<Interet> listeInteretsGeneraux;
+    private static Map<Interet, ArrayList<Activite>> ActivitesByInteret = new HashMap<>();
+    private ArrayList<Activite> listeActivites; // liste des Activités associés à cet intéret
 
     // Constructor
     public Interet(String nom) {
         this.nom = nom;
     }
-
-
-
+    public Interet() {
+    }
 
     // Getters and Setters
     public String getNom() {
@@ -32,33 +34,33 @@ public class Interet {
         }
     }
 
+    // Associer une activité à un intérêt
+    public void associerActivite(Activite activite) {
+        listeActivites.add(activite);
+    }
 
+    // Récupérer toutes les activités ayant le même intérêt
+    public ArrayList<Activite> getlisteActivites() {
+        return listeActivites;
+    }
 
-
-
-
-
-
-
-
-
-    public void associerActivite() {
-        // pour chaque actvité, associer un interet
+    // Récupérer tous les intérêts de notre Robotix
+    public static ArrayList<Interet> getListeInteretsGeneraux() {
+        return listeInteretsGeneraux;
     }
 
     public static void initialiserListeInterets() {
-        ArrayList<Interet> listeInterets = new ArrayList<>();
-        listeInterets.add(new Interet("Education"));
-        listeInterets.add(new Interet("Lecture"));
-        listeInterets.add(new Interet("Création"));
-        listeInterets.add(new Interet("Art"));
-        listeInterets.add(new Interet("PacMan"));
-        listeInterets.add(new Interet("Jeu d'échec"));
-        listeInterets.add(new Interet("Sport"));
-        listeInterets.add(new Interet("Musique"));
-        listeInterets.add(new Interet("Cinema"));
-        listeInterets.add(new Interet("Domotique"));
+        ArrayList<Interet>  listeInteretsGeneraux = new ArrayList<>();
+        listeInteretsGeneraux.add(new Interet("Education"));
+        listeInteretsGeneraux.add(new Interet("Lecture"));
+        listeInteretsGeneraux.add(new Interet("Création"));
+        listeInteretsGeneraux.add(new Interet("Art"));
+        listeInteretsGeneraux.add(new Interet("PacMan"));
+        listeInteretsGeneraux.add(new Interet("Jeu d'échec"));
+        listeInteretsGeneraux.add(new Interet("Sport"));
+        listeInteretsGeneraux.add(new Interet("Musique"));
+        listeInteretsGeneraux.add(new Interet("Cinema"));
+        listeInteretsGeneraux.add(new Interet("Domotique"));
 
     }
 }
-

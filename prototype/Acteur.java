@@ -7,6 +7,6 @@ public interface Acteur {
 
     public void modifierProfil();
 
-    //public void comfirmerInscription();
+    public void confirmerInscription();
     // email de comfirmation apres inscription
 }

@@ -1,4 +1,6 @@
+import java.time.LocalDateTime;
 import java.util.*;
+import java.util.regex.*;
 
 public class Fournisseur implements Acteur {
     private String nom;
@@ -7,6 +9,9 @@ public class Fournisseur implements Acteur {
     private String motDePasse;
     private String telephone;
     private String capaciteFabrication;
+    private LocalDateTime dateInscription =  LocalDateTime.now();
+    private boolean confirmationEmail = false;
+    private String codeConfirmation = genererCodeConfirmation();
     //private ArrayList<Composantes> composantes;
     private ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
 
@@ -102,27 +107,19 @@ public class Fournisseur implements Acteur {
             System.out.print("Entrez votre capacité de fabrication : ");
             String capaciteFabrication = scanner.nextLine();
 
+            envoyerEmail(email);
+            confirmerInscription();
+
             Fournisseur fournisseur = new Fournisseur(nom, adresse, email, motDePasse, telephone, capaciteFabrication);
-            listeFournisseurs.add(fournisseur);
+            if(confirmationEmail){
+                listeFournisseurs.add(fournisseur);
+            }
+
 
             System.out.println("Inscription réussie !");
         } catch (Exception e) {
             System.out.println("Erreur lors de l'inscription : " + e.getMessage());
         }
-    }
-
-    private boolean emailValide(String email) {
-        String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
-        return email.matches(emailPattern);
-    }
-
-    private boolean nomExiste(String nom) {
-        for (Fournisseur fournisseur : listeFournisseurs) {
-            if (fournisseur.getNom().equals(nom)) {
-                return true;
-            }
-        }
-        return false;
     }
 
     @Override
@@ -221,11 +218,60 @@ public class Fournisseur implements Acteur {
         }
     }
 
+    @Override
+    public void confirmerInscription() {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.print("Entrez le code de confirmation reçu par email : ");
+            String cle = scanner.nextLine();
+
+            if (codeConfirmation.equals(cle) && dateInscription.plusHours(24).isAfter(LocalDateTime.now())) {
+                this.confirmationEmail = true;
+                System.out.println("Inscription avec succès !");
+            } else {
+                System.out.println("Lien de confirmation invalide ou expiré.");
+            }
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la confirmation : " + e.getMessage());
+        }
+    }
+
     public void gererComposantes() {
+        //gerer l'inventaire
+        //Stock
+        //updateStock lors de l'achat de composantes
     }
 
     public void enregistrerComposante() {
+        //Stock
     }
+
+    /*
+     * Fonction auxiliaire pour vérifier L'inscription
+     */
+    private boolean emailValide(String email) {
+        String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
+        return email.matches(emailPattern);
+    }
+
+    private boolean nomExiste(String nom) {
+        for (Fournisseur fournisseur : listeFournisseurs) {
+            if (fournisseur.getNom().equals(nom)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    private String genererCodeConfirmation() {
+        return UUID.randomUUID().toString();
+    }
+
+    private void envoyerEmail(String destinataire) {
+        System.out.println("Envoi d'email à : " + destinataire);
+        System.out.println("Sujet : Confirmation de l'inscription" );
+        System.out.println("Contenu : Cliquez sur le lien pour confirmer votre inscription  et saisisez le code :" + codeConfirmation);
+    }
+    /* ************************************************************************************************ */
+
 
     public static void initialiserListeFournisseurs() {
         ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
