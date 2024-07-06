@@ -1,5 +1,3 @@
-package prototype;
-
 import java.util.*;
 
 public class Fournisseur {
