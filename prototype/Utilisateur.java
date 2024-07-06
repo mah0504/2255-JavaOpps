@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 public class Utilisateur implements Acteur{
     private String nom;
@@ -74,15 +76,15 @@ public class Utilisateur implements Acteur{
         return listeUsers;
     }
 
-    
+
     public void ajouterNouvUtilisateur(Utilisateur utilisateur) {
-        listeUtilisateurs.add(utilisateur);  // après connexion on ajoute
-        // voir methode se connecter puis harmoniser 
+        listeUsers.add(utilisateur);  // après connexion on ajoute
+        // voir methode se connecter puis harmoniser
     }
 
 
 
-    
+
 
     public void setListeUsers(ArrayList<Utilisateur> listeUsers) {
         this.listeUsers = listeUsers;
@@ -111,7 +113,7 @@ public class Utilisateur implements Acteur{
     }
 
     // Méthodes
-    
+
     @Override
     public void sInscrire() {
         try (Scanner scanner = new Scanner(System.in)) {
@@ -166,7 +168,7 @@ public class Utilisateur implements Acteur{
                     i--;
                 }
             }
-            
+
             Utilisateur utilisateur = new Utilisateur(nom, prenom, pseudo, email, motDePasse, telephone, listeInterets);
             listeUsers.add(utilisateur);
         } catch (Exception e) {
@@ -213,7 +215,7 @@ public class Utilisateur implements Acteur{
     @Override
     public void modifierProfil() {
         try (Scanner scanner = new Scanner(System.in)) {
-    
+
             System.out.println("Que voulez-vous modifier ?");
             System.out.println("1. Nom");
             System.out.println("2. Prénom");
@@ -279,20 +281,22 @@ public class Utilisateur implements Acteur{
         }
     }
 
-    
+    @Override
+    public void comfirmerInscription() {
+
+    }
+
+
     public void voirMetriques(Robot robot) {
         robot.getEtats();
     }
 
-    
 
 
 
 
 
 
-
-    
     public void gererFlotte() {
     }
 
@@ -316,19 +320,19 @@ public class Utilisateur implements Acteur{
     }
 
     public void initialiserUtilisateurs() {
-  
+
         Utilisateur utilisateur1 = new Utilisateur("Dannane", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", listeInterets);
         listeUsers.add(utilisateur1);
-    
+
         Utilisateur utilisateur2 = new Utilisateur("nom2", "Maha", "maha", "maha@example.com", "motdepasse2", "2468013579",listeInterets);
         listeUsers.add(utilisateur2);
-    
+
         Utilisateur utilisateur3 = new Utilisateur("nom3","Sabrina", "miaou", "miaou@example.com", "motdepasse3", "9753124680", listeInterets);
         listeUsers.add(utilisateur3);
-    
+
         Utilisateur utilisateur4 = new Utilisateur("nom4", "Audrey", "aude", "aude@example.com", "motdepasse4", "0864213579", listeInterets);
         listeUsers.add(utilisateur4);
-    
+
         Utilisateur utilisateur5 = new Utilisateur("nom5", "prenom5", "nprenom5", "nprenom5@example.com", "motdepasse5", "3332221111", listeInterets);
         listeUsers.add(utilisateur5);
 
@@ -346,8 +350,7 @@ public class Utilisateur implements Acteur{
 
         Utilisateur utilisateur10 = new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", listeInterets);
         listeUsers.add(utilisateur10);
-    
-    
+
     }
 }
 
