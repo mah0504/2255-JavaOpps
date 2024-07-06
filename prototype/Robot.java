@@ -57,6 +57,7 @@ public class Robot {
     }
 
     @Override
+
     public String toString() {
         return "Robot{" +
                 "nom='" + nom  + ", type='" + type + ", numeroDeSerie=" + numeroDeSerie +

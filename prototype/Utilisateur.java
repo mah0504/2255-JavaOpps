@@ -1,6 +1,5 @@
 import java.util.*;
-import java.util.regex.Pattern;
-import java.util.regex.Matcher;
+import java.util.regex.*;
 
 public class Utilisateur implements Acteur{
     private String nom;
@@ -112,7 +111,11 @@ public class Utilisateur implements Acteur{
                 '}';
     }
 
-    // Méthodes
+
+    @Override
+    public void modifierSonProfil() {
+
+    }
 
     @Override
     public void sInscrire() {
@@ -178,6 +181,11 @@ public class Utilisateur implements Acteur{
         System.out.println("Inscription réussie!");
     }
 
+    @Override
+    public void validerMDP() {
+
+    }
+
     private static boolean emailValide(String email) {
         String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
         Pattern pattern = Pattern.compile(emailPattern);
@@ -210,6 +218,11 @@ public class Utilisateur implements Acteur{
         } catch (Exception e) {
             System.out.println("Erreur lors de la connexion : " + e.getMessage());
         }
+    }
+
+    @Override
+    public void comfirmerInscription() {
+
     }
 
     @Override
@@ -281,15 +294,13 @@ public class Utilisateur implements Acteur{
         }
     }
 
-    @Override
-    public void comfirmerInscription() {
-
-    }
-
 
     public void voirMetriques(Robot robot) {
         robot.getEtats();
     }
+
+
+
 
 
 
@@ -350,6 +361,7 @@ public class Utilisateur implements Acteur{
 
         Utilisateur utilisateur10 = new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", listeInterets);
         listeUsers.add(utilisateur10);
+
 
     }
 }

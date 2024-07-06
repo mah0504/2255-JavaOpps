@@ -17,8 +17,6 @@ public class Tache {
 
     }
 
-
-
     public ArrayList<Tache> getListeTaches(){
         return listeTaches;
     }
