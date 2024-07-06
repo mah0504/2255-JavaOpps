@@ -6,10 +6,35 @@ public class Flotte {
     private int nomRobot; // id, numero de serie
     private boolean disponibilite;
 
+
+    // gerer sa flotte - menu de recherche pr invoquer chaque methode ig ?
     public Flotte() {
         this.listeRobots = new ArrayList<>();
         this.listeComposantes = new ArrayList<>();
     }
+
+    public void afficherChoix(){
+        Scanner scanner= new Scanner(System.in);
+        System.out.println("Veuillez choisir quelle fonctionnalité effectuer dans votre flotte: " +
+                "[1] : Acheter une composante \n [2] : Assigner une composante à un robot \n [3]" +
+                " : Enregistrer un robot \n");
+        int choix = scanner.nextInt();
+        switch (choix){
+            case 1:
+                acheterComposante(Composantes);
+                break;
+            case 2:
+                assignerComposante(Robot, Composantes);
+                break;
+            case 3:
+                enregistrerRobot( new Robot(), Composantes);
+                break;
+            default:
+                System.out.println("Veuillez entrer un choix valide !");
+                break;
+        }
+    }
+
 
     public List<Robot> getListeRobots() {
         return listeRobots;
@@ -34,7 +59,6 @@ public class Flotte {
     }
 
 
-
     public void acheterComposante(Composantes composante) {
         if (verifierComposante(composante)) {
             composante.incrementInventaire();
@@ -55,7 +79,8 @@ public class Flotte {
     }
 
 
-    // robot déjà créé
+    // robot déjà créé ajouter une classe ou on selectionne le robot depuis notre Arrayliste
+    // traiter les exceptions
     public void assignerComposante(Robot robot, Composantes composante) {
         for (Composantes c : robot.getListCompoRobot()) {
             if (composante.getClass()== c.getClass() && verifierComposante(composante)){  // si le robot a déjà une composante du même type
@@ -100,6 +125,7 @@ public class Flotte {
                 break;
         }
         return comfi;
+
     }
 
 

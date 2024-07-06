@@ -188,8 +188,12 @@ public class Main {
                     choixProfil();
                     break;
                 case 1:
-
+                    //modifier profil
                     break;
+
+
+                case 2:
+                    // aller a flotte
                 default:
                     afficherMenu(utilisateur);
                     break;
