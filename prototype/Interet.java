@@ -2,15 +2,12 @@ import java.util.ArrayList;
 
 public class Interet {
 
-
     private String nom;
 
     // Constructor
     public Interet(String nom) {
         this.nom = nom;
     }
-
-
 
 
     // Getters and Setters

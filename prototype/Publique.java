@@ -24,6 +24,13 @@ public class Publique {
         }
     }
 
+    public void afficherMetrique(Robot robot){
+
+    }
+
+
+
+
     public void RecupListeFournisseur(Fournisseur fourn){
         for (int i=0; i<  Systeme.getInstance().getFournisseurs().size() ;i++){
             System.out.println(Systeme.getInstance().getFournisseurs().get(i) );
