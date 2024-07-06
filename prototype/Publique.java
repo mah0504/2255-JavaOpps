@@ -8,8 +8,14 @@ public class Publique {
         // voir la liste d'utilisateurs , chercher le nom puis imprimer son yapping normalement
         // voir comment on structure les donnees de l'utilisateur et fournisseur
         // on i
-
     }
+    public void  RecupListeActivites( Activite activites ) {
+        for (int i = 0; i < activites.getSize(); i++){
+
+            System.out.println("[" + i +"]"+ ": " + activites.getListedActivites().get(i) );
+        }
+    }
+
 
     public void voirProfil(Acteur acteur){
         // soit utilisateur soit fournisseur
