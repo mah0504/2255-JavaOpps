@@ -22,7 +22,7 @@ public class Main {
     // Premier niveau d'imbrication du menu
     public void choixProfil() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println(" [1]: Profil publique\n [2]: Utilisateur \n [3] Fournisseur: \n ");
+        System.out.println(" [1]: Profil publique\n [2]: Utilisateur \n [3]: Fournisseur \n ");
 
         try {
             int choix = scanner.nextInt();
@@ -131,7 +131,7 @@ public class Main {
         System.out.println("Veuillez choisir quelle fonctionnalité effectuer \n [0]: Retour au menu principal " +" " +
                 "[1]: Récupérer la liste des utilisateurs \n [2]: Rechercher un utilisateur \n [3]: Voir le profil" +
                 "d'un utilisateur \n [4]: Récupérer la liste des activités \n [5]: Récupérer la liste des intérêts \n" +
-                "[6]: Récupérer la liste des fournisseurs \n [7]: Rechercher un fournisseur \n [8]: Voir le profil d'un" +
+                " [6]: Récupérer la liste des fournisseurs \n [7]: Rechercher un fournisseur \n [8]: Voir le profil d'un" +
                 "fournisseur \n [9]: Rechercher une composante \n ");
         try {
             int choix3 = scanner.nextInt();
