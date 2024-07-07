@@ -8,7 +8,7 @@ public class Composantes {
     private String nom;
     private Float prix;
     private String description;
-    private String type;
+    private String type ;
     private static List<Class<? extends Composantes>> listeSousClasses = new ArrayList<>(List.of(
             CPU.class, Roue.class, Bras.class, Helice.class, Camera.class, HautParleur.class, Micro.class, Ecran.class));
 
@@ -67,6 +67,8 @@ public class Composantes {
         return prix;
     }
     // au moins 2 composantes
+
+
 
     public int getInventaire() {
         return inventaire;
