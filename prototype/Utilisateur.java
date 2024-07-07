@@ -142,7 +142,7 @@ public class Utilisateur implements Acteur {
                 ", motDePasse='" + motDePasse + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
-                ", listeInterets=" + listeInterets +
+                ", points accumulés=" + pointsGagnes +
                 '}';
     }
 
@@ -156,124 +156,24 @@ public class Utilisateur implements Acteur {
         entrerEmail();
         entrerTelephone();
 
-        //todo interet
-        //todo e-mail de confirmation
+        //L'utilsateurs entre jusqu'à 10 Intérêts
+        gererInterets();
 
-        //une fois que e-mail confirmé,
-        Systeme.getInstance().ajouterUtilisateur(this);
+        //initialisé à 0 car l'utilisateur n'a pas commencé les activités
+        int pointsGagnes = 0;
+
+        //envoyer mail de confirmation
+        envoyerEmail(email);
+        //modifie ou pas la variable booléene confirmationEmail
+        confirmerInscription();
+
+        Utilisateur utilisateur = new Utilisateur(nom, prenom, pseudo, email, motDePasse, telephone, pointsGagnes);
+        if(confirmationEmail){
+            listeUsers.add(utilisateur);
+        }
         System.out.println("Inscription réussie!");
 
     }
-
-    public void entrerPseudo() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre pseudo: ");
-            try {
-                pseudo = scanner.nextLine();
-                verifierAlphaNum(pseudo);
-                pseudoUnique(pseudo);
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerNom() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre nom: ");
-            try {
-                nom = scanner.nextLine();
-                verifierAlpha(nom);
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerPrenom() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre prenom: ");
-            try {
-                prenom = scanner.nextLine();
-                verifierAlpha(prenom);
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerMDP() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre mot de passe: ");
-            try {
-                motDePasse = scanner.nextLine();
-                if (motDePasse.length() < 8) {
-                    throw new IllegalArgumentException("Le mot de passe doit comporter au moins 8 caractères.");
-                }
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerEmail() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre e-mail: ");
-            try {
-                email = scanner.nextLine();
-                verifierEmail(email);
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerTelephone() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre téléphone: ");
-            try {
-                telephone = String.valueOf(scanner.nextInt());
-                if (telephone.length() > 10) {
-                    throw new IllegalArgumentException("Numéro de téléphone invalide.");
-                }
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-    }
-
-
-
-
 
     /*@Override
     public void sInscrire() {
@@ -409,10 +309,32 @@ public class Utilisateur implements Acteur {
         }
     }
 
+    /*
+     * Cette méthode permet de confirmer l'inscription
+     * elle modifie ou pas la valeur de la variable booléene confirmationEmail
+     * Si l'utilisateur entre la bonne clé après 24 heures, la variable confirmationEmail renvoie un True
+     */
+
     @Override
     public void confirmerInscription() {
+        try (Scanner scanner = new Scanner(System.in)) {
 
+            System.out.print("Entrez le code de confirmation reçu par email : ");
+            String cle = scanner.nextLine();
+
+            //codeConfirmation vérifie l'exactitude de la clé
+            //dateInscription est une Date à quoi on a ajouté une période de 24 heures
+            if (codeConfirmation.equals(cle) && dateInscription.plusHours(24).isAfter(LocalDateTime.now())) {
+                this.confirmationEmail = true;
+                System.out.println("Inscription avec succès !");
+            } else {
+                System.out.println("Lien de confirmation invalide ou expiré.");
+            }
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la confirmation : " + e.getMessage());
+        }
     }
+
     public void gererFlotte(Flotte flotte, Composantes composantes ) {
         Scanner scanner = new Scanner(System.in);
 
@@ -460,6 +382,7 @@ public class Utilisateur implements Acteur {
             System.out.println( "La metrique : " +m );
         }
     }
+
     /*
      * Méthode qui permet de gérer les Suiveurs et Suivis
      * Elle permet soit de Suivre un Utilisateur, soit de voir qui nous suivons et qui nous suivent.
@@ -740,6 +663,112 @@ public class Utilisateur implements Acteur {
         return -1;          // le pseudo n'existe pas
     }
 
+    public void entrerPseudo() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre pseudo: ");
+            try {
+                pseudo = scanner.nextLine();
+                verifierAlphaNum(pseudo);
+                pseudoUnique(pseudo);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+
+    }
+
+    public void entrerNom() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre nom: ");
+            try {
+                nom = scanner.nextLine();
+                verifierAlpha(nom);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+
+    }
+
+    public void entrerPrenom() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre prenom: ");
+            try {
+                prenom = scanner.nextLine();
+                verifierAlpha(prenom);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+
+    }
+
+    public void entrerMDP() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre mot de passe: ");
+            try {
+                motDePasse = scanner.nextLine();
+                if (motDePasse.length() < 8) {
+                    throw new IllegalArgumentException("Le mot de passe doit comporter au moins 8 caractères.");
+                }
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+
+    }
+
+    public void entrerEmail() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre e-mail: ");
+            try {
+                email = scanner.nextLine();
+                verifierEmail(email);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+
+    }
+
+    public void entrerTelephone() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre téléphone: ");
+            try {
+                telephone = String.valueOf(scanner.nextInt());
+                if (telephone.length() > 10) {
+                    throw new IllegalArgumentException("Numéro de téléphone invalide.");
+                }
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+    }
+
     /* ************************************************************************************************ */
     /*
      * Fonctions auxiliaires pour sInscrireActivité et gererActivites
@@ -807,34 +836,34 @@ public class Utilisateur implements Acteur {
 
     /*public void initialiserUtilisateurs() {
 
-        Utilisateur utilisateur1 = new Utilisateur("Dannane", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", listeInterets);
+        Utilisateur utilisateur1 = new Utilisateur("Dannane", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", 0);
         listeUsers.add(utilisateur1);
 
-        Utilisateur utilisateur2 = new Utilisateur("nom2", "Maha", "maha", "maha@example.com", "motdepasse2", "2468013579",listeInterets);
+        Utilisateur utilisateur2 = new Utilisateur("nom2", "Maha", "maha", "maha@example.com", "motdepasse2", "2468013579",0);
         listeUsers.add(utilisateur2);
 
-        Utilisateur utilisateur3 = new Utilisateur("nom3","Sabrina", "miaou", "miaou@example.com", "motdepasse3", "9753124680", listeInterets);
+        Utilisateur utilisateur3 = new Utilisateur("nom3","Sabrina", "miaou", "miaou@example.com", "motdepasse3", "9753124680", 0);
         listeUsers.add(utilisateur3);
 
-        Utilisateur utilisateur4 = new Utilisateur("nom4", "Audrey", "aude", "aude@example.com", "motdepasse4", "0864213579", listeInterets);
+        Utilisateur utilisateur4 = new Utilisateur("nom4", "Audrey", "aude", "aude@example.com", "motdepasse4", "0864213579", 0);
         listeUsers.add(utilisateur4);
 
-        Utilisateur utilisateur5 = new Utilisateur("nom5", "prenom5", "nprenom5", "nprenom5@example.com", "motdepasse5", "3332221111", listeInterets);
+        Utilisateur utilisateur5 = new Utilisateur("nom5", "prenom5", "nprenom5", "nprenom5@example.com", "motdepasse5", "3332221111", 0);
         listeUsers.add(utilisateur5);
 
-        Utilisateur utilisateur6 = new Utilisateur("nom6", "prenom6", "nprenom6", "nprenom6@example.com", "motdepasse6", "2221113333", listeInterets);
+        Utilisateur utilisateur6 = new Utilisateur("nom6", "prenom6", "nprenom6", "nprenom6@example.com", "motdepasse6", "2221113333", 0);
         listeUsers.add(utilisateur6);
 
-        Utilisateur utilisateur7 = new Utilisateur("nom7", "prenom7", "nprenom7", "nprenom7@example.com", "motdepasse7", "6665554444", listeInterets);
+        Utilisateur utilisateur7 = new Utilisateur("nom7", "prenom7", "nprenom7", "nprenom7@example.com", "motdepasse7", "6665554444", 0);
         listeUsers.add(utilisateur7);
 
-        Utilisateur utilisateur8 = new Utilisateur("nom8", "prenom8", "nprenom8", "nprenom8@example.com", "motdepasse8", "5554446666", listeInterets);
+        Utilisateur utilisateur8 = new Utilisateur("nom8", "prenom8", "nprenom8", "nprenom8@example.com", "motdepasse8", "5554446666", 0);
         listeUsers.add(utilisateur8);
 
-        Utilisateur utilisateur9 = new Utilisateur("nom9", "prenom9", "nprenom9", "nprenom9@example.com", "motdepasse9", "8889997777", listeInterets);
+        Utilisateur utilisateur9 = new Utilisateur("nom9", "prenom9", "nprenom9", "nprenom9@example.com", "motdepasse9", "8889997777", 0);
         listeUsers.add(utilisateur9);
 
-        Utilisateur utilisateur10 = new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", listeInterets);
+        Utilisateur utilisateur10 = new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", 0);
         listeUsers.add(utilisateur10);
 
         //l'utilisateur2 suit l'utilisateur 1
