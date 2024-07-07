@@ -11,7 +11,7 @@ public class Utilisateur extends Acteur {
     private ArrayList<Activite> listeActivites; // liste des activités que maintiens l'utilisateur
     private int pointsGagnes, classement;
     List<Activite> MesActivites = new ArrayList<>();
-
+    private List<Notifications> MesNotifications= new ArrayList<>();
     // Constructeurs :
     public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, int pointsGagnes){
         this.nom = nom;
@@ -81,8 +81,9 @@ public class Utilisateur extends Acteur {
         this.pseudo = pseudo;
     }
 
+    public List<Notifications> getNotifications() { return MesNotifications;}
 
-
+    public void addNotif(Notifications notification) { MesNotifications.add(notification);}
 
 
 
