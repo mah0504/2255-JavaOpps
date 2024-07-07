@@ -15,7 +15,13 @@ public class Main {
        // Gestionnaire donnees = new Gestionnaire();
 
 
-        Main n = new Main();;
+        Main n = new Main();
+        Interet interet = new Interet();
+        interet.initialiserListeInterets();
+
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("Dannane", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", 0));
+
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("Dannadslkfjslkfjne", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", 0));
         n.choixProfil();
     }
 
@@ -66,13 +72,15 @@ public class Main {
 
             case 1:
                 while(continuer){
-                    continuer= seConnecter();
+                    continuer = seConnecter();
                 }
                 break;
 
             case 2:
                 while(continuer){
-                    continuer=sInscrire();
+                    //continuer=sInscrire();
+                    Utilisateur user = new Utilisateur();
+                    user.sInscrire();
                 }
                 choixConnecterInscrire(); // revenir au menu pour se connecter
                 break;
@@ -93,6 +101,8 @@ public class Main {
     }
 
     public boolean sInscrire(){
+        Utilisateur utilisateur1 = null;
+        utilisateur1.sInscrire();
         System.out.println("Email de comfirmation envoyé!");
         return false;
     }
@@ -201,7 +211,7 @@ public class Main {
                     break;
 
                 case 2:
-                    utilisateur.gererFlotte(utilisateur.getFlotte(), ); //2 e argument composante
+                    //utilisateur.gererFlotte(utilisateur.getFlotte(), ); //2 e argument composante
                     break;
                 case 3:
 

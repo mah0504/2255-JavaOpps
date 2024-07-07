@@ -8,7 +8,7 @@ public class Systeme {
     private static Systeme instance;
     private ArrayList<Utilisateur> utilisateurs;
     private ArrayList<Fournisseur> fournisseurs;
-    private ArrayList<Interets> interets;
+    private ArrayList<Interet> interets;
     private ArrayList<Composantes> composantes;
 
 

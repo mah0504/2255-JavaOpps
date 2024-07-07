@@ -15,7 +15,7 @@ public class Utilisateur implements Acteur {
     private String codeConfirmation = genererCodeConfirmation(); //clé à retourner pour confirmer le mail
     private ArrayList<Utilisateur> listeUsers;
     private ArrayList<String> listePseudos;
-    private ArrayList<Interet> listeInterets; // liste de 10 interets que suit l'utilisateur
+    private ArrayList<Interet> listeInterets = new ArrayList<>(); // liste de 10 interets que suit l'utilisateur
     private ArrayList<Utilisateur> listeSuivis; // liste des utilisateurs que je suis
     private ArrayList<Utilisateur> listeSuiveurs; // liste des utilisateurs qui me suivent
     private ArrayList<Activite> listeActivitesbyUser; // liste des activités que maintiens l'utilisateur
@@ -25,7 +25,7 @@ public class Utilisateur implements Acteur {
 
     // todo : nom de la compagnie ( optionnel )
 
-    public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, int pointsGagnes) {
+    /*public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, int pointsGagnes) {
         this.nom = nom;
         this.prenom = prenom;
         this.pseudo = pseudo;
@@ -34,6 +34,16 @@ public class Utilisateur implements Acteur {
         this.telephone = telephone;
         this.pointsGagnes = pointsGagnes;
         listePseudos.add(pseudo);
+    }*/
+
+    public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, int pointsGagnes){
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pseudo = pseudo;
+        this.email = email;
+        this.motDePasse = motDePasse;
+        this.telephone = telephone;
+        this.pointsGagnes = pointsGagnes;
     }
 
     public Utilisateur() {
@@ -160,8 +170,13 @@ public class Utilisateur implements Acteur {
         entrerPrenom();
         entrerMDP();
         entrerEmail();
-        entrerTelephone();
+        //entrerTelephone();
         entrerCompagnie();
+
+        Systeme.getInstance().ajouterUtilisateur(this);
+
+
+        System.out.println(Systeme.getInstance().getUtilisateurs().get(2).getNom());
 
         //L'utilsateurs entre jusqu'à 10 Intérêts
         gererInterets();
@@ -174,9 +189,11 @@ public class Utilisateur implements Acteur {
         //modifie ou pas la variable booléene confirmationEmail
         confirmerInscription();
 
-        Utilisateur utilisateur = new Utilisateur(nom, prenom, pseudo, email, motDePasse, telephone, pointsGagnes);
+
+
+        //Utilisateur utilisateur = new Utilisateur(nom, prenom, pseudo, email, motDePasse, telephone, pointsGagnes);
         if(confirmationEmail){
-            listeUsers.add(utilisateur);
+            Systeme.getInstance().ajouterUtilisateur(this);
         }
         System.out.println("Inscription réussie!");
 
@@ -476,12 +493,13 @@ public class Utilisateur implements Acteur {
      * les nouveaux Intérêts )
      */
     public void gererInterets() {
-        ArrayList<Interet> listeInteretsGeneraux = Interet.getListeInteretsGeneraux();
+
+        ArrayList<Interet> interetsSysteme = Systeme.getInstance().getInterets();
 
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Choisissez vos intérêts (entrez le numéro, 0 pour aucun choix):");
-            for (int i = 0; i < listeInteretsGeneraux.size(); i++) {
-                System.out.println((i + 1) + ". " + listeInteretsGeneraux.get(i).getNom());
+            for (int i = 0; i < interetsSysteme.size(); i++) {
+                System.out.println((i + 1) + ". " + interetsSysteme.get(i).getNom());
             }
 
             int nbChoix = 0;
@@ -492,8 +510,8 @@ public class Utilisateur implements Acteur {
 
                 if (choix == 0) {
                     break; // L'utilisateur ne choist aucun intéret proposé
-                } else if (choix >= 1 && choix <= listeInteretsGeneraux.size()) {
-                    Interet interet = listeInteretsGeneraux.get(choix - 1);
+                } else if (choix >= 1 && choix <= interetsSysteme.size()) {
+                    Interet interet = interetsSysteme.get(choix - 1);
                     interet.souscrire(this);
                     nbChoix++;
                 } else {
@@ -505,7 +523,7 @@ public class Utilisateur implements Acteur {
             while (nbChoix < 10) {
                 System.out.print("Entrez un nouvel intérêt : ");
                 Interet nvInteret = new Interet(scanner.nextLine());
-                listeInteretsGeneraux.add(nvInteret);
+                interetsSysteme.add(nvInteret);
                 nvInteret.souscrire(this);
                 nbChoix++;
             }

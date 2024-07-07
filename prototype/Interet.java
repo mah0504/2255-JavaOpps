@@ -10,6 +10,9 @@ public class Interet {
     public Interet(String nom) {
         this.nom = nom;
     }
+    public Interet(){
+
+    }
 
 
     // Getters and Setters
@@ -59,18 +62,19 @@ public class Interet {
         }
     }
 
-    public static void initialiserListeInterets() {
-        ArrayList<Interet> listeInteretsGeneraux = new ArrayList<>();
-        listeInteretsGeneraux.add(new Interet("Education"));
-        listeInteretsGeneraux.add(new Interet("Lecture"));
-        listeInteretsGeneraux.add(new Interet("Création"));
-        listeInteretsGeneraux.add(new Interet("Art"));
-        listeInteretsGeneraux.add(new Interet("PacMan"));
-        listeInteretsGeneraux.add(new Interet("Jeu d'échec"));
-        listeInteretsGeneraux.add(new Interet("Sport"));
-        listeInteretsGeneraux.add(new Interet("Musique"));
-        listeInteretsGeneraux.add(new Interet("Cinema"));
-        listeInteretsGeneraux.add(new Interet("Domotique"));
+    public void initialiserListeInterets() {
+
+        Systeme.getInstance().ajouterinterets(new Interet("Education"));
+        Systeme.getInstance().ajouterinterets(new Interet("Education"));
+        Systeme.getInstance().ajouterinterets(new Interet("Lecture"));
+        Systeme.getInstance().ajouterinterets(new Interet("Création"));
+        Systeme.getInstance().ajouterinterets(new Interet("Art"));
+        Systeme.getInstance().ajouterinterets(new Interet("PacMan"));
+        Systeme.getInstance().ajouterinterets(new Interet("Jeu d'échec"));
+        Systeme.getInstance().ajouterinterets(new Interet("Sport"));
+        Systeme.getInstance().ajouterinterets(new Interet("Musique"));
+        Systeme.getInstance().ajouterinterets(new Interet("Cinema"));
+        Systeme.getInstance().ajouterinterets(new Interet("Domotique"));
 
     }
 }
