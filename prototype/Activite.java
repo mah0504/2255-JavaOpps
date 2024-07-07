@@ -1,7 +1,7 @@
 import java.util.*;
 public class Activite {
 
-    private List<Activite> listedActivites=new ArrayList<>();
+    private static List<Activite> listedActivites=new ArrayList<>();
     private String type;
     private String nom;
     private int dateDebut;
