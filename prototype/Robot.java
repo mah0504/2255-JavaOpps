@@ -5,7 +5,7 @@ public class Robot {
     private int numeroDeSerie;
     private String nom;
     private String type;
-    private boolean disponibilite;
+
     private Object[] etats = new Object[4]; // Tableau pour stocker les états
     private List<Composantes> composantesRobot = new ArrayList<>();
 
@@ -17,37 +17,25 @@ public class Robot {
         System.out.println("Numéro de série : " + numeroDeSerie);
         System.out.println("Nom : " + nom);
         System.out.println("Type : " + type);
-        System.out.println("Disponibilité : " + (disponibilite ? "Disponible" : "Non disponible"));
         System.out.println("États : ");
-        for (Object etat : etats) {
-            System.out.println(etat);
 
-        }
     }
 
-    public List<Composantes> getListCompoRobot(){
-        return this.composantesRobot;
-    }
 
-    public void setNumeroDeSerie(int numeroDeSerie) {
-        this.numeroDeSerie = numeroDeSerie;
-    }
+// getters et setters
+    public String getNom(){ return this.nom; }
+    public List<Composantes> getListCompoRobot(){return this.composantesRobot;}
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
+    public void setNumeroDeSerie(int numeroDeSerie) {this.numeroDeSerie = numeroDeSerie;}
 
-    public void setType(String type) {
-        this.type = type;
-    }
+    public void setNom(String nom) {this.nom = nom;}
 
-    public boolean isDisponibilite() {
-        return disponibilite;
-    }
+    public void setType(String type) {this.type = type;}
 
-    public void setDisponibilite(boolean disponibilite) {
-        this.disponibilite = disponibilite;
-    }
+    public Object[] getEtats(){ return this.etats; }
+
+
+    public void setEtats(Object[] etats) {this.etats = etats; }
 
     @Override
     public String toString() {
@@ -55,7 +43,6 @@ public class Robot {
                 "numeroDeSerie=" + numeroDeSerie +
                 ", nom='" + nom + '\'' +
                 ", type='" + type + '\'' +
-                ", disponibilite=" + disponibilite +
                 ", etats=" + Arrays.toString(etats) +
                 ", composantesRobot=" + composantesRobot +
                 '}';

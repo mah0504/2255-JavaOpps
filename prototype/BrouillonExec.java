@@ -37,13 +37,19 @@ public class BrouillonExec {
         activites.addActivites("Assigner une composante à un robot");
 
         pub.RecupListeActivites(activites);
+        Utilisateur utilisateur = new Utilisateur();
 
-        Robot r= new Robot();
+        Robot r = new Robot();
         r.setNom("IJWFVN");
         r.setType("Mouvement");
         r.setNumeroDeSerie(1234);
+        // Ajouter des états pour test
+        Object[] etats = {"État1", "État2", "État3", "État4"};
+        r.setEtats(etats);
 
-        r.afficherInformations();
+
+        // Afficher les états d'un robot
+        utilisateur.afficherLesEtats(r);
 
     }
 }

@@ -7,9 +7,13 @@ public class Composantes {
     private int inventaire=0;
     private String nom;
     private Float prix;
+    private String description;
     private String type;
     private static List<Class<? extends Composantes>> listeSousClasses = new ArrayList<>(List.of(
             CPU.class, Roue.class, Bras.class, Helice.class, Camera.class, HautParleur.class, Micro.class, Ecran.class));
+
+    // todo: ajouter Description à assigner composante !!!!
+
 
 
    public Composantes choisirCompo(){

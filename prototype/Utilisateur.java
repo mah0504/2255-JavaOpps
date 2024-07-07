@@ -352,9 +352,48 @@ public class Utilisateur implements Acteur {
     public void confirmerInscription() {
 
     }
+    public void gererFlotte(Flotte flotte, Composantes composantes ) {
+        Scanner scanner = new Scanner(System.in);
 
-    public void gererFlotte() {
+        try {
+            System.out.println("Veuillez choisir quelle fonctionnalité effectuer dans votre flotte: " +
+                    "[1] : Acheter une composante \n [2] : Assigner une composante à un robot \n [3]" +
+                    " : Enregistrer un robot \n");
+            int choix = scanner.nextInt();
+
+            switch (choix) {
+                case 1:
+                    flotte.acheterComposante(composantes.choisirCompo());
+                    break;
+                case 2:
+                    flotte.assignerComposante(flotte.choisirRobot(), composantes.choisirCompo());
+                    break;
+                case 3:
+                    flotte.enregistrerRobot(new Robot(), composantes.choisirCompo());
+                    break;
+                default:
+                    System.out.println("Veuillez entrer un choix valide !");
+                    break;
+            }
+        } catch (InputMismatchException e) {
+            System.out.println("Entrée non valide. Veuillez entrer un nombre.");
+            scanner.next(); // Clear the invalid input
+        } catch (Exception e) {
+            System.out.println("Une erreur s'est produite: " + e.getMessage());
+            e.printStackTrace();
+            return; // revenir au menu jsp ?
+        }
     }
+
+    //choisir robot avant à utiliser
+    public void afficherLesEtats(Robot robot) {
+        Object[] etats = robot.getEtats();
+        System.out.println("États du robot " + robot.getNom() + " :");
+        for (Object etat : etats) {
+            System.out.println(etat);
+        }
+    }
+
 
     public void gererSuiveurs() {
     }

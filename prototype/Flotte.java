@@ -39,30 +39,8 @@ public class Flotte {
 
     }
 
-    public void afficherChoix(Composantes composantes){
-        Scanner scanner= new Scanner(System.in);
-        System.out.println("Veuillez choisir quelle fonctionnalité effectuer dans votre flotte: " +
-                "[1] : Acheter une composante \n [2] : Assigner une composante à un robot \n [3]" +
-                " : Enregistrer un robot \n");
-        int choix = scanner.nextInt();
-        switch (choix){
-            case 1:
-                acheterComposante(composantes.choisirCompo());
-                break;
-            case 2:
-                assignerComposante(choisirRobot(), composantes.choisirCompo());
-                break;
-            case 3:
-                enregistrerRobot( new Robot(), composantes.choisirCompo() );
-                break;
-            default:
-                System.out.println("Veuillez entrer un choix valide !");
-                break;
-        }
-    }
 
-
-
+// getters and setters
     public List<Robot> getListeRobots() {
         return listeRobots;
     }
@@ -71,19 +49,13 @@ public class Flotte {
         return listeComposantes;
     }
 
-    public int getNumeroDeSerie(Robot robot) {
-        return nomRobot;
-        // definir une arraylist / hashmap pr les robots aussi ?
-    }
-
-    public boolean estIlDispo() {
-        return disponibilite;
-    }
-
+    public int getNumeroDeSerie(Robot robot) {return nomRobot;}
 
     public void setListeRobots(Robot robot){
         listeRobots.add(robot);
     }
+
+
 
 
     public void acheterComposante(Composantes composante) {
