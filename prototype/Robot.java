@@ -8,7 +8,7 @@ public class Robot {
 
     private Object[] etats = new Object[4]; // Tableau pour stocker les états
     private List<Composantes> composantesRobot = new ArrayList<>();
-
+    private List<Metrique> metriquesRobot = new ArrayList<>();
     // todo : controle des mouvements
 
 
@@ -25,6 +25,9 @@ public class Robot {
 // getters et setters
     public String getNom(){ return this.nom; }
     public List<Composantes> getListCompoRobot(){return this.composantesRobot;}
+    public Object[] getEtats(){ return this.etats; }
+
+    public List<Metrique> getMetriquesRobot(){ return this.metriquesRobot;}
 
     public void setNumeroDeSerie(int numeroDeSerie) {this.numeroDeSerie = numeroDeSerie;}
 
@@ -32,9 +35,9 @@ public class Robot {
 
     public void setType(String type) {this.type = type;}
 
-    public Object[] getEtats(){ return this.etats; }
+    public void addMetriquesRobot( Metrique metrique){ metriquesRobot.add(metrique);}
 
-
+    public void setMetriquesRobot(List<Metrique> me){ this.metriquesRobot=me;}
     public void setEtats(Object[] etats) {this.etats = etats; }
 
     @Override
