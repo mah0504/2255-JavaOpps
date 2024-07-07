@@ -16,8 +16,12 @@ public class Activite {
    // la plateforme doit notifier les utilisateurs quand une nouvelle activité correspondant aux
     // intérêts d'un utilisateur est créée.
 
+    //todo: comfirmer l'ajout de l'activité , assigner activite au robot
 
     public void ajouterActivite(Activite activite ){
+
+        Notifications notif= new Notifications();
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Veuillez choisir un nom pour votre activité: ");
         String choix= scanner.nextLine();
@@ -60,6 +64,8 @@ public class Activite {
                 i--;
             }
 
+
+            notif.notifierUtilisateur( activite);
 
         }
 
@@ -108,6 +114,12 @@ public class Activite {
      * }
      *
      */
+
+
+    public void assigneractivite( Robot robot ){
+
+
+    }
 }
 
 
