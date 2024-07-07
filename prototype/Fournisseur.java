@@ -14,10 +14,8 @@ public class Fournisseur implements Acteur {
     private String codeConfirmation = genererCodeConfirmation();
     private ArrayList<Composantes> listeComposantesF;
     private ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
-
-
-    // todo: mettre en vente une composante
-
+    private Map<String, Composantes> Stock;
+    private Composantes nouvelleComposante;
 
 
     // Constructor
@@ -174,7 +172,7 @@ public class Fournisseur implements Acteur {
             while (choix != 0) {
                 System.out.print("Votre choix : ");
                 choix = scanner.nextInt();
-                scanner.nextLine(); // Pour consommer le retour à la ligne
+                scanner.nextLine();
 
                 switch (choix) {
                     case 1:
@@ -247,13 +245,80 @@ public class Fournisseur implements Acteur {
     }
 
     public void gererComposantes() {
-        //gerer l'inventaire
-        //Stock
-        //updateStock lors de l'achat de composantes
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Que voulez-vous modifier ?");
+            System.out.println("1. Ajouter des composantes à l'inventaire");
+            System.out.println("2. Mettre à jour l'inventaire");
+            System.out.println("3. Afficher l'inventaire");
+            System.out.println("0. Quitter");
+
+            int choix = -1;
+            while (choix != 0) {
+                System.out.print("Votre choix : ");
+                choix = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (choix) {
+                    case 1:
+                        System.out.print("Nouvelle composante à ajouter: ");
+                        enregistrerComposante();
+                        Stock.put(nouvelleComposante.getNom(), nouvelleComposante);
+                        break;
+                    case 2:
+                        System.out.print("Mettre à jour l'inventaire: : ");
+                        //after acheterComposante
+                        //Stock.remove(composante);
+
+                        break;
+                    case 3:
+                        System.out.print("Inventaire : ");
+                        for (Map.Entry<String, Composantes> composante : Stock.entrySet()) {
+                            System.out.print(composante.getKey() + ":");
+                            System.out.println(composante.getValue() + "" );
+                        }
+                        break;
+                    case 0:
+                        System.out.println("Traitement terminé.");
+                        break;
+                    default:
+                        System.out.println("Choix invalide. Réessayez.");
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Erreur lors du traitement de l'inventaire : " + e.getMessage());
+        }
     }
 
     public void enregistrerComposante() {
-        //Stock
+        try (Scanner scanner = new Scanner(System.in)) {
+
+            System.out.print("Entrez le nom de la composante: ");
+            String nom = scanner.nextLine();
+            nouvelleComposante.setNom(nom);
+            if (Stock.containsKey(nom)) {
+                throw new IllegalArgumentException("Cette composante existe déjà.");
+            }
+
+            System.out.print("Entrez le type de la composante : ");
+            String type = scanner.nextLine();
+            nouvelleComposante.setType(type);
+
+            System.out.print("Entrez la quantité en unités de cette composante : ");
+            String inventaire = scanner.nextLine();
+            nouvelleComposante.setQuantite(Integer.parseInt(inventaire));
+
+            System.out.print("Entrez le prix de l'unité: ");
+            String prix = scanner.nextLine();
+            nouvelleComposante.setPrix(Float.parseFloat(prix));
+
+            System.out.print("Entrez la description de la composante : ");
+            String description = scanner.nextLine();
+            nouvelleComposante.setType(description);
+
+        } catch (Exception e) {
+            System.out.println("Erreur lors de l'inscription : " + e.getMessage());
+        }
     }
 
     /*
@@ -283,6 +348,11 @@ public class Fournisseur implements Acteur {
     }
     /* ************************************************************************************************ */
 
+    /*
+     * Fonction auxiliaire pour gérer composantes
+     */
+
+    /* ************************************************************************************************ */
 
     public static void initialiserListeFournisseurs() {
         ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();

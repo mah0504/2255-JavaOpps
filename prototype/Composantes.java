@@ -43,6 +43,25 @@ public class Composantes {
        return null;
    }
 
+   public void setNom(String nom) {
+       this.nom = nom;
+   }
+   public String getNom(){
+       return nom;
+   }
+   public void setPrix(Float prix) {
+       this.prix = prix;
+   }
+   public void setDescription(String description) {
+       this.description = description;
+   }
+   public void setType(String type) {
+       this.type = type;
+   }
+   public void setQuantite(int inventaire){
+       this.inventaire = inventaire;
+   }
+
     // Getter pour accéder au tableau
     public Float getPrix() {
         return prix;
