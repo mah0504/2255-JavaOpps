@@ -195,6 +195,7 @@ public class Publique {
             }
 
 
+
         }
 
         // par nom, type getClass() ou nom du fournisseur "?"
