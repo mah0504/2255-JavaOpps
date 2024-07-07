@@ -2,32 +2,24 @@ import javax.swing.*;
 import java.util.*;
 import java.util.InputMismatchException;
 public class Main {
-    private Publique publique;
-    private Fournisseur fournisseur;
-    private Utilisateur utilisateur;
-
-    public Main() {
-        publique = new Publique();
-    }
-
-
+    //private Publique publique;
+    private Fournisseur fournisseur = new Fournisseur();
+    private Utilisateur utilisateur = new Utilisateur();
+    private Publique publique = new Publique();
 
     public static void main(String[] args) {
-       // Gestionnaire donnees = new Gestionnaire();
-
 
         Main n = new Main();
         Interet interet = new Interet();
         interet.initialiserListeInterets();
 
-        Utilisateur utilisateur9 = new Utilisateur();
-        utilisateur9.initialiserUtilisateurs();
-
-
+        Utilisateur utilisateur = new Utilisateur();
+        utilisateur.initialiserUtilisateurs();
         n.choixProfil();
+
     }
 
-    // Premier niveau d'imbrication du menu
+    // Premier niveau d'imbrication du menu ***************************************************************************
     public void choixProfil() {
         Scanner scanner = new Scanner(System.in);
         System.out.println(" [1]: Profil publique\n [2]: Utilisateur \n [3]: Fournisseur \n ");
@@ -38,15 +30,13 @@ public class Main {
             switch (choix) {
 
                 case 1:
-                   // Publique publique = new Publique();
                     afficherMenu(publique);
                     break;
                 case 2:
-                    Utilisateur utilisateur = new Utilisateur(); // pk instancier ici?
                     afficherMenu(utilisateur);
                     break;
                 case 3:
-                    // Code for Fournisseur
+                    afficherMenu(fournisseur);
                     break;
                 default:
                     System.out.println("Choix invalide. Veuillez entrer 1, 2 ou 3.");
@@ -94,21 +84,7 @@ public class Main {
 
     }
 
-
-    // return false si connexion réussie sinon true
-    public boolean seConnecter(){
-        return false;
-
-        // continuer se connecter , ( update fichier avec l'utilisateur , ses données )
-    }
-
-    public boolean sInscrire(){
-        Utilisateur utilisateur1 = null;
-        utilisateur1.sInscrire();
-        System.out.println("Email de comfirmation envoyé!");
-        return false;
-    }
-
+    // Deuxième niveau d'imbriquation du menu *************************************************************************
     public void afficherMenu(Fournisseur fournisseur){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Veuillez choisier une fonctionnalité à effectuer \n [0]: Retourner au menu principal\n" +
@@ -189,9 +165,7 @@ public class Main {
 
 
     }
-    // menu des actions de l'Utilisateur
 
-    //
     public void afficherMenu(Utilisateur utilisateur) {
 
         choixConnecterInscrire(utilisateur);
