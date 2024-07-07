@@ -12,7 +12,7 @@ public class Publique {
 
     public void rechercherUtilisateur(Utilisateur utilisateur) {
 
-        ArrayList<int> index = new ArrayList<int>();
+        ArrayList<Integer> index = new ArrayList<>();
         String string;
         continuer = true;
         choix = -1;
@@ -120,7 +120,7 @@ public class Publique {
     // retourne les index des composantes dans la liste système des composantes si elle existe
     public void rechercherComposante() {
 
-        ArrayList<int> index = new ArrayList<int>();
+        ArrayList<Integer> index = new ArrayList<>();
         String string;
         continuer = true;
         choix = -1;

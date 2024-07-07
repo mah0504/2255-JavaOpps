@@ -23,7 +23,6 @@ public class Activite {
         String choix= scanner.nextLine();
         activite.setNom(choix);
 
-
         Scanner scanner1 = new Scanner(System.in);
         System.out.println("Veuillez choisir le type de l'activité: ");
         // check si on a des types predefinis ou si on veut choisir parmis ceux dispo
