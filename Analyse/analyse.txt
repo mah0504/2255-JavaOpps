@@ -67,7 +67,7 @@ Comment le système Robotix que vous développez interagira avec les autres syst
 
 Comment les utilisateurs interagiront avec le système ?
 * L’utilisateur communiquera avec Robotix via des lignes de commandes. 
-* Robotix communiquera avec l’utilisateur par courriel ou par notifications sur ordinateur et téléphone. 
+* Robotix communiquera avec l’utilisateur par courriel ou lui enverra des notifications sur Robotix.
 * L'objectif est que l’utilisateur interagisse le moins possible avec le système, de manière simple et rapide. L'interface doit être intuitive et fluide afin de permettre à l’utilisateur de naviguer le logiciel, et ce, sans l’aide d’un expert et de passer des commandes sans avoir besoin de posséder de l'expertise sur le sujet. 
 
 Si vous préférez la version paragraphe de 100 mots : 
