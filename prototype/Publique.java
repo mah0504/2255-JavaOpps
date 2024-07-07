@@ -12,7 +12,7 @@ public class Publique {
 
     public void rechercherUtilisateur(Utilisateur utilisateur) {
 
-        ArrayList<int> index = new ArrayList<int>();
+        ArrayList<Integer> index = new ArrayList<>();
         String string;
         continuer = true;
         choix = -1;
