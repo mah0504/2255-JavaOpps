@@ -10,12 +10,54 @@ public class Publique {
     int choix = -1;
 
 
-    public int rechercherUtilisateur(Utilisateur utilisateur) {
+    public ArrayList<int> rechercherUtilisateur(Utilisateur utilisateur) {
+
+        ArrayList<int> index = new ArrayList<int>();
+        String string;
+        continuer = true;
+        choix = -1;
+
+
+
+        while (continuer) {
+            System.out.println("Veuillez choisir une option de recherche \n [0]: Retour au menu principal " +" " +
+                    "[1]: Par pseudo \n [2]: Par liste de suiveurs \n ");
+
+            try {
+                choix = scanner.nextInt();
+                switch (choix) {
+                    // mettre le lien avec la classe utilisateur
+                    case 0:
+                        //todo retourner au menu principal
+                        break;
+
+                    case 1:
+
+                        string = scanner.nextLine().toLowerCase();
+                        for (int i = 0; i < Systeme.getInstance().getUtilisateurs().size(); i++) {
+                            String pseudo = Systeme.getInstance().getUtilisateurs().get(i).getPseudo();
+                            if (pseudo.contains(string)) {
+                                System.out.println(pseudo);
+                                index.add(i);
+                            }
+                        }
+                        continuer = false;
+                        break;
+
+                    case 2:
+                        string = scanner.nextLine().toLowerCase();
+                        //todo recherche liste suiveurs
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                //scanner.next();
+            }
+
+        }
         return index;
-        // voir la liste d'utilisateurs , chercher le nom puis imprimer son yapping normalement
-        // voir comment on structure les donnees de l'utilisateur et fournisseur
-        // on i
     }
+
     public void  RecupListeActivites( Activite activites ) {
         for (int i = 0; i < activites.getSize(); i++){
 
@@ -82,8 +124,10 @@ public class Publique {
     public ArrayList<int> rechercherComposante(Composantes composantes) {
 
         ArrayList<int> index = new ArrayList<int>();
+        String string;
         continuer = true;
         choix = -1;
+
 
 
         while (continuer) {
@@ -95,7 +139,10 @@ public class Publique {
                 switch (choix) {
                     // mettre le lien avec la classe utilisateur
                     case 0:
-                        for (int i = 0; i < Systeme.getInstance().getComposantes().size(); i++)
+                        //string =
+                        for (int i = 0; i < Systeme.getInstance().getComposantes().size(); i++) {
+                            if (str2.toLowerCase().contains(str1.toLowerCase()))
+                        }
 
                         break;
                     case 1:

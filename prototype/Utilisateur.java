@@ -172,7 +172,7 @@ public class Utilisateur implements Acteur {
         while (continuer) {
             System.out.print("Entrez votre pseudo: ");
             try {
-                pseudo = scanner.nextLine();
+                pseudo = scanner.nextLine().toLowerCase(); // le pseudo est toujours en minuscule
                 verifierAlphaNum(pseudo);
                 pseudoUnique(pseudo);
                 continuer = false;
