@@ -50,9 +50,10 @@ public class Utilisateur implements Acteur {
 
     }
 
-    public Flotte getFlotte(){
+    /*public Flotte getFlotte(){
         return this.flotte;
-    }
+    }*/
+
     public String getNom() {
         return nom;
     }
@@ -155,7 +156,6 @@ public class Utilisateur implements Acteur {
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", pseudo='" + pseudo + '\'' +
-                ", motDePasse='" + motDePasse + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", points accumulés=" + pointsGagnes +
@@ -404,12 +404,12 @@ public class Utilisateur implements Acteur {
             System.out.println(etat);
         }
     }
-    public void voirMetriques( Robot robot){
+    /*public void voirMetriques( Robot robot){
 
         for ( Metrique m: robot.getMetriquesRobot() ){
             System.out.println( "La metrique : " +m );
         }
-    }
+    }*/
 
     /*
      * Méthode qui permet de gérer les Suiveurs et Suivis

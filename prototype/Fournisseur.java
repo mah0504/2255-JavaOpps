@@ -13,9 +13,10 @@ public class Fournisseur implements Acteur {
     private boolean confirmationEmail = false;
     private String codeConfirmation = genererCodeConfirmation();
     private ArrayList<Composantes> listeComposantesF;
-    private ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
+    private static ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
     private Map<String, Composantes> Stock;
     private Composantes nouvelleComposante;
+    private Composantes composanteAchetee;
 
 
     // Constructor
@@ -25,6 +26,7 @@ public class Fournisseur implements Acteur {
         this.email = email;
         this.motDePasse = motDePasse;
         this.telephone = telephone;
+        this.listeFournisseurs = new ArrayList<>();
         this.capaciteFabrication = capaciteFabrication;
     }
     public Fournisseur() {
@@ -32,10 +34,6 @@ public class Fournisseur implements Acteur {
 
 
     // Getters and Setters
-
-
-    public ArrayList<Composantes> getListeComposantes(){ return listeComposantesF; }
-
     public String getNom() {
         return nom;
     }
@@ -82,6 +80,21 @@ public class Fournisseur implements Acteur {
 
     public void setCapaciteFabrication(String capaciteFabrication) {
         this.capaciteFabrication = capaciteFabrication;
+    }
+
+    public ArrayList<Composantes> getListeComposantes(){
+        return listeComposantesF;
+    }
+
+    @Override
+    public String toString() {
+        return "Fournisseur{" +
+                "nom='" + nom + '\'' +
+                ", adresse='" + adresse + '\'' +
+                ", email='" + email + '\'' +
+                ", telephone='" + telephone + '\'' +
+                ", capaciteFabrication=" + capaciteFabrication +
+                '}';
     }
 
     // Méthodes
@@ -266,9 +279,8 @@ public class Fournisseur implements Acteur {
                         break;
                     case 2:
                         System.out.print("Mettre à jour l'inventaire: : ");
-                        //after acheterComposante
-                        //Stock.remove(composante);
-
+                        composanteAchetee.choisirCompo();
+                        Stock.remove(composanteAchetee.getNom());
                         break;
                     case 3:
                         System.out.print("Inventaire : ");
@@ -363,5 +375,10 @@ public class Fournisseur implements Acteur {
         listeFournisseurs.add(new Fournisseur("Fournisseur4", "Adresse4", "email4@example.com", "mdp4", "4445556666", "Capacité4"));
         listeFournisseurs.add(new Fournisseur("Fournisseur5", "Adresse5", "email5@example.com", "mdp5", "7778889999", "Capacité5"));
 
+    }
+
+    public static void main(String[] args){
+        initialiserListeFournisseurs();
+        System.out.println(listeFournisseurs);
     }
 }
