@@ -145,7 +145,6 @@ public class Utilisateur implements Acteur {
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", pseudo='" + pseudo + '\'' +
-                ", motDePasse='" + motDePasse + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", points accumulés=" + pointsGagnes +
