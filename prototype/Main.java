@@ -20,9 +20,10 @@ public class Main {
         Interet interet = new Interet();
         interet.initialiserListeInterets();
 
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("Dannane", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", 0));
+        Utilisateur utilisateur9 = new Utilisateur();
+        utilisateur9.initialiserUtilisateurs();
 
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("Dannadslkfjslkfjne", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", 0));
+
         n.choixProfil();
     }
 

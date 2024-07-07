@@ -869,41 +869,19 @@ public class Utilisateur implements Acteur {
     }
     /* ************************************************************************************************ */
 
-    /*public void initialiserUtilisateurs() {
+    public void initialiserUtilisateurs() {
 
-        Utilisateur utilisateur1 = new Utilisateur("Dannane", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", 0);
-        listeUsers.add(utilisateur1);
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom1", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom2", "prenom2", "nprenom2", "nprenom2@example.com", "motdepasse2", "9996778888", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom3","Sabrina", "miaou", "miaou@example.com", "motdepasse3", "9753124680", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom4", "Audrey", "aude", "aude@example.com", "motdepasse4", "0864213579", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom5", "prenom5", "nprenom5", "nprenom5@example.com", "motdepasse5", "3332221111", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom6", "prenom6", "nprenom6", "nprenom6@example.com", "motdepasse6", "2221113333", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom7", "prenom7", "nprenom7", "nprenom7@example.com", "motdepasse7", "6665554444", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom8", "prenom8", "nprenom8", "nprenom8@example.com", "motdepasse8", "5554446666", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom9", "prenom9", "nprenom9", "nprenom9@example.com", "motdepasse9", "8889997777", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", 0));
 
-        Utilisateur utilisateur2 = new Utilisateur("nom2", "Maha", "maha", "maha@example.com", "motdepasse2", "2468013579",0);
-        listeUsers.add(utilisateur2);
-
-        Utilisateur utilisateur3 = new Utilisateur("nom3","Sabrina", "miaou", "miaou@example.com", "motdepasse3", "9753124680", 0);
-        listeUsers.add(utilisateur3);
-
-        Utilisateur utilisateur4 = new Utilisateur("nom4", "Audrey", "aude", "aude@example.com", "motdepasse4", "0864213579", 0);
-        listeUsers.add(utilisateur4);
-
-        Utilisateur utilisateur5 = new Utilisateur("nom5", "prenom5", "nprenom5", "nprenom5@example.com", "motdepasse5", "3332221111", 0);
-        listeUsers.add(utilisateur5);
-
-        Utilisateur utilisateur6 = new Utilisateur("nom6", "prenom6", "nprenom6", "nprenom6@example.com", "motdepasse6", "2221113333", 0);
-        listeUsers.add(utilisateur6);
-
-        Utilisateur utilisateur7 = new Utilisateur("nom7", "prenom7", "nprenom7", "nprenom7@example.com", "motdepasse7", "6665554444", 0);
-        listeUsers.add(utilisateur7);
-
-        Utilisateur utilisateur8 = new Utilisateur("nom8", "prenom8", "nprenom8", "nprenom8@example.com", "motdepasse8", "5554446666", 0);
-        listeUsers.add(utilisateur8);
-
-        Utilisateur utilisateur9 = new Utilisateur("nom9", "prenom9", "nprenom9", "nprenom9@example.com", "motdepasse9", "8889997777", 0);
-        listeUsers.add(utilisateur9);
-
-        Utilisateur utilisateur10 = new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", 0);
-        listeUsers.add(utilisateur10);
-
-        //l'utilisateur2 suit l'utilisateur 1
-        utilisateur2.suivreUtilisateur(utilisateur1);
-
-    }*/
+    }
 }
 
