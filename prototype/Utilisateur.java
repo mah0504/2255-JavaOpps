@@ -1,41 +1,18 @@
 import java.util.*;
 import java.util.regex.*;
-import java.time.LocalDateTime;
 
-public class Utilisateur implements Acteur {
-    private String nom, prenom, pseudo, motDePasse, email, telephone;
+public class Utilisateur extends Acteur {
+
+    private String prenom, pseudo;
     private Flotte flotte;
-
-
-    Scanner scanner = new Scanner(System.in);
-    Boolean continuer = true;
-    private String nomDeCompagnie;
-    private LocalDateTime dateInscription =  LocalDateTime.now(); //la date où on commence l'inscription
-    private boolean confirmationEmail = false; //pour confirmer le mail
-    private String codeConfirmation = genererCodeConfirmation(); //clé à retourner pour confirmer le mail
-    private ArrayList<Utilisateur> listeUsers;
-    private ArrayList<String> listePseudos;
     private ArrayList<Interet> listeInterets = new ArrayList<>(); // liste de 10 interets que suit l'utilisateur
     private ArrayList<Utilisateur> listeSuivis; // liste des utilisateurs que je suis
     private ArrayList<Utilisateur> listeSuiveurs; // liste des utilisateurs qui me suivent
-    private ArrayList<Activite> listeActivitesbyUser; // liste des activités que maintiens l'utilisateur
-    private int pointsGagnes;
-    private int classement;
+    private ArrayList<Activite> listeActivites; // liste des activités que maintiens l'utilisateur
+    private int pointsGagnes, classement;
     List<Activite> MesActivites = new ArrayList<>();
 
-    // todo : nom de la compagnie ( optionnel )
-
-    /*public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, int pointsGagnes) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.pseudo = pseudo;
-        this.email = email;
-        this.motDePasse = motDePasse;
-        this.telephone = telephone;
-        this.pointsGagnes = pointsGagnes;
-        listePseudos.add(pseudo);
-    }*/
-
+    // Constructeurs :
     public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, int pointsGagnes){
         this.nom = nom;
         this.prenom = prenom;
@@ -46,21 +23,47 @@ public class Utilisateur implements Acteur {
         this.pointsGagnes = pointsGagnes;
     }
 
-    public Utilisateur() {
+    public Utilisateur(){
 
     }
 
-    /*public Flotte getFlotte(){
-        return this.flotte;
-    }*/
 
-    public String getNom() {
-        return nom;
+    // Méthodes pour entrer les informations
+    public void entrerPseudo() {        //user
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre pseudo: ");
+            try {
+                pseudo = scanner.nextLine();
+                verifierAlphaNum(pseudo);
+                pseudoUnique(pseudo);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
+    private void entrerPrenom() {    //user
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre prenom: ");
+            try {
+                prenom = scanner.nextLine();
+                verifierAlpha(prenom);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+
     }
+
 
     public String getPrenom() {
         return prenom;
@@ -78,29 +81,11 @@ public class Utilisateur implements Acteur {
         this.pseudo = pseudo;
     }
 
-    public String getMdp() {
-        return motDePasse;
-    }
 
-    public void setMdp(String mdp) {
-        this.motDePasse = mdp;
-    }
 
-    public String getEmail() {
-        return email;
-    }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
-    public String getTelephone() {
-        return telephone;
-    }
 
-    public void setTelephone(String telephone) {
-        this.telephone = telephone;
-    }
 
     public int getPoints() {
         return pointsGagnes;
@@ -108,14 +93,6 @@ public class Utilisateur implements Acteur {
 
     public void setPoints(int pointsGagnes) {
         this.pointsGagnes = pointsGagnes;
-    }
-
-    public ArrayList<Utilisateur> getListeUsers() {
-        return listeUsers;
-    }
-
-    public void setListeUsers(ArrayList<Utilisateur> listeUsers) {
-        this.listeUsers = listeUsers;
     }
 
     public ArrayList<Interet> getListeInterets() {
@@ -142,12 +119,12 @@ public class Utilisateur implements Acteur {
         this.listeSuiveurs = listeSuiveurs;
     }
 
-    public ArrayList<Activite> getListeActivitesbyUser() {
-        return listeActivitesbyUser;
+    public ArrayList<Activite> getListeActivites() {
+        return listeActivites;
     }
 
-    public void setListeActivitesbyUser(ArrayList<Activite> listeActivitesbyUser) {
-        this.listeActivitesbyUser = listeActivitesbyUser;
+    public void setListeActivites(ArrayList<Activite> listeActivites) {
+        this.listeActivites = listeActivites;
     }
 
     @Override
@@ -170,13 +147,13 @@ public class Utilisateur implements Acteur {
         entrerPrenom();
         entrerMDP();
         entrerEmail();
-        //entrerTelephone();
+        entrerTelephone();
         entrerCompagnie();
 
+        //todo la suite...
+
         Systeme.getInstance().ajouterUtilisateur(this);
-
-
-        System.out.println(Systeme.getInstance().getUtilisateurs().get(2).getNom());
+        System.out.println(Systeme.getInstance().getUtilisateurs().getLast().getNom());
 
         //L'utilsateurs entre jusqu'à 10 Intérêts
         gererInterets();
@@ -199,30 +176,6 @@ public class Utilisateur implements Acteur {
 
     }
 
-    /*@Override
-    public void sInscrire() {
-        try (Scanner scanner = new Scanner(System.in)) {
-
-
-            Interet.initialiserListeInterets();
-
-            System.out.println("Choisissez vos intérêts (entrez le numéro):");
-            for (int i = 0; i < listeInterets.size(); i++) {
-                System.out.println((i + 1) + ". " + listeInterets.get(i).getNom());
-            }
-
-            for (int i = 0; i < 10; i++) {
-                System.out.print("Choix " + (i + 1) + ": ");
-                int choix = scanner.nextInt();
-                if (choix >= 1 && choix <= listeInterets.size()) {
-                    Interet interet = listeInterets.get(choix - 1);
-                    interet.souscrire(this);
-                } else {
-                    System.out.println("Choix invalide. Réessayez.");
-                    i--;
-                }
-            }
-    }*/
 
     @Override
     public void seConnecter() {
@@ -248,7 +201,7 @@ public class Utilisateur implements Acteur {
                 }
                 continuer = false;
 
-                //todo si connexion réussie, dans le main remplacer l'user par celui Systeme.getInstance().getUtilisateurs().get(index)
+                // todo si connexion réussie, dans le main remplacer l'user par celui Systeme.getInstance().getUtilisateurs().get(index)
                 // genre retourner -1 si on veut annuler connexion et retourner au menu principal ou index si connexion réussie
 
             } catch (IllegalArgumentException e) {
@@ -299,7 +252,7 @@ public class Utilisateur implements Acteur {
             System.out.println("6. Nom de la compagnie");
             System.out.println("0. Quitter");
 
-            int choix = -1;
+            choix = -1;
             while (choix != 0) {
                 System.out.print("Votre choix : ");
                 choix = scanner.nextInt();
@@ -337,31 +290,6 @@ public class Utilisateur implements Acteur {
         }
     }
 
-    /*
-     * Cette méthode permet de confirmer l'inscription
-     * elle modifie ou pas la valeur de la variable booléene confirmationEmail
-     * Si l'utilisateur entre la bonne clé après 24 heures, la variable confirmationEmail renvoie un True
-     */
-
-    @Override
-    public void confirmerInscription() {
-        try (Scanner scanner = new Scanner(System.in)) {
-
-            System.out.print("Entrez le code de confirmation reçu par email : ");
-            String cle = scanner.nextLine();
-
-            //codeConfirmation vérifie l'exactitude de la clé
-            //dateInscription est une Date à quoi on a ajouté une période de 24 heures
-            if (codeConfirmation.equals(cle) && dateInscription.plusHours(24).isAfter(LocalDateTime.now())) {
-                this.confirmationEmail = true;
-                System.out.println("Inscription avec succès !");
-            } else {
-                System.out.println("Lien de confirmation invalide ou expiré.");
-            }
-        } catch (Exception e) {
-            System.out.println("Erreur lors de la confirmation : " + e.getMessage());
-        }
-    }
 
     public void gererFlotte(Flotte flotte, Composantes composantes ) {
         Scanner scanner = new Scanner(System.in);
@@ -370,7 +298,7 @@ public class Utilisateur implements Acteur {
             System.out.println("Veuillez choisir quelle fonctionnalité effectuer dans votre flotte: " +
                     "[1] : Acheter une composante \n [2] : Assigner une composante à un robot \n [3]" +
                     " : Enregistrer un robot \n");
-            int choix = scanner.nextInt();
+            choix = scanner.nextInt();
 
             switch (choix) {
                 case 1:
@@ -428,11 +356,12 @@ public class Utilisateur implements Acteur {
                 System.out.println("3. Voir les utilisateurs qui vous suivent");
                 System.out.println("0. Quitter");
 
-                int choix = scanner.nextInt();
+                choix = scanner.nextInt();
                 scanner.nextLine();
 
                 switch (choix) {
                     case 1:
+                        //todo recherche par pseudo
                         System.out.print("Qui voulez vous suivre ?");
                         Utilisateur utilisateurSuivi = rechercherParPseudo(scanner.nextLine());
                         if (utilisateurSuivi != null) {
@@ -471,7 +400,7 @@ public class Utilisateur implements Acteur {
         System.out.println("1. Voir vos activités");
         System.out.println("2. S'inscrire à une activité");
 
-        int choix = scanner.nextInt();
+        choix = scanner.nextInt();
         scanner.nextLine();
 
         switch (choix) {
@@ -505,7 +434,7 @@ public class Utilisateur implements Acteur {
             int nbChoix = 0;
             while (nbChoix < 10) {
                 System.out.print("Choix " + (nbChoix + 1) + ": ");
-                int choix = scanner.nextInt();
+                choix = scanner.nextInt();
                 scanner.nextLine();
 
                 if (choix == 0) {
@@ -560,7 +489,7 @@ public class Utilisateur implements Acteur {
         System.out.println("1. À partir de la liste de toutes les activités disponibles");
         System.out.println("2.  À partir de la liste des intérêts");
 
-        int choix = scanner.nextInt();
+        choix = scanner.nextInt();
         scanner.nextLine();
 
         switch (choix) {
@@ -618,12 +547,13 @@ public class Utilisateur implements Acteur {
         }
     }
 
+    //todo elle fonctionne pas cette méthode et elle est utilisée ailleurs
     private Utilisateur rechercherParPseudo(String pseudo) {
-        for (Utilisateur utilisateur : listeUsers) {
+        /*for (Utilisateur utilisateur : listeUsers) {
             if (utilisateur.getPseudo().equals(pseudo)) {
                 return utilisateur;
             }
-        }
+        }*/
         return null;
     }
     /* ************************************************************************************************ */
@@ -642,45 +572,8 @@ public class Utilisateur implements Acteur {
         return matcher.matches();
     }
 
-    private String genererCodeConfirmation() {
-        return UUID.randomUUID().toString();
-    }
 
-    private void envoyerEmail(String destinataire) {
-        System.out.println("Envoi d'email à : " + destinataire);
-        System.out.println("Sujet : Confirmation de l'inscription" );
-        System.out.println("Contenu : Cliquez sur le lien pour confirmer votre inscription  et saisisez le code :" + codeConfirmation);
-    }
-    // Vérifier qu'un String contient uniquement des caractères alphanumériques
-    private static void verifierAlphaNum(String string) {
-        if (!string.matches("[A-Za-z0-9]+")) {
-            throw new IllegalArgumentException("L'entrée doit contenir uniquement des caractères alphanumériques.");
-        }
-    }
 
-    // Vérifier qu'un String contient uniquement des caractères alphabétiques
-    private static void verifierAlpha(String string) {
-        if (!string.matches("[A-Za-z]+")) {
-            throw new IllegalArgumentException("L'entrée doit contenir uniquement des caractères alphabétiques.");
-        }
-    }
-
-    private void verifierEmail(String email) {
-        String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
-        Pattern pattern = Pattern.compile(emailPattern);
-        Matcher matcher = pattern.matcher(email);
-        if (!matcher.matches()) {
-            throw new IllegalArgumentException("Adresse courriel invalide.");
-        }
-    }
-
-    private static void pseudoUnique(String pseudo) {
-        for (Utilisateur utilisateur : Systeme.getInstance().getUtilisateurs()) {
-            if (utilisateur.getPseudo().equals(pseudo)) {
-                throw new IllegalArgumentException("Ce pseudo existe déjà.");
-            }
-        }
-    }
 
     private static int chercherPseudo(String pseudo) {
         ArrayList<Utilisateur> utilisateurs = Systeme.getInstance().getUtilisateurs();
@@ -692,117 +585,7 @@ public class Utilisateur implements Acteur {
         return -1;          // le pseudo n'existe pas
     }
 
-    public void entrerPseudo() {
 
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre pseudo: ");
-            try {
-                pseudo = scanner.nextLine();
-                verifierAlphaNum(pseudo);
-                pseudoUnique(pseudo);
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerNom() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre nom: ");
-            try {
-                nom = scanner.nextLine();
-                verifierAlpha(nom);
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerPrenom() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre prenom: ");
-            try {
-                prenom = scanner.nextLine();
-                verifierAlpha(prenom);
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerMDP() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre mot de passe: ");
-            try {
-                motDePasse = scanner.nextLine();
-                if (motDePasse.length() < 8) {
-                    throw new IllegalArgumentException("Le mot de passe doit comporter au moins 8 caractères.");
-                }
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerEmail() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre e-mail: ");
-            try {
-                email = scanner.nextLine();
-                verifierEmail(email);
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-
-    }
-
-    public void entrerTelephone() {
-
-        continuer = true;
-
-        while (continuer) {
-            System.out.print("Entrez votre téléphone: ");
-            try {
-                telephone = String.valueOf(scanner.nextInt());
-                if (telephone.length() > 10) {
-                    throw new IllegalArgumentException("Numéro de téléphone invalide.");
-                }
-                continuer = false;
-            } catch (IllegalArgumentException e) {
-                System.out.println("Erreur : " + e.getMessage());
-            }
-        }
-    }
-
-    public void entrerCompagnie() {
-
-        System.out.print("Entrez votre compagnie (facultatif, faire Enter si aucune): ");
-        nomDeCompagnie = scanner.nextLine();
-    }
 
     /* ************************************************************************************************ */
     /*
@@ -817,7 +600,7 @@ public class Utilisateur implements Acteur {
             System.out.println((i + 1) + ". " + liste.get(i));
         }
 
-        int choix = scanner.nextInt();
+        choix = scanner.nextInt();
         scanner.nextLine();
 
         // Il faut modifier comment gérer listedActivites
@@ -868,6 +651,12 @@ public class Utilisateur implements Acteur {
         }
     }
     /* ************************************************************************************************ */
+
+    @Override
+    public void entrerCompagnie() {
+        System.out.println("Entrez le nom de la compagnie (faire Enter si aucune).");
+        compagnie = scanner.nextLine();
+    }
 
     public void initialiserUtilisateurs() {
 
