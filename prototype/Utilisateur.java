@@ -1,15 +1,37 @@
 import java.util.*;
 import java.util.regex.*;
+import java.time.LocalDateTime;
 
 public class Utilisateur implements Acteur {
-    private String nom, prenom, pseudo, mdp, email, telephone;
-    private ArrayList<Interet> listeInterets;
+    private String nom, prenom, pseudo, motDePasse, email, telephone;
     Scanner scanner = new Scanner(System.in);
     Boolean continuer = true;
     private String nomDeCompagnie;
+    private LocalDateTime dateInscription =  LocalDateTime.now(); //la date où on commence l'inscription
+    private boolean confirmationEmail = false; //pour confirmer le mail
+    private String codeConfirmation = genererCodeConfirmation(); //clé à retourner pour confirmer le mail
+    private ArrayList<Utilisateur> listeUsers;
+    private ArrayList<String> listePseudos;
+    private ArrayList<Interet> listeInterets; // liste de 10 interets que suit l'utilisateur
+    private ArrayList<Utilisateur> listeSuivis; // liste des utilisateurs que je suis
+    private ArrayList<Utilisateur> listeSuiveurs; // liste des utilisateurs qui me suivent
+    private ArrayList<Activite> listeActivitesbyUser; // liste des activités que maintiens l'utilisateur
+    private int pointsGagnes;
+    private int classement;
+    List<Activite> MesActivites = new ArrayList<>();
 
     // todo : nom de la compagnie ( optionnel )
 
+    public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, int pointsGagnes) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.pseudo = pseudo;
+        this.email = email;
+        this.motDePasse = motDePasse;
+        this.telephone = telephone;
+        this.pointsGagnes = pointsGagnes;
+        listePseudos.add(pseudo);
+    }
 
     public Utilisateur() {
 
@@ -41,11 +63,11 @@ public class Utilisateur implements Acteur {
     }
 
     public String getMdp() {
-        return mdp;
+        return motDePasse;
     }
 
     public void setMdp(String mdp) {
-        this.mdp = mdp;
+        this.motDePasse = mdp;
     }
 
     public String getEmail() {
@@ -64,6 +86,53 @@ public class Utilisateur implements Acteur {
         this.telephone = telephone;
     }
 
+    public int getPoints() {
+        return pointsGagnes;
+    }
+
+    public void setPoints(int pointsGagnes) {
+        this.pointsGagnes = pointsGagnes;
+    }
+
+    public ArrayList<Utilisateur> getListeUsers() {
+        return listeUsers;
+    }
+
+    public void setListeUsers(ArrayList<Utilisateur> listeUsers) {
+        this.listeUsers = listeUsers;
+    }
+
+    public ArrayList<Interet> getListeInterets() {
+        return listeInterets;
+    }
+
+    public void setListeInterets(ArrayList<Interet> listeInterets) {
+        this.listeInterets = listeInterets;
+    }
+
+    public ArrayList<Utilisateur> getListeSuivis() {
+        return listeSuivis;
+    }
+
+    public void setListeSuivis(ArrayList<Utilisateur> listeSuivis) {
+        this.listeSuivis = listeSuivis;
+    }
+
+    public ArrayList<Utilisateur> getListeSuiveurs() {
+        return listeSuiveurs;
+    }
+
+    public void setListeSuiveurs(ArrayList<Utilisateur> listeSuiveurs) {
+        this.listeSuiveurs = listeSuiveurs;
+    }
+
+    public ArrayList<Activite> getListeActivitesbyUser() {
+        return listeActivitesbyUser;
+    }
+
+    public void setListeActivitesbyUser(ArrayList<Activite> listeActivitesbyUser) {
+        this.listeActivitesbyUser = listeActivitesbyUser;
+    }
 
     @Override
     public String toString() {
@@ -71,7 +140,7 @@ public class Utilisateur implements Acteur {
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", pseudo='" + pseudo + '\'' +
-                ", motDePasse='" + mdp + '\'' +
+                ", motDePasse='" + motDePasse + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", listeInterets=" + listeInterets +
@@ -156,8 +225,8 @@ public class Utilisateur implements Acteur {
         while (continuer) {
             System.out.print("Entrez votre mot de passe: ");
             try {
-                mdp = scanner.nextLine();
-                if (mdp.length() < 8) {
+                motDePasse = scanner.nextLine();
+                if (motDePasse.length() < 8) {
                     throw new IllegalArgumentException("Le mot de passe doit comporter au moins 8 caractères.");
                 }
                 continuer = false;
@@ -245,12 +314,12 @@ public class Utilisateur implements Acteur {
                 System.out.print("Entrez votre pseudo : ");
                 pseudo = scanner.nextLine();
                 System.out.print("Entrez votre mot de passe : ");
-                mdp = scanner.nextLine();
+                motDePasse = scanner.nextLine();
 
                 int index = chercherPseudo(pseudo);
                 if (index >= 0) {
                     utilisateur = Systeme.getInstance().getUtilisateurs().get(index);
-                    if (! mdp.equals(utilisateur.getMdp())) {
+                    if (! motDePasse.equals(utilisateur.getMdp())) {
                         throw new IllegalArgumentException("Pseudo ou mot de passe invalide.");
                     }
                 }
@@ -459,6 +528,60 @@ public class Utilisateur implements Acteur {
         return -1;          // le pseudo n'existe pas
     }
 
+    /*
+     * Fonctions auxiliaires qui gèrent les Suivis
+     * voirSuivis() : affiche la liste des personnes que l'utilisateur suit
+     * voirSuiveurs() : affihe la liste des personnes qui suivent l'utilisateur
+     * rechercherParPseudo() : retourne l'utilisateur qui possède le pseudo recherché
+     */
+    public void voirSuivis() {
+        System.out.println("Liste des utilisateurs que vous suivez :");
+        for (Utilisateur utilisateur : listeSuivis) {
+            System.out.println(utilisateur.toString());
+        }
+    }
+
+    public void voirSuiveurs() {
+        System.out.println("Liste des utilisateurs qui vous suivent :");
+        for (Utilisateur utilisateur : listeSuiveurs) {
+            System.out.println(utilisateur.toString());
+        }
+    }
+
+    private Utilisateur rechercherParPseudo(String pseudo) {
+        for (Utilisateur utilisateur : listeUsers) {
+            if (utilisateur.getPseudo().equals(pseudo)) {
+                return utilisateur;
+            }
+        }
+        return null;
+    }
+    /* ************************************************************************************************ */
+
+    /*
+     * Fonction auxiliaire pour vérifier l'inscription
+     * emailValide() : vérifie que le pattern de l'email est le bon
+     * genererCodeConfirmation() : génère une clé random
+     * envoyerEmail() : envoie à l'utilisateur un mail qui lui permet d'obtenir la clé de confirmation
+     *
+     */
+    private static boolean emailValide(String email) {
+        String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
+
+    private String genererCodeConfirmation() {
+        return UUID.randomUUID().toString();
+    }
+
+    private void envoyerEmail(String destinataire) {
+        System.out.println("Envoi d'email à : " + destinataire);
+        System.out.println("Sujet : Confirmation de l'inscription" );
+        System.out.println("Contenu : Cliquez sur le lien pour confirmer votre inscription  et saisisez le code :" + codeConfirmation);
+    }
+    /* ************************************************************************************************ */
 
     /*public void initialiserUtilisateurs() {
 
