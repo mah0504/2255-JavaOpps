@@ -37,11 +37,41 @@ public class Activite {
         int choix2 = scanner2.nextInt();
         for ( int i= 0 ; i<choix2; i++){
             // choisir composante
+                      /*
+            ArrayList<Interet> listeInteretsGeneraux = Interet.getListeInteretsGeneraux();
+
+            System.out.println("Choisissez un intérêt (entrez le numéro, 0 pour aucun choix):");
+            System.out.println("0. Ajouter un nouvel intérêt");
+            for (int j = 0; j < listeInteretsGeneraux.size(); j++) {
+                System.out.println((j + 1) + ". " + listeInteretsGeneraux.get(j).getNom());
+            }
+            int choix3 = scanner.nextInt();
+            scanner.nextLine();
+
+            if (choix3 == 0) {
+                System.out.print("Entrez le nom du nouvel intérêt: ");
+                String nomNvInteret = scanner.nextLine();
+                Interet nouveau = new Interet(nomNvInteret);
+                listeInteretsGeneraux.add(new Interet(nouveau);
+                activite.ajouterInteret(nouveau);
+            } else if (choix3 >= 1 && choix3 <= listeInteretsGeneraux.size()) {
+                Interet interet = listeInteretsGeneraux.get(choixInteret - 1);
+                activite.ajouterInteret(interet);
+            } else {
+                System.out.println("Choix invalide. Réessayez.");
+                i--; // Refaire cette itération
+            }
+             */
+
 
         }
 
     }
-
+    /*
+        public void ajouterInteret(Interet interet) {
+            this.listedInterets.add(interet);
+        }
+     */
 
 
     public void setNom(String string){
@@ -70,4 +100,14 @@ public class Activite {
         this.listedActivites.add(string);
 
     }
+    /*
+     * public void addActivites(){
+     *    Activite activite = new Activte();
+     *    ajouterActivite(activite)
+     *    this.listedActivites.add(activite);
+     * }
+     *
+     */
 }
+
+
