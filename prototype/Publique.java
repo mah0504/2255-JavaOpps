@@ -10,7 +10,7 @@ public class Publique {
     int choix = -1;
 
 
-    public void rechercherUtilisateur(Utilisateur utilisateur) {
+    public void rechercherUtilisateur() {
 
         ArrayList<Integer> index = new ArrayList<>();
         String string;

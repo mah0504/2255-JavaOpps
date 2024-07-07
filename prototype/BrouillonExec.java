@@ -29,12 +29,12 @@ public class BrouillonExec {
 
         // exemple d'activites a ajouter
 
-        activites.addActivites("Inscription à une activité");
-        activites.addActivites("Acheter une composante");
-        activites.addActivites("Créer une tâche");
-        activites.addActivites("Connexion/Inscription utilisateur");
-        activites.addActivites("Voir les détails de l'activité");
-        activites.addActivites("Assigner une composante à un robot");
+//        activites.addActivites("Inscription à une activité");
+//        activites.addActivites("Acheter une composante");
+//        activites.addActivites("Créer une tâche");
+//        activites.addActivites("Connexion/Inscription utilisateur");
+//        activites.addActivites("Voir les détails de l'activité");
+//        activites.addActivites("Assigner une composante à un robot");
 
         pub.RecupListeActivites(activites);
         Utilisateur utilisateur = new Utilisateur();

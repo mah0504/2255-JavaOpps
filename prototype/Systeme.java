@@ -13,7 +13,7 @@ public class Systeme {
 
 
 
-    private Systeme() {
+    Systeme() {
         utilisateurs = new ArrayList<>();
         fournisseurs = new ArrayList<>();
         composantes = new ArrayList<>();
