@@ -17,6 +17,36 @@ public class Publique {
     }
 
 
+    public void RecupListeInterets ( Interet inter){
+        for (int i=0; i<  Systeme.getInstance().getInterets().size() ;i++){
+
+            System.out.println(Systeme.getInstance().getInterets().get(i) );
+        }
+    }
+
+    public void afficherMetrique(Robot robot){
+
+    }
+
+
+
+
+    public void RecupListeFournisseur(Fournisseur fourn){
+        for (int i=0; i<  Systeme.getInstance().getFournisseurs().size() ;i++){
+            System.out.println(Systeme.getInstance().getFournisseurs().get(i) );
+        }
+    }
+
+
+
+    public void RecupListeUtilisateur( Utilisateur utilisateur){
+
+        for (int i=0; i<  Systeme.getInstance().getUtilisateurs().size() ;i++){
+            System.out.println(Systeme.getInstance().getUtilisateurs().get(i) );
+
+        }
+    }
+
     public void voirProfil(Acteur acteur){
         // soit utilisateur soit fournisseur
     }

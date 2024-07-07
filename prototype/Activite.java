@@ -19,8 +19,6 @@ public class Activite {
 
 
     public void ajouterActivite(Activite activite ){
-
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("Veuillez choisir un nom pour votre activité: ");
         String choix= scanner.nextLine();
@@ -38,10 +36,13 @@ public class Activite {
         System.out.println("Veuillez choisir le nombre d'interets que vous voulez associer à l'activité:");
 
         int choix2 = scanner2.nextInt();
+        for ( int i= 0 ; i<choix2; i++){
 
-
+        }
 
     }
+
+
 
     public void setNom(String string){
         this.nom = string;

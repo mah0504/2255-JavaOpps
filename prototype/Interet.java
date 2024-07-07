@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 
 public class Interet {
+
     private String nom;
 
     // Constructor
     public Interet(String nom) {
         this.nom = nom;
     }
+
 
     // Getters and Setters
     public String getNom() {
@@ -26,6 +28,16 @@ public class Interet {
             System.out.println("Vous avez déjà 10 intérêts !.");
         }
     }
+
+
+
+
+
+
+
+
+
+
 
     public void associerActivite() {
         // pour chaque actvité, associer un interet

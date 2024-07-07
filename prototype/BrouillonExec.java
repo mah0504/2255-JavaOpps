@@ -1,6 +1,7 @@
-public class BrouillonExec
-{
+public class BrouillonExec {
+
     public static void main(String[] args) {
+
 //        Flotte flotte = new Flotte();
 //
 //        // Initialisation des composantes avec leurs inventaires
@@ -23,11 +24,11 @@ public class BrouillonExec
 //      //  flotte.enregistrerRobot(robot);
 //    }
 
-
         Activite activites = new Activite();
         Publique pub = new Publique();
 
         // exemple d'activites a ajouter
+
         activites.addActivites("Inscription à une activité");
         activites.addActivites("Acheter une composante");
         activites.addActivites("Créer une tâche");
@@ -43,8 +44,6 @@ public class BrouillonExec
         r.setNumeroDeSerie(1234);
 
         r.afficherInformations();
-
-
 
     }
 }

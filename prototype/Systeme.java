@@ -7,6 +7,9 @@ public class Systeme {
     private static Systeme instance;
     private ArrayList<Utilisateur> utilisateurs;
     private ArrayList<Fournisseur> fournisseurs;
+    private ArrayList<Interet> interets;
+
+
 
     private Systeme() {
         utilisateurs = new ArrayList<>();
@@ -28,6 +31,17 @@ public class Systeme {
 
     public ArrayList<Utilisateur> getUtilisateurs() {
         return utilisateurs; // return new ArrayList<>(utilisateurs); pour copie qui ne peut pas être modifiée???
+    }
+
+
+
+    public void ajouterinterets(Interet interet) {
+        interets.add(interet); // return new ArrayList<>(utilisateurs); pour copie qui ne peut pas être modifiée???
+    }
+
+
+    public ArrayList<Interet> getInterets(){
+        return interets;
     }
 
     // Fournisseurs du système
