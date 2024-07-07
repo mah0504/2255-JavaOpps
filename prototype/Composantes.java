@@ -49,6 +49,10 @@ public class Composantes {
     }
     // au moins 2 composantes
 
+    public String getNom() {
+       return nom;
+    }
+
     public int getInventaire() {
         return inventaire;
     }
