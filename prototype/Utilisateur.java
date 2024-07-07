@@ -12,7 +12,7 @@ public class Utilisateur implements Acteur {
 
 
     public Utilisateur() {
-        // rien mettre?? ou sinscrire??
+
     }
 
 
@@ -64,13 +64,6 @@ public class Utilisateur implements Acteur {
         this.telephone = telephone;
     }
 
-    public ArrayList<Interet> getListeInterets() {
-        return listeInterets;
-    }
-
-    public void setListeInterets(ArrayList<Interet> listeInterets) {
-        this.listeInterets = listeInterets;
-    }
 
     @Override
     public String toString() {
