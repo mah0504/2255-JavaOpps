@@ -21,14 +21,13 @@ public class Interet {
 
     // Méthodes
     public void souscrire(Utilisateur utilisateur) {
+
         ArrayList<Interet> listeInterets = utilisateur.getListeInterets();
         if (listeInterets.size() < 10) {
             listeInterets.add(this);
         } else {
             System.out.println("Vous avez déjà 10 intérêts !.");
         }
-
-
     }
 
 

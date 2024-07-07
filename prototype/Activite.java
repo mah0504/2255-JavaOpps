@@ -1,7 +1,7 @@
 import java.util.*;
 public class Activite {
 
-    private List<String> listedActivites=new ArrayList<>();
+    private List<Activite> listedActivites=new ArrayList<>();
     private String type;
     private String nom;
     private int dateDebut;
@@ -81,7 +81,7 @@ public class Activite {
     public void setType(String string){
         this.type= string;
     }
-    public List<String> getListedActivites(){
+    public List<Activite> getListedActivites(){
         return listedActivites;
     }
 
@@ -91,13 +91,13 @@ public class Activite {
     }
 
 
-    public void setListedActivites(List<String> listedActivites){
+    public void setListedActivites(List<Activite> listedActivites){
         this.listedActivites=listedActivites;
 
     }
 
-    public void addActivites(String string ){
-        this.listedActivites.add(string);
+    public void addActivites(Activite activite ){
+        this.listedActivites.add(activite);
 
     }
     /*

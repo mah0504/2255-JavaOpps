@@ -402,6 +402,7 @@ public class Utilisateur implements Acteur {
     }
 
     public void gererInterets() {
+
     }
 
     public void suivreUtilisateur() {
