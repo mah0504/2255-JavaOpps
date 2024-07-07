@@ -27,6 +27,8 @@ public class Interet {
         } else {
             System.out.println("Vous avez déjà 10 intérêts !.");
         }
+
+
     }
 
 
@@ -34,7 +36,10 @@ public class Interet {
 
 
 
-
+//
+//    public Interet choisirInteret(){
+//        return Interet interet ;
+//    }
 
 
 
