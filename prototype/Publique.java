@@ -1,6 +1,13 @@
+import java.util.ArrayList;
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 public class Publique {
 
-    int index=0;
+    int index = 0;
+    Scanner scanner = new Scanner(System.in);
+    Boolean continuer = true;
+    int choix = -1;
 
 
     public int rechercherUtilisateur(Utilisateur utilisateur) {
@@ -70,7 +77,41 @@ public class Publique {
 
     }
 
-    public void rechercherComposante(Composantes composantes) {
+
+    // retourne les index des composantes dans la liste système des composantes si elle existe
+    public ArrayList<int> rechercherComposante(Composantes composantes) {
+
+        ArrayList<int> index = new ArrayList<int>();
+        continuer = true;
+        choix = -1;
+
+
+        while (continuer) {
+            System.out.println("Veuillez choisir une option de recherche \n [0]: Retour au menu principal " +" " +
+                    "[1]: Par nom \n [2]: Par type \n [3]: Par nom du fournisseur \n ");
+
+            try {
+                choix = scanner.nextInt();
+                switch (choix) {
+                    // mettre le lien avec la classe utilisateur
+                    case 0:
+                        for (int i = 0; i < Systeme.getInstance().getComposantes().size(); i++)
+
+                        break;
+                    case 1:
+
+                        break;
+                    case 2:
+
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                //scanner.next();
+            }
+
+        }
+
         // par nom, type getClass() ou nom du fournisseur "?"
     }
 }
