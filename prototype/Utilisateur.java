@@ -2,30 +2,15 @@ import java.util.*;
 import java.util.regex.*;
 
 public class Utilisateur implements Acteur {
-    private String nom;
-    private String prenom;
-    private String pseudo;
-    private String motDePasse;
-    private String email;
-    private String telephone;
-    private ArrayList<Utilisateur> listeUsers;
-    private ArrayList<String> listePseudos;
+    private String nom, prenom, pseudo, mdp, email, telephone;
     private ArrayList<Interet> listeInterets;
+    Scanner scanner = new Scanner(System.in);
+    Boolean continuer = true;
 
-    public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, ArrayList<Interet> listeInterets) {
-        this.nom = nom;
-        this.prenom = prenom;
-        this.pseudo = pseudo;
-        this.email = email;
-        this.motDePasse = motDePasse;
-        this.telephone = telephone;
-        this.listeInterets = listeInterets;
-        listePseudos.add(pseudo);
+    public Utilisateur() {
+        // rien mettre?? ou sinscrire??
     }
 
-    public Utilisateur(){
-
-    }
 
     public String getNom() {
         return nom;
@@ -51,12 +36,12 @@ public class Utilisateur implements Acteur {
         this.pseudo = pseudo;
     }
 
-    public String getMotDePasse() {
-        return motDePasse;
+    public String getMdp() {
+        return mdp;
     }
 
-    public void setMotDePasse(String motDePasse) {
-        this.motDePasse = motDePasse;
+    public void setMdp(String mdp) {
+        this.mdp = mdp;
     }
 
     public String getEmail() {
@@ -75,14 +60,6 @@ public class Utilisateur implements Acteur {
         this.telephone = telephone;
     }
 
-    public ArrayList<Utilisateur> getListeUsers() {
-        return listeUsers;
-    }
-
-    public void setListeUsers(ArrayList<Utilisateur> listeUsers) {
-        this.listeUsers = listeUsers;
-    }
-
     public ArrayList<Interet> getListeInterets() {
         return listeInterets;
     }
@@ -97,49 +74,146 @@ public class Utilisateur implements Acteur {
                 "nom='" + nom + '\'' +
                 ", prenom='" + prenom + '\'' +
                 ", pseudo='" + pseudo + '\'' +
-                ", motDePasse='" + motDePasse + '\'' +
+                ", motDePasse='" + mdp + '\'' +
                 ", email='" + email + '\'' +
                 ", telephone='" + telephone + '\'' +
                 ", listeInterets=" + listeInterets +
                 '}';
     }
 
-    // Méthodes
     @Override
     public void sInscrire() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Entrez votre nom: ");
-            String nom = scanner.nextLine();
-            if (!nom.matches("[A-Za-z]+")) {
-                throw new IllegalArgumentException("Le nom ne doit pas contenir de chiffres.");
-            }
 
-            System.out.print("Entrez votre prénom: ");
-            String prenom = scanner.nextLine();
-            if (!prenom.matches("[A-Za-z]+")) {
-                throw new IllegalArgumentException("Le prénom ne doit pas contenir de chiffres.");
-            }
+        entrerPseudo();
+        entrerNom();
+        entrerPrenom();
+        entrerMDP();
+        entrerEmail();
+        entrerTelephone();
 
+        //todo interet
+        //todo e-mail de confirmation
+
+        //une fois que e-mail confirmé,
+        Systeme.getInstance().ajouterUtilisateur(this);
+        System.out.println("Inscription réussie!");
+
+    }
+
+    public void entrerPseudo() {
+
+        continuer = true;
+
+        while (continuer) {
             System.out.print("Entrez votre pseudo: ");
-            String pseudo = scanner.nextLine();
-            if (listePseudos.contains(pseudo)) {
-                throw new IllegalArgumentException("Ce pseudo existe déjà, rééssayez!");
+            try {
+                pseudo = scanner.nextLine();
+                verifierAlphaNum(pseudo);
+                pseudoUnique(pseudo);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
             }
+        }
 
+    }
+
+    public void entrerNom() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre nom: ");
+            try {
+                nom = scanner.nextLine();
+                verifierAlpha(nom);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+
+    }
+
+    public void entrerPrenom() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre prenom: ");
+            try {
+                prenom = scanner.nextLine();
+                verifierAlpha(prenom);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+
+    }
+
+    public void entrerMDP() {
+
+        continuer = true;
+
+        while (continuer) {
             System.out.print("Entrez votre mot de passe: ");
-            String motDePasse = scanner.nextLine();
-
-            System.out.print("Entrez votre email: ");
-            String email = scanner.nextLine();
-            if (!emailValide(email)) {
-                throw new IllegalArgumentException("L'email entré n'est pas valide.");
+            try {
+                mdp = scanner.nextLine();
+                if (mdp.length() < 8) {
+                    throw new IllegalArgumentException("Le mot de passe doit comporter au moins 8 caractères.");
+                }
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
             }
+        }
 
-            System.out.print("Entrez votre numéro de téléphone: ");
-            String telephone = scanner.nextLine();
-            if (telephone.length() > 10 || !telephone.matches("[0-9]+")) {
-                throw new IllegalArgumentException("Le numéro de téléphone doit contenir uniquement des chiffres.");
+    }
+
+    public void entrerEmail() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre e-mail: ");
+            try {
+                email = scanner.nextLine();
+                verifierEmail(email);
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
             }
+        }
+
+    }
+
+    public void entrerTelephone() {
+
+        continuer = true;
+
+        while (continuer) {
+            System.out.print("Entrez votre téléphone: ");
+            try {
+                telephone = String.valueOf(scanner.nextInt());
+                if (telephone.length() > 10) {
+                    throw new IllegalArgumentException("Numéro de téléphone invalide.");
+                }
+                continuer = false;
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+    }
+
+
+
+
+
+    /*@Override
+    public void sInscrire() {
+        try (Scanner scanner = new Scanner(System.in)) {
+
 
             Interet.initialiserListeInterets();
 
@@ -159,24 +233,44 @@ public class Utilisateur implements Acteur {
                     i--;
                 }
             }
-
-            Utilisateur utilisateur = new Utilisateur(nom, prenom, pseudo, email, motDePasse, telephone, listeInterets);
-            listeUsers.add(utilisateur);
-        } catch (Exception e) {
-            System.out.println("Erreur lors de l'inscription : " + e.getMessage());
-        }
-
-        System.out.println("Inscription réussie!");
-    }
-
-    private static boolean emailValide(String email) {
-        String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
-        Pattern pattern = Pattern.compile(emailPattern);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
-    }
+    }*/
 
     @Override
+    public void seConnecter() {
+
+        continuer = true;
+        Utilisateur utilisateur;
+
+        while (continuer) {
+
+            try {
+
+                System.out.print("Entrez votre pseudo : ");
+                pseudo = scanner.nextLine();
+                System.out.print("Entrez votre mot de passe : ");
+                mdp = scanner.nextLine();
+
+                int index = chercherPseudo(pseudo);
+                if (index >= 0) {
+                    utilisateur = Systeme.getInstance().getUtilisateurs().get(index);
+                    if (! mdp.equals(utilisateur.getMdp())) {
+                        throw new IllegalArgumentException("Pseudo ou mot de passe invalide.");
+                    }
+                }
+                continuer = false;
+
+                //todo si connexion réussie, dans le main remplacer l'user par celui Systeme.getInstance().getUtilisateurs().get(index)
+                // genre retourner -1 si on veut annuler connexion et retourner au menu principal ou index si connexion réussie
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+            }
+        }
+    }
+
+
+
+    /*@Override
     public void seConnecter() {
 
         try (Scanner scanner = new Scanner(System.in)) {
@@ -185,9 +279,10 @@ public class Utilisateur implements Acteur {
             System.out.print("Entrez votre mot de passe : ");
             String motDePasse = scanner.nextLine();
 
+
             boolean trouve = false;
             for (Utilisateur utilisateur : listeUsers) {
-                if (utilisateur.getPseudo().equals(pseudo) && utilisateur.getMotDePasse().equals(motDePasse)) {
+                if (utilisateur.getPseudo().equals(pseudo) && utilisateur.getMdp().equals(motDePasse)) {
                     System.out.println("Connexion réussie !!");
                     trouve = true;
                     break;
@@ -200,7 +295,7 @@ public class Utilisateur implements Acteur {
         } catch (Exception e) {
             System.out.println("Erreur lors de la connexion : " + e.getMessage());
         }
-    }
+    }*/
 
     @Override
     public void modifierProfil() {
@@ -222,41 +317,19 @@ public class Utilisateur implements Acteur {
 
                 switch (choix) {
                     case 1:
-                        System.out.print("Nouveau nom : ");
-                        String nouveauNom = scanner.nextLine();
-                        if (!nouveauNom.matches("[A-Za-z]+")) {
-                            throw new IllegalArgumentException("Le nom ne doit pas contenir de chiffres.");
-                        }
-                        this.nom = nouveauNom;
+                        entrerNom();
                         break;
                     case 2:
-                        System.out.print("Nouveau prénom : ");
-                        String nouveauPrenom = scanner.nextLine();
-                        if (!nouveauPrenom.matches("[A-Za-z]+")) {
-                            throw new IllegalArgumentException("Le prénom ne doit pas contenir de chiffres.");
-                        }
-                        this.prenom = nouveauPrenom;
+                        entrerPrenom();
                         break;
                     case 3:
-                        System.out.print("Nouvel email : ");
-                        String nouvelEmail = scanner.nextLine();
-                        if (!emailValide(nouvelEmail)) {
-                            throw new IllegalArgumentException("L'email entré n'est pas valide.");
-                        }
-                        this.email = nouvelEmail;
+                        entrerEmail();
                         break;
                     case 4:
-                        System.out.print("Nouveau mot de passe : ");
-                        String nouveauMotDePasse = scanner.nextLine();
-                        this.motDePasse = nouveauMotDePasse;
+                        entrerMDP();
                         break;
                     case 5:
-                        System.out.print("Nouveau numéro de téléphone : ");
-                        String nouveauTelephone = scanner.nextLine();
-                        if (nouveauTelephone.length() > 10 || !nouveauTelephone.matches("[0-9]+")) {
-                            throw new IllegalArgumentException("Le numéro de téléphone doit contenir uniquement des chiffres.");
-                        }
-                        this.telephone = nouveauTelephone;
+                        entrerTelephone();
                         break;
                     case 0:
                         System.out.println("Modification terminée.");
@@ -303,7 +376,49 @@ public class Utilisateur implements Acteur {
         }
     }*/
 
-    public void initialiserUtilisateurs() {
+    // Vérifier qu'un String contient uniquement des caractères alphanumériques
+    private static void verifierAlphaNum(String string) {
+        if (!string.matches("[A-Za-z0-9]+")) {
+            throw new IllegalArgumentException("L'entrée doit contenir uniquement des caractères alphanumériques.");
+        }
+    }
+
+    // Vérifier qu'un String contient uniquement des caractères alphabétiques
+    private static void verifierAlpha(String string) {
+        if (!string.matches("[A-Za-z]+")) {
+            throw new IllegalArgumentException("L'entrée doit contenir uniquement des caractères alphabétiques.");
+        }
+    }
+
+    private void verifierEmail(String email) {
+        String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException("Adresse courriel invalide.");
+        }
+    }
+
+    private static void pseudoUnique(String pseudo) {
+        for (Utilisateur utilisateur : Systeme.getInstance().getUtilisateurs()) {
+            if (utilisateur.getPseudo().equals(pseudo)) {
+                throw new IllegalArgumentException("Ce pseudo existe déjà.");
+            }
+        }
+    }
+
+    private static int chercherPseudo(String pseudo) {
+        ArrayList<Utilisateur> utilisateurs = Systeme.getInstance().getUtilisateurs();
+        for (int i = 0; i < utilisateurs.size(); i++) {
+            if (utilisateurs.get(i).getPseudo().equals(pseudo)) {
+                return i;   // le pseudo existe déjà
+            }
+        }
+        return -1;          // le pseudo n'existe pas
+    }
+
+
+    /*public void initialiserUtilisateurs() {
 
         Utilisateur utilisateur1 = new Utilisateur("Dannane", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", listeInterets);
         listeUsers.add(utilisateur1);
@@ -336,6 +451,6 @@ public class Utilisateur implements Acteur {
         listeUsers.add(utilisateur10);
 
 
-    }
+    }*/
 }
 
