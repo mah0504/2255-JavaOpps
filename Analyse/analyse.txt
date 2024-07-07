@@ -44,15 +44,15 @@ Quelles parties seront informatisées et comment ?
 * Tout d'abord, la gestion de la flotte (robot + composantes) sera informatisée afin de créer un outil qui permettra un contrôle dit efficace.
 * Ensuite, le logiciel, outil qui contrôle et passe des commandes aux différents composantes électriques, sera également informatisée.
 * Par la suite, les capteurs collecteront des données et ceux-ci devront être en mesure de transformer ces informations en un langage interprétable par le logiciel (ex : transformation en binaire).
-* Enfin les données en soi doivent être informatisées pour faciliter leur stockage et leur interprétation. Ces données sont les données personnelles des utilisateurs, les informations sur les fournisseurs et les composantes, les programmes qui contrôlent les robots, les historiques des activités, ....
+* Enfin, les données en soi doivent être informatisées afin de faciliter leur stockage et leur interprétation. Cela inclut notamment les données personnelles des utilisateurs, les informations sur les fournisseurs et les composantes, les programmes qui contrôlent les robots et les historiques des activités.
 * Le langage de programmation choisi pour effectuer ce projet est Java.
 
 Où seront stockées les données ?
-* Il y a deux façons de voir les choses : Stockage des données dans une une structure de données et un stockage “physique” des fichiers qui contiennent nos données. 
-* Les différents TAD : tableaux dynamiques, listes, listes doublement chainées, piles, ….
-* Le disque dur de l’ordinateur, la mémoire interne d’un téléphone ( mais c’est embêtant car si on travaille sur l’ordi et puis on switch vers le téléphone, on ne récupère pas les dernières modifications) 
-* Un stockage de fichiers basé sur le cloud ( facile à partager et à modifier entre plusieurs utilisateurs) 
-* NB: on peut ajouter un stockage sur disque dur chaque mois pour ne pas risquer de perdre nos données. 
+* Il y a deux façons de voir les choses : le stockage des données dans une une structure de données et le stockage “physique” des fichiers qui contiennent nos données. 
+* Concernant les types abstraits de données (TAD), soit les structures de données, les tableaux dynamiques, les listes, les listes doublement chainées, les piles (et d'autres TAD) seront utilisés.
+* Le données peuvent être stockées sur le disque dur de l’ordinateur ou la mémoire interne d’un téléphone. En revanche, cela peut être problématique si on souhaite passer de l'ordinateur au téléphone, car on ne récupère pas les dernières modifications.
+* Un stockage de fichiers basé sur le cloud sera utilisé pour faciliter le partage et les modifications entre plusieurs utilisateurs.
+* NB: on peut ajouter un stockage sur le disque dur chaque mois pour minimiser le risque de perdre nos données. 
 
 Quel matériel sera nécessaire ?
 * Des robots et des composantes pour notre flotte 
