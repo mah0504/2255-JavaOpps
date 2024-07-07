@@ -70,3 +70,4 @@ Comment les utilisateurs interagiront avec le système ?
 * Robotic communiquera avec l’utilisateur par courriel ou par notifications sur ordinateur et téléhone. 
 * L'objectif est que l’utilisateur interagisse le moins possible avec le système, de manière simple et rapide. L'interface doit être intuitive et fluide afin de permettre à l’utilisateur de naviguer le logiciel, et ce, sans l’aide d’un expert et de passer des commandes sans avoir besoin de posséder de l'expertise sur le sujet. 
 
+Si vous préférez la version paragraphe de 100 mots : 
