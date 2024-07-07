@@ -2,16 +2,13 @@ import java.time.LocalDateTime;
 import java.util.*;
 import java.util.regex.*;
 
-public class Fournisseur implements Acteur {
-    private String nom;
+public class Fournisseur extends Acteur {
+
     private String adresse;
-    private String email;
-    private String motDePasse;
-    private String telephone;
+
+
     private String capaciteFabrication;
-    private LocalDateTime dateInscription =  LocalDateTime.now();
-    private boolean confirmationEmail = false;
-    private String codeConfirmation = genererCodeConfirmation();
+
     private ArrayList<Composantes> listeComposantesF;
     private static ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
     private Map<String, Composantes> Stock;
@@ -26,7 +23,6 @@ public class Fournisseur implements Acteur {
         this.email = email;
         this.motDePasse = motDePasse;
         this.telephone = telephone;
-        this.listeFournisseurs = new ArrayList<>();
         this.capaciteFabrication = capaciteFabrication;
     }
     public Fournisseur() {
@@ -68,6 +64,11 @@ public class Fournisseur implements Acteur {
 
     public String getTelephone() {
         return telephone;
+    }
+
+    @Override
+    protected void entrerCompagnie() {
+
     }
 
     public void setTelephone(String telephone) {
@@ -349,15 +350,9 @@ public class Fournisseur implements Acteur {
         }
         return false;
     }
-    private String genererCodeConfirmation() {
-        return UUID.randomUUID().toString();
-    }
 
-    private void envoyerEmail(String destinataire) {
-        System.out.println("Envoi d'email à : " + destinataire);
-        System.out.println("Sujet : Confirmation de l'inscription" );
-        System.out.println("Contenu : Cliquez sur le lien pour confirmer votre inscription  et saisisez le code :" + codeConfirmation);
-    }
+
+
     /* ************************************************************************************************ */
 
     /*
@@ -367,7 +362,6 @@ public class Fournisseur implements Acteur {
     /* ************************************************************************************************ */
 
     public static void initialiserListeFournisseurs() {
-        ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
 
         listeFournisseurs.add(new Fournisseur("Fournisseur1", "Adresse1", "email1@example.com", "mdp1", "1234567890", "Capacité1"));
         listeFournisseurs.add(new Fournisseur("Fournisseur2", "Adresse2", "email2@example.com", "mdp2", "0987654321", "Capacité2"));
