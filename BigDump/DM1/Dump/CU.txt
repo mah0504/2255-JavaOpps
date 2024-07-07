@@ -1,0 +1,323 @@
+Sabrina
+
+FOURNIR DES COMPOSANTES
+Cas d'utilisation : Fournir des composantes.
+But : Le fournisseur souhaite fournir des composantes aux utilisateurs. 
+Préconditions : Posséder une compagnie, un compte ‘’fournisseur’’ et posséder des composantes à fournir. 
+Acteurs : Fournisseur, utilisateur.
+Scénario principal :  
+	1- Le fournisseur se connecte à son compte Robotix.
+	2- Le fournisseur ajoute des nouvelles composantes (et leur description) à son inventaire
+	3- Le fournisseur consulte régulièrement son profil pour s’assurer que les quantités mises à disposition (dans l’inventaire) soient à jour.
+	4- Un utilisateur trouve un fournisseur qui possède les composantes qu’il désire.
+	5- L’utilisateur achète les composantes désirées au sein du fournisseur.
+	6- Le fournisseur reçoit une notification de la commande et entame la préparation de cette dernière.
+	7- Le fournisseur expédie la commande chez l’utilisateur.
+Scénarios alternatifs : 
+	2a- L’achat de la composante de la part de l’utilisateur ne fonctionne pas.
+		2a.1 La compagnie du fournisseur est en rupture de stock quant à la composante désirée par l’utilisateur.
+		2a.2 L’utilisateur est renvoyé sur la page d’accueil ou la page des composantes.
+		2a.3 Le scénario reprend à l’étape 2.
+
+Postconditions : Le fournisseur fournit des composantes à un utilisateur grâce à Robotix.
+
+
+PARTICIPER À DES ACTIVITÉS
+Cas d'utilisation : Participer à des activités
+But : Les utilisateurs désirent enrichir leurs expériences, partager avec d’autres utilisateurs et explorer leur créativité.
+Préconditions : Posséder un ou des robots et les robots doivent posséder les composantes nécessaires pour participer aux activités.
+Acteurs : Utilisateur 
+Scénario principal : 
+	1- L’utilisateur navigue à travers le système de Robotix pour y trouver les activités offertes et disponibles.
+	2- L’utilisateur sélectionne une ou plusieurs activités qui l’intéressent.
+	3- L’utilisateur inscrit ses robots aux activités sélectionnées.
+	4- Au moment prévu, l’utilisateur (avec ses robots) participe aux activités auxquelles il s’était inscrit. 
+	5- Durant les activités, l’utilisateur communique et échange avec les autres utilisateurs présents à l’activité.
+
+Postconditions : Les utilisateurs et leurs robots ont réussi à participer à des activités.
+
+
+CRÉATION
+Cas d'utilisation : Création
+But : Création d’objets réels ou virtuels à l’aide d’outils numériques tels que des logiciels de conception assistée par ordinateur (CAO) et/ou de l’impression 3D.
+Préconditions : Participer à une activité, comme il s’agit d’un cas spécifique du fait de participer à une activité.
+Acteurs : Utilisateur
+Scénario principal :  
+	1- L’utilisateur se présente à l’activité avec ses robots. 
+	2- L’utilisateur s’assure que ses robots soient prêts à être utilisés pour l’activité de création.
+	3- L’utilisateur ouvre l’outil numérique utilisé (CAO ou impression 3D) pour participer à l’activité.
+	4- L’utilisateur crée des objets réels et/ou virtuels, tel que désiré.
+
+Postconditions : L'utilisateur réussit à créer des objets virtuels et/ou réels.
+
+--------------------------------------------------------------------------------------------------------------------------
+maha ;) 
+** = scénario alternatif ( à modifier après ) 
+
+ALLOUER UNE TÂCHE 
+Cas d'utilisation : allouer une tâche 
+But: Permettre à l'utilisateur d'allouer une tâche à un robot instantanément, planifier l'exécution de cette tâche ou encore définir l'élément qui déclenche son exécution.
+Acteur: Utilisateur (principal) 
+Précondition : L'utilisateur doit être connecté à son compte robotix ( en tant qu'utilisateur!!) 
+
+Scénario principal: 
+1- L'utilisateur est sur le menu principal et clique sur 'allouer une tâche' 
+2- Le système affiche une liste de tâches déjà existantes et si l'utilisateur clique sur l'une d'elles, il a accès à sa description, mais aussi à la séquence d'actions ordonnées qui la constituent. Le système affiche aussi l'option de 'créer une tâche' plus bas.
+3- L'utilisateur clique sur l'une des tâches de la liste.  **
+4- Le système valide le choix de l'utilisateur et affiche la flotte de robots de l'utilisateur.
+5- Le système demande à l'utilisateur de choisir le robot auquel il veut allouer la tâche.
+6- L'utilisateur fait son choix.
+7- Le système vérifie si le robot choisi est disponible et s'il a les composantes nécessaires pour effectuer cette tâche. **
+8- Le système valide le choix de l'utilisateur et lui demande s'il veut exécuter cette tâche une ou plusieurs fois. 
+9- L'utilisateur choisit d'exécuter la tâche une fois. **  ( fréquence ) 
+10- Le système lui propose de choisir s'il exécute instantanément ou s'il veut choisir un horaire. 
+11- L'utilisateur clique sur ' planifier l'horaire d'éxecution' et choisit la plage horaire qui lui convient. 
+12- Le système valide le choix de l'utilisateur.
+13- Le système propose à l'utilisateur de choisir un autre robot pour la même tâche. // à vérifier, reformuler 
+14- L'utilisateur clique sur non. 
+15- Le système confirme le choix et affiche un onglet qui précise le moment et la tâche définis pour le robot.
+
+Scénarios Alternatifs: 
+3-a. l'utilisateur clique sur créer une tâche.
+3-b. Le cas d'utilisation 'créer une tâche' est déclenché comme extension d'allouer une tâche.
+3-c. Retour à l'étape 4.
+
+7- a.1. Le robot choisi n'a pas les composantes nécessaires pour exécuter la tâche.
+	7-a.2. Le système signale à l'utilisateur l'absence des composantes nécessaires et lui demande de choisir un autre robot.
+// commentaire !! : l'option d'acheter composante necessaire pour l'attribuer au robot choisit est trop compliquée / longue à mentionner ici so je ne le fais pas 
+7-a.3- Retour à l'étape 5.
+
+9-a L'utilisateur choisit d'allouer la tâche au robot choisi de manière cyclique.
+9-a.1 Le système demande à l'utilisateur s'il peut planifier l'exécution de la tâche selon un horaire ou le déclenchement d'un evénement spécifique.
+9-a.2.1 - L'utilisateur choisit de programmer l'exécution selon un horaire temporel.
+9-a.2.1.1- L'utilisateur choisit la plage horaire et la fréquence d'exécution.
+9-a.2.2 -L'utilisateur choisit de programmer l'exécution selon une action produite par le robot.
+9-a.2.2.1 Le système affiche à l'utilisateur une liste d'actions qui vont déclencher l'exécution. 
+9-a.2.2.2 L'utilisateur choisit l'action qu'il veut et valide son choix.
+9-a.2 Le système valide le choix de l'utilisateur. 
+9-a.3 Retour à l'étape 13.
+
+Postcondition : L'utilisateur a pu allouer une tâche à un robot.
+
+
+
+CRÉER UNE TÂCHE 
+Cas d'utilisation : Créer une tâche.
+Acteur : L'utilisateur ( principal ) 
+But: permettre à l'utilisateur de créer une nouvelle tâche et de l'ajouter au répertoire des tâches déjà existantes. 
+Préconditions : L'utilisateur doit être connecté à son compte robotix et avoit cliqué sur 'allouer une tâche' sur le menu principal.
+
+1- L'utilisateur clique sur 'allouer une tâche'.
+2- L'utilisateur clique sur 'créer une tâche'.
+3- Le système demande à l'utilisateur de lui attribuer un nom, un type (mouvement, affichage...) et une petite description.
+4- L'utilisateur entre les informations nécessaires.
+5- Le système confirme le choix de l'utilisateur.
+6- Le système affiche la liste d'actions déjà existantes à l'utilisateur et leurs descriptions ainsi que les composantes nécessaires pour les exécuter. Une option pour créer une nouvelle action apparaît au bas de la page. Ces actions rassemblées en ordre logique constituent une tâche.
+7- L'utilisateur choisit l'action qui l'intéresse.  **
+8- Le système ajoute l'action à la nouvelle tâche créée et affiche encore la liste d'actions précédentes que l'utilisateur peut ajouter.
+9- L'utilisateur continue d'ajouter les actions qui l'intéressent.
+10- Les actions sont ajoutées dans un certain ordre choisi par l'utilisateur.
+11- Les actions sont exécutées dans ce même ordre. 
+12- Après l'ajout de l'énième action, l'utilisateur confirme son choix d'actions allouées à la tâche.
+13- Le système confirme le choix de l'utilisateur.
+14- Le système lui demande de confirmer la tâche qu'il vient de créer.
+14- L'utilisateur confirme son choix.
+15- Le système valide le choix.
+16- La nouvelle tâche est ajoutée au répertoire de tâches avec des informations de base (ex : la date de création, nom de la tâche) 
+
+Scénarios Altérnatifs : 
+7-a L'utilisateur choisit de créer une nouvelle action.
+7-a.1 Le système se dirige alors vers 'créer une action'.
+7-a.2 Exécution du cas d'utilisation 'créer une action'.
+7-a.3 Retour à l'étape 7 
+
+Postconditions: L'Utilisateur a réussi à créer une tâche.
+------------------------------------------
+Audrey
+
+#8
+Cas d’utilisation : Trouver un fournisseur de composantes
+But : Un utilisateur peut naviguer à travers la liste de fournisseurs enregistrés dans Robotix. 
+Préconditions : L’utilisateur est déjà inscrit à Robotix et il est connecté à son compte.
+Acteurs : Un utilisateur (principal).
+
+Scénario principal :
+1. L’utilisateur choisit l’option « Trouver un fournisseur » dans le menu principal.
+2. Robotix affiche une liste défilante de tous les fournisseurs enregistrés dans le système.
+3. L’utilisateur utilise le mécanisme « Filtrer » (pays, ville, compagnie, composante, alphabétique, etc.) ou « Rechercher » pour affiner les résultats de recherche.
+   3.1 Robotix trie la liste des fournisseurs en fonction du mécanisme choisi.
+   3.2 Robotix affiche la liste triée.
+4. L’utilisateur clique sur le profil d’un fournisseur.
+   4.1 Robotix affiche les détails du fournisseur (compagnie, nom, adresse, email, téléphone, etc.).
+5. L’utilisateur choisi l’option « Acheter chez ce fournisseur »  à l’écran.
+5.1 Appel du cas « Acheter une composante. »
+6. Robotix ramène l’utilisateur au menu principal.
+
+Scénarios alternatifs :
+(1-5)a. L’utilisateur choisit l’option « Annuler » à l’écran.
+(1-5)a.1 Passer à l’étape 6.
+2a. Robotix ne trouve aucun fournisseur.
+2a.1 Robotix affiche « Aucun fournisseur inscrit » à l’écran.
+2a.2 Passer à l’étape 6.
+3a L’utilisateur n’utilise pas ces mécanismes.
+3a.1 Passer à l’étape 4.
+5a. L’utilisateur choisi l’option « Retour » à l’écran.
+5a.1 Passer à l’étape 2.
+
+Postconditions : Robotix affiche à nouveau le menu principal à l’écran. Si l’utilisateur a fait l’achat de composantes, Robotix les aura ajoutés à son inventaire.
+
+
+
+#10
+Cas d’utilisation : Enregistrer un robot
+But : Un utilisateur peut enregistrer un nouveau robot à son inventaire.
+Préconditions : L’utilisateur est déjà inscrit à Robotix et il est connecté à son compte.
+Acteurs : Un utilisateur (principal).
+Scénario principal :
+1. L’utilisateur choisit l’option « Enregistrer un robot » dans le menu principal.
+2. Robotix affiche une liste défilante des composantes disponibles dans l’inventaire de l’utilisateur.
+3. L’utilisateur utilise le mécanisme « Filtrer » (type de composante, date d’achat, alphabétique, etc.) ou « Rechercher » pour affiner les résultats de recherche.
+3.1 Robotix trie la liste des composantes en fonction du mécanisme choisi.
+3.2 Robotix affiche la liste triée.
+4. L’utilisateur sélectionne les composantes qu’il souhaite ajouter au robot.
+4.1 L’utilisateur enregistre son choix.
+5. L’utilisateur saisit un nom et un type pour identifier son robot.
+6. L’utilisateur choisir l’option « Enregistrer » à l’écran.
+6.1 Robotix ajoute le nouveau robot à l’inventaire de l’utilisateur.
+7. Robotix affiche les détails du robot à l’écran : numéro de série (du CPU, il est donné par le fournisseur), nom, type, composantes et date de création.
+8. Robotix ramène l’utilisateur au menu principal.
+
+Scénarios alternatifs :
+(1-7)a. L’utilisateur choisi l’option « Annuler » à l’écran.
+(1-7)a.1 Passer à l’étape 8.
+2a. L’inventaire de l’utilisateur ne contient pas au minimum un CPU et une composante d’un autre type.
+2a.1 Robotix affiche « Composantes insuffisantes » à l’écran.
+2a.2 Passer à l’étape 8.
+3a. L’utilisateur n’utilise pas ces mécanismes.
+3a.1 Passer à l’étape 4.
+4a. Le choix des composantes est invalide.
+4a.1 Robotix affiche « Veuillez sélectionner au minimum un CPU et une composante d’un autre type. » à l’écran.
+4a.2 Retourner à l’étape 4.
+5a. Les champs sont laissés vides, ils dépassent la limite de caractères ou ils contiennent des caractères invalides.
+5a.1 Retourner à l’étape 5.
+
+
+Postconditions : Robotix affiche à nouveau le menu principal à l’écran. Si l’utilisateur a enregistré un nouveau robot, Robotix l’a ajouté à son inventaire.
+
+----------------------------------------------------------------------------------------------------------------
+Cas d'utilisation : S'inscrire
+
+But :
+Permettre à un utilisateur ou un fournisseur de créer un compte sur le logiciel Robotix.
+
+Préconditions :
+- Avoir une adresse mail valide.
+- Avoir un numéro de téléphone valide
+- La compagnie est déjà enregistrée sur Robotix.
+
+Acteurs :
+- Principal : Utilisateur/ Fournisseur
+
+Scénario principal :
+1. L'utilisateur ouvre la page d'inscription de Robotix.
+2. L'utilisateur ajoute ses données personnelles
+   2.1. ajouter nom et prénom,
+   2.2. ajouter pseudo
+   2.3. ajouter adresse email
+   2.4. ajouter mot de passe
+   2.5. confirmer mot de passe
+   2.6. ajouter téléphone
+   2.7. choisir nom de la compagnie à partir d’une liste déroulante.
+3. Le système vérifie la validité des informations.
+4. Le système envoie un email de confirmation à l'adresse fournie.
+5. L'utilisateur clique sur le lien de confirmation dans l'email.
+6. Le système confirme l'inscription.
+
+Scénarios alternatifs :
+2.2a.1. L'utilisateur choisit un pseudo déjà utilisé.
+2.2a.2. Le système lui demande de choisir un autre pseudo.
+
+2.5a.1 L’utilisateur entre un mot de passe différent.
+2.5a.2 Le système lui demande d’entrer le même mot de passe.
+
+
+4a.1.  L’utilisateur ne reçoit pas de mail de confirmation.
+4a.2. L'utilisateur demande un nouvel envoi de l'email de confirmation.
+
+(1-6)b. Le fournisseur suit les même s étapes pour créer un compte
+
+Postconditions :
+- L'utilisateur possède un compte sur Robotix.
+
+----------------------------------------------------------------------------------------------------------------------------
+Chaimaa
+
+Cas d'utilisation : Se connecter
+
+But :
+Permettre à un utilisateur ou un fournisseur de se connecter à Robotix pour contrôler les robots ou fournir des composantes.
+
+Préconditions :
+- Avoir un compte sur Robotix.
+
+Acteurs :
+-  Principal : Utilisateur/ Fournisseur
+
+Scénario principal :
+1.L'utilisateur ouvre la page de connection de Robotix.
+2. L'utilisateur s’authentifie
+	2.1 L’utlisateur entre son pseudo
+	2.2 L’utilisateur entre son mot de passe.
+3. Le système vérifie les informations.
+4. Le système donne accès au logiciel
+
+
+Scénarios alternatifs :
+2.1.a.1. L'utilisateur oublie son pseudo.
+2.1.a.2. Le système demande à l’utilisateur son email.
+2.1.a.3. L’utilisateur récupère son pseudo.
+
+2.2.a.1. L'utilisateur oublie son mot de passe.
+2.2.a.2. Le système demande à l’utilisateur son email.
+2.2.a.3. L’utilisateur récupère son mot de passe.
+
+3a.1. L’authentification n’aboutit pas.
+3a.2. Le système affiche un message d’erreur. Retour à l’étape 2.
+
+(1-4)b. Le fournisseur suit les même s étapes pour se connecter.
+
+Postconditions :
+- L'utilisateur est connecté à Robotix.
+
+########################################################
+Cas d'utilisation : Accéder aux métriques
+
+But :
+Permettre à un utilisateur de visualiser les métriques pour refléter la performance de ses robots.
+
+Préconditions : Être connecté à Robotix.
+
+Acteurs : Utilisateur (principal)
+
+Scénario principal :
+1. L'utilisateur choisit un robot.
+2. L'utilisateur consulte l'inventaire du robot.
+3. L'utilisateur accède à la section métriques de ce robot.
+4. Le système affiche une liste des métriques de ce robot.
+5. L'utilisateur clique sur une des métriques pour afficher plus d’informations.
+
+Scénarios alternatifs :
+1a.1. L’utilisateur choisit une flotte.
+1a.2. L’utilisateur choisit un robot dans la flotte.
+
+1b. L’utilisateur choisit une flotte.
+2b. L'utilisateur consulte l'inventaire de  cette flotte.
+3b. L'utilisateur accède à la section métriques de cette flotte.
+4b. Le système affiche une liste des métriques de cette flotte.
+5b. L’utilisateur choisit un robot dans la flotte. Retour à l’étape 1 dans le scénario principal.
+
+1a.1. Pas de robot enregistré.
+1a.2. Le système demande à l’utilisateur s’il souhaite enregistrer un robot.
+
+Postconditions :
+- Les métriques sont affichées et vues par l’utilisateur.
