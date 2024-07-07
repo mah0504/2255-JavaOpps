@@ -1,3 +1,4 @@
+import javax.swing.*;
 import java.util.*;
 import java.util.InputMismatchException;
 public class Main {
@@ -140,15 +141,25 @@ public class Main {
                     choixProfil();
                     break;
                 case 1:
-
+                    publique.RecupListeUtilisateur(utilisateur);
                     break;
                 case 2:
 
                     break;
-
-                    // mettre les autres cases
+                case 3:
+             //       publique.voirProfilU();
+                    break;
+                case 4:
+               //     publique.RecupListeActivites();
+                    break;
+                case 5:
+                 //   publique.RecupListeInterets();
+                    break;
+                case 6:
+                   // publique.RecupListeFournisseur();
+                    break;
                 case 7:
-
+                  //  publique.rechercherComposante();
                     break;
 
                 case 8:
@@ -186,13 +197,35 @@ public class Main {
                     choixProfil();
                     break;
                 case 1:
-                    //modifier profil
+                    utilisateur.modifierProfil();
                     break;
 
-
                 case 2:
-                    // aller a flotte
+                    utilisateur.gererFlotte(utilisateur.getFlotte(), ); //2 e argument composante
+                    break;
+                case 3:
+
+                    break;
+                case 4:
+                    utilisateur.gererActivites();
+                    break;
+                case 5:
+                    utilisateur.gererInterets();
+                    break;
+                case 6:
+                 //   utilisateur.suivreUtilisateur();
+                    break;
+                case 7:
+                    utilisateur.sInscrireActivite();
+                    break;
+                case 8:
+                    // souscrire interet
+                    break;
+                case 9:
+                    //utilisateur.afficherLesEtats(robot); // voir quoi mettre a l'inter
+                    break;
                 default:
+
                     afficherMenu(utilisateur);
                     break;
             }

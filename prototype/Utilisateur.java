@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 
 public class Utilisateur implements Acteur {
     private String nom, prenom, pseudo, motDePasse, email, telephone;
+    private Flotte flotte;
+
+
     Scanner scanner = new Scanner(System.in);
     Boolean continuer = true;
     private String nomDeCompagnie;
@@ -37,6 +40,9 @@ public class Utilisateur implements Acteur {
 
     }
 
+    public Flotte getFlotte(){
+        return this.flotte;
+    }
     public String getNom() {
         return nom;
     }
