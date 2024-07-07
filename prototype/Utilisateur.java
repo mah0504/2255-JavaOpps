@@ -460,26 +460,181 @@ public class Utilisateur implements Acteur {
             System.out.println( "La metrique : " +m );
         }
     }
-
+    /*
+     * Méthode qui permet de gérer les Suiveurs et Suivis
+     * Elle permet soit de Suivre un Utilisateur, soit de voir qui nous suivons et qui nous suivent.
+     * Pour Suivre un utilisateur, il faut connâitre son pseudo
+     * Manquant : Pensez à afficher la liste des Utilisateurs avant de choisir le pseudo
+     */
     public void gererSuiveurs() {
+        try (Scanner scanner = new Scanner(System.in)) {
+            boolean continuer = true;
+
+            while (continuer) {
+                System.out.println("Que voulez-vous faire ?");
+                System.out.println("1. Suivre un utilisateur");
+                System.out.println("2. Voir les utilisateurs que vous suivez");
+                System.out.println("3. Voir les utilisateurs qui vous suivent");
+                System.out.println("0. Quitter");
+
+                int choix = scanner.nextInt();
+                scanner.nextLine();
+
+                switch (choix) {
+                    case 1:
+                        System.out.print("Qui voulez vous suivre ?");
+                        Utilisateur utilisateurSuivi = rechercherParPseudo(scanner.nextLine());
+                        if (utilisateurSuivi != null) {
+                            suivreUtilisateur(utilisateurSuivi);
+                        } else {
+                            System.out.println("Utilisateur non trouvé.");
+                        }
+                        break;
+                    case 2:
+                        voirSuivis();
+                        break;
+                    case 3:
+                        voirSuiveurs();
+                        break;
+                    case 0:
+                        continuer = false;
+                        break;
+                    default:
+                        System.out.println("Choix invalide. Réessayez !");
+                        break;
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la gestion des suivis : " + e.getMessage());
+        }
     }
 
+    /*
+        afficherMesActivites() : afficher les actvités auxquelles je suis inscrits
+        sInscrireActivite() : S'inscrire à des activités
+        Manquant : Calculer les Points + Montrer le classement ==> gererClassement()
+     */
     public void gererActivites() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Que souhaitez-vous faire ?");
+        System.out.println("1. Voir vos activités");
+        System.out.println("2. S'inscrire à une activité");
+
+        int choix = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choix) {
+            case 1:
+                afficherMesActivites();
+                break;
+            case 2:
+                sInscrireActivite();
+                break;
+            default:
+                System.out.println("Choix invalide.");
+        }
     }
 
+    /*
+     * Cette méthode permet d'initialiser pour chaque Utilisateur une liste à 10 Intérets
+     * L'utilisateur peut choisir d'initialiser sa liste avec des Intérets qui existent déjà (listeInteretsGeneraux)
+     * ou d'ajouter de nouveaux Intérêts ( en même temps il faut initialiser la listeInteretsGeneraux pour inclure
+     * les nouveaux Intérêts )
+     */
     public void gererInterets() {
+        ArrayList<Interet> listeInteretsGeneraux = Interet.getListeInteretsGeneraux();
 
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Choisissez vos intérêts (entrez le numéro, 0 pour aucun choix):");
+            for (int i = 0; i < listeInteretsGeneraux.size(); i++) {
+                System.out.println((i + 1) + ". " + listeInteretsGeneraux.get(i).getNom());
+            }
+
+            int nbChoix = 0;
+            while (nbChoix < 10) {
+                System.out.print("Choix " + (nbChoix + 1) + ": ");
+                int choix = scanner.nextInt();
+                scanner.nextLine();
+
+                if (choix == 0) {
+                    break; // L'utilisateur ne choist aucun intéret proposé
+                } else if (choix >= 1 && choix <= listeInteretsGeneraux.size()) {
+                    Interet interet = listeInteretsGeneraux.get(choix - 1);
+                    interet.souscrire(this);
+                    nbChoix++;
+                } else {
+                    System.out.println("Choix invalide. Réessayez.");
+                }
+            }
+
+            // Si l'utilisateur n'a pas sélectionné 10 choix, lui demander d'ajouter de nouveaux intérêts
+            while (nbChoix < 10) {
+                System.out.print("Entrez un nouvel intérêt : ");
+                Interet nvInteret = new Interet(scanner.nextLine());
+                listeInteretsGeneraux.add(nvInteret);
+                nvInteret.souscrire(this);
+                nbChoix++;
+            }
+
+        } catch (Exception e) {
+            System.out.println("Erreur lors de la gestion des intérêts : " + e.getMessage());
+        }
+    }
+    /*
+     * Cette méthode permet de suivre un Utilisateur
+     * Elle modifie la liste des Suivis ( pour l'utilisateur qui souhaitent faire le Suivi)
+     * et la liste des Suiveurs (pour l'utilisateur que nous souhaitons suivre )
+     */
+    public void suivreUtilisateur(Utilisateur utilisateur) {
+        if (!this.listeSuivis.contains(utilisateur)) {
+            this.listeSuivis.add(utilisateur);
+            utilisateur.listeSuiveurs.add(this);
+            System.out.println("Vous suivez " + utilisateur.getPseudo());
+        } else {
+            System.out.println("Vous suivez déjà "+ utilisateur.getPseudo());
+        }
     }
 
-    public void suivreUtilisateur() {
-    }
+
+    /*
+        //get l'activite et l'ajouter à la liste de mes actvités
+        //get liste des Interets + choisir un Interet + choisir une activité dans la liste des Activites
+        //get les Intérets et choisir une actvité et l'ajouter à la liste de mes actvités (Map<Interets, List<Activite>)
+     */
 
     public void sInscrireActivite() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Comment voulez-vous vous inscrire à une activité ?");
+        System.out.println("1. À partir de la liste de toutes les activités disponibles");
+        System.out.println("2.  À partir de la liste des intérêts");
+
+        int choix = scanner.nextInt();
+        scanner.nextLine();
+
+        switch (choix) {
+            case 1:
+                choisirByActivite();
+                break;
+            case 2:
+                choisirByInteret();
+                break;
+            default:
+                System.out.println("Choix invalide.");
+        }
     }
 
-
+    /*
+     * Cette méthode doit implémenter l'affichage des notifications à l'intention d'un Utilisateur
+     * Ces notifications peuvent être connectés aux Acticités, à la flotte ou autre
+     */
     public void voirNotifications() {
     }
+
+    //Calculer ou Trouver le classement d'un Utilisateur à partir des pointsGagnés
+    //penser à ajouter le classement comme attribut pour qu'il s'affiche dans le profil
+    public void gererClassement(){
+    }
+
 
     /*public void enregistrerRobot(Robot robot) {
         this.robots.add(robot);
@@ -490,47 +645,6 @@ public class Utilisateur implements Acteur {
             System.out.println(robot);
         }
     }*/
-
-    // Vérifier qu'un String contient uniquement des caractères alphanumériques
-    private static void verifierAlphaNum(String string) {
-        if (!string.matches("[A-Za-z0-9]+")) {
-            throw new IllegalArgumentException("L'entrée doit contenir uniquement des caractères alphanumériques.");
-        }
-    }
-
-    // Vérifier qu'un String contient uniquement des caractères alphabétiques
-    private static void verifierAlpha(String string) {
-        if (!string.matches("[A-Za-z]+")) {
-            throw new IllegalArgumentException("L'entrée doit contenir uniquement des caractères alphabétiques.");
-        }
-    }
-
-    private void verifierEmail(String email) {
-        String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
-        Pattern pattern = Pattern.compile(emailPattern);
-        Matcher matcher = pattern.matcher(email);
-        if (!matcher.matches()) {
-            throw new IllegalArgumentException("Adresse courriel invalide.");
-        }
-    }
-
-    private static void pseudoUnique(String pseudo) {
-        for (Utilisateur utilisateur : Systeme.getInstance().getUtilisateurs()) {
-            if (utilisateur.getPseudo().equals(pseudo)) {
-                throw new IllegalArgumentException("Ce pseudo existe déjà.");
-            }
-        }
-    }
-
-    private static int chercherPseudo(String pseudo) {
-        ArrayList<Utilisateur> utilisateurs = Systeme.getInstance().getUtilisateurs();
-        for (int i = 0; i < utilisateurs.size(); i++) {
-            if (utilisateurs.get(i).getPseudo().equals(pseudo)) {
-                return i;   // le pseudo existe déjà
-            }
-        }
-        return -1;          // le pseudo n'existe pas
-    }
 
     /*
      * Fonctions auxiliaires qui gèrent les Suivis
@@ -585,6 +699,110 @@ public class Utilisateur implements Acteur {
         System.out.println("Sujet : Confirmation de l'inscription" );
         System.out.println("Contenu : Cliquez sur le lien pour confirmer votre inscription  et saisisez le code :" + codeConfirmation);
     }
+    // Vérifier qu'un String contient uniquement des caractères alphanumériques
+    private static void verifierAlphaNum(String string) {
+        if (!string.matches("[A-Za-z0-9]+")) {
+            throw new IllegalArgumentException("L'entrée doit contenir uniquement des caractères alphanumériques.");
+        }
+    }
+
+    // Vérifier qu'un String contient uniquement des caractères alphabétiques
+    private static void verifierAlpha(String string) {
+        if (!string.matches("[A-Za-z]+")) {
+            throw new IllegalArgumentException("L'entrée doit contenir uniquement des caractères alphabétiques.");
+        }
+    }
+
+    private void verifierEmail(String email) {
+        String emailPattern = "[A-Za-z0-9-_\\.]+@[a-z]+\\.(com|fr|ca|io|web)";
+        Pattern pattern = Pattern.compile(emailPattern);
+        Matcher matcher = pattern.matcher(email);
+        if (!matcher.matches()) {
+            throw new IllegalArgumentException("Adresse courriel invalide.");
+        }
+    }
+
+    private static void pseudoUnique(String pseudo) {
+        for (Utilisateur utilisateur : Systeme.getInstance().getUtilisateurs()) {
+            if (utilisateur.getPseudo().equals(pseudo)) {
+                throw new IllegalArgumentException("Ce pseudo existe déjà.");
+            }
+        }
+    }
+
+    private static int chercherPseudo(String pseudo) {
+        ArrayList<Utilisateur> utilisateurs = Systeme.getInstance().getUtilisateurs();
+        for (int i = 0; i < utilisateurs.size(); i++) {
+            if (utilisateurs.get(i).getPseudo().equals(pseudo)) {
+                return i;   // le pseudo existe déjà
+            }
+        }
+        return -1;          // le pseudo n'existe pas
+    }
+
+    /* ************************************************************************************************ */
+    /*
+     * Fonctions auxiliaires pour sInscrireActivité et gererActivites
+     */
+    private void choisirByActivite() {
+
+        Scanner scanner = new Scanner(System.in);
+
+        List<Activite> liste = Activite.getListedActivites();
+        for (int i = 0; i < liste.size(); i++) {
+            System.out.println((i + 1) + ". " + liste.get(i));
+        }
+
+        int choix = scanner.nextInt();
+        scanner.nextLine();
+
+        // Il faut modifier comment gérer listedActivites
+        Activite MonActivite = liste.get(choix - 1);
+        MesActivites.add(MonActivite);
+
+    }
+
+
+    private void choisirByInteret() {
+        Scanner scanner = new Scanner(System.in);
+
+        List<Activite> liste = Activite.getListedActivites();
+        Interet.MapActivitesByInterets(liste);
+
+        int index = 1;
+        for (Interet interet : Interet.activitesByInteret.keySet()) {
+            System.out.println(index + ". " + interet.getNom());
+            index++;
+        }
+
+        int choix1 = scanner.nextInt();
+        scanner.nextLine();
+
+        Interet MonInteret = (Interet) Interet.activitesByInteret.keySet().toArray()[choix1 - 1];
+        List<Activite> liste2 = Interet.activitesByInteret.get(MonInteret);
+
+        for (int i = 0; i < liste2.size(); i++) {
+            //System.out.println((i + 1) + ". " + liste2.get(i).getNom());
+        }
+
+        int choix2 = scanner.nextInt();
+        scanner.nextLine();
+
+        // Il faut modifier comment gérer listedActivites
+        Activite MonActivite = liste2.get(choix2 - 1);
+        MesActivites.add(MonActivite);
+    }
+
+    public void afficherMesActivites() {
+        if (MesActivites.isEmpty()) {
+            System.out.println("Vous n'avez pas encore d'activités.");
+        } else {
+            System.out.println("Les activités que vous maintenez :");
+            for (Activite activite : MesActivites) {
+                System.out.println(activite);
+            }
+        }
+    }
     /* ************************************************************************************************ */
 
     /*public void initialiserUtilisateurs() {
@@ -619,6 +837,8 @@ public class Utilisateur implements Acteur {
         Utilisateur utilisateur10 = new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", listeInterets);
         listeUsers.add(utilisateur10);
 
+        //l'utilisateur2 suit l'utilisateur 1
+        utilisateur2.suivreUtilisateur(utilisateur1);
 
     }*/
 }

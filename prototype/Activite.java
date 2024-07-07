@@ -1,7 +1,7 @@
 import java.util.*;
 public class Activite {
 
-    private List<Activite> listedActivites=new ArrayList<>();
+    private static List<Activite> listedActivites=new ArrayList<>();
     private String type;
     private String nom;
     private int dateDebut;
@@ -36,8 +36,7 @@ public class Activite {
 
         int choix2 = scanner2.nextInt();
         for ( int i= 0 ; i<choix2; i++){
-            // choisir composante
-                      /*
+
             ArrayList<Interet> listeInteretsGeneraux = Interet.getListeInteretsGeneraux();
 
             System.out.println("Choisissez un intérêt (entrez le numéro, 0 pour aucun choix):");
@@ -52,27 +51,24 @@ public class Activite {
                 System.out.print("Entrez le nom du nouvel intérêt: ");
                 String nomNvInteret = scanner.nextLine();
                 Interet nouveau = new Interet(nomNvInteret);
-                listeInteretsGeneraux.add(new Interet(nouveau);
+                listeInteretsGeneraux.add(nouveau);
                 activite.ajouterInteret(nouveau);
             } else if (choix3 >= 1 && choix3 <= listeInteretsGeneraux.size()) {
-                Interet interet = listeInteretsGeneraux.get(choixInteret - 1);
+                Interet interet = listeInteretsGeneraux.get(choix3 - 1);
                 activite.ajouterInteret(interet);
             } else {
                 System.out.println("Choix invalide. Réessayez.");
-                i--; // Refaire cette itération
+                i--;
             }
-             */
 
 
         }
 
     }
-    /*
-        public void ajouterInteret(Interet interet) {
-            this.listedInterets.add(interet);
-        }
-     */
 
+    public void ajouterInteret(Interet interet) {
+        this.listedInterets.add(interet);
+    }
 
     public void setNom(String string){
         this.nom = string;
@@ -81,7 +77,8 @@ public class Activite {
     public void setType(String string){
         this.type= string;
     }
-    public List<Activite> getListedActivites(){
+
+    public static List<Activite> getListedActivites(){
         return listedActivites;
     }
 
@@ -94,6 +91,10 @@ public class Activite {
     public void setListedActivites(List<Activite> listedActivites){
         this.listedActivites=listedActivites;
 
+    }
+
+    public List<Interet> getListedInterets(){
+        return listedInterets;
     }
 
     public void addActivites(Activite activite ){
