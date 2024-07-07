@@ -155,6 +155,7 @@ public class Utilisateur implements Acteur {
         entrerMDP();
         entrerEmail();
         entrerTelephone();
+        entrerCompagnie();
 
         //L'utilsateurs entre jusqu'à 10 Intérêts
         gererInterets();
@@ -272,6 +273,7 @@ public class Utilisateur implements Acteur {
             System.out.println("3. Email");
             System.out.println("4. Mot de passe");
             System.out.println("5. Numéro de téléphone");
+            System.out.println("6. Nom de la compagnie");
             System.out.println("0. Quitter");
 
             int choix = -1;
@@ -295,6 +297,9 @@ public class Utilisateur implements Acteur {
                         break;
                     case 5:
                         entrerTelephone();
+                        break;
+                    case 6:
+                        entrerCompagnie();
                         break;
                     case 0:
                         System.out.println("Modification terminée.");
@@ -767,6 +772,12 @@ public class Utilisateur implements Acteur {
                 System.out.println("Erreur : " + e.getMessage());
             }
         }
+    }
+
+    public void entrerCompagnie() {
+
+        System.out.print("Entrez votre compagnie (facultatif, faire Enter si aucune): ");
+        nomDeCompagnie = scanner.nextLine();
     }
 
     /* ************************************************************************************************ */
