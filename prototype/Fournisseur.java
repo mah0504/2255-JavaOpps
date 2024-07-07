@@ -12,8 +12,13 @@ public class Fournisseur implements Acteur {
     private LocalDateTime dateInscription =  LocalDateTime.now();
     private boolean confirmationEmail = false;
     private String codeConfirmation = genererCodeConfirmation();
-    //private ArrayList<Composantes> composantes;
+    private ArrayList<Composantes> listeComposantesF;
     private ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
+
+
+    // todo: mettre en vente une composante
+
+
 
     // Constructor
     public Fournisseur(String nom, String adresse, String email, String motDePasse, String telephone, String capaciteFabrication) {
@@ -26,7 +31,13 @@ public class Fournisseur implements Acteur {
     }
     public Fournisseur() {
     }
+
+
     // Getters and Setters
+
+
+    public ArrayList<Composantes> getListeComposantes(){ return listeComposantesF; }
+
     public String getNom() {
         return nom;
     }

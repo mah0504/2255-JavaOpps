@@ -6,6 +6,8 @@ public class Action{
     private String type;
     private String nom;
 
+    // todo:
+
     public ArrayList<Action> getListeActions(){
         return listeActions;
     }

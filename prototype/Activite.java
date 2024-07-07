@@ -13,7 +13,6 @@ public class Activite {
     private List<Interet> listedInterets = new ArrayList<>();
 
 
-
    // la plateforme doit notifier les utilisateurs quand une nouvelle activité correspondant aux
     // intérêts d'un utilisateur est créée.
 
@@ -37,6 +36,7 @@ public class Activite {
 
         int choix2 = scanner2.nextInt();
         for ( int i= 0 ; i<choix2; i++){
+            // choisir composante
 
         }
 

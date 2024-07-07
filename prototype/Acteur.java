@@ -1,6 +1,5 @@
 public interface Acteur {
 
-
     public void sInscrire();
 
     public void seConnecter();
@@ -9,4 +8,5 @@ public interface Acteur {
 
     public void confirmerInscription();
     // email de comfirmation apres inscription
+
 }

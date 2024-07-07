@@ -7,10 +7,13 @@ public class Robot {
     private String type;
     private boolean disponibilite;
     private Object[] etats = new Object[4]; // Tableau pour stocker les états
-
     private List<Composantes> composantesRobot = new ArrayList<>();
 
+    // todo : controle des mouvements
+
+
     public void afficherInformations() {
+
         System.out.println("Numéro de série : " + numeroDeSerie);
         System.out.println("Nom : " + nom);
         System.out.println("Type : " + type);
@@ -18,6 +21,7 @@ public class Robot {
         System.out.println("États : ");
         for (Object etat : etats) {
             System.out.println(etat);
+
         }
     }
 

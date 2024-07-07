@@ -7,7 +7,6 @@ public class Main {
 
     public Main() {
         publique = new Publique();
-
     }
 
 
@@ -153,7 +152,7 @@ public class Main {
                     break;
 
                 case 8:
-                    publique.voirProfil(fournisseur);
+                  //  publique.voirProfil(fournisseur);
                     break;
                 default:
                     afficherMenu(publique);

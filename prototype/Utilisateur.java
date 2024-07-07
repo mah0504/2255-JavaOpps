@@ -6,6 +6,10 @@ public class Utilisateur implements Acteur {
     private ArrayList<Interet> listeInterets;
     Scanner scanner = new Scanner(System.in);
     Boolean continuer = true;
+    private String nomDeCompagnie;
+
+    // todo : nom de la compagnie ( optionnel )
+
 
     public Utilisateur() {
         // rien mettre?? ou sinscrire??

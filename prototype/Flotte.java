@@ -1,18 +1,14 @@
 import java.util.*;
 
 public class Flotte {
+
     private List<Robot> listeRobots =new ArrayList<>();
     private List<Composantes> listeComposantes =new ArrayList<>();
     private int nomRobot; // id, numero de serie
     private boolean disponibilite;
 
 
-
-    // gerer sa flotte - menu de recherche pr invoquer chaque methode ig ?
-    public Flotte() {
-        this.listeRobots = new ArrayList<>(); // liste
-        this.listeComposantes = new ArrayList<>(); // liste des composantes de  la flotte
-    }
+    // todo : CPU Numero de serie au robot
 
 
     // bsn pour assigner les composantes, les taches aussi plus tars et activites
@@ -190,7 +186,7 @@ public class Flotte {
                 for (int i = 0; i < choix; i++) {
                     robot.getListCompoRobot().add(composante);
 
-                    comfirmer(); // apres check du stockage et que valid on comfirme avec l'utilisateur
+                    comfirmer(); //apres check du stockage et que valid on comfirme avec l'utilisateur
 
                     if (comfirmer()){
                         // on retire les elements de la liste des composantes et tt est bien qui finit bien
