@@ -50,7 +50,7 @@ public abstract class Acteur {
     }
 
 
-    // Méthodes pour entrer les informations : nom, mdp, email, telephone, compagnie
+    // Méthodes pour entrer les informations : nom, mdp, email, telephone, compagnie **********************************
     protected void entrerNom() {
 
         continuer = true;
@@ -125,7 +125,7 @@ public abstract class Acteur {
     abstract protected void entrerCompagnie();
 
 
-    // Méthodes pour vérifier l'inscription :
+    // Méthodes pour vérifier l'inscription ***************************************************************************
     protected String genererCodeConfirmation() {
         return UUID.randomUUID().toString();
     }
@@ -161,7 +161,7 @@ public abstract class Acteur {
     }
 
 
-    // Méthodes pour vérifier la validité des entrées :
+    // Méthodes pour vérifier la validité des entrées *****************************************************************
 
     // Vérifier qu'un String contient uniquement des caractères alphanumériques
     protected static void verifierAlphaNum(String string) {
@@ -194,16 +194,12 @@ public abstract class Acteur {
         }
     }
 
-    // Méthodes de fonctionnalité
+    // Méthodes de fonctionnalité *************************************************************************************
 
     abstract public void sInscrire();
 
     abstract public void seConnecter();
 
     abstract public void modifierProfil();
-
-    //abstract protected void confirmerInscription();
-
-    // email de comfirmation apres inscription
 
 }
