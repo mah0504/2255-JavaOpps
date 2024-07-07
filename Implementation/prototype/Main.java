@@ -42,8 +42,8 @@ public class Main {
                     afficherMenu(publique);
                     break;
                 case 2:
-                  //  Utilisateur utilisateur = new Utilisateur(); // pk instancier ici?
-                    choixConnecterInscrire();
+                    Utilisateur utilisateur = new Utilisateur(); // pk instancier ici?
+                    afficherMenu(utilisateur);
                     break;
                 case 3:
                     // Code for Fournisseur
@@ -61,7 +61,8 @@ public class Main {
         }
     }
 
-    public void choixConnecterInscrire(){
+
+    public <T extends Acteur> void choixConnecterInscrire(T acteur){
         Scanner scanner = new Scanner(System.in);
         System.out.println("[0]: Retour au menu principal \n [1]: Se connecter\n [2]: S'inscrire \n ");
         int choix1 = scanner.nextInt();
@@ -74,17 +75,16 @@ public class Main {
 
             case 1:
                 while(continuer){
-                    continuer = seConnecter();
+                    acteur.seConnecter(); //todo logique
                 }
                 break;
 
             case 2:
                 while(continuer){
-                    //continuer=sInscrire();
-                    Utilisateur user = new Utilisateur();
-                    user.sInscrire();
+                    acteur.sInscrire();
                 }
-                choixConnecterInscrire(); // revenir au menu pour se connecter
+                //todo logique
+                choixConnecterInscrire(acteur); // revenir au menu pour se connecter
                 break;
 
             default:
@@ -193,6 +193,8 @@ public class Main {
 
     //
     public void afficherMenu(Utilisateur utilisateur) {
+
+        choixConnecterInscrire(utilisateur);
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Veuillez choisir quelle fonctionnalité effectuer \n [0]: Retour au menu principal " +
