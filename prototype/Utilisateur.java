@@ -208,26 +208,29 @@ public class Utilisateur extends Acteur {
         return index;
     }
 
+
     @Override
     public void modifierProfil() {
-        try (Scanner scanner = new Scanner(System.in)) {
 
-            System.out.println("Que voulez-vous modifier ?");
-            System.out.println("1. Nom");
-            System.out.println("2. Prénom");
-            System.out.println("3. Email");
-            System.out.println("4. Mot de passe");
-            System.out.println("5. Numéro de téléphone");
-            System.out.println("6. Nom de la compagnie");
-            System.out.println("0. Quitter");
+        continuer = true;
+        Fournisseur fournisseur;
 
-            choix = -1;
-            while (choix != 0) {
-                System.out.print("Votre choix : ");
+        while (continuer) {
+            try {
+
+                System.out.println("Que voulez-vous modifier ?");
+                System.out.println("1. Nom");
+                System.out.println("2. Prénom");
+                System.out.println("3. Email");
+                System.out.println("4. Mot de passe");
+                System.out.println("5. Numéro de téléphone");
+                System.out.println("6. Nom de la compagnie");
+                System.out.println("0. Quitter");
+
                 choix = scanner.nextInt();
-                scanner.nextLine(); // Pour consommer le retour à la ligne
-
                 switch (choix) {
+                    case 0:
+                        continuer = false;
                     case 1:
                         entrerNom();
                         break;
@@ -246,18 +249,15 @@ public class Utilisateur extends Acteur {
                     case 6:
                         entrerCompagnie();
                         break;
-                    case 0:
-                        System.out.println("Modification terminée.");
-                        break;
-                    default:
-                        System.out.println("Choix invalide. Réessayez.");
-                        break;
                 }
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                scanner.next();
             }
-        } catch (Exception e) {
-            System.out.println("Erreur lors de la modification du profil : " + e.getMessage());
         }
     }
+
 
 
     public void gererFlotte(Flotte flotte, Composantes composantes ) {
@@ -693,6 +693,15 @@ public class Utilisateur extends Acteur {
         utilisateur1.addMesInterets(jeuxVideo);
         utilisateur1.addMesInterets(jardinage);
         utilisateur1.addMesInterets(bricolage);
+
+         Robot robot1= new Robot();
+        utilisateur1.getFlotte().getListeRobots().add(robot1);
+        robot1.setNom("IJWFVN");
+        robot1.setType("Mouvement");
+        robot1.setNumeroDeSerie(1234);
+        // Ajouter des états pour test
+        Object[] etats = {"État1", "État2", "État3", "État4"};
+        robot1.setEtats(etats);
 
     }
 }

@@ -98,7 +98,7 @@ public class Flotte {
                 // on decremente de la liste des composantes de la flotte
             } else{
                 System.out.println("La composante choisie n'est pas disponible veuillez l'acheter!");
-                return;
+
                 // la composante est introuvable dans la flotte
             }
         }
