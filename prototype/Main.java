@@ -143,22 +143,22 @@ public class Main {
                     choixProfil();
                     break;
                 case 1:
-                    publique.RecupListeUtilisateur(utilisateur);
+                    publique.RecupListeUtilisateur();
                     break;
                 case 2:
-                    publique.RecupListeActivites(activite);
+                    publique.RecupListeActivites();
                     break;
                 case 3:
                     publique.voirProfilU(utilisateur);
                     break;
                 case 4:
-                    publique.RecupListeActivites(activite);
+                    publique.RecupListeActivites();
                     break;
                 case 5:
-                    publique.RecupListeInterets(interet);
+                    publique.RecupListeInterets();
                     break;
                 case 6:
-                    publique.RecupListeFournisseur(fournisseur);
+                    publique.RecupListeFournisseur();
                     break;
                 case 7:
                     publique.rechercherComposante();
@@ -216,7 +216,7 @@ public class Main {
                     interet.souscrire(utilisateur);
                     break;
                 case 9:
-                    utilisateur.afficherLesEtats(robot);
+                    utilisateur.afficherLesEtats(utilisateur.getFlotte().choisirRobot());
                     break;
                 default:
                     System.out.print("Veuillez choisir une action valide!");

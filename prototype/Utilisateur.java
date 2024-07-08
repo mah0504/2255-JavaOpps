@@ -1,18 +1,22 @@
+import javax.swing.plaf.basic.BasicSliderUI;
 import java.util.*;
 import java.util.regex.*;
 
 public class Utilisateur extends Acteur {
 
     private String prenom, pseudo;
-    private Flotte flotte = new Flotte();
+    private Flotte flotte= new Flotte();
+
     private ArrayList<Interet> listeInterets = new ArrayList<>(); // liste de 10 interets que suit l'utilisateur
-    private ArrayList<Utilisateur> listeSuivis; // liste des utilisateurs que je suis
-    private ArrayList<Utilisateur> listeSuiveurs; // liste des utilisateurs qui me suivent
-    private ArrayList<Activite> listeActivites; // liste des activités que maintiens l'utilisateur
+    private ArrayList<Utilisateur> listeSuivis=new ArrayList<>(); // liste des utilisateurs que je suis
+    private ArrayList<Utilisateur> listeSuiveurs=new ArrayList<>(); // liste des utilisateurs qui me suivent
+    private ArrayList<Activite> listeActivites=new ArrayList<>(); // liste des activités que maintiens l'utilisateur
     private int pointsGagnes, classement;
     List<Activite> MesActivites = new ArrayList<>();
     private List<Notifications> MesNotifications= new ArrayList<>();
     // Constructeurs :
+
+
     public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, int pointsGagnes){
         this.nom = nom;
         this.prenom = prenom;
@@ -21,6 +25,7 @@ public class Utilisateur extends Acteur {
         this.motDePasse = motDePasse;
         this.telephone = telephone;
         this.pointsGagnes = pointsGagnes;
+
     }
 
     public Utilisateur(){
@@ -579,7 +584,9 @@ public class Utilisateur extends Acteur {
 
     }
 
-
+    public void addMesInterets(Interet interet){
+        listeInterets.add(interet);
+    }
     private void choisirByInteret() {
         Scanner scanner = new Scanner(System.in);
 
@@ -640,6 +647,52 @@ public class Utilisateur extends Acteur {
         Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom8", "prenom8", "nprenom8", "nprenom8@example.com", "motdepasse8", "5554446666", 0));
         Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom9", "prenom9", "nprenom9", "nprenom9@example.com", "motdepasse9", "8889997777", 0));
         Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", 0));
+
+
+
+        Utilisateur utilisateur1 = Systeme.getInstance().getUtilisateurs().get(0); // Récupérer le premier utilisateur par exemple
+
+        Activite VolleyBall = new Activite(); // Remplacez ... par les détails nécessaires de l'activité
+        Activite peinture = new Activite(); // Remplacez ... par les détails nécessaires de l'activité
+        Activite natationSynchro = new Activite();
+        Activite atelierCuisine = new Activite();
+        Activite Photographie = new Activite();
+
+
+        // Ajouter les activités à l'utilisateur
+        utilisateur1.addActivites(VolleyBall);
+        utilisateur1.addActivites(peinture);
+        utilisateur1.addActivites(natationSynchro);
+        utilisateur1.addActivites(atelierCuisine);
+        utilisateur1.addActivites(Photographie);
+
+        VolleyBall.setProgression("Non débutée");
+        peinture.setProgression("En cours");
+        Photographie.setProgression("Terminée");
+
+
+        Interet sport = new Interet("Sport");
+        Interet musique = new Interet("Musique");
+        Interet lecture = new Interet("Lecture");
+        Interet cuisine = new Interet("Cuisine");
+        Interet voyage = new Interet("Voyage");
+        Interet photographie = new Interet("Photographie");
+        Interet cinema = new Interet("Cinéma");
+        Interet jeuxVideo = new Interet("Jeux vidéo");
+        Interet jardinage = new Interet("Jardinage");
+        Interet bricolage = new Interet("Bricolage");
+
+// Ajout des intérêts à la liste d'intérêts de l'utilisateur
+        utilisateur1.addMesInterets(sport);
+        utilisateur1.addMesInterets(musique);
+        utilisateur1.addMesInterets(lecture);
+        utilisateur1.addMesInterets(cuisine);
+        utilisateur1.addMesInterets(voyage);
+        utilisateur1.addMesInterets(photographie);
+        utilisateur1.addMesInterets(cinema);
+        utilisateur1.addMesInterets(jeuxVideo);
+        utilisateur1.addMesInterets(jardinage);
+        utilisateur1.addMesInterets(bricolage);
 
     }
 }

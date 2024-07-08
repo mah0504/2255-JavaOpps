@@ -55,9 +55,8 @@ public class Publique {
         }
     }
 
-    public void RecupListeActivites(Activite activites) {
-        for (int i = 0; i < activites.getSize(); i++) {
-
+    public void RecupListeActivites() {
+        for (int i = 0; i < Systeme.getInstance().getActivites().size(); i++) {
             System.out.println("[" + i + "]" + ": " + Systeme.getInstance().getActivites().get(i));
         }
     }
@@ -69,7 +68,7 @@ public class Publique {
         }
     }
 
-    public void RecupListeInterets(Interet inter) {
+    public void RecupListeInterets() {
         for (int i = 0; i < Systeme.getInstance().getInterets().size(); i++) {
 
             System.out.println("Intêrét: [ " + i + "]" + Systeme.getInstance().getInterets().get(i));
@@ -77,14 +76,14 @@ public class Publique {
     }
 
 
-    public void RecupListeFournisseur(Fournisseur fourn) {
+    public void RecupListeFournisseur() {
         for (int i = 0; i < Systeme.getInstance().getFournisseurs().size(); i++) {
             System.out.println("Fournisseur: " + Systeme.getInstance().getFournisseurs().get(i));
         }
     }
 
 
-    public void RecupListeUtilisateur(Utilisateur utilisateur) {
+    public void RecupListeUtilisateur() {
 
         for (int i = 0; i < Systeme.getInstance().getUtilisateurs().size(); i++) {
             System.out.println("Utilisateur: " + i + Systeme.getInstance().getUtilisateurs().get(i) + "\n");
@@ -196,7 +195,6 @@ public class Publique {
 
         }
 
-        // par nom, type getClass() ou nom du fournisseur "?"
     }
 
 }
