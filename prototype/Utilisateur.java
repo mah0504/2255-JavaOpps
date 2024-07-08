@@ -29,7 +29,7 @@ public class Utilisateur extends Acteur {
 
 
     // Méthodes pour entrer les informations
-    public void entrerPseudo() {        //user
+    public void entrerPseudo() {
 
         continuer = true;
 
@@ -180,7 +180,6 @@ public class Utilisateur extends Acteur {
 
     }
 
-
     @Override
     public int seConnecter() {
 
@@ -217,6 +216,10 @@ public class Utilisateur extends Acteur {
         }
         return index;
     }
+
+
+
+
 
 
 

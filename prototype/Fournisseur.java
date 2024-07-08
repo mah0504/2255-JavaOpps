@@ -1,14 +1,10 @@
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.regex.*;
 
 public class Fournisseur extends Acteur {
 
     private String adresse;
-
-
     private String capaciteFabrication;
-
     private ArrayList<Composantes> listeComposantesF;
     private static ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
     private Map<String, Composantes> Stock;
@@ -145,30 +141,40 @@ public class Fournisseur extends Acteur {
         }
     }
 
-    @Override
     public int seConnecter() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Entrez votre nom : ");
-            String nom = scanner.nextLine();
-            System.out.print("Entrez votre mot de passe : ");
-            String motDePasse = scanner.nextLine();
 
-            boolean trouve = false;
-            for (Fournisseur fournisseur : listeFournisseurs) {
-                if (fournisseur.getNom().equals(nom) && fournisseur.getMotDePasse().equals(motDePasse)) {
-                    System.out.println("Connexion réussie !");
-                    trouve = true;
-                    break;
+        continuer = true;
+        Utilisateur utilisateur;
+        int index = -1;
+
+        while (continuer) {
+            try {
+
+                System.out.print("Entrez votre nom : ");
+                nom = scanner.nextLine();
+                System.out.print("Entrez votre mot de passe : ");
+                motDePasse = scanner.nextLine();
+
+                index = chercherNom(nom);
+                if (index < 0) {
+                    throw new IllegalArgumentException("Pseudo inexistant.");
                 }
-            }
+                utilisateur = Systeme.getInstance().getUtilisateurs().get(index);
+                if (! motDePasse.equals(utilisateur.getMdp())) {
+                    throw new IllegalArgumentException("Mot de passe invalide.");
+                }
+                System.out.println("Connexion réussie.");
+                return index;
 
-            if (!trouve) {
-                System.out.println("Nom ou mot de passe invalide ou inexistant.");
+                // todo si connexion réussie, dans le main remplacer l'user par celui Systeme.getInstance().getUtilisateurs().get(index)
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur : " + e.getMessage());
+                index = -1;
+                continuer = stopContinuer();
             }
-        } catch (Exception e) {
-            System.out.println("Erreur lors de la connexion : " + e.getMessage());
         }
-        return -1;
+        return index;
     }
 
     @Override
@@ -350,6 +356,16 @@ public class Fournisseur extends Acteur {
             }
         }
         return false;
+    }
+
+    private static int chercherNom(String nom) {
+        ArrayList<Fournisseur> fournisseurs = Systeme.getInstance().getFournisseurs();
+        for (int i = 0; i < fournisseurs.size(); i++) {
+            if (fournisseurs.get(i).getNom().equals(nom)) {
+                return i;   // le pseudo existe déjà
+            }
+        }
+        return -1;          // le pseudo n'existe pas
     }
 
 
