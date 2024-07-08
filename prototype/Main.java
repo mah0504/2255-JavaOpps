@@ -5,6 +5,9 @@ public class Main {
     private Fournisseur fournisseur = new Fournisseur();
     private Utilisateur utilisateur = new Utilisateur();
     private Publique publique = new Publique();
+    private Boolean continuer = true;
+    private int choix = -1;
+    private int index = -1;
 
     public static void main(String[] args) {
 
@@ -20,67 +23,81 @@ public class Main {
 
     // Premier niveau d'imbrication du menu ***************************************************************************
     public void choixProfil() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println(" [1]: Profil publique\n [2]: Utilisateur \n [3]: Fournisseur \n ");
 
-        try {
-            int choix = scanner.nextInt();
+        while (true) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println(" [1]: Profil publique\n [2]: Utilisateur \n [3]: Fournisseur \n ");
 
-            switch (choix) {
+            try {
+                choix = scanner.nextInt();
 
-                case 1:
-                    afficherMenu(publique);
-                    break;
-                case 2:
-                    afficherMenu(utilisateur);
-                    break;
-                case 3:
-                    afficherMenu(fournisseur);
-                    break;
-                default:
-                    System.out.println("Choix invalide. Veuillez entrer 1, 2 ou 3.");
-                    choixProfil();
-                    break;
+                switch (choix) {
+
+                    case 1:
+                        afficherMenu(publique);
+                        break;
+
+                    case 2:
+
+                        index = choixConnecterInscrire(utilisateur);
+                        System.out.println(index);
+                        if (index >= 0) {
+                            afficherMenu(Systeme.getInstance().getUtilisateurs().get(index));
+                        }
+
+                        break;
+
+                    case 3:
+                        index = choixConnecterInscrire(fournisseur);
+                        if (index >= 0) {
+                            afficherMenu(Systeme.getInstance().getFournisseurs().get(index));
+                        }
+                        break;
+
+                    default:
+                        System.out.println("Choix invalide. Veuillez entrer 1, 2 ou 3.");
+                        choixProfil();
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+
+                // affichage
+                scanner.next(); // Clear the invalid input
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
-
-            // affichage
-            scanner.next(); // Clear the invalid input
         }
     }
 
-
-    public <T extends Acteur> void choixConnecterInscrire(T acteur){
+    public <T extends Acteur> int choixConnecterInscrire(T acteur) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("[0]: Retour au menu principal \n [1]: Se connecter\n [2]: S'inscrire \n ");
-        int choix1 = scanner.nextInt();
-        boolean continuer = true;
 
-        switch (choix1){
-            case 0:
-                choixProfil();
-                break;
+        continuer = true;
 
-            case 1:
-                while(continuer){
-                    acteur.seConnecter(); //todo logique
+        while (continuer) {
+            try {
+                System.out.println(" [0]: Retour au menu principal \n [1]: Se connecter\n [2]: S'inscrire \n ");
+                choix = scanner.nextInt();
+
+                switch (choix) {
+                    case 0:
+                        choixProfil();
+                        continuer = false;
+                        break;
+
+                    case 1:
+                        index = acteur.seConnecter();
+                        return index;
+
+                    case 2:
+                        acteur.sInscrire();
+                        break;
                 }
-                break;
-
-            case 2:
-                while(continuer){
-                    acteur.sInscrire();
-                }
-                //todo logique
-                choixConnecterInscrire(acteur); // revenir au menu pour se connecter
-                break;
-
-            default:
-                choixProfil();
-                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+            }
         }
-
+        System.out.println("Accès au menu refusé.");
+        return -1;
     }
 
     // Deuxième niveau d'imbrication du menu *************************************************************************
@@ -167,12 +184,10 @@ public class Main {
 
     public void afficherMenu(Utilisateur utilisateur) {
 
-        choixConnecterInscrire(utilisateur);
-
         Scanner scanner = new Scanner(System.in);
         System.out.println("Veuillez choisir quelle fonctionnalité effectuer \n [0]: Retour au menu principal " +
                 "[1] : Modifier son profil\n [2] Gérer sa flotte\n [3]: Gérer ses suiveurs \n [4]:Gérer ses activités" +
-                " \n [5] : Gérer ses intérêts \n [6] : Suivre un utilisateur \n[7]: S'Inscrire à une activité \n [8] :" +
+                " \n [5] : Gérer ses intérêts \n [6] : Suivre un utilisateur \n [7]: S'Inscrire à une activité \n [8] :" +
                 "Se souscrire à un intérêt \n [9] : Voir létat de ses robots \n [10] : Voir les métriques \n [11]: Voir " +
                 " ses + notifications \n");
         // pk pas de gerer tache dans les fonctionnalités de l"utilisateur?

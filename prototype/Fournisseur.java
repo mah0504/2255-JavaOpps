@@ -146,7 +146,7 @@ public class Fournisseur extends Acteur {
     }
 
     @Override
-    public void seConnecter() {
+    public int seConnecter() {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.print("Entrez votre nom : ");
             String nom = scanner.nextLine();
@@ -168,6 +168,7 @@ public class Fournisseur extends Acteur {
         } catch (Exception e) {
             System.out.println("Erreur lors de la connexion : " + e.getMessage());
         }
+        return -1;
     }
 
     @Override
