@@ -5,7 +5,7 @@ public class Fournisseur extends Acteur {
 
     private String adresse;
     private String capaciteFabrication;
-    private ArrayList<Composantes> listeComposantesF;
+    private ArrayList<Composantes> listeComposantes = new ArrayList<>();
     private static ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
     private Map<String, Composantes> Stock;
     private Composantes nouvelleComposante;
@@ -21,6 +21,7 @@ public class Fournisseur extends Acteur {
         this.telephone = telephone;
         this.capaciteFabrication = capaciteFabrication;
     }
+
     public Fournisseur() {
     }
 
@@ -80,7 +81,7 @@ public class Fournisseur extends Acteur {
     }
 
     public ArrayList<Composantes> getListeComposantes(){
-        return listeComposantesF;
+        return listeComposantes;
     }
 
     @Override
@@ -95,50 +96,27 @@ public class Fournisseur extends Acteur {
     }
 
     // Méthodes
+
     @Override
     public void sInscrire() {
-        try (Scanner scanner = new Scanner(System.in)) {
 
-            System.out.print("Entrez votre nom : ");
-            String nom = scanner.nextLine();
-            if (nomExiste(nom)) {
-                throw new IllegalArgumentException("Ce nom de fournisseur existe déjà.");
-            }
+        entrerNom();
+        entrerMDP();
+        entrerEmail();
+        entrerTelephone();
+        entrerCompagnie();
 
-            System.out.print("Entrez votre adresse : ");
-            String adresse = scanner.nextLine();
+//        todo la suite...
+//         entrerAdresse();
+//         entrerCapaciteFabrication();
+//         envoyerEmail(email);
+//         confirmerInscription();
+//
 
-            System.out.print("Entrez votre email : ");
-            String email = scanner.nextLine();
-            if (!emailValide(email)) {
-                throw new IllegalArgumentException("L'email entré n'est pas valide.");
-            }
+        Systeme.getInstance().ajouterFournisseur(this);
 
-            System.out.print("Entrez votre mot de passe: ");
-            String motDePasse = scanner.nextLine();
+        System.out.println("Inscription réussie!");
 
-            System.out.print("Entrez votre numéro de téléphone : ");
-            String telephone = scanner.nextLine();
-            if (telephone.length() > 10 || !telephone.matches("[0-9]+")) {
-                throw new IllegalArgumentException("Le numéro de téléphone doit contenir uniquement des chiffres.");
-            }
-
-            System.out.print("Entrez votre capacité de fabrication : ");
-            String capaciteFabrication = scanner.nextLine();
-
-            envoyerEmail(email);
-            confirmerInscription();
-
-            Fournisseur fournisseur = new Fournisseur(nom, adresse, email, motDePasse, telephone, capaciteFabrication);
-            if(confirmationEmail){
-                listeFournisseurs.add(fournisseur);
-            }
-
-
-            System.out.println("Inscription réussie !");
-        } catch (Exception e) {
-            System.out.println("Erreur lors de l'inscription : " + e.getMessage());
-        }
     }
 
     public int seConnecter() {

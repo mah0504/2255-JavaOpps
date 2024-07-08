@@ -4,7 +4,7 @@ import java.util.regex.*;
 public class Utilisateur extends Acteur {
 
     private String prenom, pseudo;
-    private Flotte flotte;
+    private Flotte flotte = new Flotte();
     private ArrayList<Interet> listeInterets = new ArrayList<>(); // liste de 10 interets que suit l'utilisateur
     private ArrayList<Utilisateur> listeSuivis; // liste des utilisateurs que je suis
     private ArrayList<Utilisateur> listeSuiveurs; // liste des utilisateurs qui me suivent
@@ -24,6 +24,7 @@ public class Utilisateur extends Acteur {
     }
 
     public Utilisateur(){
+        pointsGagnes = 0;
 
     }
 
@@ -154,28 +155,13 @@ public class Utilisateur extends Acteur {
         entrerTelephone();
         entrerCompagnie();
 
-        //todo la suite...
+//        todo la suite...
+//         gererInterets();
+//         envoyerEmail(email);
+//         confirmerInscription();
 
         Systeme.getInstance().ajouterUtilisateur(this);
-        System.out.println(Systeme.getInstance().getUtilisateurs().getLast().getNom());
 
-        //L'utilsateurs entre jusqu'à 10 Intérêts
-        gererInterets();
-
-        //initialisé à 0 car l'utilisateur n'a pas commencé les activités
-        int pointsGagnes = 0;
-
-        //envoyer mail de confirmation
-        envoyerEmail(email);
-        //modifie ou pas la variable booléene confirmationEmail
-        confirmerInscription();
-
-
-
-        //Utilisateur utilisateur = new Utilisateur(nom, prenom, pseudo, email, motDePasse, telephone, pointsGagnes);
-        if(confirmationEmail){
-            Systeme.getInstance().ajouterUtilisateur(this);
-        }
         System.out.println("Inscription réussie!");
 
     }
@@ -216,13 +202,6 @@ public class Utilisateur extends Acteur {
         }
         return index;
     }
-
-
-
-
-
-
-
 
     @Override
     public void modifierProfil() {
