@@ -77,6 +77,9 @@ public class Utilisateur extends Acteur {
         return pseudo;
     }
 
+    public Flotte getFlotte(){
+        return flotte;
+    }
     public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
     }

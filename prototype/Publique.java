@@ -59,7 +59,7 @@ public class Publique {
     public void RecupListeActivites(Activite activites) {
         for (int i = 0; i < activites.getSize(); i++) {
 
-            System.out.println("[" + i + "]" + ": " + activites.getListedActivites().get(i));
+            System.out.println("[" + i + "]" + ": " + Systeme.getInstance().getActivites().get(i));
         }
     }
 

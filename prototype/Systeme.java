@@ -10,6 +10,7 @@ public class Systeme {
     private ArrayList<Fournisseur> fournisseurs;
     private ArrayList<Interet> interets;
     private ArrayList<Composantes> composantes;
+    private ArrayList<Activite> activites;
 
 
 
@@ -64,6 +65,15 @@ public class Systeme {
     public ArrayList<Composantes> getComposantes() {
         return composantes;
     }
+
+    // Activités du système
+    public void ajouterActivite(Activite activite){
+        activites.add(activite);
+    }
+    public ArrayList<Activite> getActivites() {
+        return activites;
+    }
+
 
 
 }

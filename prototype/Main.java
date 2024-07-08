@@ -4,7 +4,11 @@ public class Main {
     //private Publique publique;
     private Fournisseur fournisseur = new Fournisseur();
     private Utilisateur utilisateur = new Utilisateur();
+    private Activite activite = new Activite();
+    private Interet interet = new Interet();
     private Publique publique = new Publique();
+    private Composantes composante = new Composantes();
+    private Robot robot = new Robot();
     private Boolean continuer = true;
     private int choix = -1;
     private int index = -1;
@@ -151,23 +155,24 @@ public class Main {
 
                     break;
                 case 3:
-                    //       publique.voirProfilU();
+                           publique.voirProfilU(utilisateur);
                     break;
                 case 4:
-                    //     publique.RecupListeActivites();
+                         publique.RecupListeActivites(activite);
                     break;
                 case 5:
-                    //   publique.RecupListeInterets();
+                       publique.RecupListeInterets(interet);
                     break;
                 case 6:
-                    // publique.RecupListeFournisseur();
+                     publique.RecupListeFournisseur(fournisseur);
                     break;
                 case 7:
-                    //  publique.rechercherComposante();
+                      publique.rechercherComposante();
                     break;
 
                 case 8:
-                    //  publique.voirProfil(fournisseur);
+
+                      publique.voirProfilF(fournisseur);
                     break;
                 default:
                     afficherMenu(publique);
@@ -203,7 +208,7 @@ public class Main {
                     break;
 
                 case 2:
-                    //utilisateur.gererFlotte(utilisateur.getFlotte(), ); //2 e argument composante
+                    utilisateur.gererFlotte(utilisateur.getFlotte(), composante ); //2 e argument composante
                     break;
                 case 3:
 
@@ -215,7 +220,7 @@ public class Main {
                     utilisateur.gererInterets();
                     break;
                 case 6:
-                    //   utilisateur.suivreUtilisateur();
+                       utilisateur.suivreUtilisateur(utilisateur);
                     break;
                 case 7:
                     utilisateur.sInscrireActivite();
@@ -224,7 +229,7 @@ public class Main {
                     // souscrire interet
                     break;
                 case 9:
-                    //utilisateur.afficherLesEtats(robot); // voir quoi mettre a l'inter
+                    utilisateur.afficherLesEtats(robot); // voir quoi mettre a l'inter
                     break;
                 default:
 

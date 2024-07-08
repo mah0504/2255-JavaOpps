@@ -116,7 +116,7 @@ public class Activite {
      */
 
 
-    public void assigneractivite( Robot robot ){
+    public void setPoints( Robot robot ){
 
 
     }
