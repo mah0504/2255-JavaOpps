@@ -179,13 +179,13 @@ public class Utilisateur extends Acteur {
 
 
     @Override
-    public void seConnecter() {
+    public int seConnecter() {
 
         continuer = true;
         Utilisateur utilisateur;
+        int index = -1;
 
         while (continuer) {
-
             try {
 
                 System.out.print("Entrez votre pseudo : ");
@@ -193,22 +193,26 @@ public class Utilisateur extends Acteur {
                 System.out.print("Entrez votre mot de passe : ");
                 motDePasse = scanner.nextLine();
 
-                int index = chercherPseudo(pseudo);
-                if (index >= 0) {
-                    utilisateur = Systeme.getInstance().getUtilisateurs().get(index);
-                    if (! motDePasse.equals(utilisateur.getMdp())) {
-                        throw new IllegalArgumentException("Pseudo ou mot de passe invalide.");
-                    }
+                index = chercherPseudo(pseudo);
+                if (index < 0) {
+                    throw new IllegalArgumentException("Pseudo inexistant.");
                 }
-                continuer = false;
+                utilisateur = Systeme.getInstance().getUtilisateurs().get(index);
+                if (! motDePasse.equals(utilisateur.getMdp())) {
+                    throw new IllegalArgumentException("Mot de passe invalide.");
+                }
+                System.out.println("Connexion réussie.");
+                return index;
 
                 // todo si connexion réussie, dans le main remplacer l'user par celui Systeme.getInstance().getUtilisateurs().get(index)
-                // genre retourner -1 si on veut annuler connexion et retourner au menu principal ou index si connexion réussie
 
             } catch (IllegalArgumentException e) {
                 System.out.println("Erreur : " + e.getMessage());
+                index = -1;
+                continuer = stopContinuer();
             }
         }
+        return index;
     }
 
 

@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.UUID;
 import java.util.regex.Matcher;
@@ -198,8 +199,34 @@ public abstract class Acteur {
 
     abstract public void sInscrire();
 
-    abstract public void seConnecter();
+    abstract public int seConnecter();
 
     abstract public void modifierProfil();
+
+    protected static boolean stopContinuer() {
+        //Boolean  = true;
+        int choix = -1;
+        Scanner scanner = new Scanner(System.in);
+
+
+        while (true) {
+
+            try {
+                System.out.println(" [0]: Retourner au menu principal \n [1]: Réessayer \n ");
+                choix = scanner.nextInt();
+
+                switch (choix) {
+                    case 0:
+                        return false;
+
+                    case 1:
+                        return true;
+
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+            }
+        }
+    }
 
 }
