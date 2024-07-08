@@ -12,7 +12,6 @@ public class Activite {
 
     private List<Interet> listedInterets = new ArrayList<>();
 
-
    // la plateforme doit notifier les utilisateurs quand une nouvelle activité correspondant aux
     // intérêts d'un utilisateur est créée.
 
@@ -64,7 +63,6 @@ public class Activite {
                 i--;
             }
 
-
             notif.notifierUtilisateur( activite);
 
         }
@@ -87,7 +85,6 @@ public class Activite {
         return listedActivites;
     }
 
-
     public int getSize(){
         return listedActivites.size( );
     }
@@ -106,20 +103,53 @@ public class Activite {
         this.listedActivites.add(activite);
 
     }
-    /*
-     * public void addActivites(){
-     *    Activite activite = new Activte();
-     *    ajouterActivite(activite)
-     *    this.listedActivites.add(activite);
-     * }
-     *
-     */
 
 
-    public void setPoints( Robot robot ){
 
+    public void afficherMesActivites(Utilisateur utilisateur){
+        for ( Activite c: utilisateur.getListeActivites()){
+            System.out.println(c); // afficher la liste des activités
+        }
 
     }
+
+    public void sInscrireActivite(Utilisateur utilisateur){
+        List<Robot> robots = utilisateur.getFlotte().getListeRobots();
+        Robot robotDisponible = null;
+        for (Robot robot : robots) {
+            for (Metrique metrique : robot.getMetriquesRobot()) {
+                if (metrique.getDisponibilite()) {
+                    robotDisponible = robot;
+                    break;
+                }
+            }
+            if (robotDisponible != null) {
+                break;
+            }
+        }
+
+        // Si un robot disponible est trouvé, inscrire l'utilisateur à l'activité avec ce robot
+        if (robotDisponible != null) {
+            utilisateur.addActivites(this);
+
+            // Marquer le robot comme non disponible
+            for (Metrique metrique : robotDisponible.getMetriquesRobot()) {
+                if (metrique.getDisponibilite()) {
+                    metrique.setDisponibilite(false);
+                    break;
+                }
+            }
+
+            System.out.println("L'utilisateur " + utilisateur.getNom() + " a été inscrit à l'activité " + this.nom +
+                    " avec le robot " + robotDisponible.getNom());
+        } else {
+            System.out.println("Aucun robot disponible pour inscrire l'utilisateur " + utilisateur.getNom() +
+                    " à l'activité " + this.nom);
+        }
+    }
+    }
+
+
 }
 
 

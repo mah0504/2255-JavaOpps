@@ -223,32 +223,6 @@ public class Utilisateur extends Acteur {
 
 
 
-    /*@Override
-    public void seConnecter() {
-
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Entrez votre pseudo : ");
-            String pseudo = scanner.nextLine();
-            System.out.print("Entrez votre mot de passe : ");
-            String motDePasse = scanner.nextLine();
-
-
-            boolean trouve = false;
-            for (Utilisateur utilisateur : listeUsers) {
-                if (utilisateur.getPseudo().equals(pseudo) && utilisateur.getMdp().equals(motDePasse)) {
-                    System.out.println("Connexion réussie !!");
-                    trouve = true;
-                    break;
-                }
-            }
-
-            if (!trouve) {
-                System.out.println("Pseudo ou mot de passe invalide ou inexistants.");
-            }
-        } catch (Exception e) {
-            System.out.println("Erreur lors de la connexion : " + e.getMessage());
-        }
-    }*/
 
     @Override
     public void modifierProfil() {
@@ -400,6 +374,11 @@ public class Utilisateur extends Acteur {
         }
     }
 
+
+
+    public void addActivites(Activite activite) {
+        MesActivites.add(activite);
+    }
     /*
         afficherMesActivites() : afficher les actvités auxquelles je suis inscrits
         sInscrireActivite() : S'inscrire à des activités
@@ -432,6 +411,7 @@ public class Utilisateur extends Acteur {
      * ou d'ajouter de nouveaux Intérêts ( en même temps il faut initialiser la listeInteretsGeneraux pour inclure
      * les nouveaux Intérêts )
      */
+
     public void gererInterets() {
 
         ArrayList<Interet> interetsSysteme = Systeme.getInstance().getInterets();

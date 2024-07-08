@@ -116,16 +116,17 @@ public class Main {
                     choixProfil();
                     break;
                 case 1:
-                    // rajouter les methodes de fournisseur -> chaima
+                    fournisseur.modifierProfil();
                     break;
                 case 2:
-
+                    fournisseur.gererComposantes();
                     break;
                 case 3:
-
+                    fournisseur.enregistrerComposante();
                     break;
                 default:
-
+                    System.out.println("Veuillez choisir un nombre valide :");
+                    afficherMenu(fournisseur);
                     break;
             }
         } catch (InputMismatchException e) {
@@ -144,7 +145,6 @@ public class Main {
         try {
             int choix3 = scanner.nextInt();
             switch (choix3) {
-                // mettre le lien avec la classe utilisateur
                 case 0:
                     choixProfil();
                     break;
@@ -152,29 +152,29 @@ public class Main {
                     publique.RecupListeUtilisateur(utilisateur);
                     break;
                 case 2:
-
+                    publique.RecupListeActivites(activite);
                     break;
                 case 3:
-                           publique.voirProfilU(utilisateur);
+                    publique.voirProfilU(utilisateur);
                     break;
                 case 4:
-                         publique.RecupListeActivites(activite);
+                    publique.RecupListeActivites(activite);
                     break;
                 case 5:
-                       publique.RecupListeInterets(interet);
+                    publique.RecupListeInterets(interet);
                     break;
                 case 6:
                      publique.RecupListeFournisseur(fournisseur);
                     break;
                 case 7:
-                      publique.rechercherComposante();
+                    publique.rechercherComposante();
                     break;
 
                 case 8:
-
-                      publique.voirProfilF(fournisseur);
+                    publique.voirProfilF(fournisseur);
                     break;
                 default:
+                    System.out.println("Veuillez choisir un nombre valide :");
                     afficherMenu(publique);
                     break;
             }
@@ -211,7 +211,7 @@ public class Main {
                     utilisateur.gererFlotte(utilisateur.getFlotte(), composante ); //2 e argument composante
                     break;
                 case 3:
-
+                    utilisateur.gererSuiveurs();
                     break;
                 case 4:
                     utilisateur.gererActivites();
@@ -220,19 +220,19 @@ public class Main {
                     utilisateur.gererInterets();
                     break;
                 case 6:
-                       utilisateur.suivreUtilisateur(utilisateur);
+                    utilisateur.suivreUtilisateur(utilisateur);
                     break;
                 case 7:
                     utilisateur.sInscrireActivite();
                     break;
                 case 8:
-                    // souscrire interet
+                    interet.souscrire(utilisateur); // à refaire psq ??????
                     break;
                 case 9:
                     utilisateur.afficherLesEtats(robot); // voir quoi mettre a l'inter
                     break;
                 default:
-
+                    System.out.print("Veuillez choisir une action valide!");
                     afficherMenu(utilisateur);
                     break;
             }

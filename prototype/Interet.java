@@ -14,7 +14,6 @@ public class Interet {
 
     }
 
-
     // Getters and Setters
     public String getNom() {
         return nom;

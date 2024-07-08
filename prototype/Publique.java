@@ -31,7 +31,6 @@ public class Publique {
                         break;
 
                     case 1:
-
                         string = scanner.nextLine().toLowerCase();
                         for (int i = 0; i < Systeme.getInstance().getUtilisateurs().size(); i++) {
                             String pseudo = Systeme.getInstance().getUtilisateurs().get(i).getPseudo();
@@ -193,7 +192,6 @@ public class Publique {
                 System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
                 //scanner.next();
             }
-
 
 
         }
