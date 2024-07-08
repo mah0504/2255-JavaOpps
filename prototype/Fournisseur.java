@@ -155,76 +155,56 @@ public class Fournisseur extends Acteur {
         return index;
     }
 
+
     @Override
     public void modifierProfil() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Que voulez-vous modifier ?");
-            System.out.println("1. Nom");
-            System.out.println("2. Adresse");
-            System.out.println("3. Email");
-            System.out.println("4. Mot de passe");
-            System.out.println("5. Téléphone");
-            System.out.println("6. Capacité de fabrication");
-            System.out.println("0. Quitter");
 
-            int choix = -1;
-            while (choix != 0) {
-                System.out.print("Votre choix : ");
+        continuer = true;
+        Fournisseur fournisseur;
+
+        while (continuer) {
+            try {
+
+                System.out.println("Que voulez-vous modifier ?");
+                System.out.println("1. Nom");
+                System.out.println("2. Adresse");
+                System.out.println("3. Email");
+                System.out.println("4. Mot de passe");
+                System.out.println("5. Téléphone");
+                System.out.println("6. Capacité de fabrication");
+                System.out.println("0. Quitter");
+
                 choix = scanner.nextInt();
-                scanner.nextLine();
-
                 switch (choix) {
+                    case 0:
+                        continuer = false;
                     case 1:
-                        System.out.print("Nouveau nom : ");
-                        String nouveauNom = scanner.nextLine();
-                        if (nomExiste(nouveauNom)) {
-                            throw new IllegalArgumentException("Ce nom de fournisseur existe déjà.");
-                        }
-                        this.nom = nouveauNom;
+                        entrerNom();
                         break;
                     case 2:
-                        System.out.print("Nouvelle adresse : ");
-                        String nouvelleAdresse = scanner.nextLine();
-                        this.adresse = nouvelleAdresse;
+                        //todo entrerAdresse();
                         break;
                     case 3:
-                        System.out.print("Nouvel email : ");
-                        String nouvelEmail = scanner.nextLine();
-                        if (!emailValide(nouvelEmail)) {
-                            throw new IllegalArgumentException("L'email entré n'est pas valide.");
-                        }
-                        this.email = nouvelEmail;
+                        entrerEmail();
                         break;
                     case 4:
-                        System.out.print("Nouveau mot de passe : ");
-                        String nouveauMotDePasse = scanner.nextLine();
-                        this.motDePasse = nouveauMotDePasse;
+                        entrerMDP();
                         break;
                     case 5:
-                        System.out.print("Nouveau numéro de téléphone : ");
-                        String nouveauTelephone = scanner.nextLine();
-                        if (nouveauTelephone.length() > 10 || !nouveauTelephone.matches("[0-9]+")) {
-                            throw new IllegalArgumentException("Le numéro de téléphone doit contenir uniquement des chiffres.");
-                        }
-                        this.telephone = nouveauTelephone;
+                        entrerTelephone();
                         break;
                     case 6:
-                        System.out.print("Nouvelle capacité de fabrication : ");
-                        String nouvelleCapacite = scanner.nextLine();
-                        this.capaciteFabrication = nouvelleCapacite;
-                        break;
-                    case 0:
-                        System.out.println("Modification terminée.");
-                        break;
-                    default:
-                        System.out.println("Choix invalide. Réessayez.");
+                        //todo entrerCapaciteFabrication();
                         break;
                 }
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                scanner.next();
             }
-        } catch (Exception e) {
-            System.out.println("Erreur lors de la modification du profil : " + e.getMessage());
         }
     }
+
 
     @Override
     public void confirmerInscription() {
