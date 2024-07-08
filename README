@@ -1,0 +1,123 @@
+# README
+
+## Descriptions
+
+Ce prototype constitue une esquisse pour une application plus concrète et plus vaste.
+Notre application permet de réaliser toutes les fonctionnalités et requêtes demandées.
+Elle offre une première expérience de ce à quoi peut ressembler l application en concret.
+La structure de données utilisé pour stocker les données collectées est exhaustive mais 
+peut-être optmisée.
+Cette première version traite aussi plusieurs exceptions pour corriger les erreurs que 
+nous avons rencontrées tout au long du projet. Toutefois, il reste plusieurs
+possibilités d amélioration. Des bugs peuvent persister.
+
+Nous chercherons par la suite à optimiser l interface Acteur pour rendre notre application
+intuitive et à valider plus de fonctionnalités que nous avons trouvé intéressantes mais
+pas eu le temps d implémenter, en plus des différents tests unitaires. 
+
+
+## Fonctionnalités
+
+- Initiliaser les listes des Utilisateurs, des Fournisseurs et des Interets
+
+- Choisir le type d acteur qui utilise l application 
+
+    - Profil publique 
+        - Récupérer la liste des utilisateurs
+        - Rechercher un utilisateur
+        - Afficher le profil de l utilisateur
+        - Récupérer la liste des activités
+        - Récupérer la liste des intérêts
+        - Récupérer la liste des fournisseurs
+        - Rechercher un fournisseur
+        - Afficher le profil du fournisseur
+        - Rechercher une composante
+
+    - Profil Utilisateur
+        - Se connecter
+        - S inscrire
+        - Menu
+            - Modifier son profil
+            - Gérer sa flotte
+            - Gérer ses suiveurs
+            - Gérer ses activités
+            - Gérer ses intérêts
+            - Suivre un utilisateur
+            - S Inscrire à une activité
+            - Se souscrire à un intérêt
+            - Voir l état de ses robots
+            - Voir les métriques
+            - Voir ses notifications
+
+    - Profil Fournisseur
+        - Se connecter
+        - S inscrire
+        - Menu
+            - Modifier son profil 
+            - Gérer ses composantes 
+            - Enregistrer une composante
+
+
+#######################################################################################
+- Une classe Système qui joue le rôle d une base de données où on stocke nos listes pour :
+    - Utilisateurs
+    - Fournisseurs
+    - Interets
+    - Activités
+    - Composantes
+
+    - Ces listes contiennent les données qu on a initilalisé ( comme 10 users ou 5 fournisseurs)
+    mais les données qu on récupère
+
+- Récupérer les nouveaux utilisateurs et fournisseurs.
+    - Chaque entrée est vérifié et l erreur est gérée 
+    - Confirmer l inscription des nouveaux arrivés
+        - un mail de confirmation est envoyé avec une clé et doit être traité dans les 24 heures 
+        - Si l inscription échoue, l acteur (Utilisateur ou Fournisseur) n est pas ajouté
+
+
+- Opérations pour l Utilisateur 
+    - ModifierProfil 
+        -permet de choisir entre les différentes varaibles d instances laquelle modifier 
+    - gererFlottle 
+        - Acheter une composante 
+        - Assigner une composante à un robot
+        - Enregistrer un robot
+    - gererSuiveurs
+        - Suivre un utilisateur
+        - Voir les utilisateurs que vous suivez
+        - Voir les utilisateurs qui vous suivent
+    - gererACtivités 
+        - Afficher les Activites que je maintiens (inscrits)
+        - s inscrire  à une Activite
+            - Choisir une Activité à partir de la liste des Activités
+            - Choisir une Activité à partir de la liste des Intérets associés à chaque activités
+    
+    - gererInterets
+        - Se soucrire à un Intéret en les choisissant de la liste des Intérets 
+        - Choisir un nouveau Intéret et l ajouter à la liste des Intérets pour prochaine considération
+
+- Opérations pour le Fournisseur 
+    - ...
+
+
+- ...
+
+
+## Organisation des fichiers
+
+Le projet est origanisé selon la structure suivante
+
+├── Exigences/
+│   ├── Rapport du devoir1
+│   └── Diagramme de cas d utilisation
+├── Analyse/
+│   ├── Rapport du devoir2
+│   └── Diagrammes d activités
+├── Conception/
+│   ├── Diagramme de classes
+│   └── Diagrammes de séquence
+├── Implémentation/
+│   ├── prototype /--Code source de l application
+└── README.md
+```
