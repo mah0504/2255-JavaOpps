@@ -370,13 +370,6 @@ public class Fournisseur extends Acteur {
 
 
 
-    /* ************************************************************************************************ */
-
-    /*
-     * Fonction auxiliaire pour gérer composantes
-     */
-
-    /* ************************************************************************************************ */
 
     public static void initialiserListeFournisseurs() {
 
@@ -388,8 +381,4 @@ public class Fournisseur extends Acteur {
 
     }
 
-    public static void main(String[] args){
-        initialiserListeFournisseurs();
-        System.out.println(listeFournisseurs);
-    }
 }
