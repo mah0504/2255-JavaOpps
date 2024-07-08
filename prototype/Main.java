@@ -208,6 +208,7 @@ public class Main {
                     break;
 
                 case 2:
+                    
                     utilisateur.gererFlotte(utilisateur.getFlotte(), composante ); //2 e argument composante
                     break;
                 case 3:
