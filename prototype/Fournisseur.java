@@ -6,7 +6,6 @@ public class Fournisseur extends Acteur {
     private String adresse;
     private String capaciteFabrication;
     private ArrayList<Composantes> listeComposantes = new ArrayList<>();
-    private static ArrayList<Fournisseur> listeFournisseurs = new ArrayList<>();
     private Map<String, Composantes> Stock;
     private Composantes nouvelleComposante;
     private Composantes composanteAchetee;
@@ -122,7 +121,7 @@ public class Fournisseur extends Acteur {
     public int seConnecter() {
 
         continuer = true;
-        Utilisateur utilisateur;
+        Fournisseur fournisseur;
         int index = -1;
 
         while (continuer) {
@@ -135,10 +134,10 @@ public class Fournisseur extends Acteur {
 
                 index = chercherNom(nom);
                 if (index < 0) {
-                    throw new IllegalArgumentException("Pseudo inexistant.");
+                    throw new IllegalArgumentException("Nom inexistant.");
                 }
-                utilisateur = Systeme.getInstance().getUtilisateurs().get(index);
-                if (! motDePasse.equals(utilisateur.getMdp())) {
+                fournisseur = Systeme.getInstance().getFournisseurs().get(index);
+                if (! motDePasse.equals(fournisseur.getMdp())) {
                     throw new IllegalArgumentException("Mot de passe invalide.");
                 }
                 System.out.println("Connexion réussie.");
@@ -157,72 +156,50 @@ public class Fournisseur extends Acteur {
 
     @Override
     public void modifierProfil() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Que voulez-vous modifier ?");
-            System.out.println("1. Nom");
-            System.out.println("2. Adresse");
-            System.out.println("3. Email");
-            System.out.println("4. Mot de passe");
-            System.out.println("5. Téléphone");
-            System.out.println("6. Capacité de fabrication");
-            System.out.println("0. Quitter");
 
-            int choix = -1;
-            while (choix != 0) {
-                System.out.print("Votre choix : ");
+        continuer = true;
+        Fournisseur fournisseur;
+
+        while (continuer) {
+            try {
+
+                System.out.println("Que voulez-vous modifier ?");
+                System.out.println("1. Nom");
+                System.out.println("2. Adresse");
+                System.out.println("3. Email");
+                System.out.println("4. Mot de passe");
+                System.out.println("5. Téléphone");
+                System.out.println("6. Capacité de fabrication");
+                System.out.println("0. Quitter");
+
                 choix = scanner.nextInt();
-                scanner.nextLine();
-
                 switch (choix) {
+                    case 0:
+                        continuer = false;
                     case 1:
-                        System.out.print("Nouveau nom : ");
-                        String nouveauNom = scanner.nextLine();
-                        if (nomExiste(nouveauNom)) {
-                            throw new IllegalArgumentException("Ce nom de fournisseur existe déjà.");
-                        }
-                        this.nom = nouveauNom;
+                        entrerNom();
                         break;
                     case 2:
-                        System.out.print("Nouvelle adresse : ");
-                        String nouvelleAdresse = scanner.nextLine();
-                        this.adresse = nouvelleAdresse;
+                        //todo entrerAdresse();
                         break;
                     case 3:
-                        System.out.print("Nouvel email : ");
-                        String nouvelEmail = scanner.nextLine();
-                        if (!emailValide(nouvelEmail)) {
-                            throw new IllegalArgumentException("L'email entré n'est pas valide.");
-                        }
-                        this.email = nouvelEmail;
+                        entrerEmail();
                         break;
                     case 4:
-                        System.out.print("Nouveau mot de passe : ");
-                        String nouveauMotDePasse = scanner.nextLine();
-                        this.motDePasse = nouveauMotDePasse;
+                        entrerMDP();
                         break;
                     case 5:
-                        System.out.print("Nouveau numéro de téléphone : ");
-                        String nouveauTelephone = scanner.nextLine();
-                        if (nouveauTelephone.length() > 10 || !nouveauTelephone.matches("[0-9]+")) {
-                            throw new IllegalArgumentException("Le numéro de téléphone doit contenir uniquement des chiffres.");
-                        }
-                        this.telephone = nouveauTelephone;
+                        entrerTelephone();
                         break;
                     case 6:
-                        System.out.print("Nouvelle capacité de fabrication : ");
-                        String nouvelleCapacite = scanner.nextLine();
-                        this.capaciteFabrication = nouvelleCapacite;
-                        break;
-                    case 0:
-                        System.out.println("Modification terminée.");
-                        break;
-                    default:
-                        System.out.println("Choix invalide. Réessayez.");
+                        //todo entrerCapaciteFabrication();
                         break;
                 }
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                scanner.next();
             }
-        } catch (Exception e) {
-            System.out.println("Erreur lors de la modification du profil : " + e.getMessage());
         }
     }
 
@@ -327,23 +304,16 @@ public class Fournisseur extends Acteur {
         return email.matches(emailPattern);
     }
 
-    private boolean nomExiste(String nom) {
-        for (Fournisseur fournisseur : listeFournisseurs) {
-            if (fournisseur.getNom().equals(nom)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    //todo nom lié à cette compagnie existe déjà??
 
     private static int chercherNom(String nom) {
         ArrayList<Fournisseur> fournisseurs = Systeme.getInstance().getFournisseurs();
         for (int i = 0; i < fournisseurs.size(); i++) {
             if (fournisseurs.get(i).getNom().equals(nom)) {
-                return i;   // le pseudo existe déjà
+                return i;   // le nom existe déjà
             }
         }
-        return -1;          // le pseudo n'existe pas
+        return -1;          // le nom n'existe pas
     }
 
 
@@ -351,11 +321,11 @@ public class Fournisseur extends Acteur {
 
     public static void initialiserListeFournisseurs() {
 
-        listeFournisseurs.add(new Fournisseur("Fournisseur1", "Adresse1", "email1@example.com", "mdp1", "1234567890", "Capacité1"));
-        listeFournisseurs.add(new Fournisseur("Fournisseur2", "Adresse2", "email2@example.com", "mdp2", "0987654321", "Capacité2"));
-        listeFournisseurs.add(new Fournisseur("Fournisseur3", "Adresse3", "email3@example.com", "mdp3", "1112223333", "Capacité3"));
-        listeFournisseurs.add(new Fournisseur("Fournisseur4", "Adresse4", "email4@example.com", "mdp4", "4445556666", "Capacité4"));
-        listeFournisseurs.add(new Fournisseur("Fournisseur5", "Adresse5", "email5@example.com", "mdp5", "7778889999", "Capacité5"));
+        Systeme.getInstance().ajouterFournisseur( new Fournisseur("Fournisseur1", "Adresse1", "email1@example.com", "mdp1", "1234567890", "Capacité1"));
+        Systeme.getInstance().ajouterFournisseur(new Fournisseur("Fournisseur2", "Adresse2", "email2@example.com", "mdp2", "0987654321", "Capacité2"));
+        Systeme.getInstance().ajouterFournisseur(new Fournisseur("Fournisseur3", "Adresse3", "email3@example.com", "mdp3", "1112223333", "Capacité3"));
+        Systeme.getInstance().ajouterFournisseur(new Fournisseur("Fournisseur4", "Adresse4", "email4@example.com", "mdp4", "4445556666", "Capacité4"));
+        Systeme.getInstance().ajouterFournisseur(new Fournisseur("Fournisseur5", "Adresse5", "email5@example.com", "mdp5", "7778889999", "Capacité5"));
 
     }
 

@@ -12,6 +12,7 @@ public class Utilisateur extends Acteur {
     private int pointsGagnes, classement;
     List<Activite> MesActivites = new ArrayList<>();
     private List<Notifications> MesNotifications= new ArrayList<>();
+
     // Constructeurs :
     public Utilisateur(String nom, String prenom, String pseudo, String email, String motDePasse, String telephone, int pointsGagnes){
         this.nom = nom;
@@ -43,6 +44,7 @@ public class Utilisateur extends Acteur {
                 continuer = false;
             } catch (IllegalArgumentException e) {
                 System.out.println("Erreur : " + e.getMessage());
+                scanner.next();
             }
         }
 
@@ -60,6 +62,7 @@ public class Utilisateur extends Acteur {
                 continuer = false;
             } catch (IllegalArgumentException e) {
                 System.out.println("Erreur : " + e.getMessage());
+                scanner.next();
             }
         }
 
@@ -205,24 +208,26 @@ public class Utilisateur extends Acteur {
 
     @Override
     public void modifierProfil() {
-        try (Scanner scanner = new Scanner(System.in)) {
 
-            System.out.println("Que voulez-vous modifier ?");
-            System.out.println("1. Nom");
-            System.out.println("2. Prénom");
-            System.out.println("3. Email");
-            System.out.println("4. Mot de passe");
-            System.out.println("5. Numéro de téléphone");
-            System.out.println("6. Nom de la compagnie");
-            System.out.println("0. Quitter");
+        continuer = true;
+        Fournisseur fournisseur;
 
-            choix = -1;
-            while (choix != 0) {
-                System.out.print("Votre choix : ");
+        while (continuer) {
+            try {
+
+                System.out.println("Que voulez-vous modifier ?");
+                System.out.println("1. Nom");
+                System.out.println("2. Prénom");
+                System.out.println("3. Email");
+                System.out.println("4. Mot de passe");
+                System.out.println("5. Numéro de téléphone");
+                System.out.println("6. Nom de la compagnie");
+                System.out.println("0. Quitter");
+
                 choix = scanner.nextInt();
-                scanner.nextLine(); // Pour consommer le retour à la ligne
-
                 switch (choix) {
+                    case 0:
+                        continuer = false;
                     case 1:
                         entrerNom();
                         break;
@@ -241,22 +246,17 @@ public class Utilisateur extends Acteur {
                     case 6:
                         entrerCompagnie();
                         break;
-                    case 0:
-                        System.out.println("Modification terminée.");
-                        break;
-                    default:
-                        System.out.println("Choix invalide. Réessayez.");
-                        break;
                 }
+
+            } catch (IllegalArgumentException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                scanner.next();
             }
-        } catch (Exception e) {
-            System.out.println("Erreur lors de la modification du profil : " + e.getMessage());
         }
     }
 
 
     public void gererFlotte(Flotte flotte, Composantes composantes ) {
-        Scanner scanner = new Scanner(System.in);
 
         try {
             System.out.println("Veuillez choisir quelle fonctionnalité effectuer dans votre flotte: " +

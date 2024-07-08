@@ -64,6 +64,7 @@ public abstract class Acteur {
                 continuer = false;
             } catch (IllegalArgumentException e) {
                 System.out.println("Erreur : " + e.getMessage());
+                scanner.next();
             }
         }
 
@@ -83,6 +84,7 @@ public abstract class Acteur {
                 continuer = false;
             } catch (IllegalArgumentException e) {
                 System.out.println("Erreur : " + e.getMessage());
+                scanner.next();
             }
         }
 
@@ -100,6 +102,7 @@ public abstract class Acteur {
                 continuer = false;
             } catch (IllegalArgumentException e) {
                 System.out.println("Erreur : " + e.getMessage());
+                scanner.next();
             }
         }
 
@@ -119,6 +122,7 @@ public abstract class Acteur {
                 continuer = false;
             } catch (IllegalArgumentException e) {
                 System.out.println("Erreur : " + e.getMessage());
+                scanner.next();
             }
         }
     }
@@ -143,21 +147,16 @@ public abstract class Acteur {
      * Si l'utilisateur entre la bonne clé après 24 heures, la variable confirmationEmail renvoie un True
      */
     public void confirmerInscription() {
-        try (Scanner scanner = new Scanner(System.in)) {
+        System.out.print("Entrez le code de confirmation reçu par email : ");
+        String cle = scanner.nextLine();
 
-            System.out.print("Entrez le code de confirmation reçu par email : ");
-            String cle = scanner.nextLine();
-
-            //codeConfirmation vérifie l'exactitude de la clé
-            //dateInscription est une Date à quoi on a ajouté une période de 24 heures
-            if (codeConfirmation.equals(cle) && dateInscription.plusHours(24).isAfter(LocalDateTime.now())) {
-                this.confirmationEmail = true;
-                System.out.println("Inscription avec succès !");
-            } else {
-                System.out.println("Lien de confirmation invalide ou expiré.");
-            }
-        } catch (Exception e) {
-            System.out.println("Erreur lors de la confirmation : " + e.getMessage());
+        // codeConfirmation vérifie l'exactitude de la clé
+        // dateInscription est une Date à quoi on a ajouté une période de 24 heures
+        if (codeConfirmation.equals(cle) && dateInscription.plusHours(24).isAfter(LocalDateTime.now())) {
+            this.confirmationEmail = true;
+            System.out.println("Inscription avec succès !");
+        } else {
+            System.out.println("Lien de confirmation invalide ou expiré.");
         }
     }
 
@@ -204,7 +203,7 @@ public abstract class Acteur {
     abstract public void modifierProfil();
 
     protected static boolean stopContinuer() {
-        //Boolean  = true;
+
         int choix = -1;
         Scanner scanner = new Scanner(System.in);
 
@@ -225,6 +224,7 @@ public abstract class Acteur {
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                scanner.next();
             }
         }
     }
