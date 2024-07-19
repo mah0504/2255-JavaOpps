@@ -317,8 +317,6 @@ public class Fournisseur extends Acteur {
     }
 
 
-
-
     public static void initialiserListeFournisseurs() {
 
         Systeme.getInstance().ajouterFournisseur( new Fournisseur("Fournisseur1", "Adresse1", "email1@example.com", "mdp1", "1234567890", "Capacité1"));

@@ -17,11 +17,13 @@ public class Composantes {
 
 
    public Composantes choisirCompo(){
-       System.out.println("Veuillez choisir quelle composante utiliser :");
-       Scanner scanner =new Scanner(System.in);
        for (int i = 0; i < listeSousClasses.size(); i++) {
            System.out.println("[" + i +"]"+ ": " + listeSousClasses.get(i).getSimpleName());
        }
+       System.out.println("Veuillez choisir quelle composante utiliser :");
+
+
+       Scanner scanner =new Scanner(System.in);
        int choix= scanner.nextInt();
        scanner.close(); // Fermer le scanner après usage
 

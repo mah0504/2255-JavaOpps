@@ -36,7 +36,7 @@ public class BrouillonExec {
 //        activites.addActivites("Voir les détails de l'activité");
 //        activites.addActivites("Assigner une composante à un robot");
 
-        pub.RecupListeActivites(activites);
+        pub.RecupListeActivites();
         Utilisateur utilisateur = new Utilisateur();
 
         Robot r = new Robot();

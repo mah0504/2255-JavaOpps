@@ -10,12 +10,18 @@ public class Activite {
     private int points;
     private int classement;
 
+    private String progression ;
+
     private List<Interet> listedInterets = new ArrayList<>();
 
    // la plateforme doit notifier les utilisateurs quand une nouvelle activité correspondant aux
     // intérêts d'un utilisateur est créée.
 
     //todo: comfirmer l'ajout de l'activité , assigner activite au robot
+
+    public String getProgression(){return progression;}
+
+    public void setProgression(String progression){this.progression=progression;}
 
     public void ajouterActivite(Activite activite ){
 
