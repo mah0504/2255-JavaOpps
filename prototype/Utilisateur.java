@@ -211,6 +211,7 @@ public class Utilisateur extends Acteur {
         return index;
     }
 
+
     @Override
     public void modifierProfil() {
 
@@ -259,6 +260,7 @@ public class Utilisateur extends Acteur {
             }
         }
     }
+
 
 
     public void gererFlotte(Flotte flotte, Composantes composantes ) {
@@ -693,6 +695,15 @@ public class Utilisateur extends Acteur {
         utilisateur1.addMesInterets(jeuxVideo);
         utilisateur1.addMesInterets(jardinage);
         utilisateur1.addMesInterets(bricolage);
+
+         Robot robot1= new Robot();
+        utilisateur1.getFlotte().getListeRobots().add(robot1);
+        robot1.setNom("IJWFVN");
+        robot1.setType("Mouvement");
+        robot1.setNumeroDeSerie(1234);
+        // Ajouter des états pour test
+        Object[] etats = {"État1", "État2", "État3", "État4"};
+        robot1.setEtats(etats);
 
     }
 }

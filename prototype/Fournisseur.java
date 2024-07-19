@@ -154,6 +154,7 @@ public class Fournisseur extends Acteur {
         return index;
     }
 
+
     @Override
     public void modifierProfil() {
 
@@ -202,6 +203,7 @@ public class Fournisseur extends Acteur {
             }
         }
     }
+
 
     @Override
     public void confirmerInscription() {

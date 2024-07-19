@@ -70,7 +70,8 @@ public class Main {
 
         while (continuer) {
             try {
-                System.out.println(" [0]: Retour au menu principal \n [1]: Se connecter\n [2]: S'inscrire \n ");
+                System.out.println(" [0]: Reto" +
+                        "ur au menu principal \n [1]: Se connecter\n [2]: S'inscrire \n ");
                 choix = scanner.nextInt();
 
                 switch (choix) {
