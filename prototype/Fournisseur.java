@@ -155,7 +155,7 @@ public class Fournisseur extends Acteur {
         return index;
     }
 
-
+    
     @Override
     public void modifierProfil() {
 
@@ -228,7 +228,7 @@ public class Fournisseur extends Acteur {
             System.out.println("Que voulez-vous modifier ?");
             System.out.println("1. Ajouter des composantes à l'inventaire");
             System.out.println("2. Mettre à jour l'inventaire");
-            System.out.println("3. Afficher l'inventaire");
+            System.out.println("3. Afficher l'inventaire"); // afficher composantes ?
             System.out.println("0. Quitter");
 
             int choix = -1;
@@ -299,6 +299,11 @@ public class Fournisseur extends Acteur {
         }
     }
 
+
+
+
+
+
     /*
      * Fonction auxiliaire pour vérifier L'inscription
      */
@@ -327,7 +332,20 @@ public class Fournisseur extends Acteur {
     }
 
 
+    public void AfficherComposantes(){
+      try {
+            for (int i = 0; i < listeComposantes.size(); i++) {
+                System.out.println(listeComposantes.get(i));
+            }
+        } catch ( NullPointerException e){
+          System.out.println("Vous n'avez pas de composantes en stock! Veuillez en acheter");
+      }
+    }
+
     public static void initialiserListeFournisseurs() {
+
+
+        // mettre liste fournisseur dans "systeme" en attendant d'avoir un format de fichier adequat
 
         listeFournisseurs.add(new Fournisseur("Fournisseur1", "Adresse1", "email1@example.com", "mdp1", "1234567890", "Capacité1"));
         listeFournisseurs.add(new Fournisseur("Fournisseur2", "Adresse2", "email2@example.com", "mdp2", "0987654321", "Capacité2"));

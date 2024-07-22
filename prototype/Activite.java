@@ -6,7 +6,6 @@ public class Activite {
     private String nom;
     private int dateDebut;
     private int datefin;
-    private List<Tache> listeTaches= new ArrayList<>();
     private int points;
     private int classement;
 
@@ -119,40 +118,40 @@ public class Activite {
 
     }
 
-    public void sInscrireActivite(Utilisateur utilisateur){
-        List<Robot> robots = utilisateur.getFlotte().getListeRobots();
-        Robot robotDisponible = null;
-        for (Robot robot : robots) {
-            for (Metrique metrique : robot.getMetriquesRobot()) {
-                if (metrique.getDisponibilite()) {
-                    robotDisponible = robot;
-                    break;
-                }
-            }
-            if (robotDisponible != null) {
-                break;
-            }
-        }
-
-        // Si un robot disponible est trouvé, inscrire l'utilisateur à l'activité avec ce robot
-        if (robotDisponible != null) {
-            utilisateur.addActivites(this);
-
-            // Marquer le robot comme non disponible
-            for (Metrique metrique : robotDisponible.getMetriquesRobot()) {
-                if (metrique.getDisponibilite()) {
-                    metrique.setDisponibilite(false);
-                    break;
-                }
-            }
-
-            System.out.println("L'utilisateur " + utilisateur.getNom() + " a été inscrit à l'activité " + this.nom +
-                    " avec le robot " + robotDisponible.getNom());
-        } else {
-            System.out.println("Aucun robot disponible pour inscrire l'utilisateur " + utilisateur.getNom() +
-                    " à l'activité " + this.nom);
-        }
-    }
+//    public void sInscrireActivite(Utilisateur utilisateur){
+//        List<Robot> robots = utilisateur.getFlotte().getListeRobots();
+//        Robot robotDisponible = null;
+//        for (Robot robot : robots) {
+//            for (Metrique metrique : robot.getMetriquesRobot()) {
+//                if (metrique.getDisponibilite()) {
+//                    robotDisponible = robot;
+//                    break;
+//                }
+//            }
+//            if (robotDisponible != null) {
+//                break;
+//            }
+//        }
+//
+//        // Si un robot disponible est trouvé, inscrire l'utilisateur à l'activité avec ce robot
+//        if (robotDisponible != null) {
+//            utilisateur.addActivites(this);
+//
+//            // Marquer le robot comme non disponible
+//            for (Metrique metrique : robotDisponible.getMetriquesRobot()) {
+//                if (metrique.getDisponibilite()) {
+//                    metrique.setDisponibilite(false);
+//                    break;
+//                }
+//            }
+//
+//            System.out.println("L'utilisateur " + utilisateur.getNom() + " a été inscrit à l'activité " + this.nom +
+//                    " avec le robot " + robotDisponible.getNom());
+//        } else {
+//            System.out.println("Aucun robot disponible pour inscrire l'utilisateur " + utilisateur.getNom() +
+//                    " à l'activité " + this.nom);
+//        }
+//    }
     }
 
 

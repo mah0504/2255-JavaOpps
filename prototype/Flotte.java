@@ -3,49 +3,45 @@ import java.util.*;
 public class Flotte {
 
     private List<Robot> listeRobots =new ArrayList<>();
-    private List<Composantes> listeComposantes =new ArrayList<>();
+    private List<Composantes> listeComposantes = new ArrayList<>();
     private int nomRobot; // id, numero de serie
     private boolean disponibilite;
 
 
-    // todo : CPU Numero de serie au robot
-
-
     // bsn pour assigner les composantes, les taches aussi plus tars et activites
-    public Robot choisirRobot( ){
+    public Robot choisirRobot( ) {
+        Scanner scanner = new Scanner(System.in);
+        int choix = -1;
 
-        System.out.println("Veuillez choisir quelle composante utiliser :");
-        Scanner scanner =new Scanner(System.in);
-        for (int i = 0; i < listeRobots.size(); i++) {
-            System.out.println("[" + i +"]"+ ": " + listeRobots.get(i));
-        }
-        int choix= scanner.nextInt();
-
-        if (choix >= 0 && choix < listeRobots.size()) {
-
-            try {
-
-                System.out.println( listeRobots.get(choix));
-                return listeRobots.get(choix);
-
-            } catch (Exception e) {
-
-                e.printStackTrace();
-
+        while (true) {
+            for (int i = 0; i < listeRobots.size(); i++) {
+                System.out.println("[" + i + "]" + ": " + listeRobots.get(i).toString());
             }
 
-        } System.out.println("Veuillez effectuer un choix valide !");
-        return null;
+            try {
+                System.out.println("Veuillez choisir le robot selon son index : ");
+                choix = scanner.nextInt();
+                if (choix >= 0 && choix < listeRobots.size()) {
+                    return listeRobots.get(choix);
+                } else {
+                    System.out.println("Veuillez effectuer un choix valide !");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Entrée invalide, veuillez entrer un numéro valide.");
+                scanner.next(); // Clear the invalid input
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
 
     }
-
 
 // getters and setters
     public List<Robot> getListeRobots() {
         return listeRobots;
     }
 
-    public List<Composantes> getListeComposantes() {
+    public List< Composantes> getListeComposantes() {
         return listeComposantes;
     }
 
@@ -57,8 +53,8 @@ public class Flotte {
 
 
 
+    public  <T extends Composantes> void acheterComposante(T composante) {
 
-    public void acheterComposante(Composantes composante) {
         if (verifierComposante(composante)) {
             composante.incrementInventaire();
         } else {
@@ -68,8 +64,8 @@ public class Flotte {
     }
 
 
-    public boolean verifierComposante(Composantes composante) {
-        for (Composantes c : getListeComposantes()) {
+    public  <T extends Composantes> boolean verifierComposante(T composante) {
+        for (Composantes c :listeComposantes) {
             if (c.getClass() == composante.getClass()) {
                 return true; // Retourne true dès qu'une composante similaire est trouvée
             }
@@ -80,7 +76,7 @@ public class Flotte {
 
     // robot déjà créé ajouter une classe ou on selectionne le robot depuis notre Arrayliste
     // traiter les exceptions
-    public void assignerComposante(Robot robot, Composantes composante) {
+    public  void assignerComposante(Robot robot, Composantes composante) {
         for (Composantes c : robot.getListCompoRobot()) {
             if (composante.getClass()== c.getClass() && verifierComposante(composante)){  // si le robot a déjà une composante du même type
                 c.incrementInventaire();

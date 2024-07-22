@@ -6,28 +6,39 @@ public class Robot {
     private String nom;
     private String type;
 
-    private Object[] etats = new Object[4]; // Tableau pour stocker les états
+    private Etat etats = new Etat(); // Les etats du robot
+
+
     private List<Composantes> composantesRobot = new ArrayList<>();
-    private List<Metrique> metriquesRobot = new ArrayList<>();
-    // todo : controle des mouvements
 
 
-    public void afficherInformations() {
+    public String afficherInfoGenerales() {
 
-        System.out.println("Numéro de série : " + numeroDeSerie);
-        System.out.println("Nom : " + nom);
-        System.out.println("Type : " + type);
-        System.out.println("États : ");
+        return "Nom : " + nom + "\n" +
+                "Type : " + type + "\n" +
+                "Niv de batterie : " + etats.getNivDeBatterie();
+    }
+
+
+    public String afficherInfoCompletes(){
+        return "Nom : " + nom + "\n" +
+                "Type : " + type + "\n" +
+                "Niv de batterie : " + etats.getNivDeBatterie()+" Numéro de série : " + numeroDeSerie + "\n" +
+                " Position : " + etats.getPosition() + "\n" +
+                "Vitesse : " + etats.getVitesse() + "\n" +
+                " Consommation mémoire : " + etats.getConsoMem() + "\n" +
+                "Consommation CPU : " + etats.getConsoCPU() ;
 
     }
+
+
+
 
 
 // getters et setters
     public String getNom(){ return this.nom; }
     public List<Composantes> getListCompoRobot(){return this.composantesRobot;}
-    public Object[] getEtats(){ return this.etats; }
-
-    public List<Metrique> getMetriquesRobot(){ return this.metriquesRobot;}
+    public Etat getEtats(){ return this.etats; }
 
     public void setNumeroDeSerie(int numeroDeSerie) {this.numeroDeSerie = numeroDeSerie;}
 
@@ -35,19 +46,7 @@ public class Robot {
 
     public void setType(String type) {this.type = type;}
 
-    public void addMetriquesRobot( Metrique metrique){ metriquesRobot.add(metrique);}
 
-    public void setMetriquesRobot(List<Metrique> me){ this.metriquesRobot=me;}
-    public void setEtats(Object[] etats) {this.etats = etats; }
+    public void setEtats(Etat etats) {this.etats = etats; }
 
-    @Override
-    public String toString() {
-        return "Robot{" +
-                "numeroDeSerie=" + numeroDeSerie +
-                ", nom='" + nom + '\'' +
-                ", type='" + type + '\'' +
-                ", etats=" + Arrays.toString(etats) +
-                ", composantesRobot=" + composantesRobot +
-                '}';
-    }
 }

@@ -3,7 +3,7 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-public class Composantes {
+public   class Composantes {
 
     private int inventaire=0;
     private String nom;
@@ -16,38 +16,36 @@ public class Composantes {
     // todo: ajouter Description à assigner composante !!!!
 
 
-    public Composantes choisirCompo() {
+    public static Class<? extends Composantes> choisirCompo() {
         Scanner scanner = new Scanner(System.in);
 
-        try {
             // Affichage des options disponibles
             for (int i = 0; i < listeSousClasses.size(); i++) {
                 System.out.println("[" + i + "] : " + listeSousClasses.get(i).getSimpleName());
             }
-            System.out.println("Veuillez choisir quelle composante utiliser :");
 
             // Lecture de l'entrée utilisateur
-            int choix = scanner.nextInt();
+        while (true) {
+            try {
+                System.out.println("Veuillez choisir quelle composante utiliser :");
+                int choix = scanner.nextInt();
 
-            // Vérification de l'index choisi
-            if (choix >= 0 && choix < listeSousClasses.size()) {
-                // Utilisation de la réflexion pour instancier la classe choisie
-                Class<? extends Composantes> classeChoisie = listeSousClasses.get(choix);
-                return classeChoisie.getDeclaredConstructor().newInstance();
-            } else {
-                System.out.println("Choix invalide. Veuillez choisir un nombre parmi les options listées.");
-                return null;
+                // Vérification de l'index choisi
+                if (choix >= 0 && choix < listeSousClasses.size()) {
+
+                    // Utilisation de la réflexion pour instancier la classe choisie
+                    Class<? extends Composantes> classeChoisie = listeSousClasses.get(choix);
+                    System.out.println(classeChoisie.getSimpleName());
+
+                    return classeChoisie;
+                } else {
+                    System.out.println("Choix invalide. Veuillez choisir un nombre parmi les options listées.");
+                }
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Entrée non valide. Veuillez entrer un nombre.");
-            scanner.next(); // Consommer l'entrée incorrecte
-            return null;
-        } catch (Exception e) {
-            System.out.println("Une erreur est survenue : " + e.getMessage());
-            e.printStackTrace();
-            return null;
-        } finally {
-            scanner.close(); // Fermer le scanner dans le bloc finally pour libérer les ressources
+            catch (InputMismatchException e) {
+                System.out.println("Entrée non valide. Veuillez entrer un nombre.");
+                scanner.next(); // Consommer l'entrée incorrecte
+            }
         }
     }
 
@@ -85,14 +83,16 @@ public class Composantes {
     // incrementer et decrementer
 
     // Method to increment inventaire
-    public void incrementInventaire() {
-        this.inventaire++;
+    public  void incrementInventaire(){
+        inventaire++;
     }
 
+
     // Setter for inventaire
-    public void setInventaire(int inventaire) {
+    public  void setInventaire(int inventaire){
         this.inventaire = inventaire;
     }
+
 
 }
 

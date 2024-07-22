@@ -4,12 +4,17 @@ import java.util.regex.*;
 
 public class Utilisateur extends Acteur {
 
+
+    // todo: bug pr afficherinfocomplets -> choisirrobot
+
     private String prenom, pseudo;
+
     private Flotte flotte= new Flotte();
 
     private ArrayList<Interet> listeInterets = new ArrayList<>(); // liste de 10 interets que suit l'utilisateur
     private ArrayList<Utilisateur> listeSuivis=new ArrayList<>(); // liste des utilisateurs que je suis
     private ArrayList<Utilisateur> listeSuiveurs=new ArrayList<>(); // liste des utilisateurs qui me suivent
+
     private ArrayList<Activite> listeActivites=new ArrayList<>(); // liste des activités que maintiens l'utilisateur
     private int pointsGagnes, classement;
     List<Activite> MesActivites = new ArrayList<>();
@@ -25,7 +30,6 @@ public class Utilisateur extends Acteur {
         this.motDePasse = motDePasse;
         this.telephone = telephone;
         this.pointsGagnes = pointsGagnes;
-
     }
 
     public Utilisateur(){
@@ -86,6 +90,8 @@ public class Utilisateur extends Acteur {
     public Flotte getFlotte(){
         return flotte;
     }
+
+
     public void setPseudo(String pseudo) {
         this.pseudo = pseudo;
     }
@@ -93,8 +99,6 @@ public class Utilisateur extends Acteur {
     public List<Notifications> getNotifications() { return MesNotifications;}
 
     public void addNotif(Notifications notification) { MesNotifications.add(notification);}
-
-
 
 
     public int getPoints() {
@@ -259,61 +263,82 @@ public class Utilisateur extends Acteur {
     }
 
 
-
-    public void gererFlotte(Flotte flotte, Composantes composantes ) {
-        Scanner scanner = new Scanner(System.in);
-
+    //choisir robot avant à utiliser
+    public void afficherLesEtats() {
         try {
-            System.out.println("Veuillez choisir quelle fonctionnalité effectuer dans votre flotte: " +
-                    "[1] : Acheter une composante \n [2] : Assigner une composante à un robot \n [3]" +
-                    " : Enregistrer un robot \n");
-            choix = scanner.nextInt();
+            for ( Robot r : flotte.getListeRobots()){
+                System.out.println( r.afficherInfoGenerales() );
+            }
 
-            switch (choix) {
-                case 1:
-                    flotte.acheterComposante(composantes.choisirCompo());
+            System.out.println("Voulez vous une vue complète ? Choisissez oui/non ");
+
+
+            Scanner scanner = new Scanner(System.in);
+            String choix =scanner.nextLine();
+
+            switch (choix){
+                case "oui":
+                   Robot r = flotte.choisirRobot();
+                    if (r != null) {
+                       System.out.println( r.afficherInfoCompletes() );
+                    } else {
+                        System.out.println("Robot non trouvé, veuillez réessayer.");
+                    }
+
                     break;
-                case 2:
-                    flotte.assignerComposante(flotte.choisirRobot(), composantes.choisirCompo());
-                    break;
-                case 3:
-                    flotte.enregistrerRobot(new Robot(), composantes.choisirCompo());
+                case "non" :
                     break;
                 default:
-                    System.out.println("Veuillez entrer un choix valide !");
+                    System.out.println("Veuillez choisir adéquatement");
                     break;
             }
-        } catch (InputMismatchException e) {
-            System.out.println("Entrée non valide. Veuillez entrer un nombre.");
-            scanner.next(); // Clear the invalid input
-        } catch (Exception e) {
-            System.out.println("Une erreur s'est produite: " + e.getMessage());
-            e.printStackTrace();
-            return; // revenir au menu jsp ?
+
+
+        } catch (NullPointerException e){
+            System.out.println("Vous n'avez pas de robots dans votre flotte ! Veuillez en enregistrer");
+        }
+        catch (InputMismatchException e){
+            System.out.println("Veuillez entrer un choix correct !");
+            scanner.next();
+        }
+
+    } // bug ici
+
+
+
+
+    public void gererFlotte( ){
+        try{
+            Scanner scanner= new Scanner(System.in);
+            System.out.println("Veuillez choisir .. [0] : Retour au menu principal  \n [1] :" +
+                    "Enregistrer un robot \n [2] : Supprimer un robot  \n [4] : Acheter une composante \n [4] : ");
+            int choix = scanner.nextInt();
+
+            switch ( choix) {
+                case 0:
+                    break;
+                case 1:
+                    // enregistrer un robot
+                    break;
+                case 2:
+                    // supprimer un robot
+                    break;
+                case 4:
+                    // acheter une composante
+                    break;
+                default:
+                    System.out.println("Veuillez entrer un nombre adéquat ! ");
+                    break;
+            }
+
+        }catch (InputMismatchException e){
+            System.out.println("Veuille");
+            scanner.next();
         }
     }
 
-    //choisir robot avant à utiliser
-    public void afficherLesEtats(Robot robot) {
-        Object[] etats = robot.getEtats();
-        System.out.println("États du robot " + robot.getNom() + " :");
-        for (Object etat : etats) {
-            System.out.println(etat);
-        }
-    }
-    /*public void voirMetriques( Robot robot){
 
-        for ( Metrique m: robot.getMetriquesRobot() ){
-            System.out.println( "La metrique : " +m );
-        }
-    }*/
 
-    /*
-     * Méthode qui permet de gérer les Suiveurs et Suivis
-     * Elle permet soit de Suivre un Utilisateur, soit de voir qui nous suivons et qui nous suivent.
-     * Pour Suivre un utilisateur, il faut connâitre son pseudo
-     * Manquant : Pensez à afficher la liste des Utilisateurs avant de choisir le pseudo
-     */
     public void gererSuiveurs() {
         try (Scanner scanner = new Scanner(System.in)) {
             boolean continuer = true;
@@ -359,8 +384,88 @@ public class Utilisateur extends Acteur {
     }
 
 
+    public void rechercherComposante() {
 
-    public void addActivites(Activite activite) {
+        ArrayList<Integer> index = new ArrayList<>();
+        String string;
+        continuer = true;
+        choix = -1;
+        Composantes composante;
+        Fournisseur fournisseur;
+
+
+        //todo la logique pour quitter/retourner au menu principal
+
+        while (continuer) {
+            System.out.println("Veuillez choisir une option de recherche \n [0]: Retour au menu principal " + " " +
+                    "[1]: Par nom \n [2]: Par type \n [3]: Par nom du fournisseur \n ");
+
+            try {
+                choix = scanner.nextInt();
+                switch (choix) {
+                    case 0:
+                        //todo retourner au menu principal
+                        break;
+
+                    case 1: // nom
+
+                        string = scanner.nextLine().toLowerCase();
+                        for (int i = 0; i < Systeme.getInstance().getComposantes().size(); i++) {
+                            composante = Systeme.getInstance().getComposantes().get(i);
+                            if (composante.getNom().toLowerCase().contains(string)) {
+                                System.out.println(composante.getNom());
+                                index.add(i);
+                            }
+                        }
+                        if (index.isEmpty()) {
+                            System.out.println("Aucun résultat.");
+                        }
+                        continuer = false;
+                        break;
+
+                    case 2: // type
+                        string = scanner.nextLine().toLowerCase();
+                        for (int i = 0; i < Systeme.getInstance().getComposantes().size(); i++) {
+                            composante = Systeme.getInstance().getComposantes().get(i);
+                            if (composante.getClass().getSimpleName().toLowerCase().contains(string)) { //todo getType???
+                                System.out.println(composante.getNom());
+                                index.add(i);
+                            }
+                        }
+                        if (index.isEmpty()) {
+                            System.out.println("Aucun résultat.");
+                        }
+                        continuer = false;
+                        break;
+
+                    case 3: // nom fournisseur
+                        string = scanner.nextLine().toLowerCase();
+                        for (int i = 0; i < Systeme.getInstance().getComposantes().size(); i++) {
+                            fournisseur = Systeme.getInstance().getFournisseurs().get(i);
+                            if (fournisseur.getNom().toLowerCase().contains(string)) {
+                                for (Composantes comp : fournisseur.getListeComposantes()) { // todo méthode getComposantes
+                                    System.out.println(comp.getNom());
+                                }
+                                index.add(i); // todo ça nous retourne l'index des fournisseurs ???
+                            }
+                        }
+                        if (index.isEmpty()) {
+                            System.out.println("Aucun résultat.");
+                        }
+                        continuer = false;
+                        break;
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                //scanner.next();
+            }
+
+        }
+        }
+
+
+
+        public void addActivites(Activite activite) {
         MesActivites.add(activite);
     }
     /*
@@ -458,7 +563,8 @@ public class Utilisateur extends Acteur {
         //get les Intérets et choisir une actvité et l'ajouter à la liste de mes actvités (Map<Interets, List<Activite>)
      */
 
-    public void sInscrireActivite() {
+    public void sInscrireActivite() {   // ajouter se désinscrire
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Comment voulez-vous vous inscrire à une activité ?");
         System.out.println("1. À partir de la liste de toutes les activités disponibles");
@@ -492,15 +598,9 @@ public class Utilisateur extends Acteur {
     }
 
 
-    /*public void enregistrerRobot(Robot robot) {
-        this.robots.add(robot);
-    }
 
-    public void afficherRobots() {
-        for (Robot robot : this.robots) {
-            System.out.println(robot);
-        }
-    }*/
+
+
 
     /*
      * Fonctions auxiliaires qui gèrent les Suivis
@@ -637,7 +737,7 @@ public class Utilisateur extends Acteur {
 
     public void initialiserUtilisateurs() {
 
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom1", "Chaima", "aithu", "aithu@example.com", "motdepasse1", "1357924680", 0));
+        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom1", "Chaima", "aithu", "aithu@example.com", "mdp1", "1357924680", 0));
         Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom2", "prenom2", "nprenom2", "nprenom2@example.com", "motdepasse2", "9996778888", 0));
         Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom3","Sabrina", "miaou", "miaou@example.com", "motdepasse3", "9753124680", 0));
         Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom4", "Audrey", "aude", "aude@example.com", "motdepasse4", "0864213579", 0));
@@ -694,14 +794,16 @@ public class Utilisateur extends Acteur {
         utilisateur1.addMesInterets(jardinage);
         utilisateur1.addMesInterets(bricolage);
 
-         Robot robot1= new Robot();
+        Robot robot1= new Robot();
         utilisateur1.getFlotte().getListeRobots().add(robot1);
         robot1.setNom("IJWFVN");
         robot1.setType("Mouvement");
         robot1.setNumeroDeSerie(1234);
-        // Ajouter des états pour test
-        Object[] etats = {"État1", "État2", "État3", "État4"};
-        robot1.setEtats(etats);
+        robot1.getEtats().setVitesse(5.0);
+        robot1.getEtats().setNivDeBatterie(80);
+        robot1.getEtats().setConsoCPU(15);
+        robot1.getEtats().setConsoMem(256);
+        robot1.getEtats().setPosition(10.5);
 
     }
 }
