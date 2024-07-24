@@ -311,25 +311,26 @@ public class Utilisateur extends Acteur {
         try{
             Scanner scanner= new Scanner(System.in);
             System.out.println("Veuillez choisir .. [0] : Retour au menu principal  \n [1] :" +
-                    "Enregistrer un robot \n [2] : Supprimer un robot  \n [4] : Acheter une composante \n [4] : ");
+                    "Enregistrer un robot \n [2] : Supprimer un robot  \n [3] : Acheter une composante \n  ");
             int choix = scanner.nextInt();
 
             switch ( choix) {
                 case 0:
                     break;
                 case 1:
-                    // enregistrer un robot
+                    flotte.enregistrerRobot();
                     break;
                 case 2:
                     // supprimer un robot
                     break;
-                case 4:
+                case 3:
                     // acheter une composante
                     break;
                 default:
                     System.out.println("Veuillez entrer un nombre adéquat ! ");
                     break;
             }
+
 
         }catch (InputMismatchException e){
             System.out.println("Veuille");
@@ -738,16 +739,6 @@ public class Utilisateur extends Acteur {
     public void initialiserUtilisateurs() {
 
         Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom1", "Chaima", "aithu", "aithu@example.com", "mdp1", "1357924680", 0));
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom2", "prenom2", "nprenom2", "nprenom2@example.com", "motdepasse2", "9996778888", 0));
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom3","Sabrina", "miaou", "miaou@example.com", "motdepasse3", "9753124680", 0));
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom4", "Audrey", "aude", "aude@example.com", "motdepasse4", "0864213579", 0));
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom5", "prenom5", "nprenom5", "nprenom5@example.com", "motdepasse5", "3332221111", 0));
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom6", "prenom6", "nprenom6", "nprenom6@example.com", "motdepasse6", "2221113333", 0));
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom7", "prenom7", "nprenom7", "nprenom7@example.com", "motdepasse7", "6665554444", 0));
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom8", "prenom8", "nprenom8", "nprenom8@example.com", "motdepasse8", "5554446666", 0));
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom9", "prenom9", "nprenom9", "nprenom9@example.com", "motdepasse9", "8889997777", 0));
-        Systeme.getInstance().ajouterUtilisateur(new Utilisateur("nom10", "prenom10", "nprenom10", "nprenom10@example.com", "motdepasse10", "9997778888", 0));
-
 
 
         Utilisateur utilisateur1 = Systeme.getInstance().getUtilisateurs().get(0); // Récupérer le premier utilisateur par exemple
@@ -760,39 +751,16 @@ public class Utilisateur extends Acteur {
 
 
         // Ajouter les activités à l'utilisateur
-        utilisateur1.addActivites(VolleyBall);
-        utilisateur1.addActivites(peinture);
-        utilisateur1.addActivites(natationSynchro);
-        utilisateur1.addActivites(atelierCuisine);
-        utilisateur1.addActivites(Photographie);
+        utilisateur1.addActivites(VolleyBall); utilisateur1.addActivites(peinture); utilisateur1.addActivites(natationSynchro);
+        utilisateur1.addActivites(atelierCuisine); utilisateur1.addActivites(Photographie);
 
         VolleyBall.setProgression("Non débutée");
         peinture.setProgression("En cours");
         Photographie.setProgression("Terminée");
 
 
-        Interet sport = new Interet("Sport");
-        Interet musique = new Interet("Musique");
-        Interet lecture = new Interet("Lecture");
-        Interet cuisine = new Interet("Cuisine");
-        Interet voyage = new Interet("Voyage");
-        Interet photographie = new Interet("Photographie");
-        Interet cinema = new Interet("Cinéma");
-        Interet jeuxVideo = new Interet("Jeux vidéo");
-        Interet jardinage = new Interet("Jardinage");
-        Interet bricolage = new Interet("Bricolage");
 
-// Ajout des intérêts à la liste d'intérêts de l'utilisateur
-        utilisateur1.addMesInterets(sport);
-        utilisateur1.addMesInterets(musique);
-        utilisateur1.addMesInterets(lecture);
-        utilisateur1.addMesInterets(cuisine);
-        utilisateur1.addMesInterets(voyage);
-        utilisateur1.addMesInterets(photographie);
-        utilisateur1.addMesInterets(cinema);
-        utilisateur1.addMesInterets(jeuxVideo);
-        utilisateur1.addMesInterets(jardinage);
-        utilisateur1.addMesInterets(bricolage);
+
 
         Robot robot1= new Robot();
         utilisateur1.getFlotte().getListeRobots().add(robot1);
@@ -804,6 +772,26 @@ public class Utilisateur extends Acteur {
         robot1.getEtats().setConsoCPU(15);
         robot1.getEtats().setConsoMem(256);
         robot1.getEtats().setPosition(10.5);
+
+
+        CPU cpu1 = new CPU();
+        cpu1.setInventaire(10);
+
+        Roue roues1 = new Roue();
+        roues1.setInventaire(15);
+
+        Bras bras1 = new Bras();
+        bras1.setInventaire(8);
+
+        Helice helice1 = new Helice();
+        helice1.setInventaire(12);
+
+        // Ajouter les composantes à la liste
+        utilisateur1.getFlotte().getListeComposantes().add(cpu1);
+        utilisateur1.getFlotte().getListeComposantes().add(roues1);
+        utilisateur1.getFlotte().getListeComposantes().add(bras1);
+        utilisateur1.getFlotte().getListeComposantes().add(helice1);
+
 
     }
 }

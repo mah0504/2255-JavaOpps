@@ -143,10 +143,11 @@ public class Main {
                     utilisateur.afficherLesEtats();
                     break;
                 case 3:
+                    System.out.println(utilisateur.getFlotte().getListeComposantes());
                     utilisateur.gererFlotte();
                     break;
                 case 4:
-             //       utilisateur.gererActivites();  // s'inscrire +  desinscrire
+             //  utilisateur.gererActivites();  // s'inscrire +  desinscrire
                     break;
                 case 5:
                     // chercher un fournisseur

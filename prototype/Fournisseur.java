@@ -114,7 +114,6 @@ public class Fournisseur extends Acteur {
 //
 
         Systeme.getInstance().ajouterFournisseur(this);
-
         System.out.println("Inscription réussie!");
 
     }
@@ -122,7 +121,7 @@ public class Fournisseur extends Acteur {
     public int seConnecter() {
 
         continuer = true;
-        Utilisateur utilisateur;
+        Fournisseur fournisseur;
         int index = -1;
 
         while (continuer) {
@@ -137,9 +136,11 @@ public class Fournisseur extends Acteur {
                 if (index < 0) {
                     throw new IllegalArgumentException("Pseudo inexistant.");
                 }
-                utilisateur = Systeme.getInstance().getUtilisateurs().get(index);
-                if (! motDePasse.equals(utilisateur.getMdp())) {
+                fournisseur = Systeme.getInstance().getFournisseurs().get(index);
+                if (! motDePasse.equals(fournisseur.getMdp())) {
+
                     throw new IllegalArgumentException("Mot de passe invalide.");
+
                 }
                 System.out.println("Connexion réussie.");
                 return index;

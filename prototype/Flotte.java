@@ -51,7 +51,8 @@ public class Flotte {
         listeRobots.add(robot);
     }
 
-
+    public void setListeComposantes( List<Composantes> listeComposantes){
+        this.listeComposantes=listeComposantes; };
 
     public  <T extends Composantes> void acheterComposante(T composante) {
 
@@ -66,7 +67,7 @@ public class Flotte {
 
     public  <T extends Composantes> boolean verifierComposante(T composante) {
         for (Composantes c :listeComposantes) {
-            if (c.getClass() == composante.getClass()) {
+            if (c.getClass() == composante.getClass() && composante.getInventaire()>0 ){
                 return true; // Retourne true dès qu'une composante similaire est trouvée
             }
         }
@@ -74,9 +75,10 @@ public class Flotte {
     }
 
 
-    // robot déjà créé ajouter une classe ou on selectionne le robot depuis notre Arrayliste
-    // traiter les exceptions
     public  void assignerComposante(Robot robot, Composantes composante) {
+
+
+
         for (Composantes c : robot.getListCompoRobot()) {
             if (composante.getClass()== c.getClass() && verifierComposante(composante)){  // si le robot a déjà une composante du même type
                 c.incrementInventaire();
@@ -124,63 +126,85 @@ public class Flotte {
     }
 
 
-    // peut etre simplifieee pour meilleur couplage ig ?
-    public void enregistrerRobot(Robot robot, Composantes composante){
-        // voir le diagramme
 
-        CPU cpu = new CPU();
-        verifierComposante(cpu); // Checker si on a un cpu en inventaire
-        verifierComposante(composante);
-        if ( !(verifierComposante(cpu) && verifierComposante(composante)) ){
-            System.out.println("Pas de composantes disponibles dans" +
-                    "la flotte  pour ajouter le robot! Veuillez en acheter !");
-            return;
-        }
-        else {
 
-            robot.getListCompoRobot().add(cpu);  // on ajoute le CPU à la liste
-            cpu.getNumDeSerie(); // on a le num de serie on doit l'assigner au robot ?
-
-            System.out.println("Liste des composantes disponibles : ");
-            for (Composantes c : getListeComposantes()) {
-                System.out.println(c.getClass().toString() + " - Inventaire : " + c.getInventaire());
+    public  boolean verifAutreCompo() {
+        for (Composantes c : listeComposantes) {
+            if (c != null && !(c instanceof CPU) && c.getInventaire() > 0) {
+                return true;
             }
+        }
+        return false;
+    }
 
+    public void afficherListeCompo(){
+        System.out.println("Liste des composantes disponibles : ");
+        for (Composantes c : this.listeComposantes) {
+            System.out.println(c.getClass().toString() + " - Inventaire : " + c.getInventaire());
+        }
+    }
+
+
+    public void enregistrerRobot() {
+            // voir le diagramme
+            Robot robot = new Robot(); // check si bsn d'acceder a la liste de fournisseurs etc
+            CPU cpu = new CPU();
+
+            boolean cpuDispo = verifierComposante(cpu); // Checker si on a un cpu en inventaire
+            boolean autreCompoDispo = verifAutreCompo();
+
+            if (!cpuDispo || !autreCompoDispo) {
+                System.out.println("Pas de composantes disponibles dans" +
+                        "la flotte  pour ajouter le robot! Veuillez en acheter !");
+
+            } else {
+                robot.getListCompoRobot().add(cpu);  // on ajoute le CPU à la liste
+                cpu.getNumDeSerie(); // on a le num de serie on doit l'assigner au robot ?
+
+
+                afficherListeCompo();
             Scanner scanner =new Scanner(System.in);
-            System.out.println("Veuillez choisir le nombre de composantes à ajouter ");
+           System.out.println("Veuillez choisir le nombre de composantes à ajouter ");
 
-            int choix = scanner.nextInt(); // exple 2 mains on rajoute la composante 2 fois ?
+           int choix = scanner.nextInt(); // exple 2 mains on rajoute la composante 2 fois ?
 
-            if ( choix>= composante.getInventaire()) {
+           if ( choix>= listeComposantes.get(choix).getInventaire()) {
                 for (int i = 0; i < choix; i++) {
-                    robot.getListCompoRobot().add(composante);
+                    System.out.println("Veuillez choisir la composante à ajouter ");
+
+                    afficherListeCompo();
+                    Scanner scann = new Scanner(System.in);
+                    int choix1= scann.nextInt();
+
+                    Composantes nvlCompo =listeComposantes.get(choix1); // la composante à ajouter
+                    robot.getListCompoRobot().add(nvlCompo);
 
                     comfirmer(); //apres check du stockage et que valid on comfirme avec l'utilisateur
 
                     if (comfirmer()){
                         // on retire les elements de la liste des composantes et tt est bien qui finit bien
                         for (int k = 0; k < choix; k++) {
-                            composante.setInventaire(composante.getInventaire() - 1);
+                            nvlCompo.setInventaire(nvlCompo.getInventaire() - 1);
                         }
-                        cpu.setInventaire(composante.getInventaire() - 1);
+                        cpu.setInventaire(cpu.getInventaire() - 1); // reverifier cette ligne !!!!
+
                         listeRobots.add(robot); // on ajoute finalement le robot
-                        // on doit set son nom , numero de serie...
+                        robot.setNumeroDeSerie(cpu.getNumDeSerie());
+
 
                     } else {
                         // de base on retire le robot de la listerobot et les composantes nn?
-                        robot.getListCompoRobot().remove(cpu);
-                        for (int j = 0; j < choix; j++) {
-                            robot.getListCompoRobot().remove(composante); // on les retire de la lst de
-                        }
-                        return;
+                       robot.getListCompoRobot().remove(cpu);
+                       robot.getListCompoRobot().remove(nvlCompo); // on les retire de la lst de
+
                     }
                 }
 
             } else {
                 System.out.println("Nombre de composantes dans la flotte insuffisant , veuillez en acheter!");
-                return;
-            }
-        }
-    }
+           }
 
+            }
+
+        }
 }
