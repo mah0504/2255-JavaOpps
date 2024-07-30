@@ -19,10 +19,13 @@ public class Utilisateur extends Compte {
      *
      * @param prenom le prenom de l'utilisateur
      * @param nom le nom de l'utilisateur
+     * @param points les points d'un utilisateur
+     *
      */
-    public Utilisateur(String prenom, String nom){
+    public Utilisateur(String prenom, String nom, float points){
         this.prenom = prenom;
         this.nom = nom;
+        this.points = points;
         this.followers = new ArrayList<>();
         this.following = new ArrayList<>();
     }
