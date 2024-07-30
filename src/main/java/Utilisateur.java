@@ -144,6 +144,5 @@ public class Utilisateur extends Compte {
         this.points += nvPoints;
     }
 
-
 }
 
