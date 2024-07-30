@@ -3,6 +3,7 @@ import java.util.ArrayList;
 public class Fournisseur extends Compte{
 
     private String nomCompagnie;
+    private ArrayList<FournisseurComposante> composantes;
 
     /**
      * Une nouvelle instance de la classe Fournisseur (initialisation par défaut)
@@ -17,6 +18,7 @@ public class Fournisseur extends Compte{
      */
     public Fournisseur(String nomCompagnie){
         this.nomCompagnie = nomCompagnie;
+        this.composantes = new ArrayList<>();
     }
 
     /**
@@ -35,5 +37,33 @@ public class Fournisseur extends Compte{
      */
     public void setNomCompagnie(String nomCompagnie){
         this.nomCompagnie = nomCompagnie;
+    }
+
+    /**
+     * écupère la liste des composantes que fournit un Fournisseur
+     *
+     * @return composantes La liste des Composantes d'un Fournisseur
+     */
+    public ArrayList<FournisseurComposante> getComposantes(){
+        return composantes;
+    }
+
+    /**
+     * Assigne une liste de Composantes que peut posséder un Fournisseur
+     *
+     * @param composantes la liste des composantes d'un Fournisseur
+     */
+    public void setComposantes(ArrayList<FournisseurComposante> composantes){
+        this.composantes = composantes;
+    }
+
+    /**
+     * permet d'ajouter des les informations sur une Composante à la liste des
+     * Composantes d'un Fournisseur
+     *
+     * @param composante la Composante et sa quantité à ajouter
+     */
+    public void addComposante(FournisseurComposante composante){
+        this.composantes.add(composante);
     }
 }
