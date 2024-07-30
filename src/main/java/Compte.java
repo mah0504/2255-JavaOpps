@@ -1,6 +1,6 @@
 //import java.util.UUID;
 
-public class Compte {
+public abstract class Compte {
 
     private String id, pseudo, email, mdp, telephone;
     private boolean confirmerInscription;
