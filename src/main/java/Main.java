@@ -1,10 +1,10 @@
+
 import java.util.*;
 import java.util.InputMismatchException;
 
 public class Main {
     private static Fournisseur fournisseur = new Fournisseur();
     private static Utilisateur utilisateur = new Utilisateur();
-    private static Activite activite = new Activite();
     private static Interet interet = new Interet();
 
     private static Robot robot = new Robot();
@@ -129,7 +129,7 @@ public class Main {
         System.out.println("Veuillez choisir quelle fonctionnalité effectuer \n [0]: Retour au menu principal " +
                 "[1] : Modifier son profil\n [2] : Afficher l'état de robots \n [3]: Gérer ma flotte " +
                 "\n [4] : Gérer mes activités \n [5] : Chercher un fournisseur\n [6]: Voir ses notifications \n"
-        +"[7]: Rechercher une composante" );
+                +"[7]: Rechercher une composante" );
 
         try {
             int choix2 = scanner.nextInt();
@@ -147,13 +147,13 @@ public class Main {
                     utilisateur.gererFlotte();
                     break;
                 case 4:
-             //  utilisateur.gererActivites();  // s'inscrire +  desinscrire
+                    //  utilisateur.gererActivites();  // s'inscrire +  desinscrire
                     break;
                 case 5:
                     // chercher un fournisseur
                     break;
                 case 6:
-                //    utilisateur.voirNotifications();
+                    //    utilisateur.voirNotifications();
                     break;
                 case 7:
                     utilisateur.rechercherComposante();
@@ -169,4 +169,5 @@ public class Main {
         }
     }
 }
+
 
