@@ -16,7 +16,8 @@ public class Fournisseur extends Compte{
      *
      * @param nomCompagnie le nom de la Compagnie du Fournisseur
      */
-    public Fournisseur(String nomCompagnie){
+    public Fournisseur(String pseudo, String email, String mdp, String telephone, String nomCompagnie){
+        super(pseudo, email, mdp, telephone);
         this.nomCompagnie = nomCompagnie;
         this.composantes = new ArrayList<>();
     }
