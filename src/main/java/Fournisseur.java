@@ -19,7 +19,6 @@ public class Fournisseur extends Compte{
         this.nomCompagnie = nomCompagnie;
     }
 
-
     /**
      * Récupère le nom de la Compagnie
      *
