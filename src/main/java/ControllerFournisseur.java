@@ -1,4 +1,7 @@
 public class ControllerFournisseur extends ControllerCompte{
+    
+    private Utilisateur utilisateur;
+    private MenuUtilisateur utilisateurView;
 
 
     @Override
