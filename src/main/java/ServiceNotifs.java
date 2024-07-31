@@ -15,3 +15,4 @@ public class ServiceNotifs {
         return instance;
     }
 }
+
