@@ -1,5 +1,4 @@
-{
-  "utilisateurs": [
+[
     {
       "nom": "nom1",
       "prenom": "Chaima",
@@ -160,5 +159,4 @@
         "Activte 5": "EN_COURS"
       }
     }
-  ]
-}
+]

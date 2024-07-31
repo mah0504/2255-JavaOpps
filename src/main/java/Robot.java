@@ -8,5 +8,5 @@ public class Robot {
   private float cpu; 
   private float memory;
   private boolean active;
-  private Supplier supplier;
+  private Fournisseur supplier;
 }

@@ -1,3 +1,3 @@
 public class View {
-  private Account loggedAccount;
+  private Compte loggedAccount;
 }

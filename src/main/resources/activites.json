@@ -1,5 +1,4 @@
-{
-  "activites" : [
+[
     {
       "nom" : "Activite1",
       "description" : "Description de l'activité 1"
@@ -60,5 +59,4 @@
       "nom" : "Activite15",
       "description" : "Description de l'activité 15"
     }
-  ]
-}
+]
