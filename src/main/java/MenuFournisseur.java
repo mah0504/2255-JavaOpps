@@ -1,4 +1,5 @@
 public class MenuFournisseur extends View{
+    private Account loggedAccount;
 
 
 
