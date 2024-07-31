@@ -1,12 +1,12 @@
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Utilisateur extends Compte {
 
     private String prenom, nom;
     private float points;
-    private ArrayList<Utilisateur> followers; //liste des Suiveurs
-    private ArrayList<Utilisateur> following; //liste des Suivis
-
+    private Map<String, StatutActivite> activites;
 
     /**
      * Une nouvelle instance de la classe Utilisateur (initialisation par défaut)
@@ -17,6 +17,10 @@ public class Utilisateur extends Compte {
     /**
      * Une nouvelle instance de la classe Utilisateur
      *
+     * @param pseudo le pseudo de l'utilisateur
+     * @param email l'email de l'utilisateur
+     * @param mdp le mot de passe de l'utilisateur
+     * @param telephone le telephone de l'utilisateur
      * @param prenom le prenom de l'utilisateur
      * @param nom le nom de l'utilisateur
      * @param points les points d'un utilisateur
@@ -27,8 +31,7 @@ public class Utilisateur extends Compte {
         this.prenom = prenom;
         this.nom = nom;
         this.points = points;
-        this.followers = new ArrayList<>();
-        this.following = new ArrayList<>();
+        this.activites = new HashMap<>();
     }
 
     /**
@@ -86,66 +89,40 @@ public class Utilisateur extends Compte {
     }
 
     /**
-     * Récupère la liste des Suiveurs
-     *
-     * @return followers la liste des Suiveurs
-     */
-    public ArrayList<Utilisateur> getFollowers(){
-        return followers;
-    }
-
-    /**
-     *  Assigne une liste de suiveurs à l'utilisateur
-     *
-     * @param followers La nouvelle liste de Suiveurs de l'utilisateur
-     */
-    public void setFollowers(ArrayList<Utilisateur> followers){
-        this.followers = followers;
-    }
-
-    /**
-     * Récupère la liste des Suivis
-     *
-     * @return following la liste des Suivis
-     */
-    public ArrayList<Utilisateur> getFollowing(){
-        return following;
-    }
-
-    /**
-     *  Assigne une liste de suivis à l'utilisateur
-     *
-     * @param following La nouvelle liste de Suivis de l'utilisateur
-     */
-    public void setFollowing(ArrayList<Utilisateur> following){
-        this.following = following;
-    }
-
-    /**
-     * Permet d'ajouter des Followers à la liste des Followers
-     *
-     * @param follower Un Utilisateur qui suit this Utilisateur
-     */
-    public void addFollower(Utilisateur follower){
-        this.followers.add(follower);
-    }
-
-    /**
-     * Permet d'ajouter des Utilisateurs à la liste des Following
-     *
-     * @param suivi Un Utilisateur que suit this Utilisateur
-     */
-    public void addFollowing(Utilisateur suivi){
-        this.following.add(suivi);
-    }
-
-    /**
      * Permet d'update les points d'un utilisateur
      *
      * @param nvPoints Les points que vient de gagner l'Utilisateur
      */
     public void updatePoints(float nvPoints){
         this.points += nvPoints;
+    }
+
+    /**
+     * Récupère les activités auxquelles l'utilisateur est inscrit
+     *
+     * @return activites les activités de l'utilisateur
+     */
+    public Map<String, StatutActivite> getActivites(){
+        return activites;
+    }
+
+    /**
+     * Permet d'ajouter une activité aux activités que suit l'utilisateur
+     *
+     * @param nomActivite le nom de l'activite
+     * @param statut le statut de l'activité
+     */
+    public void ajouterActivite(String nomActivite, StatutActivite statut){
+        this.activites.put(nomActivite, statut);
+    }
+
+    /**
+     * Permet de supprimer une activité des activités que suit l'utilisateur
+     *
+     * @param nomActivite le nom de l'activite
+     */
+    public void supprimerActivite(String nomActivite){
+        this.activites.remove(nomActivite);
     }
 
 }
