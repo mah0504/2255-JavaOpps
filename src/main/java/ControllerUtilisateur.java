@@ -96,6 +96,10 @@ public class ControllerUtilisateur extends ControllerCompte{
 
     }
 
+    public  void supprimerRobot() {
+
+    }
+
     // source : https://www.baeldung.com/gson-list
 
     /**
