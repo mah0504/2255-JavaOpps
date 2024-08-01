@@ -75,6 +75,15 @@ public class Utilisateur extends Compte {
      *
      * @return points les points gagnés l'utilisateur
      */
+
+
+    /**
+     * Récupère la liste des robots du fournisseur
+     * @return Liste des Robots de l'utilisateur
+     */
+
+
+
     public float getPoints(){
         return points;
     }

@@ -9,6 +9,7 @@ public class Composante {
      * (initialisation par défaut)
      */
     public Composante(){
+
     }
 
     /**
