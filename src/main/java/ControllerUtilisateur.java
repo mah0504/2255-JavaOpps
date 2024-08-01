@@ -2,7 +2,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
-import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Map;
@@ -12,7 +11,7 @@ public class ControllerUtilisateur extends ControllerCompte{
 
     private Utilisateur utilisateur;
     private MenuUtilisateur utilisateurView;
-    private ArrayList <Robot> listeRobots;
+
     private ArrayList<Activite> listeActivites;
 
     public ControllerUtilisateur(Utilisateur utilisateur) {
@@ -31,27 +30,6 @@ public class ControllerUtilisateur extends ControllerCompte{
     }
 
 
-    /**
-     * Méthode permettant de désérialiser la liste de robots de chaque utilisateur depuis
-     * le fichier utilisateurs.json
-     */
-    private void getListeRobotsfromJson(){
-        try ( FileReader reader = new FileReader("src/main/resources/utilisateurs.json")){
-            Gson gson = new Gson();
-            Type listeDeRobotsType = new TypeToken<ArrayList<Robot>>(){}.getType();
-            listeRobots= gson.fromJson(reader, listeDeRobotsType);
-
-        }catch (IOException e){
-            e.printStackTrace();// a revoir
-        }
-
-    }
-
-    public void afficherEtatsRobots() {
-    }
-
-
-
     public void enregistrerRobot() {
        // utilisateur.getRobots().add(robot);
 
@@ -60,8 +38,8 @@ public class ControllerUtilisateur extends ControllerCompte{
     // source : https://www.baeldung.com/gson-list
 
     /**
-     * permet de désérialiser le fichier utilisateur.json
-     * a modifier
+     * permet de désérialiser les données du fichier activites.json
+     * en une liste d'objet Activite
      */
     private void getListeActivitesfromJson(){
         try(FileReader reader = new FileReader("src/main/resources/activites.json")){
@@ -72,9 +50,6 @@ public class ControllerUtilisateur extends ControllerCompte{
             e.printStackTrace();
         }
     }
-
-
-
 
     /**
      * permet d'afficher la liste de toutes les activités qui sont disponibles et
@@ -127,25 +102,6 @@ public class ControllerUtilisateur extends ControllerCompte{
             System.out.println("Vous n'êtes pas inscrit à cette activité ");
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     public void gererActivites(){
         Scanner scanner = new Scanner(System.in);

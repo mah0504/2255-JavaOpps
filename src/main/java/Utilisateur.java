@@ -34,6 +34,11 @@ public class Utilisateur extends Compte {
         this.activites = new HashMap<>();
     }
 
+    @Override
+    public String toString(){
+        return " Utilisateur = [ " + getPseudo() + " , " + points +
+                " , Activites : " + activites + " ]";
+    }
     /**
      * Récupère le prenom d'un Utilisateur
      *
@@ -133,6 +138,5 @@ public class Utilisateur extends Compte {
     public void supprimerActivite(String nomActivite){
         this.activites.remove(nomActivite);
     }
-
 }
 
