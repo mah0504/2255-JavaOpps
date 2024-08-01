@@ -1,0 +1,14 @@
+[
+  {
+    "nomCompagnie": "fre",
+    "composantes": [],
+    "pseudo": "f1",
+    "email": "f1@gmail.com",
+    "mdp": "mdp",
+    "telephone": "1234",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  }
+]
