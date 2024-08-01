@@ -8,16 +8,16 @@ public class Main {
 
         ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null);
 
-        ArrayList<Utilisateur> utilisateurs = controllerUtilisateur.getListeUtilisateurs();
-        Utilisateur user = utilisateurs.get(0);
-        controllerUtilisateur.setUtilisateur(user);
+ //       ArrayList<Utilisateur> utilisateurs = controllerUtilisateur.getListeUtilisateurs();
+//        Utilisateur user = utilisateurs.get(0);
+ //       controllerUtilisateur.setUtilisateur(user);
 
 
         MenuUtilisateur menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
         menuUtilisateur.afficherMenuUtilisateur();
 
-        System.out.println(user);
+ //       System.out.println(user);
         //System.out.println(utilisateurs);
-        controllerUtilisateur.toJson(utilisateurs);
+ //       controllerUtilisateur.toJson(utilisateurs);
     }
 }

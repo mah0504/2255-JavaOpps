@@ -2,11 +2,9 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
+import java.io.IOException;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
 
 public class ControllerUtilisateur extends ControllerCompte{
 
@@ -14,6 +12,31 @@ public class ControllerUtilisateur extends ControllerCompte{
     private MenuUtilisateur utilisateurView;
     private ControllerRobot controllerRobot;
     private ArrayList<Activite> listeActivites;
+
+
+
+
+    /**
+     * Retourne la liste des utilisateurs en désérialisant le contenu du fichier JSON.
+     * @return La liste des utilisateurs mise à jour ou null en cas d'erreur.
+     */
+
+    private List<Utilisateur> majListeUtilisateurs() {
+        Gson gson = new Gson();
+        try (FileReader reader = new FileReader("src/main/resources/utilisateurs.json")) {
+            Type userListType = new TypeToken<List<Utilisateur>>() {}.getType();
+            //List<Utilisateur> utilisateurs = gson.fromJson(reader, userListType);
+            return gson.fromJson(reader, userListType);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null; // sinon?
+    }
+
+
+
+
 
     public ControllerUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
@@ -64,8 +87,12 @@ public class ControllerUtilisateur extends ControllerCompte{
         return null;
     }
 
-    public void enregistrerRobot() {
-       // utilisateur.getRobots().add(robot);
+    /**
+     *
+     */
+    // a modifier ofc
+    public void enregistrerRobot(Robot robot) {
+      //  utilisateur.getListeRobots().add(robot);
 
     }
 
@@ -200,6 +227,8 @@ public class ControllerUtilisateur extends ControllerCompte{
         // sinon afficher etat
 
     }
+
+
 
 
 
