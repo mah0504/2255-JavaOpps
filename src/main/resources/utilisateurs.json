@@ -1,162 +1,202 @@
 [
-    {
-      "nom": "nom1",
-      "prenom": "Chaima",
-      "pseudo": "aithu",
-      "email": "aithu@example.com",
-      "mdp": "motdepasse1",
-      "telephone": "1357924680",
-      "points": 0,
-      "activites" :{
-        "Activite1": "NON_DEBUTEE",
-        "Activite2": "EN_COURS",
-        "Activite3": "TERMINEE",
-        "Activite4": "TERMINEE",
-        "Activte 5": "EN_COURS"
-      }
+  {
+    "prenom": "Chaima",
+    "nom": "nom1",
+    "points": 0.0,
+    "activites": {
+      "Activite1": "NON_DEBUTEE",
+      "Activite2": "EN_COURS",
+      "Activite3": "TERMINEE",
+      "Activite4": "TERMINEE",
+      "Activite5": "EN_COURS"
     },
-    {
-      "nom": "nom2",
-      "prenom": "prenom2",
-      "pseudo": "nprenom2",
-      "email": "nprenom2@example.com",
-      "mdp": "motdepasse2",
-      "telephone": "9996778888",
-      "points": 0,
-      "activites" :{
-        "Activite6": "NON_DEBUTEE",
-        "Activite7": "TERMINEE",
-        "Activite8": "TERMINEE",
-        "Activite9": "NON_DEBUTEE",
-        "Activte 10": "EN_COURS"
-      }
+    "pseudo": "aithu",
+    "email": "aithu@example.com",
+    "mdp": "motdepasse1",
+    "telephone": "1357924680",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  },
+  {
+    "prenom": "prenom2",
+    "nom": "nom2",
+    "points": 0.0,
+    "activites": {
+      "Activite6": "NON_DEBUTEE",
+      "Activite7": "TERMINEE",
+      "Activite8": "TERMINEE",
+      "Activite9": "NON_DEBUTEE",
+      "Activite10": "EN_COURS"
     },
-    {
-      "nom": "nom3",
-      "prenom": "Sabrina",
-      "pseudo": "miaou",
-      "email": "miaou@example.com",
-      "mdp": "motdepasse3",
-      "telephone": "9753124680",
-      "points": 0,
-      "activites" :{
-        "Activite11": "NON_DEBUTEE",
-        "Activite12": "EN_COURS",
-        "Activite13": "EN_COURS",
-        "Activite14": "TERMINEE",
-        "Activite15": "EN_COURS"
-      }
+    "pseudo": "nprenom2",
+    "email": "nprenom2@example.com",
+    "mdp": "motdepasse2",
+    "telephone": "9996778888",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  },
+  {
+    "prenom": "Sabrina",
+    "nom": "nom3",
+    "points": 0.0,
+    "activites": {
+      "Activite11": "NON_DEBUTEE",
+      "Activite12": "EN_COURS",
+      "Activite13": "EN_COURS",
+      "Activite14": "TERMINEE",
+      "Activite15": "EN_COURS"
     },
-    {
-      "nom": "nom4",
-      "prenom": "Audrey",
-      "pseudo": "aude",
-      "email": "aude@example.com",
-      "mdp": "motdepasse4",
-      "telephone": "0864213579",
-      "points": 0,
-      "activites" :{
-        "Activite1": "NON_DEBUTEE",
-        "Activite2": "EN_COURS",
-        "Activite3": "TERMINEE",
-        "Activite4": "TERMINEE",
-        "Activte 5": "EN_COURS"
-      }
+    "pseudo": "miaou",
+    "email": "miaou@example.com",
+    "mdp": "motdepasse3",
+    "telephone": "9753124680",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  },
+  {
+    "prenom": "Audrey",
+    "nom": "nom4",
+    "points": 0.0,
+    "activites": {
+      "Activite1": "NON_DEBUTEE",
+      "Activite2": "EN_COURS",
+      "Activite3": "TERMINEE",
+      "Activite4": "TERMINEE",
+      "Activite5": "EN_COURS"
     },
-    {
-      "nom": "nom5",
-      "prenom": "prenom5",
-      "pseudo": "nprenom5",
-      "email": "nprenom5@example.com",
-      "mdp": "motdepasse5",
-      "telephone": "3332221111",
-      "points": 0,
-      "activites" :{
-        "Activite6": "NON_DEBUTEE",
-        "Activite7": "TERMINEE",
-        "Activite8": "TERMINEE",
-        "Activite9": "NON_DEBUTEE",
-        "Activte 10": "EN_COURS"
-      }
+    "pseudo": "aude",
+    "email": "aude@example.com",
+    "mdp": "motdepasse4",
+    "telephone": "0864213579",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  },
+  {
+    "prenom": "prenom5",
+    "nom": "nom5",
+    "points": 0.0,
+    "activites": {
+      "Activite6": "NON_DEBUTEE",
+      "Activite7": "TERMINEE",
+      "Activite8": "TERMINEE",
+      "Activite9": "NON_DEBUTEE",
+      "Activite10": "EN_COURS"
     },
-    {
-      "nom": "nom6",
-      "prenom": "prenom6",
-      "pseudo": "nprenom6",
-      "email": "nprenom6@example.com",
-      "mdp": "motdepasse6",
-      "telephone": "2221113333",
-      "points": 0,
-      "activites" :{
-        "Activite11": "NON_DEBUTEE",
-        "Activite12": "EN_COURS",
-        "Activite13": "EN_COURS",
-        "Activite14": "TERMINEE",
-        "Activite15": "EN_COURS"
-      }
+    "pseudo": "nprenom5",
+    "email": "nprenom5@example.com",
+    "mdp": "motdepasse5",
+    "telephone": "3332221111",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  },
+  {
+    "prenom": "prenom6",
+    "nom": "nom6",
+    "points": 0.0,
+    "activites": {
+      "Activite11": "NON_DEBUTEE",
+      "Activite12": "EN_COURS",
+      "Activite13": "EN_COURS",
+      "Activite14": "TERMINEE",
+      "Activite15": "EN_COURS"
     },
-    {
-      "nom": "nom7",
-      "prenom": "prenom7",
-      "pseudo": "nprenom7",
-      "email": "nprenom7@example.com",
-      "mdp": "motdepasse7",
-      "telephone": "6665554444",
-      "points": 0,
-      "activites" :{
-        "Activite1": "NON_DEBUTEE",
-        "Activite2": "EN_COURS",
-        "Activite3": "TERMINEE",
-        "Activite4": "TERMINEE",
-        "Activte 5": "EN_COURS"
-      }
+    "pseudo": "nprenom6",
+    "email": "nprenom6@example.com",
+    "mdp": "motdepasse6",
+    "telephone": "2221113333",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  },
+  {
+    "prenom": "prenom7",
+    "nom": "nom7",
+    "points": 0.0,
+    "activites": {
+      "Activite1": "NON_DEBUTEE",
+      "Activite2": "EN_COURS",
+      "Activite3": "TERMINEE",
+      "Activite4": "TERMINEE",
+      "Activite5": "EN_COURS"
     },
-    {
-      "nom": "nom8",
-      "prenom": "prenom8",
-      "pseudo": "nprenom8",
-      "email": "nprenom8@example.com",
-      "mdp": "motdepasse8",
-      "telephone": "5554446666",
-      "points": 0,
-      "activites" :{
-        "Activite6": "NON_DEBUTEE",
-        "Activite7": "TERMINEE",
-        "Activite8": "TERMINEE",
-        "Activite9": "NON_DEBUTEE",
-        "Activte 10": "EN_COURS"
-      }
+    "pseudo": "nprenom7",
+    "email": "nprenom7@example.com",
+    "mdp": "motdepasse7",
+    "telephone": "6665554444",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  },
+  {
+    "prenom": "prenom8",
+    "nom": "nom8",
+    "points": 0.0,
+    "activites": {
+      "Activite6": "NON_DEBUTEE",
+      "Activite7": "TERMINEE",
+      "Activite8": "TERMINEE",
+      "Activite9": "NON_DEBUTEE",
+      "Activite10": "EN_COURS"
     },
-    {
-      "nom": "nom9",
-      "prenom": "prenom9",
-      "pseudo": "nprenom9",
-      "email": "nprenom9@example.com",
-      "mdp": "motdepasse9",
-      "telephone": "8889997777",
-      "points": 0,
-      "activites" :{
-        "Activite11": "NON_DEBUTEE",
-        "Activite12": "EN_COURS",
-        "Activite13": "EN_COURS",
-        "Activite14": "TERMINEE",
-        "Activite15": "EN_COURS"
-      }
+    "pseudo": "nprenom8",
+    "email": "nprenom8@example.com",
+    "mdp": "motdepasse8",
+    "telephone": "5554446666",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  },
+  {
+    "prenom": "prenom9",
+    "nom": "nom9",
+    "points": 0.0,
+    "activites": {
+      "Activite11": "NON_DEBUTEE",
+      "Activite12": "EN_COURS",
+      "Activite13": "EN_COURS",
+      "Activite14": "TERMINEE",
+      "Activite15": "EN_COURS"
     },
-    {
-      "nom": "nom10",
-      "prenom": "prenom10",
-      "pseudo": "nprenom10",
-      "email": "nprenom10@example.com",
-      "mdp": "motdepasse10",
-      "telephone": "9997778888",
-      "points": 0,
-      "activites" :{
-        "Activite1": "NON_DEBUTEE",
-        "Activite2": "EN_COURS",
-        "Activite3": "TERMINEE",
-        "Activite4": "TERMINEE",
-        "Activte 5": "EN_COURS"
-      }
-    }
+    "pseudo": "nprenom9",
+    "email": "nprenom9@example.com",
+    "mdp": "motdepasse9",
+    "telephone": "8889997777",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  },
+  {
+    "prenom": "prenom10",
+    "nom": "nom10",
+    "points": 0.0,
+    "activites": {
+      "Activite1": "NON_DEBUTEE",
+      "Activite2": "EN_COURS",
+      "Activite3": "TERMINEE",
+      "Activite4": "TERMINEE",
+      "Activite5": "EN_COURS"
+    },
+    "pseudo": "nprenom10",
+    "email": "nprenom10@example.com",
+    "mdp": "motdepasse10",
+    "telephone": "9997778888",
+    "confirmerInscription": false,
+    "isConfirmed": false,
+    "confirmationLien": false,
+    "confirmationLienExpiration": false
+  }
 ]
