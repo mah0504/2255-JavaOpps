@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Robot {
   private String id;
   private String type;
@@ -11,6 +13,7 @@ public class Robot {
   private Fournisseur supplier;
 
 
+  private ArrayList<Composante> listeComposantes;
 
   // Getters
   public String getId() {return id;}

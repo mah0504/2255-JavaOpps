@@ -98,6 +98,12 @@ public class ControllerUtilisateur extends ControllerCompte{
 
     public  void supprimerRobot() {
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Veuillez choisir quel robot supprimer: ");
+        for ( Robot robot : utilisateur.getListeRobots()) {
+            System.out.println(robot);
+
+        }
     }
 
     // source : https://www.baeldung.com/gson-list
