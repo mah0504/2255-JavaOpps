@@ -7,12 +7,13 @@ public class Utilisateur extends Compte {
     private String prenom, nom;
     private float points;
     private Map<String, StatutActivite> activites;
-
+    private ArrayList<Robot> listeRobots ;
     /**
      * Une nouvelle instance de la classe Utilisateur (initialisation par défaut)
      */
     public Utilisateur(){
     }
+
 
     /**
      * Une nouvelle instance de la classe Utilisateur
@@ -48,6 +49,12 @@ public class Utilisateur extends Compte {
         return prenom;
     }
 
+
+
+    public ArrayList<Robot> getListeRobots(){
+        return listeRobots;
+    }
+
     /**
      *  Assigne un prenom à l'utilisateur
      *
@@ -80,6 +87,15 @@ public class Utilisateur extends Compte {
      *
      * @return points les points gagnés l'utilisateur
      */
+
+
+    /**
+     * Récupère la liste des robots du fournisseur
+     * @return Liste des Robots de l'utilisateur
+     */
+
+
+
     public float getPoints(){
         return points;
     }
@@ -101,6 +117,13 @@ public class Utilisateur extends Compte {
     public void updatePoints(float nvPoints){
         this.points += nvPoints;
     }
+
+
+    @Override
+    public String getPath() {
+        return "src/main/resources/META-INF/utilisateurs.json";
+    }
+
 
     /**
      * Récupère les activités auxquelles l'utilisateur est inscrit
