@@ -7,12 +7,13 @@ public class Utilisateur extends Compte {
     private String prenom, nom;
     private float points;
     private Map<String, StatutActivite> activites;
-
+    private ArrayList<Robot> listeRobots ;
     /**
      * Une nouvelle instance de la classe Utilisateur (initialisation par défaut)
      */
     public Utilisateur(){
     }
+
 
     /**
      * Une nouvelle instance de la classe Utilisateur
@@ -46,6 +47,12 @@ public class Utilisateur extends Compte {
      */
     public String getPrenom(){
         return prenom;
+    }
+
+
+
+    public ArrayList<Robot> getListeRobots(){
+        return listeRobots;
     }
 
     /**

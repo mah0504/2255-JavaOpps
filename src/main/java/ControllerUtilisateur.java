@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.FileReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -11,7 +12,7 @@ public class ControllerUtilisateur extends ControllerCompte{
 
     private Utilisateur utilisateur;
     private MenuUtilisateur utilisateurView;
-
+    private ControllerRobot controllerRobot;
     private ArrayList<Activite> listeActivites;
 
     public ControllerUtilisateur(Utilisateur utilisateur) {
@@ -29,6 +30,39 @@ public class ControllerUtilisateur extends ControllerCompte{
 
     }
 
+
+    /**
+     * Permet à l'utilisateur de choisir un robot de sa flotte par index.
+     * Affiche les robots disponibles avec leur index et attend une saisie utilisateur pour choisir un robot.
+     *
+     * @return Le robot choisi par l'utilisateur ou null si une erreur survient.
+     */
+
+    public Robot choisirRobot (){
+        try {
+            for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
+
+                System.out.println( "[" + i + "]" +"Veuillez choisir " +
+                        "un robot de votre Flotte par index! \n "
+                        + utilisateur.getListeRobots().get(i).getId() + "\n");
+            }
+
+
+            Scanner scan = new Scanner(System.in);
+            int choix = scan.nextInt();
+
+            // si choix valide , on return le Robot sitié à l'Index choisis pas l'Utilisateur
+            return utilisateur.getListeRobots().get(choix - 1);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Veuillez choisir un nombre valide parmi les options disponibles!");
+        } catch (InputMismatchException e) {
+            System.out.println("Veuillez entrer un nombre!");
+        }catch(Exception e){
+            e.printStackTrace(); // modif apre
+            System.out.println("Veuillez choisir un nombre  !");
+        }
+        return null;
+    }
 
     public void enregistrerRobot() {
        // utilisateur.getRobots().add(robot);
@@ -132,7 +166,40 @@ public class ControllerUtilisateur extends ControllerCompte{
 
     }
 
+    /**
+     * Permet à l'utilisateur de choisir entre deux types d'affichages pour l'état des robots :
+     * un affichage général ou un affichage complet. L'utilisateur choisit le robot pour lequel
+     * il souhaite voir l'état, puis le type d'affichage souhaité.
+     */
+    public void afficherEtatsRobots(){
+        Scanner scan = new Scanner(System.in);
+        try {
+            System.out.println("Veuillez choisir quel type d'affichage vous voulez: \n " +
+                    "[1] : Affichage Général \n [2] : Affichage Complet ");
 
+            int choix = scan.nextInt();
+
+            switch (choix){
+                case 1:
+                    controllerRobot.afficherVueGenerale(choisirRobot());
+                    break;
+                case 2:
+                    controllerRobot.afficherVueComplete(choisirRobot());
+                    break;
+                default:
+                    System.out.println("Veuillez entrer un nombre valide !");
+                    break;
+            }
+
+
+        }catch (Exception e){
+            e.printStackTrace(); // modifier apres
+        }
+
+
+        // sinon afficher etat
+
+    }
 
 
 
