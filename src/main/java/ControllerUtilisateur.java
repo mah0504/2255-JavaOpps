@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.*;
 
-public class ControllerUtilisateur extends ControllerCompte{
+public class ControllerUtilisateur{
 
     private Utilisateur utilisateur;
     private MenuUtilisateur utilisateurView;
@@ -25,6 +25,7 @@ public class ControllerUtilisateur extends ControllerCompte{
         this.utilisateur = utilisateur;
         this.utilisateurView = utilisateurView;
         this.listeUtilisateurs = new ArrayList<>();
+        getListeUtilisateursfromJson();
     }
 
     /**
@@ -41,6 +42,14 @@ public class ControllerUtilisateur extends ControllerCompte{
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+    public Utilisateur getUtilisateur() {
+        return utilisateur;
+    }
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 
     public void UtilisateurToJson(ArrayList<Utilisateur> listeUtilisateurs) {

@@ -8,38 +8,22 @@ public class Main {
 
     public static void main(String[] args) {
 
+        ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null, null);
+        ArrayList<Utilisateur> utilisateurs = controllerUtilisateur.getListeUtilisateurs();
+        controllerUtilisateur.UtilisateurToJson(utilisateurs);
 
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Entrez une chaîne à normaliser: ");
-        String input = scanner.nextLine();
+        //Utilisateur user = utilisateurs.get(0);
+        //controllerUtilisateur.setUtilisateur(user);
 
-     //   System.out.println("Chaîne normalisée: " + ajusterString(input));
+        //MenuUtilisateur menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
+        //menuUtilisateur.afficherMenuUtilisateur();
 
-        scanner.close();
+        //System.out.println(user);
+        //System.out.println(utilisateurs);
+        //controllerUtilisateur.UtilisateurToJson(utilisateurs);
     }
-
-
-
-
-
 
 }
 
-
-
-
-//        ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null);
-
- //       ArrayList<Utilisateur> utilisateurs = controllerUtilisateur.getListeUtilisateurs();
-//        Utilisateur user = utilisateurs.get(0);
- //       controllerUtilisateur.setUtilisateur(user);
-
-
-//        MenuUtilisateur menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
- //       menuUtilisateur.afficherMenuUtilisateur();
-
- //       System.out.println(user);
-        //System.out.println(utilisateurs);
- //       controllerUtilisateur.toJson(utilisateurs);
 
 

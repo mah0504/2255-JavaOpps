@@ -9,7 +9,7 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ControllerFournisseur extends ControllerCompte{
+public class ControllerFournisseur{
     
     private Fournisseur fournisseur;
     private MenuFournisseur fournisseurView;
@@ -17,27 +17,19 @@ public class ControllerFournisseur extends ControllerCompte{
     private ArrayList<Fournisseur> listeFournisseurs;
 
 
-    public ControllerFournisseur(Fournisseur fournisseur){
+    public ControllerFournisseur(Fournisseur fournisseur, MenuFournisseur fournisseurView){
+
         this.fournisseur = fournisseur;
+        this.fournisseurView = fournisseurView;
+        listeFournisseurs = new ArrayList<>();
         chargerFournisseursDepuisJson();
     }
-
-    @Override
-    public void creerCompte() {
-
-    }
-
-    @Override
-    public void seConnecter() {
-
-    }
-
 
     /**
      * Charge la liste des fournisseurs à partir d'un fichier JSON.
      *
      */
-    private List<Fournisseur> chargerFournisseursDepuisJson() {
+    private ArrayList<Fournisseur> chargerFournisseursDepuisJson() {
         try (FileReader reader = new FileReader("src/main/resources/fournisseurs.json")) {
             Gson gson = new Gson();
             Type typeListeFournisseurs = new TypeToken<ArrayList<Fournisseur>>(){}.getType();
