@@ -18,7 +18,11 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "composantes" : {
+      "composante11" : "CPU",
+      "composante21" : "Roue"
+    }
   },
   {
     "prenom": "prenom2",
@@ -38,7 +42,11 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false.,
+    "composantes" : {
+      "composante12" : "CPU",
+      "composante22" : "Roue"
+    }
   },
   {
     "prenom": "Sabrina",
@@ -58,7 +66,11 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "composantes" : {
+      "composante13" : "CPU",
+      "composante23" : "Roue"
+    }
   },
   {
     "prenom": "Audrey",
@@ -78,7 +90,11 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "composantes" : {
+      "composante14" : "CPU",
+      "composante24" : "Roue"
+    }
   },
   {
     "prenom": "prenom5",
@@ -98,7 +114,11 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "composantes" : {
+      "composante15" : "CPU",
+      "composante25" : "Roue"
+    }
   },
   {
     "prenom": "prenom6",
@@ -118,7 +138,11 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "composantes" : {
+      "composante16" : "CPU",
+      "composante26" : "Roue"
+    }
   },
   {
     "prenom": "prenom7",
@@ -138,7 +162,11 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "composantes" : {
+      "composante17" : "CPU",
+      "composante27" : "Roue"
+    }
   },
   {
     "prenom": "prenom8",
@@ -158,7 +186,11 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "composantes" : {
+      "composante18" : "CPU",
+      "composante28" : "Roue"
+    }
   },
   {
     "prenom": "prenom9",
@@ -178,7 +210,11 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "composantes" : {
+      "composante19" : "CPU",
+      "composante29" : "Roue"
+    }
   },
   {
     "prenom": "prenom10",
@@ -198,6 +234,10 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "composantes" : {
+      "composante10" : "CPU",
+      "composante20" : "Roue"
+    }
   }
 ]

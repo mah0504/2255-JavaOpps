@@ -22,7 +22,7 @@ public class ControllerCompte {
     private ArrayList<Utilisateur> listeUtilisateurs;
     private ArrayList<Fournisseur> listeFournisseurs;
     private ArrayList<String> listePseudos;
-    private HashSet<String> listeEmails;
+    private ArrayList<String> listeEmails;
 
 
     public ControllerCompte(Compte compte, MenuCompte compteView) {
