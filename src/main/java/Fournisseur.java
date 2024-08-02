@@ -13,6 +13,7 @@ public class Fournisseur extends Compte{
 
     @Override
     public String getPath() {
+
         return "src/main/resources/META-INF/fournisseurs.json";
     }
 

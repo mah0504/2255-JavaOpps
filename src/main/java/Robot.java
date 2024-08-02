@@ -16,6 +16,9 @@ public class Robot {
   private ArrayList<Composante> listeComposantes;
 
   // Getters
+
+  public ArrayList<Composante> getListeComposantes() {return listeComposantes;}
+
   public String getId() {return id;}
 
   public String getType() {return type;}

@@ -8,6 +8,7 @@ public class Utilisateur extends Compte {
     private float points;
     private Map<String, StatutActivite> activites;
     private ArrayList<Robot> listeRobots ;
+    private ArrayList<Composante> composantesFlotte;
     /**
      * Une nouvelle instance de la classe Utilisateur (initialisation par défaut)
      */
@@ -50,10 +51,9 @@ public class Utilisateur extends Compte {
     }
 
 
+    public ArrayList<Composante> getComposantesFlotte(){ return composantesFlotte;}
 
-    public ArrayList<Robot> getListeRobots(){
-        return listeRobots;
-    }
+    public ArrayList<Robot> getListeRobots(){return listeRobots;}
 
     /**
      *  Assigne un prenom à l'utilisateur

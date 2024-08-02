@@ -96,14 +96,33 @@ public class ControllerUtilisateur extends ControllerCompte{
 
     }
 
+    /**
+     * Permet à l'utilisateur de supprimer un robot  qu'il a choisis de sa liste de robots.
+
+     */
+
     public  void supprimerRobot() {
-
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Veuillez choisir quel robot supprimer: ");
-        for ( Robot robot : utilisateur.getListeRobots()) {
-            System.out.println(robot);
+        try {
+            for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
 
+                System.out.println( "[" + i + "]" +"Veuillez choisir quel robot supprimer " +
+                        " par index! \n " + utilisateur.getListeRobots().get(i).getId() + "\n");
+            }
+            int choix = scanner.nextInt();
+            ArrayList<Composante> lstCompo = utilisateur.getListeRobots().get(choix).getListeComposantes();
+
+            for (Composante c: lstCompo) {
+                utilisateur.getComposantesFlotte().add(c); // ajouter les composantes du robot supprimé
+                // à l'inventaire de la flotte
+            }
+
+            utilisateur.getListeRobots().remove(choix); // enlever le robot
+
+        } catch (Exception e){
+            e.printStackTrace(); // modif apres
         }
+
     }
 
     // source : https://www.baeldung.com/gson-list
