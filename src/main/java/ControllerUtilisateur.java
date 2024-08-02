@@ -15,7 +15,6 @@ public class ControllerUtilisateur extends ControllerCompte{
 
 
 
-
     /**
      * Retourne la liste des utilisateurs en désérialisant le contenu du fichier JSON.
      * @return La liste des utilisateurs mise à jour ou null en cas d'erreur.
@@ -32,9 +31,6 @@ public class ControllerUtilisateur extends ControllerCompte{
         }
         return null; // sinon?
     }
-
-
-
 
 
     public ControllerUtilisateur(Utilisateur utilisateur) {
@@ -127,11 +123,11 @@ public class ControllerUtilisateur extends ControllerCompte{
 
     }
 
-    // source : https://www.baeldung.com/gson-list
-
     /**
-     * permet de désérialiser les données du fichier activites.json
+     * Permet de désérialiser les données du fichier activites.json
      * en une liste d'objet Activite
+     *
+     * source : https://www.baeldung.com/gson-list
      */
     private void getListeActivitesfromJson(){
         try(FileReader reader = new FileReader("src/main/resources/activites.json")){
@@ -144,7 +140,7 @@ public class ControllerUtilisateur extends ControllerCompte{
     }
 
     /**
-     * permet d'afficher la liste de toutes les activités qui sont disponibles et
+     * Permet d'afficher la liste de toutes les activités qui sont disponibles et
      * auxquelles l'utilisateur n'est pas inscrit
      */
     private void afficherlisteActivites(){
@@ -157,9 +153,8 @@ public class ControllerUtilisateur extends ControllerCompte{
         }
     }
 
-
     /**
-     * Permet d'afficher toutes les activités auxqueles l'utilisateur est inscrit
+     * Permet d'afficher toutes les activités auxquelles l'utilisateur est inscrit
      */
     private void afficherActivitesUtilisateur(){
         System.out.println("Vos activités : ");
@@ -168,7 +163,13 @@ public class ControllerUtilisateur extends ControllerCompte{
         }
     }
 
-
+    /**
+     * Vérifie si une activité est disponible et/ou existe par recherche par nom
+     *
+     * @param nomActivite le nom de l'activité à vérifier
+     *
+     * @return {@code true} si l'activité est diponible, {@code false} sinon
+     */
     private boolean isAvailable(String nomActivite){
         for(Activite activite : listeActivites){
             if(activite.getNom().equals(nomActivite)){
@@ -178,6 +179,13 @@ public class ControllerUtilisateur extends ControllerCompte{
         return false;
     }
 
+    /**
+     * Permet de s'inscrire à une activité à laquelle on n'est pas déjà inscrit.
+     * Initilaise le statut de cette activité à NON_DEBUTEE
+     * Met à jour le dictionnaire des activitées de l'utilisateur
+     *
+     * @param nomActivite le nom de l'activité à laquelle on souhaite s'inscrire
+     */
     private void sInscrireActivite(String nomActivite){
         if (isAvailable(nomActivite)){
             utilisateur.ajouterActivite(nomActivite, StatutActivite.NON_DEBUTEE);
@@ -186,6 +194,13 @@ public class ControllerUtilisateur extends ControllerCompte{
             System.out.println("Cette activité n'existe pas ou est invalide") ;
         }
     }
+
+    /**
+     * Permet de se désinscrire d'une activité à laquelle on est déjà inscrit.
+     * Met à jour le dictionnaire des activitées de l'utilisateur
+     *
+     * @param nomActivite le nom de l'activité à laquelle on souhaite se désinscrire
+     */
     private void desinscrireActivite(String nomActivite){
         if(utilisateur.getActivites().containsKey(nomActivite)){
             utilisateur.supprimerActivite(nomActivite);
@@ -195,6 +210,10 @@ public class ControllerUtilisateur extends ControllerCompte{
         }
     }
 
+    /**
+     * Permet de gérer la logique derrière l'action de gérer les activités
+     *
+     */
     public void gererActivites(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Voulez-vous vous inscrire ou vous désinscrire d'une activité ?");

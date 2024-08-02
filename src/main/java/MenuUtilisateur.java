@@ -3,9 +3,21 @@ import java.util.Scanner;
 public class MenuUtilisateur extends View{
 
     private ControllerUtilisateur controllerUtilisateur;
+    private Scanner scanner;
 
     public MenuUtilisateur(ControllerUtilisateur controllerUtilisateur) {
         this.controllerUtilisateur = controllerUtilisateur;
+        this.scanner = new Scanner(System.in);
+    }
+
+    public String getNom(){
+        System.out.println("Entrez un nom : ");
+        return scanner.nextLine();
+    }
+
+    public String getPrenom(){
+        System.out.println("Entrez un prenom : ");
+        return scanner.nextLine();
     }
 
     public void afficherMenuUtilisateur() {

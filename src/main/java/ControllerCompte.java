@@ -12,6 +12,7 @@ public abstract class ControllerCompte {
     private MenuUtilisateur utilisateurView;
 
 
+    public ControllerCompte(Utilisateur utilisateur) {}
     /**
      * Génère la liste des comptes enregistrés au système Robotix.
      * @return
