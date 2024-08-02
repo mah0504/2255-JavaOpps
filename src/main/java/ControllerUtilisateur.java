@@ -1,7 +1,9 @@
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.*;
@@ -10,118 +12,52 @@ public class ControllerUtilisateur extends ControllerCompte{
 
     private Utilisateur utilisateur;
     private MenuUtilisateur utilisateurView;
+    private ControllerCompte controllerCompte;
+
+    //à revoir
     private ControllerRobot controllerRobot;
+
+    private ArrayList<Utilisateur> listeUtilisateurs;
     private ArrayList<Activite> listeActivites;
 
 
+    public ControllerUtilisateur(Utilisateur utilisateur, MenuUtilisateur utilisateurView) {
+        this.utilisateur = utilisateur;
+        this.utilisateurView = utilisateurView;
+        this.listeUtilisateurs = new ArrayList<>();
+    }
 
     /**
-     * Retourne la liste des utilisateurs en désérialisant le contenu du fichier JSON.
-     * @return La liste des utilisateurs mise à jour ou null en cas d'erreur.
+     * Permet de désérialiser les données du fichier utilisateurs.json
+     * en une liste d'objet Utilisateur
+     *
+     * source : https://www.baeldung.com/gson-list
      */
-    private List<Utilisateur> majListeUtilisateurs() {
-        Gson gson = new Gson();
-        try (FileReader reader = new FileReader("src/main/resources/utilisateurs.json")) {
-            Type userListType = new TypeToken<List<Utilisateur>>() {}.getType();
-            //List<Utilisateur> utilisateurs = gson.fromJson(reader, userListType);
-            return gson.fromJson(reader, userListType);
-
-        } catch (IOException e) {
+    private void getListeUtilisateursfromJson(){
+        try(FileReader reader = new FileReader("src/main/resources/utilisateurs.json")){
+            Gson gson = new Gson();
+            Type listeUtilisteursType = new TypeToken<ArrayList<Activite>>(){}.getType();
+            listeUtilisateurs = gson.fromJson(reader, listeUtilisteursType);
+        }catch(Exception e){
             e.printStackTrace();
         }
-        return null; // sinon?
     }
 
-
-    public ControllerUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
-        getListeActivitesfromJson();
-    }
-
-    @Override
-    public void creerCompte() {
-
-    }
-
-    @Override
-    public void seConnecter() {
-
-    }
-
-
-    /**
-     * Permet à l'utilisateur de choisir un robot de sa flotte par index.
-     * Affiche les robots disponibles avec leur index et attend une saisie utilisateur pour choisir un robot.
-     *
-     * @return Le robot choisi par l'utilisateur ou null si une erreur survient.
-     */
-
-    public Robot choisirRobot (){
-        try {
-            for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
-
-                System.out.println( "[" + i + "]" +"Veuillez choisir " +
-                        "un robot de votre Flotte par index! \n "
-                        + utilisateur.getListeRobots().get(i).getId() + "\n");
-            }
-
-
-            Scanner scan = new Scanner(System.in);
-            int choix = scan.nextInt();
-
-            // si choix valide , on return le Robot sitié à l'Index choisis pas l'Utilisateur
-            return utilisateur.getListeRobots().get(choix - 1);
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Veuillez choisir un nombre valide parmi les options disponibles!");
-        } catch (InputMismatchException e) {
-            System.out.println("Veuillez entrer un nombre!");
-        }catch(Exception e){
-            e.printStackTrace(); // modif apre
-            System.out.println("Veuillez choisir un nombre  !");
+    public void UtilisateurToJson(ArrayList<Utilisateur> listeUtilisateurs) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try(FileWriter writer = new FileWriter("src/main/resources/utilisateurs.json")){
+            gson.toJson(this.listeUtilisateurs, writer);
+        }catch(IOException e){
+            e.printStackTrace();
         }
-        return null;
     }
 
-    /**
-     *
-     */
-    // a modifier ofc
-    public void enregistrerRobot(Robot robot) {
-      //  choisir fournisseur
-        //acheter composantes , CPU + compo
-        // les ajouter
-        //
-
+    public ArrayList<Utilisateur> getListeUtilisateurs() {
+        return listeUtilisateurs;
     }
 
-    /**
-     * Permet à l'utilisateur de supprimer un robot  qu'il a choisis de sa liste de robots.
 
-     */
-
-    public  void supprimerRobot() {
-        Scanner scanner = new Scanner(System.in);
-        try {
-            for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
-
-                System.out.println( "[" + i + "]" +"Veuillez choisir quel robot supprimer " +
-                        " par index! \n " + utilisateur.getListeRobots().get(i).getId() + "\n");
-            }
-            int choix = scanner.nextInt();
-            ArrayList<Composante> lstCompo = utilisateur.getListeRobots().get(choix).getListeComposantes();
-
-            for (Composante c: lstCompo) {
-                utilisateur.getComposantesFlotte().add(c); // ajouter les composantes du robot supprimé
-                // à l'inventaire de la flotte
-            }
-
-            utilisateur.getListeRobots().remove(choix); // enlever le robot
-
-        } catch (Exception e){
-            e.printStackTrace(); // modif apres
-        }
-
-    }
+    /*************************** Méthodes qui permettent de gérer les actvités **********************/
 
     /**
      * Permet de désérialiser les données du fichier activites.json
@@ -135,6 +71,15 @@ public class ControllerUtilisateur extends ControllerCompte{
             Type listeActivitesType = new TypeToken<ArrayList<Activite>>(){}.getType();
             listeActivites = gson.fromJson(reader, listeActivitesType);
         }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    public void ActiviteToJson(ArrayList<Activite> listeActivites){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try(FileWriter writer = new FileWriter("src/main/resources/activites.json")){
+            gson.toJson(listeActivites, writer);
+        }catch(IOException e){
             e.printStackTrace();
         }
     }
@@ -242,6 +187,81 @@ public class ControllerUtilisateur extends ControllerCompte{
         }
 
     }
+
+    /**
+     * Permet à l'utilisateur de choisir un robot de sa flotte par index.
+     * Affiche les robots disponibles avec leur index et attend une saisie utilisateur pour choisir un robot.
+     *
+     * @return Le robot choisi par l'utilisateur ou null si une erreur survient.
+     */
+
+    public Robot choisirRobot (){
+        try {
+            for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
+
+                System.out.println( "[" + i + "]" +"Veuillez choisir " +
+                        "un robot de votre Flotte par index! \n "
+                        + utilisateur.getListeRobots().get(i).getId() + "\n");
+            }
+
+
+            Scanner scan = new Scanner(System.in);
+            int choix = scan.nextInt();
+
+            // si choix valide , on return le Robot sitié à l'Index choisis pas l'Utilisateur
+            return utilisateur.getListeRobots().get(choix - 1);
+        } catch (IndexOutOfBoundsException e) {
+            System.out.println("Veuillez choisir un nombre valide parmi les options disponibles!");
+        } catch (InputMismatchException e) {
+            System.out.println("Veuillez entrer un nombre!");
+        }catch(Exception e){
+            e.printStackTrace(); // modif apre
+            System.out.println("Veuillez choisir un nombre  !");
+        }
+        return null;
+    }
+
+    /**
+     *
+     */
+    // a modifier ofc
+    public void enregistrerRobot(Robot robot) {
+      //  choisir fournisseur
+        //acheter composantes , CPU + compo
+        // les ajouter
+        //
+
+    }
+
+    /**
+     * Permet à l'utilisateur de supprimer un robot  qu'il a choisis de sa liste de robots.
+
+     */
+
+    public  void supprimerRobot() {
+        Scanner scanner = new Scanner(System.in);
+        try {
+            for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
+
+                System.out.println( "[" + i + "]" +"Veuillez choisir quel robot supprimer " +
+                        " par index! \n " + utilisateur.getListeRobots().get(i).getId() + "\n");
+            }
+            int choix = scanner.nextInt();
+            ArrayList<Composante> lstCompo = utilisateur.getListeRobots().get(choix).getListeComposantes();
+
+            for (Composante c: lstCompo) {
+                utilisateur.getComposantesFlotte().add(c); // ajouter les composantes du robot supprimé
+                // à l'inventaire de la flotte
+            }
+
+            utilisateur.getListeRobots().remove(choix); // enlever le robot
+
+        } catch (Exception e){
+            e.printStackTrace(); // modif apres
+        }
+
+    }
+
 
     /**
      * Permet à l'utilisateur de choisir entre deux types d'affichages pour l'état des robots :

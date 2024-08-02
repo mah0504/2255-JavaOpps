@@ -25,7 +25,6 @@ public class MenuCompte {
         System.out.println("Inscription : ");
         System.out.println("1: S'inscrire comme Utilisateur");
         System.out.println("2: S'inscrire comme Fournisseur");
-        System.out.println("3: Quitter");
         return scanner.nextInt();
     }
 

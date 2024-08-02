@@ -1,7 +1,10 @@
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +14,13 @@ public class ControllerFournisseur extends ControllerCompte{
     private Fournisseur fournisseur;
     private MenuFournisseur fournisseurView;
     private ArrayList<FournisseurComposante> listeCompo= fournisseur.getComposantes();
+    private ArrayList<Fournisseur> listeFournisseurs;
+
+
+    public ControllerFournisseur(Fournisseur fournisseur){
+        this.fournisseur = fournisseur;
+        chargerFournisseursDepuisJson();
+    }
 
     @Override
     public void creerCompte() {
@@ -23,8 +33,6 @@ public class ControllerFournisseur extends ControllerCompte{
     }
 
 
-    private List<Fournisseur> fournisseurs;
-
     /**
      * Charge la liste des fournisseurs à partir d'un fichier JSON.
      *
@@ -33,9 +41,9 @@ public class ControllerFournisseur extends ControllerCompte{
         try (FileReader reader = new FileReader("src/main/resources/fournisseurs.json")) {
             Gson gson = new Gson();
             Type typeListeFournisseurs = new TypeToken<ArrayList<Fournisseur>>(){}.getType();
-            fournisseurs = gson.fromJson(reader, typeListeFournisseurs);
+            listeFournisseurs = gson.fromJson(reader, typeListeFournisseurs);
 
-            return fournisseurs;
+            return listeFournisseurs;
         } catch (Exception e) {
             e.printStackTrace();
 
@@ -44,10 +52,17 @@ public class ControllerFournisseur extends ControllerCompte{
 
     }
 
+    public ArrayList<Fournisseur> getFournisseurs(){
+        return listeFournisseurs;
+    }
 
-
-    public List<Fournisseur> getFournisseurs(){
-        return chargerFournisseursDepuisJson();
+    public void FournisseurToJson(ArrayList<Fournisseur> listeFournisseurs) {
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try(FileWriter writer = new FileWriter("src/main/resources/fournisseurs.json")){
+            gson.toJson(this.listeFournisseurs, writer);
+        }catch(IOException e){
+            e.printStackTrace();
+        }
     }
 
 

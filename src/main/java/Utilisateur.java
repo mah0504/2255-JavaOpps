@@ -25,14 +25,12 @@ public class Utilisateur extends Compte {
      * @param telephone le telephone de l'utilisateur
      * @param prenom le prenom de l'utilisateur
      * @param nom le nom de l'utilisateur
-     * @param points les points d'un utilisateur
      *
      */
-    public Utilisateur(String pseudo, String email, String mdp, String telephone, String prenom, String nom, float points){
+    public Utilisateur(String pseudo, String email, String mdp, String telephone, String prenom, String nom){
         super(pseudo, email, mdp, telephone);
         this.prenom = prenom;
         this.nom = nom;
-        this.points = points;
         this.activites = new HashMap<>();
     }
 
