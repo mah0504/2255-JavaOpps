@@ -18,10 +18,24 @@
     "isConfirmed": false,
     "confirmationLien": false,
     "confirmationLienExpiration": false,
-    "robots" : []
+
+    "listeRobots" : [
+  {
+    "nomRobot": "Robot1",
+    "type": "TypeA",
+    "etat": "EN_SERVICE"
   },
   {
-    "prenom": "prenom2",
+    "nomRobot": "Robot2",
+    "type": "TypeB",
+    "etat": "EN_REPARATION"
+  }
+],
+    "composantesFlotte" : []
+
+  },
+  {
+    "prenom": "maha",
     "nom": "nom2",
     "points": 0.0,
     "activites": {
@@ -31,15 +45,17 @@
       "Activite9": "NON_DEBUTEE",
       "Activite10": "EN_COURS"
     },
-    "pseudo": "nprenom2",
-    "email": "nprenom2@example.com",
+    "pseudo": "maha",
+    "email": "maha@example.com",
     "mdp": "motdepasse2",
     "telephone": "9996778888",
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
     "confirmationLienExpiration": false,
-    "robots" : []
+    "listeRobots" : [],
+    "composantesFlotte" : []
+
   },
   {
     "prenom": "Sabrina",
@@ -60,7 +76,9 @@
     "isConfirmed": false,
     "confirmationLien": false,
     "confirmationLienExpiration": false,
-    "robots" : []
+    "robots" : [],
+    "composantesFlotte" : []
+
   },
   {
     "prenom": "Audrey",
@@ -81,7 +99,9 @@
     "isConfirmed": false,
     "confirmationLien": false,
     "confirmationLienExpiration": false,
-    "robots" : []
+    "listeRobots" : [],
+    "composantesFlotte" : []
+
   },
   {
     "prenom": "prenom5",
@@ -102,7 +122,9 @@
     "isConfirmed": false,
     "confirmationLien": false,
     "confirmationLienExpiration": false,
-    "robots" : []
+    "listeRobots" : [],
+    "composantesFlotte" : []
+
   },
   {
     "prenom": "prenom6",
@@ -122,7 +144,10 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false
+    "confirmationLienExpiration": false,
+    "listeRobots" : [],
+    "composantesFlotte" : []
+
   },
   {
     "prenom": "prenom7",
@@ -143,7 +168,9 @@
     "isConfirmed": false,
     "confirmationLien": false,
     "confirmationLienExpiration": false,
-    "robots" : []
+    "listeRobots" : [],
+    "composantesFlotte" : []
+
 
   },
   {
@@ -165,7 +192,9 @@
     "isConfirmed": false,
     "confirmationLien": false,
     "confirmationLienExpiration": false,
-    "robots" : []
+    "listeRobots" : [],
+    "composantesFlotte" : []
+
 
   },
   {
@@ -187,7 +216,9 @@
     "isConfirmed": false,
     "confirmationLien": false,
     "confirmationLienExpiration": false,
-    "robots" : []
+    "listeRobots" : [],
+    "composantesFlotte" : []
+
 
   },
   {
@@ -209,6 +240,8 @@
     "isConfirmed": false,
     "confirmationLien": false,
     "confirmationLienExpiration": false,
-    "robots" : []
+    "listeRobots" : [],
+    "composantesFlotte" : []
+
   }
 ]

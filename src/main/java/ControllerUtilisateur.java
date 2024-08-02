@@ -20,7 +20,6 @@ public class ControllerUtilisateur extends ControllerCompte{
      * Retourne la liste des utilisateurs en désérialisant le contenu du fichier JSON.
      * @return La liste des utilisateurs mise à jour ou null en cas d'erreur.
      */
-
     private List<Utilisateur> majListeUtilisateurs() {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader("src/main/resources/utilisateurs.json")) {
@@ -92,7 +91,10 @@ public class ControllerUtilisateur extends ControllerCompte{
      */
     // a modifier ofc
     public void enregistrerRobot(Robot robot) {
-      //  utilisateur.getListeRobots().add(robot);
+      //  choisir fournisseur
+        //acheter composantes , CPU + compo
+        // les ajouter
+        //
 
     }
 
@@ -258,7 +260,16 @@ public class ControllerUtilisateur extends ControllerCompte{
     }
 
 
+    public void trouverComposante(){
+
+    }
+
+    public void acheterComposante(){
+
+    }
 
 
+    public void trouverFournisseur(){}
 
+    public void voirNotifs(){}
 }

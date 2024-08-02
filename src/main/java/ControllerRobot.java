@@ -2,7 +2,6 @@ import java.util.ArrayList;
 
 public class ControllerRobot {
     private Robot robot;
-    private boolean taskCreated;
 
 
     /**
@@ -15,12 +14,12 @@ public class ControllerRobot {
 
     }
 
+
     /**
      * Affiche les détails complets pour un robot spécifique, en plus des générales on a accès aussi
      * au numéro de série, vitesse, capacité CPU , position, et mémoire
      * @param robot
      */
-
     public void afficherVueComplete(Robot robot) {
         System.out.println("Nom: " + robot.getName() + "\n" + "Type: " + robot.getType() + "\n" +
                 "Niveau de batterie: " + robot.getBatteryLevel() + "\n" +

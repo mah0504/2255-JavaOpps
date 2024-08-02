@@ -3,6 +3,8 @@ import java.util.ArrayList;
 
 public class Main {
 
+    // todo: pr le main ca va devenir robotix !!!! changer dans le pom.xml
+
     public static void main(String[] args) {
         System.out.println("Hello World!");
 

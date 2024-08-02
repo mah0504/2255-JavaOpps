@@ -89,10 +89,6 @@ public class Utilisateur extends Compte {
      */
 
 
-    /**
-     * Récupère la liste des robots du fournisseur
-     * @return Liste des Robots de l'utilisateur
-     */
 
 
 

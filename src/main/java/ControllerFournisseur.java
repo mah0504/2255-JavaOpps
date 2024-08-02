@@ -16,7 +16,9 @@ public class ControllerFournisseur extends ControllerCompte{
 
 
 
-
+    public void enregistrerComposante(){}
+    public void supprimerComposante(){}
+    public void modifierComposante(){}
 
 
 
