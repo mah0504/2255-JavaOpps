@@ -260,7 +260,7 @@ public class ControllerUtilisateur{
             ArrayList<Composante> lstCompo = utilisateur.getListeRobots().get(choix).getListeComposantes();
 
             for (Composante c: lstCompo) {
-                utilisateur.getComposantesFlotte().add(c); // ajouter les composantes du robot supprimé
+                utilisateur.getComposantesFlotte().put(c.getNom(), c.getType()); // ajouter les composantes du robot supprimé
                 // à l'inventaire de la flotte
             }
 
