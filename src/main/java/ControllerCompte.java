@@ -7,7 +7,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.*;
-public abstract class ControllerCompte {
+public class ControllerCompte {
 
     private Compte compte;
     private MenuCompte CompteView;
@@ -21,7 +21,7 @@ public abstract class ControllerCompte {
 
     private ArrayList<Utilisateur> listeUtilisateurs;
     private ArrayList<Fournisseur> listeFournisseurs;
-    private HashSet<String> listePseudos;
+    private ArrayList<String> listePseudos;
     private HashSet<String> listeEmails;
 
 
@@ -30,8 +30,8 @@ public abstract class ControllerCompte {
         this.CompteView = compteView;
         this.listeUtilisateurs = new ArrayList<>();
         this.listeFournisseurs = new ArrayList<>();
-        this.listePseudos = new HashSet<>();
-        this.listeEmails = new HashSet<>();
+        this.listePseudos = new ArrayList<>();
+        this.listeEmails = new ArrayList<>();
         initialiserListes();
         initialiserPseudosMails();
     }
@@ -45,7 +45,7 @@ public abstract class ControllerCompte {
     private <T extends Compte> ArrayList<T> genererListe(String path) {
         Gson gson = new Gson();
         try (FileReader reader = new FileReader(path)) {
-            Type type = new TypeToken<List<T>>() {}.getType();
+            Type type = new TypeToken<ArrayList<T>>() {}.getType();
             return gson.fromJson(reader, type);
 
         } catch (IOException e) {
@@ -119,7 +119,7 @@ public abstract class ControllerCompte {
 
     }
 
-    /*********************************  Fonctions auxiliaires pour creerCompte() *****************************************************/
+    /********************************* Fonctions auxiliaires pour creerCompte() *****************************************************/
 
     public boolean creerUtilisateur(String pseudo, String nom, String prenom, String email, String motDePasse, String telephone) {
         if(isPseudoUnique(pseudo) && isEmailUnique(email) && isMdpValid(motDePasse) && isTelephoneValid(telephone)){
@@ -202,7 +202,9 @@ public abstract class ControllerCompte {
     /************************************************************************************************************/
 
 
-    public abstract void seConnecter() ;
+    public void seConnecter(){
+
+    } ;
 
 
     /**

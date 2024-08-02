@@ -26,6 +26,7 @@ public class ControllerUtilisateur{
         this.utilisateurView = utilisateurView;
         this.listeUtilisateurs = new ArrayList<>();
         getListeUtilisateursfromJson();
+        getListeActivitesfromJson();
     }
 
     /**
@@ -37,7 +38,7 @@ public class ControllerUtilisateur{
     private void getListeUtilisateursfromJson(){
         try(FileReader reader = new FileReader("src/main/resources/utilisateurs.json")){
             Gson gson = new Gson();
-            Type listeUtilisteursType = new TypeToken<ArrayList<Activite>>(){}.getType();
+            Type listeUtilisteursType = new TypeToken<ArrayList<Utilisateur>>(){}.getType();
             listeUtilisateurs = gson.fromJson(reader, listeUtilisteursType);
         }catch(Exception e){
             e.printStackTrace();

@@ -8,10 +8,6 @@ public abstract class Compte {
     private boolean confirmationLien, confirmationLienExpiration;
     private String DateConnexion;
 
-    private String path;
-
-    public abstract String getPath();
-
     /**
      * Une nouvelle instance de la classe Compte (initialisation par défaut)
      */

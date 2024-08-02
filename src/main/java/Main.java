@@ -8,19 +8,24 @@ public class Main {
 
     public static void main(String[] args) {
 
-        ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null, null);
+        /*ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null, null);
         ArrayList<Utilisateur> utilisateurs = controllerUtilisateur.getListeUtilisateurs();
-        controllerUtilisateur.UtilisateurToJson(utilisateurs);
 
-        //Utilisateur user = utilisateurs.get(0);
-        //controllerUtilisateur.setUtilisateur(user);
+        Utilisateur user = utilisateurs.get(0);
+        controllerUtilisateur.setUtilisateur(user);
 
-        //MenuUtilisateur menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
-        //menuUtilisateur.afficherMenuUtilisateur();
+        MenuUtilisateur menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
+        menuUtilisateur.afficherMenuUtilisateur();
 
         //System.out.println(user);
         //System.out.println(utilisateurs);
-        //controllerUtilisateur.UtilisateurToJson(utilisateurs);
+        controllerUtilisateur.UtilisateurToJson(utilisateurs);*/
+
+        MenuCompte menuCompte = new MenuCompte();
+        Compte compte = new Compte() {};
+        ControllerCompte controllerCompte = new ControllerCompte(compte, menuCompte);
+
+        controllerCompte.creerCompte();
     }
 
 }

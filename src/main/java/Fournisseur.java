@@ -11,11 +11,6 @@ public class Fournisseur extends Compte{
     public Fournisseur(){
     }
 
-    @Override
-    public String getPath() {
-
-        return "src/main/resources/META-INF/fournisseurs.json";
-    }
 
     /**
      * Une nouvelle instance de la classe Fournisseur

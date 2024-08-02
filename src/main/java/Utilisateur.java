@@ -113,11 +113,6 @@ public class Utilisateur extends Compte {
     }
 
 
-    @Override
-    public String getPath() {
-        return "src/main/resources/META-INF/utilisateurs.json";
-    }
-
 
     /**
      * Récupère les activités auxquelles l'utilisateur est inscrit
