@@ -8,11 +8,14 @@ public class Utilisateur extends Compte {
     private float points;
     private Map<String, StatutActivite> activites;
     private ArrayList<Robot> listeRobots ;
-    private Map<String, ComposanteType> composantesFlotte;
+    private Map<String, ComposanteType> composantes;
     /**
      * Une nouvelle instance de la classe Utilisateur (initialisation par défaut)
      */
     public Utilisateur(){
+        this.activites = new HashMap<>();
+        this.listeRobots = new ArrayList<>();
+        this.composantes = new HashMap<>();
     }
 
 
@@ -32,7 +35,7 @@ public class Utilisateur extends Compte {
         this.prenom = prenom;
         this.nom = nom;
         this.activites = new HashMap<>();
-        this.composantesFlotte = new HashMap<>();
+        this.composantes = new HashMap<>();
     }
 
     @Override
@@ -50,7 +53,7 @@ public class Utilisateur extends Compte {
     }
 
 
-    public Map<String, ComposanteType> getComposantesFlotte(){ return composantesFlotte;}
+    public Map<String, ComposanteType> getComposantesFlotte(){ return composantes;}
 
     public ArrayList<Robot> getListeRobots(){return listeRobots;}
 

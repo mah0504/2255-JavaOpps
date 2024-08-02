@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        /*ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null, null);
+        ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null, null);
         ArrayList<Utilisateur> utilisateurs = controllerUtilisateur.getListeUtilisateurs();
 
         Utilisateur user = utilisateurs.get(0);
@@ -19,13 +19,13 @@ public class Main {
 
         //System.out.println(user);
         //System.out.println(utilisateurs);
-        controllerUtilisateur.UtilisateurToJson(utilisateurs);*/
+        controllerUtilisateur.UtilisateurToJson(utilisateurs);
 
-        MenuCompte menuCompte = new MenuCompte();
+        /*MenuCompte menuCompte = new MenuCompte();
         Compte compte = new Compte() {};
         ControllerCompte controllerCompte = new ControllerCompte(compte, menuCompte);
 
-        controllerCompte.creerCompte();
+        controllerCompte.creerCompte();*/
     }
 
 }

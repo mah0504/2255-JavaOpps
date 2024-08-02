@@ -8,8 +8,11 @@
       "Activite2": "EN_COURS",
       "Activite3": "TERMINEE",
       "Activite4": "TERMINEE",
-      "Activite5": "EN_COURS",
-      "Activite6": "NON_DEBUTEE"
+      "Activite5": "EN_COURS"
+    },
+    "listeRobots": [],
+    "composantes": {
+      "composante11": "CPU"
     },
     "pseudo": "aithu",
     "email": "aithu@example.com",
@@ -18,11 +21,7 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false,
-    "composantes" : {
-      "composante11" : "CPU",
-      "composante21" : "Roue"
-    }
+    "confirmationLienExpiration": false
   },
   {
     "prenom": "prenom2",
@@ -35,6 +34,10 @@
       "Activite9": "NON_DEBUTEE",
       "Activite10": "EN_COURS"
     },
+    "listeRobots": [],
+    "composantes": {
+      "composante12": "CPU"
+    },
     "pseudo": "nprenom2",
     "email": "nprenom2@example.com",
     "mdp": "motdepasse2",
@@ -42,11 +45,7 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false.,
-    "composantes" : {
-      "composante12" : "CPU",
-      "composante22" : "Roue"
-    }
+    "confirmationLienExpiration": false
   },
   {
     "prenom": "Sabrina",
@@ -59,6 +58,10 @@
       "Activite14": "TERMINEE",
       "Activite15": "EN_COURS"
     },
+    "listeRobots": [],
+    "composantes": {
+      "composante13": "CPU"
+    },
     "pseudo": "miaou",
     "email": "miaou@example.com",
     "mdp": "motdepasse3",
@@ -66,11 +69,7 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false,
-    "composantes" : {
-      "composante13" : "CPU",
-      "composante23" : "Roue"
-    }
+    "confirmationLienExpiration": false
   },
   {
     "prenom": "Audrey",
@@ -83,6 +82,10 @@
       "Activite4": "TERMINEE",
       "Activite5": "EN_COURS"
     },
+    "listeRobots": [],
+    "composantes": {
+      "composante14": "CPU"
+    },
     "pseudo": "aude",
     "email": "aude@example.com",
     "mdp": "motdepasse4",
@@ -90,11 +93,7 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false,
-    "composantes" : {
-      "composante14" : "CPU",
-      "composante24" : "Roue"
-    }
+    "confirmationLienExpiration": false
   },
   {
     "prenom": "prenom5",
@@ -107,6 +106,10 @@
       "Activite9": "NON_DEBUTEE",
       "Activite10": "EN_COURS"
     },
+    "listeRobots": [],
+    "composantes": {
+      "composante15": "CPU"
+    },
     "pseudo": "nprenom5",
     "email": "nprenom5@example.com",
     "mdp": "motdepasse5",
@@ -114,11 +117,7 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false,
-    "composantes" : {
-      "composante15" : "CPU",
-      "composante25" : "Roue"
-    }
+    "confirmationLienExpiration": false
   },
   {
     "prenom": "prenom6",
@@ -131,6 +130,10 @@
       "Activite14": "TERMINEE",
       "Activite15": "EN_COURS"
     },
+    "listeRobots": [],
+    "composantes": {
+      "composante16": "CPU"
+    },
     "pseudo": "nprenom6",
     "email": "nprenom6@example.com",
     "mdp": "motdepasse6",
@@ -138,11 +141,7 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false,
-    "composantes" : {
-      "composante16" : "CPU",
-      "composante26" : "Roue"
-    }
+    "confirmationLienExpiration": false
   },
   {
     "prenom": "prenom7",
@@ -155,6 +154,10 @@
       "Activite4": "TERMINEE",
       "Activite5": "EN_COURS"
     },
+    "listeRobots": [],
+    "composantes": {
+      "composante17": "CPU"
+    },
     "pseudo": "nprenom7",
     "email": "nprenom7@example.com",
     "mdp": "motdepasse7",
@@ -162,11 +165,7 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false,
-    "composantes" : {
-      "composante17" : "CPU",
-      "composante27" : "Roue"
-    }
+    "confirmationLienExpiration": false
   },
   {
     "prenom": "prenom8",
@@ -179,6 +178,10 @@
       "Activite9": "NON_DEBUTEE",
       "Activite10": "EN_COURS"
     },
+    "listeRobots": [],
+    "composantes": {
+      "composante18": "CPU"
+    },
     "pseudo": "nprenom8",
     "email": "nprenom8@example.com",
     "mdp": "motdepasse8",
@@ -186,11 +189,7 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false,
-    "composantes" : {
-      "composante18" : "CPU",
-      "composante28" : "Roue"
-    }
+    "confirmationLienExpiration": false
   },
   {
     "prenom": "prenom9",
@@ -203,6 +202,10 @@
       "Activite14": "TERMINEE",
       "Activite15": "EN_COURS"
     },
+    "listeRobots": [],
+    "composantes": {
+      "composante19": "CPU"
+    },
     "pseudo": "nprenom9",
     "email": "nprenom9@example.com",
     "mdp": "motdepasse9",
@@ -210,11 +213,7 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false,
-    "composantes" : {
-      "composante19" : "CPU",
-      "composante29" : "Roue"
-    }
+    "confirmationLienExpiration": false
   },
   {
     "prenom": "prenom10",
@@ -227,6 +226,10 @@
       "Activite4": "TERMINEE",
       "Activite5": "EN_COURS"
     },
+    "listeRobots": [],
+    "composantes": {
+      "composante10": "CPU"
+    },
     "pseudo": "nprenom10",
     "email": "nprenom10@example.com",
     "mdp": "motdepasse10",
@@ -234,10 +237,6 @@
     "confirmerInscription": false,
     "isConfirmed": false,
     "confirmationLien": false,
-    "confirmationLienExpiration": false,
-    "composantes" : {
-      "composante10" : "CPU",
-      "composante20" : "Roue"
-    }
+    "confirmationLienExpiration": false
   }
 ]
