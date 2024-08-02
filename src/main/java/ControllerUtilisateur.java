@@ -4,6 +4,7 @@ import com.google.gson.reflect.TypeToken;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.text.Normalizer;
 import java.util.*;
 
 public class ControllerUtilisateur extends ControllerCompte{
@@ -12,35 +13,18 @@ public class ControllerUtilisateur extends ControllerCompte{
     private MenuUtilisateur utilisateurView;
     private ControllerRobot controllerRobot;
     private ArrayList<Activite> listeActivites;
-
-
-
-
-    /**
-     * Retourne la liste des utilisateurs en désérialisant le contenu du fichier JSON.
-     * @return La liste des utilisateurs mise à jour ou null en cas d'erreur.
-     */
-    private List<Utilisateur> majListeUtilisateurs() {
-        Gson gson = new Gson();
-        try (FileReader reader = new FileReader("src/main/resources/utilisateurs.json")) {
-            Type userListType = new TypeToken<List<Utilisateur>>() {}.getType();
-            //List<Utilisateur> utilisateurs = gson.fromJson(reader, userListType);
-            return gson.fromJson(reader, userListType);
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return null; // sinon?
-    }
-
-
-
-
+    private ControllerFournisseur fournisseurs;
 
     public ControllerUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
         getListeActivitesfromJson();
     }
+
+
+
+
+
+
 
     @Override
     public void creerCompte() {
@@ -59,7 +43,6 @@ public class ControllerUtilisateur extends ControllerCompte{
      *
      * @return Le robot choisi par l'utilisateur ou null si une erreur survient.
      */
-
     public Robot choisirRobot (){
         try {
             for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
@@ -85,6 +68,135 @@ public class ControllerUtilisateur extends ControllerCompte{
         }
         return null;
     }
+
+
+
+
+
+
+    /**
+     * Retourne la liste des utilisateurs en désérialisant le contenu du fichier JSON.
+     * @return La liste des utilisateurs mise à jour ou null en cas d'erreur.
+     */
+    private List<Utilisateur> majListeUtilisateurs() {
+        Gson gson = new Gson();
+        try (FileReader reader = new FileReader("src/main/resources/utilisateurs.json")) {
+            Type userListType = new TypeToken<List<Utilisateur>>() {}.getType();
+            //List<Utilisateur> utilisateurs = gson.fromJson(reader, userListType);
+            return gson.fromJson(reader, userListType);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null; // sinon?
+    }
+
+
+
+
+    /**
+     * Affiche une liste de types de composantes avec des index et demande à l'utilisateur
+     * de choisir une composante en entrant l'index correspondant.
+     *
+     * @return Le type de composante choisi par l'utilisateur.
+     */
+    public ComposanteType choisirComposanteSelonType() {
+        Scanner scanner = new Scanner(System.in);
+        ComposanteType[] types = ComposanteType.values();
+        int choix = -1;
+
+        try {
+            System.out.println("Choisir composante:");
+            for (int i = 0; i < types.length; i++) {
+                System.out.println(i + ": " + types[i]);
+            }
+
+            while (choix < 0 || choix >= types.length) {
+                System.out.print("Entrez le numéro de la composante choisie: ");
+                try {
+                    choix = Integer.parseInt(scanner.nextLine());
+                    if (choix < 0 || choix >= types.length) {
+                        System.out.println("Numéro invalide. Veuillez entrer un nombre entre 0 et " + (types.length - 1));
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrée invalide. Veuillez entrer un nombre.");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Une erreur inattendue s'est produite. Veuillez réessayer.");
+        }
+
+        return types[choix];
+    }
+
+
+    /**
+     * Ajuste une chaîne de caractères en supprimant les accents et en convertissant les caractères en minuscules.
+     *
+     * <p>Cette méthode normalise la chaîne d'entrée en utilisant la forme de décomposition canonique (NFD) de Unicode,
+     * puis elle supprime les marques diacritiques (accents) et convertit le texte en minuscules.
+     *
+     * @param input La chaîne de caractères à ajuster.
+     * @return La chaîne ajustée, sans accents et en minuscules.
+     */
+    public static String ajusterString(String input) {
+        String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
+        return normalized.replaceAll("\\p{M}", "").toLowerCase();
+    }
+
+
+
+    /**
+     * Charge la liste des fournisseurs à partir d'un fichier JSON.
+     *
+     * @return La liste des fournisseurs.
+     * @throws Exception Si une erreur se produit lors de la lecture ou de la désérialisation du fichier.
+     */
+
+
+// à verifier !!!!!!
+    public Composante choisirComposanteSelonNom(){
+            Scanner scanner = new Scanner(System.in);
+
+            try {
+                System.out.print("Entrez le nom de la composante choisie: ");
+                String input = scanner.nextLine();
+                String compoRecherchee = ajusterString(input);
+                List<Fournisseur> listeFournisseurs= fournisseurs.getFournisseurs();
+
+                for (Fournisseur fournisseur : listeFournisseurs) {
+                    for (FournisseurComposante fournisseurComposante : fournisseur.getComposantes()) {
+                        Composante composante = fournisseurComposante.getComposante();
+                        if (ajusterString(composante.getNom()).equals(compoRecherchee)) {
+                            System.out.println("Composante trouvée : " + composante.getNom());
+                            System.out.println("Fournisseur : " + fournisseur.getId());
+                            return composante;
+                        }
+                    }
+                }
+
+                System.out.println("Aucune composante trouvée avec ce nom.");
+                return null;
+
+            } catch (Exception e) {
+                System.out.println("Erreur lors de la recherche de la composante.");
+                e.printStackTrace();
+                return null;
+            }
+        }
+
+            // on parcoure la liste des fournisseurs
+            // on accede a leur liste de composantes
+            // on cherche le nom de la composante avec un composante.get nom
+
+            // si on trv yay , imprimer nom du fournisseur etc
+            // sinon on passe au fournisseur suivant
+            // continuer jusqu'a epuisement du nbr de fournisseurs dans mon fichier json
+            // bsn d'une methode pour deserialiser fournisseur.json
+
+
+
+
 
     /**
      *

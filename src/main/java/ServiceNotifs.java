@@ -7,7 +7,6 @@ public class ServiceNotifs {
         // Initialisation si nécessaire
     }
 
-
     public static synchronized ServiceNotifs getInstance() {
         if (instance == null) {
             instance = new ServiceNotifs();
