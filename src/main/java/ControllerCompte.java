@@ -25,9 +25,10 @@ public class ControllerCompte {
     private ArrayList<String> listeEmails;
 
 
-    public ControllerCompte(Compte compte, MenuCompte compteView) {
+    public ControllerCompte(Compte compte, MenuCompte compteView, MenuUtilisateur utilisateurView) {
         this.compte = compte;
         this.CompteView = compteView;
+        this.UtilisateurView = utilisateurView;
         this.listeUtilisateurs = new ArrayList<>();
         this.listeFournisseurs = new ArrayList<>();
         this.listePseudos = new ArrayList<>();
@@ -59,8 +60,10 @@ public class ControllerCompte {
      * partir de leurs fichiers json
      */
     private void initialiserListes(){
-        this.listeUtilisateurs = genererListe("src/main/resources/utilisateurs.json");
-        this.listeFournisseurs = genererListe("src/main/resources/fournisseurs.json");
+        ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null, null);
+        this.listeUtilisateurs = controllerUtilisateur.getListeUtilisateurs();
+        ControllerFournisseur controllerFournisseur = new ControllerFournisseur(null, null);
+        this.listeFournisseurs = controllerFournisseur.chargerFournisseursDepuisJson();
     }
 
     /**

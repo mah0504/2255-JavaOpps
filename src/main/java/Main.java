@@ -23,9 +23,12 @@ public class Main {
 
         /*MenuCompte menuCompte = new MenuCompte();
         Compte compte = new Compte() {};
-        ControllerCompte controllerCompte = new ControllerCompte(compte, menuCompte);
+        MenuUtilisateur menuUtilisateur = new MenuUtilisateur(null);
+        ControllerCompte controllerCompte = new ControllerCompte(compte, menuCompte, menuUtilisateur);
+
 
         controllerCompte.creerCompte();*/
+
     }
 
 }
