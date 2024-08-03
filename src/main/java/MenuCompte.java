@@ -5,12 +5,14 @@ public class MenuCompte {
     private ControllerUtilisateur controllerUtilisateur;
     private MenuUtilisateur menuUtilisateur;
     private ControllerFournisseur controllerFournisseur;
+    private MenuFournisseur menuFournisseur;
     private CompteView compteView;
 
     public MenuCompte() {
         controllerUtilisateur = new ControllerUtilisateur();
         controllerFournisseur = new ControllerFournisseur();
         menuUtilisateur = new MenuUtilisateur();
+        menuFournisseur = new MenuFournisseur();
         compteView = new CompteView();
     }
 
@@ -135,7 +137,16 @@ public class MenuCompte {
     }
 
     public void connecterFournisseur() {
-        compteView.AfficherMessage("Connexion du fournisseur...");
+        String email = compteView.getEmail();
+        String mdp = compteView.getMotDePasse();
+
+        boolean connected = controllerFournisseur.verifierConnexion(email, mdp);
+        if (connected) {
+            compteView.AfficherMessage("Connexion réussie !");
+            menuFournisseur.afficherMenuFournisseur();
+        } else {
+            compteView.AfficherMessage("Email ou mot de passe incorrect");
+        }
     }
 
     public void confirmerFournisseur() {
