@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 public class Fournisseur extends Compte{
 
@@ -46,6 +47,8 @@ public class Fournisseur extends Compte{
      * @return composantes La liste des Composantes d'un Fournisseur
      */
     public HashMap<String, FournisseurComposante> getComposantes(){
+        System.out.println(composantesFournisseurs);
+
         return composantesFournisseurs;
     }
 
@@ -58,4 +61,7 @@ public class Fournisseur extends Compte{
     public void addComposante(FournisseurComposante composante){
         this.composantesFournisseurs.put(composante.getComposante().getNom(), composante);
     }
+
+
+
 }

@@ -13,7 +13,6 @@ public class ControllerFournisseur{
     
     private Fournisseur fournisseur;
     private MenuFournisseur fournisseurView;
-    private ArrayList<FournisseurComposante> listeCompo= fournisseur.getComposantes();
     private ArrayList<Fournisseur> listeFournisseurs;
 
 
@@ -45,7 +44,7 @@ public class ControllerFournisseur{
     }
 
     public ArrayList<Fournisseur> getFournisseurs(){
-        return listeFournisseurs;
+        return chargerFournisseursDepuisJson();
     }
 
     public void FournisseurToJson(ArrayList<Fournisseur> listeFournisseurs) {
@@ -64,9 +63,9 @@ public class ControllerFournisseur{
     }
 
     public void supprimerComposante(){
-        for (FournisseurComposante c: listeCompo ){
-
-        }
+//        for (FournisseurComposante c: listeCompo ){
+//
+//        }
     }
 
     public void modifierComposante(){

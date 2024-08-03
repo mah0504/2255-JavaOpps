@@ -342,9 +342,10 @@ public class ControllerUtilisateur{
 
     public void trouverComposanteSelonType(){
         ComposanteType typeRecherche = choisirTypeComposante() ; // la compo choisie par l'utili
-        ArrayList<Fournisseur> Listefournisseurs =controllerFournisseur.chargerFournisseursDepuisJson();
+        ArrayList<Fournisseur> Listefournisseurs =controllerFournisseur. getFournisseurs();
         for (Fournisseur f : Listefournisseurs) {
-            for (FournisseurComposante c : f.getComposantes()){
+            for (FournisseurComposante c : f.getComposantes().values()){
+
                 if (c.getComposante().getType() == typeRecherche) {
                     System.out.println("Nom du fournisseur: " + f.getNomCompagnie() + "\n Id de la composante" +
                             c.getComposante().getId()  );
@@ -353,6 +354,7 @@ public class ControllerUtilisateur{
             }
         }
     }
+   // selon nom
 
     public void trouverComposanteSelonNom(){}
 
