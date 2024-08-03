@@ -340,7 +340,7 @@ public class ControllerUtilisateur{
     }
 
 
-    public void trouverComposanteSelonType(){
+    public FournisseurComposante trouverComposanteSelonType(){
         ComposanteType typeRecherche = choisirTypeComposante() ; // la compo choisie par l'utili
         ArrayList<Fournisseur> Listefournisseurs =controllerFournisseur. getFournisseurs();
         for (Fournisseur f : Listefournisseurs) {
@@ -349,10 +349,14 @@ public class ControllerUtilisateur{
                 if (c.getComposante().getType() == typeRecherche) {
                     System.out.println("Nom du fournisseur: " + f.getNomCompagnie() + "\n Id de la composante" +
                             c.getComposante().getId()  );
-
                 }
+
+
+                // on en trv pls mtn que faire ?
             }
         }
+        System.out.println("Erreur "); // a changer
+        return null ;
     }
    // selon nom
 

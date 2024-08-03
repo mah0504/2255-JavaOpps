@@ -57,6 +57,12 @@ public class ControllerFournisseur{
     }
 
 
+
+
+    public ArrayList<Fournisseur> getListeFournisseurs() {
+        return listeFournisseurs;
+    }
+
     public void enregistrerComposante(){
         //xhoisir un fournisseur
         //
@@ -71,8 +77,6 @@ public class ControllerFournisseur{
     public void modifierComposante(){
 
     }
-
-
 
 
 }

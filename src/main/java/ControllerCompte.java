@@ -64,7 +64,7 @@ public class ControllerCompte {
         ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null, null);
         this.listeUtilisateurs = controllerUtilisateur.getListeUtilisateurs();
         ControllerFournisseur controllerFournisseur = new ControllerFournisseur(null, null);
-        this.listeFournisseurs = controllerFournisseur.chargerFournisseursDepuisJson();
+        this.listeFournisseurs = controllerFournisseur.getListeFournisseurs();
     }
 
     /**

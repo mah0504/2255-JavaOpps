@@ -8,7 +8,9 @@ public class Main {
 
     public static void main(String[] args) {
 
+     //   ControllerFournisseur controllerFournisseur= new ControllerFournisseur(null,null);
         ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null, null);
+
         ArrayList<Utilisateur> utilisateurs = controllerUtilisateur.getListeUtilisateurs();
 
         Utilisateur user = utilisateurs.get(0);
@@ -21,6 +23,7 @@ public class Main {
         System.out.println(utilisateurs);
         controllerUtilisateur.UtilisateurToJson(utilisateurs);
 
+   //   System.out.println(controllerUtilisateur.getListeUtilisateurs());
         /*MenuCompte menuCompte = new MenuCompte();
         Compte compte = new Compte() {};
         MenuUtilisateur menuUtilisateur = new MenuUtilisateur(null);
