@@ -115,7 +115,8 @@ public class MenuUtilisateur extends View{
                     controllerUtilisateur.trouverComposanteSelonNom();
                     break;
                 case 2:
-                    controllerUtilisateur.trouverComposanteSelonType();
+                    controllerUtilisateur.trouverComposanteSelonType() ;
+
                     break;
                 case 3:
                   controllerUtilisateur.trouverComposanteSelonFournisseur();

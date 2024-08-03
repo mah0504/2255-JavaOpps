@@ -8,7 +8,6 @@ public class Main {
 
     public static void main(String[] args) {
 
-     //   ControllerFournisseur controllerFournisseur= new ControllerFournisseur(null,null);
         ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(null, null);
 
         ArrayList<Utilisateur> utilisateurs = controllerUtilisateur.getListeUtilisateurs();
