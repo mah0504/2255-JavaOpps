@@ -234,12 +234,58 @@ public class ControllerUtilisateur{
     }
 
 
+    /**
+     * Vérifie si la flotte de l'utilisateur contient au moins 1 composante.
+     *
+     * @return true si au moins une composante est disponible, false sinon.
+     */
+    public boolean composanteDispo(){
+        if (utilisateur.getComposantesFlotte().size() >0){
+            return true;
+        }
+        return false;
+    }
+
+
+    /**
+     * Permet à l'utilisateur de choisir une composante parmi celles disponibles dans sa flotte.
+     *
+     * Cette méthode affiche toutes les composantes disponibles dans la flotte de l'utilisateur et
+     * permet à l'utilisateur d'en choisir une en entrant son numéro correspondant.
+     *
+     * @return Le type de la composante choisie par l'utilisateur, ou null
+     * si aucune composante n'a été choisie.
+     */
+
+    public ComposanteType choisirComposanteFlotte(){
+
+        if (utilisateur.getComposantesFlotte().keySet().isEmpty()) {
+            System.out.println("Aucune composante disponible dans la flotte.");
+            return null;
+        }
+
+        for ( String s: utilisateur.getComposantesFlotte().keySet() ){
+            System.out.println("Veuillez choisir un composante de la flotte :");
+            System.out.println(s);
+        }
+        Scanner scanner= new Scanner(System.in);
+        try{
+
+            int choix = scanner.nextInt();
+            return utilisateur.getComposantesFlotte().get(choix - 1);
+        }catch (Exception e){
+            e.printStackTrace(); // modifier apres
+        }
+        return null;
+    }
+
     // a modifier ofc
     public void enregistrerRobot(Robot robot) {
-      //  choisir fournisseur
-        //acheter composantes , CPU + compo
-        // les ajouter
-        //
+        if (!composanteDispo()) {
+            System.out.println("Composants nécessaires non disponibles.");
+            return;
+        }
+
 
     }
 
@@ -260,10 +306,9 @@ public class ControllerUtilisateur{
             ArrayList<Composante> lstCompo = utilisateur.getListeRobots().get(choix).getListeComposantes();
 
             for (Composante c: lstCompo) {
-                utilisateur.getComposantesFlotte().put(c.getNom(), c.getType()); // ajouter les composantes du robot supprimé
-                // à l'inventaire de la flotte
+                utilisateur.getComposantesFlotte().put(c.getNom(), c.getType());
+                // ajouter les composantes du robot supprimé à l'inventaire de la flotte
             }
-
             utilisateur.getListeRobots().remove(choix); // enlever le robot
 
         } catch (Exception e){
@@ -358,8 +403,9 @@ public class ControllerUtilisateur{
         System.out.println("Erreur "); // a changer
         return null ;
     }
-   // selon nom
 
+
+    // selon no
     public void trouverComposanteSelonNom(){}
 
     public void trouverComposanteSelonFournisseur(){}
