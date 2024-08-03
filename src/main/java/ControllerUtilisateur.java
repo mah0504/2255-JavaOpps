@@ -116,32 +116,38 @@ public class ControllerUtilisateur{
         System.out.println("Lien de confirmation : " + confirmationLien);
     }
 
-    public boolean confirmerCompte(String confirmationLien) {
-        for (Utilisateur utilisateur : listeUtilisateurs) {
-            confirmationLien = confirmationLien.trim();
-            String userConfirmation = utilisateur.getConfirmationLien();
-            System.out.println("Vérification du lien de confirmation de l'utilisateur: " + userConfirmation);
-            if (userConfirmation.trim().equalsIgnoreCase(confirmationLien)) {
-                String confirmationDateStr = utilisateur.getConfirmationLienExpirationDate();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-                LocalDateTime confirmationDate = LocalDateTime.parse(confirmationDateStr, formatter);
-                if (LocalDateTime.now().isBefore(confirmationDate)) {
-                    utilisateur.isConfirmed(true);
-                    utilisateur.setConfirmationLien(null);
-                    utilisateur.setConfirmationLienExpirationDate(null);
-                    listeUtilisateursToJson(listeUtilisateurs);
-                    System.out.println("Compte confirmé avec succès !");
-                    return true;
-                } else {
-                    listeUtilisateurs.remove(utilisateur);
-                    listeUtilisateursToJson(listeUtilisateurs);
-                    System.out.println("Le lien de confirmation a expiré. Inscription annulée.");
-                    return false;
-                }
+    public boolean confirmerCompte(String email,String confirmationLien) {
+        Utilisateur utilisateur = findUserByEmail(email);
+        if(utilisateur != null){
+            String confirmationDateStr = utilisateur.getConfirmationLienExpirationDate();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            LocalDateTime confirmationDate = LocalDateTime.parse(confirmationDateStr, formatter);
+
+            if (LocalDateTime.now().isBefore(confirmationDate)) {
+                utilisateur.isConfirmed(true);
+                utilisateur.setConfirmationLien(null);
+                utilisateur.setConfirmationLienExpirationDate(null);
+                listeUtilisateursToJson(listeUtilisateurs);
+                return true;
+            } else {
+                listeUtilisateurs.remove(utilisateur);
+                listeUtilisateursToJson(listeUtilisateurs);
+                System.out.println("Le lien de confirmation a expiré. Inscription annulée.");
+                return false;
+            }
+        }else {
+            System.out.println("Lien de confirmation invalide.");
+            return false;
+        }
+    }
+
+    private Utilisateur getUtilisateurByConfirmationLien(String confirmationLien){
+        for(Utilisateur utilisateur : listeUtilisateurs){
+            if(utilisateur.getConfirmationLien().equals(confirmationLien)){
+                return utilisateur;
             }
         }
-        System.out.println("Lien de confirmation invalide.");
-        return false;
+        return null;
     }
 
     public boolean verifierConnexion(String email, String mdp){
@@ -159,6 +165,12 @@ public class ControllerUtilisateur{
             }
         }
         return null;
+    }
+
+    public void printUsers() {
+        for (Utilisateur utilisateur : listeUtilisateurs) {
+            System.out.println("User: " + utilisateur.getPseudo() + ", Confirmation Lien: " + utilisateur.getConfirmationLien());
+        }
     }
 
 }

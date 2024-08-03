@@ -113,8 +113,10 @@ public class MenuCompte {
     }
 
     public void confirmerUtilisateur() {
+        String email = compteView.getEmail();
         String confirmationLien = compteView.getConfirmationLien();
-        boolean success = controllerUtilisateur.confirmerCompte(confirmationLien);
+
+        boolean success = controllerUtilisateur.confirmerCompte(email,confirmationLien);
         if (success) {
             compteView.AfficherMessage("Compte confirmé avec succès !");
         } else {

@@ -11,20 +11,5 @@
     "mdp": "motdepasse1",
     "telephone": "1234567890",
     "confirmed": true
-  },
-  {
-    "prenom": "prenom2",
-    "nom": "nom2",
-    "points": 0.0,
-    "activites": {},
-    "listeRobots": [],
-    "composantes": {},
-    "pseudo": "pnom2",
-    "email": "pnom2@example.com",
-    "mdp": "motdepasse2",
-    "telephone": "1234567890",
-    "confirmed": false,
-    "confirmationLien": "b9a4a160-ea35-4820-a3d5-c0a6a40c91ad",
-    "confirmationLienExpirationDate": "04/08/2024 13:33"
   }
 ]
