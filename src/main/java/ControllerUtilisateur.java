@@ -141,15 +141,6 @@ public class ControllerUtilisateur{
         }
     }
 
-    private Utilisateur getUtilisateurByConfirmationLien(String confirmationLien){
-        for(Utilisateur utilisateur : listeUtilisateurs){
-            if(utilisateur.getConfirmationLien().equals(confirmationLien)){
-                return utilisateur;
-            }
-        }
-        return null;
-    }
-
     public boolean verifierConnexion(String email, String mdp){
         Utilisateur user = findUserByEmail(email);
         if(user != null && user.getMdp().equals(mdp) && user.getConfirmed()){
@@ -165,12 +156,6 @@ public class ControllerUtilisateur{
             }
         }
         return null;
-    }
-
-    public void printUsers() {
-        for (Utilisateur utilisateur : listeUtilisateurs) {
-            System.out.println("User: " + utilisateur.getPseudo() + ", Confirmation Lien: " + utilisateur.getConfirmationLien());
-        }
     }
 
 }

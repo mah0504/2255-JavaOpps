@@ -117,28 +117,45 @@ public class ControllerFournisseur{
         System.out.println("Lien de confirmation : " + confirmationLien);
     }
 
-    public boolean confirmerCompte(String confirmationLien) {
+    public boolean confirmerCompte(String email,String confirmationLien) {
+        Fournisseur fournisseur = findSupplierByEmail(email);
+        if(fournisseur != null){
+            String confirmationDateStr = fournisseur.getConfirmationLienExpirationDate();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+            LocalDateTime confirmationDate = LocalDateTime.parse(confirmationDateStr, formatter);
+
+            if (LocalDateTime.now().isBefore(confirmationDate)) {
+                fournisseur.isConfirmed(true);
+                fournisseur.setConfirmationLien(null);
+                fournisseur.setConfirmationLienExpirationDate(null);
+                listeFournisseursToJson(listeFournisseurs);
+                return true;
+            } else {
+                listeFournisseurs.remove(fournisseur);
+                listeFournisseursToJson(listeFournisseurs);
+                System.out.println("Le lien de confirmation a expiré. Inscription annulée.");
+                return false;
+            }
+        }else {
+            System.out.println("Lien de confirmation invalide.");
+            return false;
+        }
+    }
+
+    public boolean verifierConnexion(String email, String mdp){
+        Fournisseur supplier = findSupplierByEmail(email);
+        if(supplier != null && supplier.getMdp().equals(mdp) && supplier.getConfirmed()){
+            return true;
+        }
+        return false;
+    }
+
+    private Fournisseur findSupplierByEmail(String email) {
         for (Fournisseur fournisseur : listeFournisseurs) {
-            if (fournisseur.getConfirmationLien().equals(confirmationLien)) {
-                String confirmationDateStr = fournisseur.getConfirmationLienExpirationDate();
-                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-                LocalDateTime confirmationDate = LocalDateTime.parse(confirmationDateStr, formatter);
-                if (LocalDateTime.now().isBefore(confirmationDate)) {
-                    fournisseur.isConfirmed(true);
-                    fournisseur.setConfirmationLien(null);
-                    fournisseur.setConfirmationLienExpirationDate(null);
-                    listeFournisseursToJson(listeFournisseurs);
-                    System.out.println("Compte confirmé avec succès !");
-                    return true;
-                } else {
-                    listeFournisseurs.remove(fournisseur);
-                    listeFournisseursToJson(listeFournisseurs);
-                    System.out.println("Le lien de confirmation a expiré. Inscription annulée.");
-                    return false;
-                }
+            if (fournisseur.getEmail().equals(email)) {
+                return fournisseur;
             }
         }
-        System.out.println("Lien de confirmation invalide.");
-        return false;
+        return null;
     }
 }

@@ -11,5 +11,31 @@
     "mdp": "motdepasse1",
     "telephone": "1234567890",
     "confirmed": true
+  },
+  {
+    "prenom": "prenom2",
+    "nom": "nom2",
+    "points": 0.0,
+    "activites": {},
+    "listeRobots": [],
+    "composantes": {},
+    "pseudo": "pnom2",
+    "email": "pnom2@example.com",
+    "mdp": "motdepasse2",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom3",
+    "nom": "nom3",
+    "points": 0.0,
+    "activites": {},
+    "listeRobots": [],
+    "composantes": {},
+    "pseudo": "pnom3",
+    "email": "pnom3@example.com",
+    "mdp": "motdepasse3",
+    "telephone": "1234567890",
+    "confirmed": true
   }
 ]
