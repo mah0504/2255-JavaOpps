@@ -11,7 +11,7 @@ public class View {
    * selon le choix entré par le participant
    *
    */
-  public void afficherMenuPrincipal() {
+  /*public void afficherMenuPrincipal() {
     Scanner scanner = new Scanner(System.in);
     try{
     System.out.println("Bienvenue dans Robotix ! \n Veuillez choisir sous quel format vous voulez participer" +
@@ -37,7 +37,7 @@ public class View {
 
     }
 
-  }
+  }*/
 }
 
 

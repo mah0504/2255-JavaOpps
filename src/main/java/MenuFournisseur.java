@@ -47,7 +47,7 @@ public class MenuFournisseur extends View{
      * - Modifier une composante
      * - Supprimer une composante
      */
-    public void gererComposantes(){
+    /*public void gererComposantes(){
         Scanner scanner = new Scanner(System.in);
         try {
             System.out.println("Veuillez choisir quelle action effectuer ! \n [0] : retour au menu" +
@@ -74,6 +74,6 @@ public class MenuFournisseur extends View{
         }catch (Exception e){
             System.out.println("veuillez choisir un nombre valide  !");
         }
-    }
+    }*/
 
 }

@@ -1,12 +1,10 @@
-//import java.util.UUID;
 
 public abstract class Compte {
 
     private String pseudo, email, mdp, telephone;
-    private boolean confirmerInscription;
-    private boolean isConfirmed;
-    private boolean confirmationLien, confirmationLienExpiration;
-    private String DateConnexion;
+    private boolean confirmed;
+    private String confirmationLien;
+    private String confirmationLienExpirationDate;
 
     /**
      * Une nouvelle instance de la classe Compte (initialisation par défaut)
@@ -26,6 +24,9 @@ public abstract class Compte {
         this.email = email;
         this.mdp = mdp;
         this.telephone = telephone;
+        this.confirmed = false;
+        this.confirmationLien = null;
+        this.confirmationLienExpirationDate = null;
     }
 
     /**
@@ -100,22 +101,29 @@ public abstract class Compte {
         this.telephone = telephone;
     }
 
-    /**
-     * Vérifie si l'inscription ou la connexion est réussie
-     *
-     * @return {@code  true} si elle est réussie, sinon {@code false}
-     */
-    public boolean confirmer(){
-        return isConfirmed;
+    public boolean getConfirmed(){
+        return confirmed;
     }
 
-    /**
-     * Véridie si la désactivation du compte est réussie
-     *
-     * @return {@code  true} si elle est réussie, sinon {@code false}
-     */
-    public boolean desactiverCompte(){
-        return isConfirmed;
+    public void isConfirmed(boolean confirmed){
+        this.confirmed = confirmed;
     }
+
+    public String getConfirmationLien(){
+        return confirmationLien;
+    }
+
+    public void setConfirmationLien(String confirmationLien){
+        this.confirmationLien = confirmationLien;
+    }
+
+    public String getConfirmationLienExpirationDate(){
+        return confirmationLienExpirationDate;
+    }
+
+    public void setConfirmationLienExpirationDate(String confirmationLienExpirationDate){
+        this.confirmationLienExpirationDate = confirmationLienExpirationDate;
+    }
+
 
 }

@@ -9,15 +9,11 @@ public class Utilisateur extends Compte {
     private Map<String, StatutActivite> activites;
     private ArrayList<Robot> listeRobots ;
     private Map<String, ComposanteType> composantes;
+
     /**
      * Une nouvelle instance de la classe Utilisateur (initialisation par défaut)
      */
-    public Utilisateur(){
-        this.activites = new HashMap<>();
-        this.listeRobots = new ArrayList<>();
-        this.composantes = new HashMap<>();
-    }
-
+    public Utilisateur(){}
 
     /**
      * Une nouvelle instance de la classe Utilisateur
@@ -35,6 +31,7 @@ public class Utilisateur extends Compte {
         this.prenom = prenom;
         this.nom = nom;
         this.activites = new HashMap<>();
+        this.listeRobots = new ArrayList<>();
         this.composantes = new HashMap<>();
     }
 
@@ -43,6 +40,8 @@ public class Utilisateur extends Compte {
         return " Utilisateur = [ " + getPseudo() + " , " + points +
                 " , Activites : " + activites + " ]";
     }
+
+
     /**
      * Récupère le prenom d'un Utilisateur
      *
@@ -51,11 +50,6 @@ public class Utilisateur extends Compte {
     public String getPrenom(){
         return prenom;
     }
-
-
-    public Map<String, ComposanteType> getComposantesFlotte(){ return composantes;}
-
-    public ArrayList<Robot> getListeRobots(){return listeRobots;}
 
     /**
      *  Assigne un prenom à l'utilisateur
@@ -89,10 +83,6 @@ public class Utilisateur extends Compte {
      *
      * @return points les points gagnés l'utilisateur
      */
-
-
-
-
 
     public float getPoints(){
         return points;
@@ -145,5 +135,19 @@ public class Utilisateur extends Compte {
     public void supprimerActivite(String nomActivite){
         this.activites.remove(nomActivite);
     }
-}
 
+    /**
+     * Récupère un dictionnaire de Composantes que possède l'utilisateur
+     *
+     * @return composnates un dictionnaire de composantes
+     */
+    public Map<String, ComposanteType> getComposantesFlotte(){ return composantes;}
+
+    /**
+     * Récupère une liste de Robots que possède l'utilisateur
+     *
+     * @return listeRobots la liste des Robots
+     */
+    public ArrayList<Robot> getListeRobots(){return listeRobots;}
+
+}

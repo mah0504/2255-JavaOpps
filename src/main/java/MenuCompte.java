@@ -2,89 +2,185 @@ import java.util.Scanner;
 
 public class MenuCompte {
 
-    private Scanner scanner;
+    private ControllerUtilisateur controllerUtilisateur;
+    private MenuUtilisateur menuUtilisateur;
+    private ControllerFournisseur controllerFournisseur;
+    private CompteView compteView;
 
-    /**
-     * Une nouvelle instance de la classe MenuCompte
-     * Permet d'initialiser le scanner pour lire les entrées
-     *
-     */
     public MenuCompte() {
-        this.scanner = new Scanner(System.in);
+        controllerUtilisateur = new ControllerUtilisateur();
+        controllerFournisseur = new ControllerFournisseur();
+        menuUtilisateur = new MenuUtilisateur();
+        compteView = new CompteView();
     }
 
-    /**
-     * Récupère le type de Compte (Utilisateur ou Fournisseur)
-     *
-     * @return entier pour représenter le choix
-     *          1 = Utilisateur
-     *          2 = Fournisseur
-     *          3 = Quitter
-     */
-    public int getCompteType(){
-        System.out.println("Inscription : ");
-        System.out.println("1: S'inscrire comme Utilisateur");
-        System.out.println("2: S'inscrire comme Fournisseur");
-        return scanner.nextInt();
+    public void afficherMenu() {
+
+        boolean continuer = true;
+        while (continuer) {
+            int choixCompteType = compteView.getCompteType();
+
+            switch (choixCompteType) {
+                case 1:
+                    afficherMenuUtilisateurConnexion();
+                    break;
+                case 2:
+                    afficherMenuFournisseurConnexion();
+                    break;
+                case 3 :
+                    System.out.println("Au Revoir !");
+                    continuer = false;
+                    break;
+                default:
+                    compteView.AfficherMessage("Choix invalide, réessayez!");
+            }
+
+        }
     }
 
-    /**
-     * Récupère le pseudo lors de l'inscription
-     *
-     * @return pseudo saisi par le membre
-     */
-    public String getPseudo(){
-        System.out.println("Entrez un Pseudo :");
-        return scanner.nextLine();
+    public void afficherMenuUtilisateurConnexion() {
+        boolean retourner = false;
+        while (!retourner) {
+            int choixActionType = compteView.getActionType();
+
+            switch (choixActionType) {
+                case 0:
+                    compteView.AfficherMessage("Retour au Menu Principal");
+                    retourner = true;
+                    break;
+                case 1:
+                    connecterUtilisateur();
+                    break;
+                case 2:
+                    creerUtilisateur();
+                    break;
+                case 3:
+                    confirmerUtilisateur();
+                    break;
+                default:
+                    compteView.AfficherMessage("Choix invalide, réessayez !");
+            }
+        }
+
     }
 
-    /**
-     * Récupère l'email lors de l'inscription
-     *
-     * @return email saisi par le membre
-     */
-    public String getEmail(){
-        System.out.println("Entrez un Email :");
-        return scanner.nextLine();
+    public void afficherMenuFournisseurConnexion() {
+
+        int choixActionType = compteView.getActionType();
+
+        switch (choixActionType) {
+            case 0:
+                compteView.AfficherMessage("Retour au Menu Principal");
+                break;
+            case 1:
+                connecterFournisseur();
+                break;
+            case 2:
+                creerFournisseur();
+                break;
+            case 3:
+                confirmerFournisseur();
+                break;
+            default:
+                compteView.AfficherMessage("Choix invalide, réessayez !");
+        }
+
     }
 
-    /**
-     * Récupère le mot de Passe lors de l'inscription
-     *
-     * @return mdp saisi par le membre
-     */
-    public String getMotDePasse(){
-        System.out.println("Entrez un mot de passe :");
-        return scanner.nextLine();
+    public void creerUtilisateur() {
+        String pseudo = getPseudoUnique();
+        String nom = compteView.getNom();
+        String prenom = compteView.getPrenom();
+        String email = getEmailUnique();
+        String motDePasse = getMdpValid();
+        String telephone = getTelephoneValid();
+
+        controllerUtilisateur.creerUtilisateur(pseudo, email, motDePasse, telephone, prenom, nom);
+
     }
 
-    /**
-     * Récupère le telephone lors de l'inscription
-     *
-     * @return telephone saisi par le membre
-     */
-    public String getTelephone(){
-        System.out.println("Entrez un telephone :");
-        return scanner.nextLine();
+    public void connecterUtilisateur() {
+        String email = compteView.getEmail();
+        String mdp = compteView.getMotDePasse();
+
+        boolean connected = controllerUtilisateur.verifierConnexion(email, mdp);
+        if (connected) {
+            compteView.AfficherMessage("Connexion réussie !");
+            menuUtilisateur.afficherMenuUtilisateur();
+        } else {
+            compteView.AfficherMessage("Email ou mot de passe incorrect");
+        }
     }
 
-    /**
-     * Récupère le nom de la compagnie lors de l'inscription
-     *
-     * @return nom de comapagnie saisi par le membre
-     */
-    public String getCompagnie(){
-        System.out.println("Entrez le nom de votre compagnie : ");
-        return scanner.nextLine();
+    public void confirmerUtilisateur() {
+        String confirmationLien = compteView.getConfirmationLien();
+        boolean success = controllerUtilisateur.confirmerCompte(confirmationLien);
+        if (success) {
+            compteView.AfficherMessage("Compte confirmé avec succès !");
+        } else {
+            compteView.AfficherMessage("Échec de la confirmation du compte.");
+        }
     }
 
-    /**
-     * Permet d'afficher un message
-     *
-     * @param message le message à afficher
-     */
-    public void AfficherMessage(String message){
-        System.out.println(message);
+    public void creerFournisseur() {
+        String pseudo = getPseudoUnique();
+        String nomCompagnie = compteView.getCompagnie();
+        String email = getEmailUnique();
+        String motDePasse = getMdpValid();
+        String telephone = getTelephoneValid();
+
+        controllerFournisseur.creerFournisseur(pseudo, email, motDePasse, telephone, nomCompagnie);
     }
+
+    public void connecterFournisseur() {
+        compteView.AfficherMessage("Connexion du fournisseur...");
+    }
+
+    public void confirmerFournisseur() {
+        String confirmationLien = compteView.getConfirmationLien();
+        boolean success = controllerFournisseur.confirmerCompte(confirmationLien);
+        if (success) {
+            compteView.AfficherMessage("Compte confirmé avec succès !");
+        } else {
+            compteView.AfficherMessage("Échec de la confirmation du compte.");
+        }
+    }
+
+    public String getPseudoUnique(){
+        String pseudo = compteView.getPseudo();
+        while (!controllerUtilisateur.isPseudoUnique(pseudo) || !controllerFournisseur.isPseudoUnique(pseudo)) {
+            compteView.AfficherMessage("Ce pseudo existe déjà, réessayez !");
+            pseudo = compteView.getPseudo();
+        }
+        return pseudo;
+    }
+
+    private String getEmailUnique() {
+        String email = compteView.getEmail();
+        while (!controllerUtilisateur.isEmailUnique(email) || !controllerFournisseur.isEmailUnique(email)) {
+            compteView.AfficherMessage("Cet email existe déjà, réessayez !");
+            email = compteView.getEmail();
+        }
+        return email;
+    }
+
+    private String getMdpValid() {
+        String mdp = compteView.getMotDePasse();
+        while (!controllerUtilisateur.isMdpValide(mdp)) {
+            compteView.AfficherMessage("Le mot de passe doit avoir au moins 8 caractères.");
+            mdp = compteView.getMotDePasse();
+        }
+        return mdp;
+    }
+
+    private String getTelephoneValid() {
+        String telephone = compteView.getTelephone();
+        while (!controllerUtilisateur.isTelephoneValide(telephone)) {
+            compteView.AfficherMessage("Le numéro de téléphone n'est pas valide.");
+            telephone = compteView.getTelephone();
+        }
+        return telephone;
+    }
+
 
 }
