@@ -17,7 +17,6 @@ public class ControllerFournisseur{
     private ArrayList<Fournisseur> listeFournisseurs;
 
 
-
     public ControllerFournisseur(Fournisseur fournisseur, MenuFournisseur fournisseurView){
 
         this.fournisseur = fournisseur;
@@ -30,7 +29,7 @@ public class ControllerFournisseur{
      * Charge la liste des fournisseurs à partir d'un fichier JSON.
      *
      */
-    protected ArrayList<Fournisseur> chargerFournisseursDepuisJson() {
+    private ArrayList<Fournisseur> chargerFournisseursDepuisJson() {
         try (FileReader reader = new FileReader("src/main/resources/fournisseurs.json")) {
             Gson gson = new Gson();
             Type typeListeFournisseurs = new TypeToken<ArrayList<Fournisseur>>(){}.getType();
@@ -59,6 +58,11 @@ public class ControllerFournisseur{
     }
 
 
+    public void enregistrerComposante(){
+        //xhoisir un fournisseur
+        //
+    }
+
     public void supprimerComposante(){
         for (FournisseurComposante c: listeCompo ){
 
@@ -66,9 +70,10 @@ public class ControllerFournisseur{
     }
 
     public void modifierComposante(){
+
     }
 
-    public void enregistrerComposante(){}
+
 
 
 }

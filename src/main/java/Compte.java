@@ -2,7 +2,7 @@
 
 public abstract class Compte {
 
-    private String id, pseudo, email, mdp, telephone;
+    private String pseudo, email, mdp, telephone;
     private boolean confirmerInscription;
     private boolean isConfirmed;
     private boolean confirmationLien, confirmationLienExpiration;
@@ -11,9 +11,7 @@ public abstract class Compte {
     /**
      * Une nouvelle instance de la classe Compte (initialisation par défaut)
      */
-    public Compte(){
-        //setId();
-    }
+    public Compte(){}
 
     /**
      * Une nouvelle instance de la classe Compte
@@ -24,30 +22,10 @@ public abstract class Compte {
      * @param telephone le telephone du membre
      */
     public Compte(String pseudo, String email, String mdp, String telephone){
-        //setId();
         this.pseudo = pseudo;
         this.email = email;
         this.mdp = mdp;
         this.telephone = telephone;
-    }
-
-    /**
-     * Récupère l'id d'un Membre
-     *
-     * @return l'id du membre (utilisateur ou fournisseur)
-     */
-    public String getId(){
-        return id;
-    }
-
-    /**
-     *  Assigne un id unique au membre
-     *
-     * @param id Le nouvel id du membre
-     */
-    public void setId(String id){
-        this.id = id;
-        //this.id = UUID.randomUUID().toString();
     }
 
     /**

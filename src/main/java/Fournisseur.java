@@ -1,16 +1,15 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Fournisseur extends Compte{
 
     private String nomCompagnie;
-    private ArrayList<FournisseurComposante> composantes;
+    private HashMap<String, FournisseurComposante> composantesFournisseurs;
 
     /**
      * Une nouvelle instance de la classe Fournisseur (initialisation par défaut)
      */
-    public Fournisseur(){
-    }
-
+    public Fournisseur(){}
 
     /**
      * Une nouvelle instance de la classe Fournisseur
@@ -20,7 +19,7 @@ public class Fournisseur extends Compte{
     public Fournisseur(String pseudo, String email, String mdp, String telephone, String nomCompagnie){
         super(pseudo, email, mdp, telephone);
         this.nomCompagnie = nomCompagnie;
-        this.composantes = new ArrayList<>();
+        this.composantesFournisseurs = new HashMap<>();
     }
 
     /**
@@ -46,26 +45,17 @@ public class Fournisseur extends Compte{
      *
      * @return composantes La liste des Composantes d'un Fournisseur
      */
-    public ArrayList<FournisseurComposante> getComposantes(){
-        return composantes;
+    public HashMap<String, FournisseurComposante> getComposantes(){
+        return composantesFournisseurs;
     }
 
     /**
-     * Assigne une liste de Composantes que peut posséder un Fournisseur
-     *
-     * @param composantes la liste des composantes d'un Fournisseur
-     */
-    public void setComposantes(ArrayList<FournisseurComposante> composantes){
-        this.composantes = composantes;
-    }
-
-    /**
-     * permet d'ajouter des les informations sur une Composante à la liste des
+     * Permet d'ajouter les informations sur une Composante à la liste des
      * Composantes d'un Fournisseur
      *
      * @param composante la Composante et sa quantité à ajouter
      */
     public void addComposante(FournisseurComposante composante){
-        this.composantes.add(composante);
+        this.composantesFournisseurs.put(composante.getComposante().getNom(), composante);
     }
 }
