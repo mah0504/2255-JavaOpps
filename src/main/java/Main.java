@@ -17,8 +17,8 @@ public class Main {
         MenuUtilisateur menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
         menuUtilisateur.afficherMenuUtilisateur();
 
-        //System.out.println(user);
-        //System.out.println(utilisateurs);
+        System.out.println(user);
+        System.out.println(utilisateurs);
         controllerUtilisateur.UtilisateurToJson(utilisateurs);
 
         /*MenuCompte menuCompte = new MenuCompte();

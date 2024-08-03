@@ -54,6 +54,7 @@ public class ControllerCompte {
         return null; // sinon?
     }
 
+
     /**
      * Permet d'initialiser les listes des utilisateurs et des fournisseurs à
      * partir de leurs fichiers json
@@ -229,6 +230,4 @@ public class ControllerCompte {
 
         return null;
     }
-
-
 }

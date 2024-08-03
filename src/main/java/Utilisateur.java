@@ -127,6 +127,7 @@ public class Utilisateur extends Compte {
         return activites;
     }
 
+
     /**
      * Permet d'ajouter une activité aux activités que suit l'utilisateur
      *

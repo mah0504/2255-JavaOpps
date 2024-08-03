@@ -88,10 +88,10 @@ public class MenuUtilisateur extends View{
                     controllerUtilisateur.supprimerRobot();
                     break;
                 case 3:
-                    controllerUtilisateur.trouverComposante();
+                    trouverComposante();
                     break;
                 case 4:
-                    controllerUtilisateur.acheterComposante();
+                 //   controllerUtilisateur.acheterComposante();
                     break;
                 default:
                     System.out.println("Veuillez entrer un nombre valide.");
@@ -102,5 +102,27 @@ public class MenuUtilisateur extends View{
             System.out.println(" Veuillez entrer un nombre valide.");
         }
 
+    }
+
+    public void trouverComposante(){
+        Scanner scanner = new Scanner(System.in);
+        try {
+            System.out.println("Veuillez choisir comment chercher votre composante: \n [1] : Par nom \n [2] " +
+                    ": Par type \n [3] : Par fournisseur");
+            int choix = scanner.nextInt();
+            switch (choix){
+                case 1:
+                    controllerUtilisateur.trouverComposanteSelonNom();
+                    break;
+                case 2:
+                    controllerUtilisateur.trouverComposanteSelonType();
+                    break;
+                case 3:
+                  controllerUtilisateur.trouverComposanteSelonFournisseur();
+                    break;
+            }
+        }catch (Exception e){
+            System.out.println(" Veuillez entrer un nombre valide.");
+        }
     }
 }

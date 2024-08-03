@@ -6,10 +6,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
+import java.text.Normalizer;
 import java.util.*;
 
 public class ControllerUtilisateur{
-
+    private ControllerFournisseur controllerFournisseur; // temporaire
     private Utilisateur utilisateur;
     private MenuUtilisateur utilisateurView;
     private ControllerCompte controllerCompte;
@@ -231,9 +232,7 @@ public class ControllerUtilisateur{
         return null;
     }
 
-    /**
-     *
-     */
+
     // a modifier ofc
     public void enregistrerRobot(Robot robot) {
       //  choisir fournisseur
@@ -309,16 +308,59 @@ public class ControllerUtilisateur{
     }
 
 
-    public void trouverComposante(){
 
+    public ComposanteType choisirTypeComposante() {
+        Scanner scanner = new Scanner(System.in);
+        ComposanteType[] types = ComposanteType.values();
+        int choix = -1;
+
+        try {
+            System.out.println("Choisir type composante:");
+            for (int i = 0; i < types.length; i++) {
+                System.out.println(i + ": " + types[i]);
+            }
+
+            while (choix < 0 || choix >= types.length) {
+                System.out.print("Entrez le numéro de la composante choisie: ");
+                try {
+                    choix = scanner.nextInt();
+                    if (choix < 0 || choix >= types.length) {
+                        System.out.println("Numéro invalide. Veuillez entrer un nombre entre 0 et " + (types.length - 1));
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Entrée invalide. Veuillez entrer un nombre.");
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Une erreur inattendue s'est produite. Veuillez réessayer.");
+        }
+
+        return types[choix];
     }
 
-    public void acheterComposante(){
 
+    public void trouverComposanteSelonType(){
+        ComposanteType typeRecherche = choisirTypeComposante() ; // la compo choisie par l'utili
+        ArrayList<Fournisseur> Listefournisseurs =controllerFournisseur.chargerFournisseursDepuisJson();
+        for (Fournisseur f : Listefournisseurs) {
+            for (FournisseurComposante c : f.getComposantes()){
+                if (c.getComposante().getType() == typeRecherche) {
+                    System.out.println("Nom du fournisseur: " + f.getNomCompagnie() + "\n Id de la composante" +
+                            c.getComposante().getId()  );
+
+                }
+            }
+        }
     }
+
+    public void trouverComposanteSelonNom(){}
+
+    public void trouverComposanteSelonFournisseur(){}
 
 
     public void trouverFournisseur(){}
 
     public void voirNotifs(){}
+
 }
+
