@@ -11,7 +11,7 @@ public class MenuUtilisateur{
 
     }
 
-    public void afficherMenuUtilisateur() {
+    public void afficherMenuUtilisateur(Utilisateur utilisateur) {
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
 
@@ -41,7 +41,7 @@ public class MenuUtilisateur{
                     gererFlotte();
                     break;
                 case 4:
-                  //  controllerUtilisateur.
+                    //  controllerUtilisateur.
                     // truc pr les activites
                     break;
                 case 5:

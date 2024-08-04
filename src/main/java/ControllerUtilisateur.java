@@ -21,7 +21,6 @@ public class ControllerUtilisateur{
     private ArrayList<Fournisseur> listeFournisseurs;
 
 
-
     public ControllerUtilisateur(){
 
         this.listeUtilisateurs = new ArrayList<>();
@@ -29,6 +28,7 @@ public class ControllerUtilisateur{
      //   this.listeFournisseurs= new ArrayList<>();
         this.controllerFournisseur = new ControllerFournisseur();
         this.listeFournisseurs = controllerFournisseur.getListeFournisseurs();
+
 
     }
 
@@ -53,6 +53,12 @@ public class ControllerUtilisateur{
         }catch(Exception e){
             e.printStackTrace();
         }
+    }
+
+
+
+    public void setUtilisateur(Utilisateur utilisateur) {
+        this.utilisateur = utilisateur;
     }
 
     public boolean confirmerUtilisateur(String pseudo){
@@ -152,13 +158,21 @@ public class ControllerUtilisateur{
         }
     }
 
-    public boolean verifierConnexion(String email, String mdp){
+
+
+
+
+
+
+
+    public Utilisateur verifierConnexion(String email, String mdp){
         Utilisateur user = findUserByEmail(email);
         if(user != null && user.getMdp().equals(mdp) && user.getConfirmed()){
-            return true;
+            return user;
         }
-        return false;
+        return null;
     }
+
 
     private Utilisateur findUserByEmail(String email) {
         for (Utilisateur utilisateur : listeUtilisateurs) {
@@ -310,7 +324,6 @@ public class ControllerUtilisateur{
             e.printStackTrace(); // modifier apres
         }
 
-
         // sinon afficher etat
 
     }
@@ -407,6 +420,7 @@ public class ControllerUtilisateur{
     // selon nom
     public FournisseurComposante trouverComposanteSelonNom(){
         Scanner scanner = new Scanner(System.in);
+
         try{
 
             System.out.println("Veuilez entrer le nom de composante que vous recherchez");
@@ -441,8 +455,6 @@ public class ControllerUtilisateur{
         }
         return null;
     }
-
-
 
 
 

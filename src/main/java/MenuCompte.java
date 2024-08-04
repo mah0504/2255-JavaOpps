@@ -109,10 +109,11 @@ public class MenuCompte {
         String email = compteView.getEmail();
         String mdp = compteView.getMotDePasse();
 
-        boolean connected = controllerUtilisateur.verifierConnexion(email, mdp);
-        if (connected) {
+        Utilisateur utilisateur = controllerUtilisateur.verifierConnexion(email, mdp);
+        if (utilisateur != null) {
             compteView.AfficherMessage("Connexion réussie !");
-            menuUtilisateur.afficherMenuUtilisateur();
+            controllerUtilisateur.setUtilisateur(utilisateur);
+            menuUtilisateur.afficherMenuUtilisateur(utilisateur);
         } else {
             compteView.AfficherMessage("Email ou mot de passe incorrect");
         }
