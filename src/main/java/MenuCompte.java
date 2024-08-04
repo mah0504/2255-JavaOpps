@@ -145,9 +145,10 @@ public class MenuCompte {
         String email = compteView.getEmail();
         String mdp = compteView.getMotDePasse();
 
-        boolean connected = controllerFournisseur.verifierConnexion(email, mdp);
-        if (connected) {
+        Fournisseur fournisseur = controllerFournisseur.verifierConnexion(email, mdp);
+        if (fournisseur != null) {
             compteView.AfficherMessage("Connexion réussie !");
+            controllerFournisseur.setFournisseur(fournisseur);
             menuFournisseur.afficherMenuFournisseur();
         } else {
             compteView.AfficherMessage("Email ou mot de passe incorrect");

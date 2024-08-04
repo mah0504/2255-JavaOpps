@@ -15,6 +15,8 @@ import java.util.UUID;
 public class ControllerFournisseur{
 
     private ArrayList<Fournisseur> listeFournisseurs;
+    private Fournisseur fournisseur;
+
 
     public ControllerFournisseur() {
         listeFournisseurs = new ArrayList<>();
@@ -30,6 +32,14 @@ public class ControllerFournisseur{
             e.printStackTrace();
         }
     }
+
+
+    public void setFournisseur(Fournisseur fournisseur) {
+        this.fournisseur = fournisseur;
+    }
+
+
+
 
     public ArrayList<Fournisseur> getListeFournisseurs(){
         try (FileReader reader = new FileReader("src/main/resources/fournisseurs.json")) {
@@ -149,12 +159,12 @@ public class ControllerFournisseur{
         }
     }
 
-    public boolean verifierConnexion(String email, String mdp){
+    public Fournisseur verifierConnexion(String email, String mdp){
         Fournisseur supplier = findSupplierByEmail(email);
         if(supplier != null && supplier.getMdp().equals(mdp) && supplier.getConfirmed()){
-            return true;
+            return supplier;
         }
-        return false;
+        return null;
     }
 
     private Fournisseur findSupplierByEmail(String email) {
