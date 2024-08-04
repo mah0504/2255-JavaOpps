@@ -22,11 +22,12 @@ public class MenuCompte {
     public void afficherMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
+        int choix;
 
         while (continuer) {
             try {
                 compteView.compteType();
-                int choix = scanner.nextInt();
+                choix = scanner.nextInt();
 
                 switch (choix) {
                     case 1:
@@ -52,54 +53,71 @@ public class MenuCompte {
 
 
     public void afficherMenuUtilisateurConnexion() {
-        boolean retourner = false;
-        while (!retourner) {
-            int choixActionType = compteView.getActionType();
+        Scanner scanner = new Scanner(System.in);
+        boolean continuer = true;
+        int choix;
 
-            switch (choixActionType) {
-                case 0:
-                    compteView.AfficherMessage("Retour au Menu Principal");
-                    retourner = true;
-                    break;
-                case 1:
-                    connecterUtilisateur();
-                    break;
-                case 2:
-                    creerUtilisateur();
-                    break;
-                case 3:
-                    confirmerUtilisateur();
-                    break;
-                default:
-                    compteView.AfficherMessage("Choix invalide, réessayez !");
+        while (continuer) {
+            try {
+                compteView.actionType();
+                choix = scanner.nextInt();
+
+                switch (choix) {
+                    case 0:
+                        compteView.AfficherMessage("Retour au Menu Principal");
+                        continuer = false;
+                        break;
+                    case 1:
+                        connecterUtilisateur();
+                        break;
+                    case 2:
+                        creerUtilisateur();
+                        break;
+                    case 3:
+                        confirmerUtilisateur();
+                        break;
+                    default:
+                        compteView.AfficherMessage("Choix invalide, réeessayez!");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                scanner.next(); // Clear the invalid input
             }
         }
-
     }
 
     public void afficherMenuFournisseurConnexion() {
-        boolean retourner = false;
-        while (!retourner) {
-            int choixActionType = compteView.getActionType();
+        Scanner scanner = new Scanner(System.in);
+        boolean continuer = true;
+        int choix;
 
-            switch (choixActionType) {
-                case 0:
-                    compteView.AfficherMessage("Retour au Menu Principal");
-                    break;
-                case 1:
-                    connecterFournisseur();
-                    break;
-                case 2:
-                    creerFournisseur();
-                    break;
-                case 3:
-                    confirmerFournisseur();
-                    break;
-                default:
-                    compteView.AfficherMessage("Choix invalide, réessayez !");
+        while (continuer) {
+            try {
+                compteView.actionType();
+                choix = scanner.nextInt();
+
+                switch (choix) {
+                    case 0:
+                        compteView.AfficherMessage("Retour au Menu Principal");
+                        continuer = false;
+                        break;
+                    case 1:
+                        connecterFournisseur();
+                        break;
+                    case 2:
+                        creerFournisseur();
+                        break;
+                    case 3:
+                        confirmerFournisseur();
+                        break;
+                    default:
+                        compteView.AfficherMessage("Choix invalide, réessayez !");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                scanner.next(); // Clear the invalid input
             }
         }
-
     }
 
     public void creerUtilisateur() {
