@@ -490,7 +490,7 @@ public class ControllerUtilisateur{
 
                     for (int i = 0; i < composantes.size(); i++) {
                         FournisseurComposante composante = composantes.get(i);
-                        System.out.println((i + 1) + ": ID: " + composante.getComposante().getId() + ", Nom: " + composante.getComposante().getNom());
+                        System.out.println((i + 1) + "Nom: " + composante.getComposante().getNom());
                     }
 
                     System.out.println("Veuillez choisir une composante (entrer le numéro correspondant) :");
@@ -535,10 +535,9 @@ public class ControllerUtilisateur{
      */
     public void afficherCompoInfo(FournisseurComposante composante){
 
-        System.out.println("L'Id "+composante.getComposante().getId() + "\n" + "Le Type"
+        System.out.println("Nom : "+composante.getComposante().getNom() + "\n" + "Le Type"
                 +composante.getComposante().getType() +"\n" + "Description :" +
-                composante.getComposante().getDescription() +"\n Prix: " + composante.getComposante().getPrix()
-                + "\n Nom: " + composante.getComposante().getNom()); ;
+                composante.getComposante().getDescription() +"\n Prix: " + composante.getComposante().getPrix());
     }
 
 
