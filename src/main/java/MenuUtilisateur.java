@@ -32,7 +32,7 @@ public class MenuUtilisateur{
                     continuer = false;
                     break;
                 case 1:
-
+                    controllerUtilisateur.modifierProfil();
                     break;
                 case 2:
                     controllerUtilisateur.afficherEtatsRobots();
@@ -52,6 +52,7 @@ public class MenuUtilisateur{
                     break;
                 case 7:
                     controllerUtilisateur.choisirFournisseur();
+                    //juste pr tester
                     break;
                 default:
                     System.out.println("Choix invalide. Veuillez entrer nombre valide dan la borne.");

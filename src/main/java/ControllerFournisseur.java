@@ -39,7 +39,7 @@ public class ControllerFournisseur{
     }
 
 
-
+     public void modifierProfil(){}
 
     public ArrayList<Fournisseur> getListeFournisseurs(){
         try (FileReader reader = new FileReader("src/main/resources/fournisseurs.json")) {
@@ -175,4 +175,11 @@ public class ControllerFournisseur{
         }
         return null;
     }
+
+    public void enregistrerComposante(){
+    }
+
+    public void supprimerComposante(){}
+
+    public void modifierComposante( ){}
 }

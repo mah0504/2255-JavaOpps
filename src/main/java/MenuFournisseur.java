@@ -17,11 +17,9 @@ public class MenuFournisseur{
             System.out.println("Menu :");
             System.out.println(" [0] : Retour au menu principal \n " +
                     "[1] : modifier mon profil  \n " +
-                    "[2] :  \n " +
-                    "[3] :   \n " +
-                    "[4] :   \n " +
-                    "[5] :   \n " +
-                    "[6] :  ");
+                    "[2] : enregistrer une composante  \n " +
+                    "[3] : modifier une composante  \n " +
+                    "[4] : supprimer une composante \n " );
             int choix = Integer.parseInt(scanner.nextLine());
 
             switch (choix) {
@@ -29,21 +27,21 @@ public class MenuFournisseur{
                     continuer = false;
                     break;
                 case 1:
+                    controllerFournisseur.modifierProfil();
                     break;
                 case 2:
+                    controllerFournisseur.enregistrerComposante();
                     break;
                 case 3:
+                    controllerFournisseur.supprimerComposante();
                     break;
                 case 4:
+                    controllerFournisseur.modifierComposante();
                     break;
-                case 5:
-                    break;
-                case 6:
-                    break;
-                case 7:
 
                 default:
                     System.out.println("Choix invalide. Veuillez entrer un nombre valide.");
+                    break;
             }
         }
     }
