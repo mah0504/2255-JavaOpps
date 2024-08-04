@@ -2,7 +2,7 @@ import java.util.UUID;
 
 public class Composante {
 
-    private String id, nom, description;
+    private String nom, description;
     private ComposanteType type;
     float prix;
 
@@ -22,28 +22,10 @@ public class Composante {
      * @param prix le prix de la composante
      */
     public Composante(String nom, String description, ComposanteType type, float prix) {
-        //setId();
-        //Si on ajoute l'id, il faut modifier le json pour l'intégrer
         this.nom = nom;
         this.description = description;
         this.type = type;
         this.prix = prix;
-    }
-
-    /**
-     * Récupère l'id de la composante
-     *
-     * @return id L'identifiant de la Composante
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * Assigne un nouvel identifiant random à une Composante
-     */
-    public void setId() {
-        this.id = UUID.randomUUID().toString();;
     }
 
     /**
@@ -115,5 +97,15 @@ public class Composante {
      * @param prix le nouveau de la composante
      */
     public void setPrix(float prix) { this.prix = prix;}
+
+    /**
+     * Méthode toString() pour afficher un objet Composante
+     *
+     * @return nom + " : { typeComposante :  " + type + " , prix : " + prix + " }"
+     */
+    @Override
+    public String toString(){
+        return nom + " : { typeComposante :  " + type + " , prix : " + prix + " }";
+    }
 
 }
