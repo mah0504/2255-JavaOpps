@@ -71,24 +71,26 @@ public class MenuCompte {
     }
 
     public void afficherMenuFournisseurConnexion() {
+        boolean retourner = false;
+        while (!retourner) {
+            int choixActionType = compteView.getActionType();
 
-        int choixActionType = compteView.getActionType();
-
-        switch (choixActionType) {
-            case 0:
-                compteView.AfficherMessage("Retour au Menu Principal");
-                break;
-            case 1:
-                connecterFournisseur();
-                break;
-            case 2:
-                creerFournisseur();
-                break;
-            case 3:
-                confirmerFournisseur();
-                break;
-            default:
-                compteView.AfficherMessage("Choix invalide, réessayez !");
+            switch (choixActionType) {
+                case 0:
+                    compteView.AfficherMessage("Retour au Menu Principal");
+                    break;
+                case 1:
+                    connecterFournisseur();
+                    break;
+                case 2:
+                    creerFournisseur();
+                    break;
+                case 3:
+                    confirmerFournisseur();
+                    break;
+                default:
+                    compteView.AfficherMessage("Choix invalide, réessayez !");
+            }
         }
 
     }

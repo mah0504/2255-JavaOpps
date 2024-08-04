@@ -16,14 +16,14 @@ public class Composante {
     /**
      * Une nouvelle instance de la classe Composante
      *
-     * @param id l'identifiant de la composante
      * @param nom le nom de la composante
      * @param description la description de la composante
      * @param type le type de la composante
      * @param prix le prix de la composante
      */
-    public Composante(String id, String nom, String description, ComposanteType type, float prix) {
-        setId();
+    public Composante(String nom, String description, ComposanteType type, float prix) {
+        //setId();
+        //Si on ajoute l'id, il faut modifier le json pour l'intégrer
         this.nom = nom;
         this.description = description;
         this.type = type;
