@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuCompte {
@@ -19,28 +20,36 @@ public class MenuCompte {
     }
 
     public void afficherMenu() {
-
+        Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
+
         while (continuer) {
-            int choixCompteType = compteView.getCompteType();
+            try {
+                compteView.compteType();
+                int choix = scanner.nextInt();
 
-            switch (choixCompteType) {
-                case 1:
-                    afficherMenuUtilisateurConnexion();
-                    break;
-                case 2:
-                    afficherMenuFournisseurConnexion();
-                    break;
-                case 3 :
-                    System.out.println("Au Revoir !");
-                    continuer = false;
-                    break;
-                default:
-                    compteView.AfficherMessage("Choix invalide, réessayez!");
+                switch (choix) {
+                    case 1:
+                        afficherMenuUtilisateurConnexion();
+                        break;
+                    case 2:
+                        afficherMenuFournisseurConnexion();
+                        break;
+                    case 3 :
+                        System.out.println("Au Revoir !");
+                        continuer = false;
+                        break;
+                    default:
+                        compteView.AfficherMessage("Choix invalide, réessayez!");
+                }
+            } catch (InputMismatchException e) {
+                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
+                scanner.next(); // Clear the invalid input
             }
-
         }
     }
+
+
 
     public void afficherMenuUtilisateurConnexion() {
         boolean retourner = false;
