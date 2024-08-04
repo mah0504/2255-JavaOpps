@@ -3,16 +3,16 @@ public class Activite {
     private String nom, description;
 
     /**
-     * Une nouvelle instance de la classe Activite
+     * Une nouvelle instance de la classe Activité
      * (initialisée par défaut)
      */
     public Activite() {}
 
     /**
-     * Une nouvelle instance de la classe Activite
+     * Une nouvelle instance de la classe Activité
      *
-     * @param nom le nom de l'activite
-     * @param description la description de l'activite
+     * @param nom le nom de l'activité
+     * @param description la description de l'activité
      */
     public Activite(String nom, String description) {
         this.nom = nom;
@@ -20,43 +20,43 @@ public class Activite {
     }
 
     /**
-     * Récupère le nom de l'activite
+     * Récupère le nom de l'activité
      *
-     * @return nom le nom de l'activite
+     * @return nom le nom de l'activité
      */
     public String getNom() {
         return nom;
     }
 
     /**
-     * Assigne un nom à l'activite
+     * Assigne un nom à l'activité
      *
-     * @param nom le nouveau nom de l'activite
+     * @param nom le nouveau nom de l'activité
      */
     public void setNom(String nom) {
         this.nom = nom;
     }
 
     /**
-     * Récupère la description de l'activite
+     * Récupère la description de l'activité
      *
-     * @return description la description de l'activite
+     * @return description la description de l'activité
      */
     public String getDescription() {
         return description;
     }
 
     /**
-     * Assigne une description l'activite
+     * Assigne une description l'activité
      *
-     * @param description la nouvelle description de l'activite
+     * @param description la nouvelle description de l'activité
      */
     public void setDescription(String description) {
         this.description = description;
     }
 
     /**
-     * la méthode toString() pour une afficher un objet Activite
+     * Méthode toString() pour afficher un objet Activité
      *
      * @return nom + " : " + description
      */
