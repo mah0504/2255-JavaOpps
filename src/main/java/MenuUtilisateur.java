@@ -5,8 +5,10 @@ public class MenuUtilisateur{
     private Scanner scanner;
     private ControllerUtilisateur controllerUtilisateur;
 
-    public MenuUtilisateur(){
+    public MenuUtilisateur(ControllerUtilisateur controllerUtilisateur){
         this.scanner = new Scanner(System.in);
+        this.controllerUtilisateur = controllerUtilisateur;
+
     }
 
     public void afficherMenuUtilisateur() {
@@ -21,7 +23,8 @@ public class MenuUtilisateur{
                     "[3] : Gérer ma flotte  \n " +
                     "[4] : Gérer les activités  \n " +
                     "[5] : Trouver un fournisseur \n " +
-                    "[6] : Voir mes notifications ");
+                    "[6] : Voir mes notifications \n" +
+                    "[7] : Choisir fournisseur ");
             int choix = Integer.parseInt(scanner.nextLine());
 
             switch (choix) {
@@ -47,8 +50,11 @@ public class MenuUtilisateur{
                 case 6:
                     controllerUtilisateur.voirNotifs();
                     break;
+                case 7:
+                    controllerUtilisateur.choisirFournisseur();
+                    break;
                 default:
-                    System.out.println("Choix invalide. Veuillez entrer 1 ou 2.");
+                    System.out.println("Choix invalide. Veuillez entrer nombre valide dan la borne.");
             }
         }
     }
@@ -86,8 +92,10 @@ public class MenuUtilisateur{
                 case 4:
                     controllerUtilisateur.acheterComposante();
                     break;
+
                 default:
-                    System.out.println("Veuillez entrer un nombre valide.");
+
+                    System.out.println("choisir nbr appropprie.");
                     break;
             }
 

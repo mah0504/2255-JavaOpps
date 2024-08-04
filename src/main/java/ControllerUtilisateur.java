@@ -13,15 +13,24 @@ import java.util.UUID;
 import java.time.LocalDateTime;
 
 public class ControllerUtilisateur{
+
     private Utilisateur utilisateur;
     private ArrayList<Utilisateur> listeUtilisateurs;
     private ControllerRobot controllerRobot;
     private ControllerFournisseur controllerFournisseur;
     private ArrayList<Fournisseur> listeFournisseurs;
+
+
+
     public ControllerUtilisateur(){
+
+
+
         this.listeUtilisateurs = new ArrayList<>();
         getListeUtilisateursFromJson();
         this.listeFournisseurs= new ArrayList<>();
+        this.controllerFournisseur = new ControllerFournisseur();
+        controllerFournisseur.getListeFournisseurs();
 
     }
 
@@ -516,11 +525,18 @@ public class ControllerUtilisateur{
 
     public void acheterComposante(){
         ComposanteType compoChoisie =  choisirTypeComposante();
-    //    controllerFournisseur.getFournisseurs(); // choisir le founisseur
 
     }
 
     public void choisirFournisseur(){
+        if (listeFournisseurs.isEmpty()) {
+            System.out.println("Aucun fournisseur disponible.");
+        } else {
+            System.out.println("Nombre de fournisseurs disponibles : " + listeFournisseurs.size());
+            for (Fournisseur c : listeFournisseurs) {
+                System.out.println("Fournisseur : " + c);
+            }
+        }
 
     }
     public void trouverFournisseur(){}

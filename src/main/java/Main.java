@@ -7,8 +7,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        MenuCompte menuCompte = new MenuCompte();
+        Scanner scanner = new Scanner(System.in);
+        ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur();
+    //    MenuUtilisateur menuUtilisateur = new MenuUtilisateur();
 
+        MenuCompte menuCompte = new MenuCompte(controllerUtilisateur);
         menuCompte.afficherMenu();
     }
 

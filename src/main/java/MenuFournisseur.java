@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class MenuFournisseur{
 
     private Scanner scanner;
-
+    private ControllerFournisseur controllerFournisseur;
     public MenuFournisseur(){
         this.scanner = new Scanner(System.in);
     }
@@ -39,6 +39,8 @@ public class MenuFournisseur{
                     break;
                 case 6:
                     break;
+                case 7:
+
                 default:
                     System.out.println("Choix invalide. Veuillez entrer 1 ou 2.");
             }
