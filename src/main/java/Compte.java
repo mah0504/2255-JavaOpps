@@ -1,3 +1,6 @@
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.UUID;
 
 public abstract class Compte {
 
@@ -101,26 +104,62 @@ public abstract class Compte {
         this.telephone = telephone;
     }
 
+    /**
+     * Récupère l'état de confirmation de l'email
+     *
+     * @return {@code true} si l'email est confirmé, {@code false} sinon
+     */
     public boolean getConfirmed(){
         return confirmed;
     }
 
+    /**
+     * Assigne l'état de confirmation
+     *
+     * @param confirmed {@code true} pour confirmer l'email, {@code false} pour annuler la confirmation
+     */
     public void isConfirmed(boolean confirmed){
         this.confirmed = confirmed;
     }
 
+    /**
+     * Récupère le lien de confirmation envoyé par email
+     *
+     * @return le lien de confirmation
+     */
     public String getConfirmationLien(){
+        String confirmationLien = UUID.randomUUID().toString();
         return confirmationLien;
     }
 
+    /**
+     * Assigne un lien de confirmation au compte à vérifier
+     *
+     * @param confirmationLien le lien de confirmation à vérifier
+     */
     public void setConfirmationLien(String confirmationLien){
         this.confirmationLien = confirmationLien;
     }
 
+    /**
+     * Récupère la date d'expiration du lien de confirmation.
+     * Elle est calculée par rapport à la date le lien de confirmation a été envoyé.
+     * Utilise un Formatter pour retourner une Date en String
+     *
+     * @return string Date d'expiration du lien de confirmation
+     */
     public String getConfirmationLienExpirationDate(){
+        LocalDateTime expirationDate = LocalDateTime.now().plusHours(24);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        String confirmationLienExpirationDate = expirationDate.format(formatter);
         return confirmationLienExpirationDate;
     }
 
+    /**
+     * Assigne une date d'expiration du lien de confirmation
+     *
+     * @param confirmationLienExpirationDate Date en String
+     */
     public void setConfirmationLienExpirationDate(String confirmationLienExpirationDate){
         this.confirmationLienExpirationDate = confirmationLienExpirationDate;
     }
