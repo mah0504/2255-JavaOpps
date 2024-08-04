@@ -78,12 +78,10 @@ public class ControllerFournisseur{
         if (confirmerFournisseur(pseudo)) {
 
             //Initialiser le lien de confirmation
-            String confirmationLien = UUID.randomUUID().toString();
+            String confirmationLien = nouveauFournisseur.getConfirmationLien();
 
             //Initialiser la Date d'expiration de ce lien
-            LocalDateTime expiration = LocalDateTime.now().plusHours(24);
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-            String DateExpiration = expiration.format(formatter);
+            String DateExpiration = fournisseur.getConfirmationLienExpirationDate();
 
             //Assigner les nouvelles valeurs
             nouveauFournisseur.setConfirmationLien(confirmationLien);
@@ -137,9 +135,11 @@ public class ControllerFournisseur{
     public boolean confirmerCompte(String email,String confirmationLien) {
         Fournisseur fournisseur = findSupplierByEmail(email);
         if(fournisseur != null){
+            //récupère la date d'expiration du lien de confirmation
             String confirmationDateStr = fournisseur.getConfirmationLienExpirationDate();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-            LocalDateTime confirmationDate = LocalDateTime.parse(confirmationDateStr, formatter);
+
+            //Convertit le String en une Date
+            LocalDateTime confirmationDate = fournisseur.StrToDate(confirmationDateStr);
 
             if (LocalDateTime.now().isBefore(confirmationDate)) {
                 fournisseur.isConfirmed(true);

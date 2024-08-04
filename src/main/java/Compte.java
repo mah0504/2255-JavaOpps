@@ -164,5 +164,18 @@ public abstract class Compte {
         this.confirmationLienExpirationDate = confirmationLienExpirationDate;
     }
 
+    /**
+     * Permet de convertir une chaîne de caractères en LocalDateTime
+     * utilisant un DateTimeFormatter
+     *
+     * @param date la date en chaîne de caractères
+     * @return dateTime la date en LocalDateTime
+     */
+    public LocalDateTime StrToDate(String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        LocalDateTime dateTime = LocalDateTime.parse(date, formatter);
+        return dateTime;
+    }
+
 
 }
