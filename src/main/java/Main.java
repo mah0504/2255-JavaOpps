@@ -12,10 +12,11 @@ public class Main {
         ControllerFournisseur controllerFournisseur = new ControllerFournisseur();
     //    MenuUtilisateur menuUtilisateur = new MenuUtilisateur();
 
+
         MenuCompte menuCompte = new MenuCompte(controllerUtilisateur, controllerFournisseur );
         menuCompte.afficherMenu();
-    }
 
+    }
 }
 
 
