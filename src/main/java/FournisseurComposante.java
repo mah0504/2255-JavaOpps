@@ -20,7 +20,7 @@ public class FournisseurComposante {
     }
 
     /**
-     * Récupère lcomposante de chez le fournisseur
+     * Récupère la composante de chez le fournisseur
      *
      * @return composante La composante que fournit le Fournisseur
      */

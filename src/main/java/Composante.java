@@ -1,3 +1,5 @@
+import java.util.UUID;
+
 public class Composante {
 
     private String id, nom, description;
@@ -14,14 +16,14 @@ public class Composante {
     /**
      * Une nouvelle instance de la classe Composante
      *
-     * @param id l'identifiant de la composante
      * @param nom le nom de la composante
      * @param description la description de la composante
      * @param type le type de la composante
      * @param prix le prix de la composante
      */
-    public Composante(String id, String nom, String description, ComposanteType type, float prix) {
-        this.id = id;
+    public Composante(String nom, String description, ComposanteType type, float prix) {
+        //setId();
+        //Si on ajoute l'id, il faut modifier le json pour l'intégrer
         this.nom = nom;
         this.description = description;
         this.type = type;
@@ -38,12 +40,10 @@ public class Composante {
     }
 
     /**
-     * Assigne un nouveau identifiant à une Composante
-     *
-     * @param id le nouvel identifiant de la Composante
+     * Assigne un nouvel identifiant random à une Composante
      */
-    public void setId(String id) {
-        this.id = id;
+    public void setId() {
+        this.id = UUID.randomUUID().toString();;
     }
 
     /**
@@ -114,8 +114,6 @@ public class Composante {
      *
      * @param prix le nouveau de la composante
      */
-    public void setPrix(float prix) {
-        this.prix = prix;
-    }
+    public void setPrix(float prix) { this.prix = prix;}
 
 }

@@ -1,19 +1,15 @@
-//import java.util.UUID;
 
 public abstract class Compte {
 
-    private String id, pseudo, email, mdp, telephone;
-    private boolean confirmerInscription;
-    private boolean isConfirmed;
-    private boolean confirmationLien, confirmationLienExpiration;
-    private String DateConnexion;
+    private String pseudo, email, mdp, telephone;
+    private boolean confirmed;
+    private String confirmationLien;
+    private String confirmationLienExpirationDate;
 
     /**
      * Une nouvelle instance de la classe Compte (initialisation par défaut)
      */
-    public Compte(){
-        //setId();
-    }
+    public Compte(){}
 
     /**
      * Une nouvelle instance de la classe Compte
@@ -24,30 +20,13 @@ public abstract class Compte {
      * @param telephone le telephone du membre
      */
     public Compte(String pseudo, String email, String mdp, String telephone){
-        //setId();
         this.pseudo = pseudo;
         this.email = email;
         this.mdp = mdp;
         this.telephone = telephone;
-    }
-
-    /**
-     * Récupère l'id d'un Membre
-     *
-     * @return l'id du membre (utilisateur ou fournisseur)
-     */
-    public String getId(){
-        return id;
-    }
-
-    /**
-     *  Assigne un id unique au membre
-     *
-     * @param id Le nouvel id du membre
-     */
-    public void setId(String id){
-        this.id = id;
-        //this.id = UUID.randomUUID().toString();
+        this.confirmed = false;
+        this.confirmationLien = null;
+        this.confirmationLienExpirationDate = null;
     }
 
     /**
@@ -122,22 +101,29 @@ public abstract class Compte {
         this.telephone = telephone;
     }
 
-    /**
-     * Vérifie si l'inscription ou la connexion est réussie
-     *
-     * @return {@code  true} si elle est réussie, sinon {@code false}
-     */
-    public boolean confirmer(){
-        return isConfirmed;
+    public boolean getConfirmed(){
+        return confirmed;
     }
 
-    /**
-     * Véridie si la désactivation du compte est réussie
-     *
-     * @return {@code  true} si elle est réussie, sinon {@code false}
-     */
-    public boolean desactiverCompte(){
-        return isConfirmed;
+    public void isConfirmed(boolean confirmed){
+        this.confirmed = confirmed;
     }
+
+    public String getConfirmationLien(){
+        return confirmationLien;
+    }
+
+    public void setConfirmationLien(String confirmationLien){
+        this.confirmationLien = confirmationLien;
+    }
+
+    public String getConfirmationLienExpirationDate(){
+        return confirmationLienExpirationDate;
+    }
+
+    public void setConfirmationLienExpirationDate(String confirmationLienExpirationDate){
+        this.confirmationLienExpirationDate = confirmationLienExpirationDate;
+    }
+
 
 }

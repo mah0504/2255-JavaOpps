@@ -7,12 +7,13 @@ public class Utilisateur extends Compte {
     private String prenom, nom;
     private float points;
     private Map<String, StatutActivite> activites;
+    private ArrayList<Robot> listeRobots ;
+    private Map<String, ComposanteType> composantes;
 
     /**
      * Une nouvelle instance de la classe Utilisateur (initialisation par défaut)
      */
-    public Utilisateur(){
-    }
+    public Utilisateur(){ this.listeRobots = new ArrayList<>();}
 
     /**
      * Une nouvelle instance de la classe Utilisateur
@@ -23,15 +24,26 @@ public class Utilisateur extends Compte {
      * @param telephone le telephone de l'utilisateur
      * @param prenom le prenom de l'utilisateur
      * @param nom le nom de l'utilisateur
-     * @param points les points d'un utilisateur
      *
      */
-    public Utilisateur(String pseudo, String email, String mdp, String telephone, String prenom, String nom, float points){
+    public Utilisateur(String pseudo, String email, String mdp, String telephone, String prenom, String nom){
         super(pseudo, email, mdp, telephone);
         this.prenom = prenom;
         this.nom = nom;
-        this.points = points;
         this.activites = new HashMap<>();
+        this.listeRobots = new ArrayList<>();
+        this.composantes = new HashMap<>();
+    }
+
+    @Override
+    public String toString(){
+        return " Utilisateur = [ " + getPseudo() + " , " + points +
+                " , Activites : " + activites + " ]";
+    }
+
+
+    public void setListeRobots(ArrayList<Robot> listeRobots) {
+        this.listeRobots = listeRobots;
     }
 
     /**
@@ -75,6 +87,7 @@ public class Utilisateur extends Compte {
      *
      * @return points les points gagnés l'utilisateur
      */
+
     public float getPoints(){
         return points;
     }
@@ -97,6 +110,8 @@ public class Utilisateur extends Compte {
         this.points += nvPoints;
     }
 
+
+
     /**
      * Récupère les activités auxquelles l'utilisateur est inscrit
      *
@@ -105,6 +120,7 @@ public class Utilisateur extends Compte {
     public Map<String, StatutActivite> getActivites(){
         return activites;
     }
+
 
     /**
      * Permet d'ajouter une activité aux activités que suit l'utilisateur
@@ -125,5 +141,18 @@ public class Utilisateur extends Compte {
         this.activites.remove(nomActivite);
     }
 
-}
+    /**
+     * Récupère un dictionnaire de Composantes que possède l'utilisateur
+     *
+     * @return composnates un dictionnaire de composantes
+     */
+    public Map<String, ComposanteType> getComposantesFlotte(){ return composantes;}
 
+    /**
+     * Récupère une liste de Robots que possède l'utilisateur
+     *
+     * @return listeRobots la liste des Robots
+     */
+    public ArrayList<Robot> getListeRobots(){return listeRobots;}
+
+}
