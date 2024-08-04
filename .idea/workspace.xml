@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/CompteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CompteView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MenuCompte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuCompte.java" afterDir="false" />
-    </list>
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="changes" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -75,11 +72,32 @@
       <workItem from="1722372286868" duration="1322000" />
       <workItem from="1722438515090" duration="1400000" />
       <workItem from="1722797080250" duration="1928000" />
-      <workItem from="1722800135855" duration="1881000" />
+      <workItem from="1722800135855" duration="2428000" />
     </task>
+    <task id="LOCAL-00001" summary="changes">
+      <option name="closed" value="true" />
+      <created>1722802160578</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1722802160578</updated>
+    </task>
+    <task id="LOCAL-00002" summary="changes">
+      <option name="closed" value="true" />
+      <created>1722802205314</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1722802205314</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes" />
   </component>
 </project>
