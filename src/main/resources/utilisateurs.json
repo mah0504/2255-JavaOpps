@@ -1,247 +1,58 @@
 [
   {
-    "prenom": "prenom1",
-    "nom": "nom1",
-    "points": 0.0,
-    "activites": {
-      "Activite1": "NON_DEBUTEE",
-      "Activite2": "EN_COURS",
-      "Activite3": "TERMINEE",
-      "Activite4": "TERMINEE",
-      "Activite5": "EN_COURS"
-    },
-    "listeRobots": [],
-    "composantes": {
-      "IFT2": "CPU",
-      "IFT1" : "ROUE"
-    },
-    "pseudo": "aithu",
-    "email": "aithu@example.com",
-    "mdp": "mdp",
-    "telephone": "1234567890",
-    "confirmed": true
-  },
-  {
-    "prenom": "prenom2",
-    "nom": "nom2",
-    "points": 0.0,
-    "activites": {
-      "Activite6": "NON_DEBUTEE",
-      "Activite7": "TERMINEE",
-      "Activite8": "TERMINEE",
-      "Activite9": "NON_DEBUTEE",
-      "Activite10": "EN_COURS"
-    },
-    "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT25" : "HAUTPARLEUR"
-    },
-    "pseudo": "pnom2",
-    "email": "pnom2@example.com",
-    "mdp": "motdepasse2",
-    "telephone": "1234567890",
-    "confirmed": true
-  },
-  {
-    "prenom": "prenom3",
-    "nom": "nom3",
-    "points": 0.0,
-    "activites": {
-      "Activite11": "NON_DEBUTEE",
-      "Activite12": "EN_COURS",
-      "Activite13": "EN_COURS",
-      "Activite14": "TERMINEE",
-      "Activite15": "EN_COURS"
-    },
-    "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT26" : "ROUE",
-      "IFT25" : "HAUTPARLEUR"
-    },
-    "pseudo": "pnom3",
-    "email": "pnom3@example.com",
-    "mdp": "motdepasse3",
-    "telephone": "1234567890",
-    "confirmed": true
-  },
-  {
-    "prenom": "prenom4",
-    "nom": "nom4",
-    "points": 0.0,
-    "activites": {
-      "Activite1": "NON_DEBUTEE",
-      "Activite2": "EN_COURS",
-      "Activite3": "TERMINEE",
-      "Activite4": "TERMINEE",
-      "Activite5": "EN_COURS"
-    },
-    "listeRobots": [
-      {
-        "id": "robot1",
-        "type": "explorer",
-        "name": "Robot Alpha",
-        "position": "A1",
-        "speed": 2.5,
-        "batteryLevel": 75.0,
-        "cpu": 0,
-        "memory": 0,
-        "active": false,
-        "listeComposantes": []
+    "nomCompagnie": "nomCompagnie1",
+    "composantesFournisseurs": {
+      "IFT20": {
+        "composante": {
+          "nom": "IFT20",
+          "description": "Une composante CPU",
+          "type": "CPU",
+          "prix": 45.0
+        },
+        "quantite": 23
       },
-      {
-        "id": "robot2",
-        "type": "worker",
-        "name": "Robot Beta",
-        "position": "B2",
-        "speed": 1.8,
-        "batteryLevel": 60.0,
-        "cpu": 0,
-        "memory": 0,
-        "active": false,
-        "listeComposantes": []
+      "IFT21": {
+        "composante": {
+          "nom": "IFT21",
+          "description": "Une composante CAMERA",
+          "type": "CAMERA",
+          "prix": 102.0
+        },
+        "quantite": 19
       }
-    ],
-    "composantes": {
-      "IFT28" : "BRAS"
     },
-    "pseudo": "pnom4",
-    "email": "pnom4@example.com",
+    "pseudo": "compagnie1",
+    "email": "c1@example.com",
     "mdp": "mdp",
     "telephone": "1234567890",
     "confirmed": true
   },
   {
-    "prenom": "prenom5",
-    "nom": "nom5",
-    "points": 0.0,
-    "activites": {
-      "Activite6": "NON_DEBUTEE",
-      "Activite7": "TERMINEE",
-      "Activite8": "TERMINEE",
-      "Activite9": "NON_DEBUTEE",
-      "Activite10": "EN_COURS"
+    "nomCompagnie": "nomCompagnie2",
+    "composantesFournisseurs": {
+      "IFT26": {
+        "composante": {
+          "nom": "IFT26",
+          "description": "Une composante ROUE",
+          "type": "ROUE",
+          "prix": 50.0
+        },
+        "quantite": 18
+      },
+      "IFT28": {
+        "composante": {
+          "nom": "IFT28",
+          "description": "Une composante BRAS",
+          "type": "BRAS",
+          "prix": 67.0
+        },
+        "quantite": 45
+      }
     },
-    "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT21" : "CAMERA"
-    },
-    "pseudo": "pnom5",
-    "email": "pnom5@example.com",
-    "mdp": "motdepasse5",
-    "telephone": "1234567890",
-    "confirmed": true
-  },
-  {
-    "prenom": "prenom6",
-    "nom": "nom6",
-    "points": 0.0,
-    "activites": {
-      "Activite11": "NON_DEBUTEE",
-      "Activite12": "EN_COURS",
-      "Activite13": "EN_COURS",
-      "Activite14": "TERMINEE",
-      "Activite15": "EN_COURS"
-    },
-    "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT21" : "CAMERA"
-    },
-    "pseudo": "pnom6",
-    "email": "pnom6@example.com",
-    "mdp": "motdepasse6",
-    "telephone": "1234567890",
-    "confirmed": true
-  },{
-  "prenom": "prenom7",
-  "nom": "nom7",
-  "points": 0.0,
-  "activites": {
-    "Activite1": "NON_DEBUTEE",
-    "Activite2": "EN_COURS",
-    "Activite3": "TERMINEE",
-    "Activite4": "TERMINEE",
-    "Activite5": "EN_COURS"
-  },
-  "listeRobots": [],
-  "composantes": {
-    "IFT20": "CPU"
-  },
-  "pseudo": "pnom7",
-  "email": "pnom7@example.com",
-  "mdp": "motdepasse7",
-  "telephone": "1234567890",
-  "confirmed": true
-  },
-  {
-    "prenom": "prenom8",
-    "nom": "nom8",
-    "points": 0.0,
-    "activites": {
-      "Activite6": "NON_DEBUTEE",
-      "Activite7": "TERMINEE",
-      "Activite8": "TERMINEE",
-      "Activite9": "NON_DEBUTEE",
-      "Activite10": "EN_COURS"
-    },
-    "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT22" : "HELICE"
-    },
-    "pseudo": "pnom8",
-    "email": "pnom8@example.com",
-    "mdp": "motdepasse8",
-    "telephone": "1234567890",
-    "confirmed": true
-  },
-  {
-    "prenom": "prenom9",
-    "nom": "nom9",
-    "points": 0.0,
-    "activites": {
-      "Activite11": "NON_DEBUTEE",
-      "Activite12": "EN_COURS",
-      "Activite13": "EN_COURS",
-      "Activite14": "TERMINEE",
-      "Activite15": "EN_COURS"
-    },
-    "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT23" : "ECRAN"
-    },
-    "pseudo": "pnom9",
-    "email": "pnom9@example.com",
-    "mdp": "motdepasse9",
-    "telephone": "1234567890",
-    "confirmed": true
-  },
-  {
-    "prenom": "prenom10",
-    "nom": "nom10",
-    "points": 0.0,
-    "activites": {
-      "Activite1": "NON_DEBUTEE",
-      "Activite2": "EN_COURS",
-      "Activite3": "TERMINEE",
-      "Activite4": "TERMINEE",
-      "Activite5": "EN_COURS"
-    },
-    "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT21" : "CAMERA",
-      "IFT30" : "MICRO"
-    },
-    "pseudo": "pnom10",
-    "email": "pnom10@example.com",
-    "mdp": "motdepasse10",
+    "pseudo": "compagnie2",
+    "email": "compagnie2@example.com",
+    "mdp": "motdepasse",
     "telephone": "1234567890",
     "confirmed": true
   }
-
 ]
