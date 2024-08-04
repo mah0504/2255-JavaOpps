@@ -13,7 +13,7 @@ public class Utilisateur extends Compte {
     /**
      * Une nouvelle instance de la classe Utilisateur (initialisation par défaut)
      */
-    public Utilisateur(){}
+    public Utilisateur(){ this.listeRobots = new ArrayList<>();}
 
     /**
      * Une nouvelle instance de la classe Utilisateur
@@ -41,6 +41,10 @@ public class Utilisateur extends Compte {
                 " , Activites : " + activites + " ]";
     }
 
+
+    public void setListeRobots(ArrayList<Robot> listeRobots) {
+        this.listeRobots = listeRobots;
+    }
 
     /**
      * Récupère le prenom d'un Utilisateur

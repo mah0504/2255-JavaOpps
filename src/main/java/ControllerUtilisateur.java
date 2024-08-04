@@ -24,13 +24,11 @@ public class ControllerUtilisateur{
 
     public ControllerUtilisateur(){
 
-
-
         this.listeUtilisateurs = new ArrayList<>();
         getListeUtilisateursFromJson();
-        this.listeFournisseurs= new ArrayList<>();
+     //   this.listeFournisseurs= new ArrayList<>();
         this.controllerFournisseur = new ControllerFournisseur();
-        controllerFournisseur.getListeFournisseurs();
+        this.listeFournisseurs = controllerFournisseur.getListeFournisseurs();
 
     }
 
@@ -525,19 +523,43 @@ public class ControllerUtilisateur{
 
     public void acheterComposante(){
         ComposanteType compoChoisie =  choisirTypeComposante();
+        // trouver fournisseurs selon composante
+        //choisir fournisseur
+        // chosir la composante
+        // decrementer le stock du fournisseur et lui envoyer une notification
+        // ajoujter compo a la liste de composantes de l'utilisateur
 
     }
 
-    public void choisirFournisseur(){
+    public Fournisseur choisirFournisseur(){
+
         if (listeFournisseurs.isEmpty()) {
             System.out.println("Aucun fournisseur disponible.");
-        } else {
+        }
+        else {
             System.out.println("Nombre de fournisseurs disponibles : " + listeFournisseurs.size());
             for (Fournisseur c : listeFournisseurs) {
                 System.out.println("Fournisseur : " + c);
             }
-        }
+            Scanner scanner=new Scanner(System.in);
 
+            try {
+                System.out.println("Veuillez en choisir 1 selon son index: ");
+                int index = scanner.nextInt();
+                if (index >= 0 && index < listeFournisseurs.size()) {
+                    System.out.println("Vous avez choisis le fournisseur"+listeFournisseurs.get(index) );
+                    return listeFournisseurs.get(index);
+                } else{
+                    System.out.println("Veuillez choisir une index valide !");
+                }
+            }
+
+            catch (Exception e){
+                System.out.println("Veuillez choisir un index approprié!");
+            }
+
+        }
+        return null;
     }
     public void trouverFournisseur(){}
 

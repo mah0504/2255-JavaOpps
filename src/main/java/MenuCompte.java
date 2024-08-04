@@ -8,15 +8,13 @@ public class MenuCompte {
     private MenuFournisseur menuFournisseur;
     private CompteView compteView;
 
-    public MenuCompte(ControllerUtilisateur controllerUtilisateur) {
+    public MenuCompte(ControllerUtilisateur controllerUtilisateur, ControllerFournisseur controllerFournisseur) {
         this.controllerUtilisateur =  controllerUtilisateur;
-
-
-        controllerFournisseur = new ControllerFournisseur();
+        this.controllerFournisseur = controllerFournisseur;
 
         this.menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
+        this.menuFournisseur= new MenuFournisseur(controllerFournisseur);
 
-        menuFournisseur = new MenuFournisseur();
         compteView = new CompteView();
     }
 

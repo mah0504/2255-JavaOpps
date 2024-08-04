@@ -4,8 +4,9 @@ public class MenuFournisseur{
 
     private Scanner scanner;
     private ControllerFournisseur controllerFournisseur;
-    public MenuFournisseur(){
+    public MenuFournisseur(ControllerFournisseur controllerFournisseur ){
         this.scanner = new Scanner(System.in);
+        this.controllerFournisseur = controllerFournisseur;
     }
 
     public void afficherMenuFournisseur() {
@@ -16,11 +17,11 @@ public class MenuFournisseur{
             System.out.println("Menu :");
             System.out.println(" [0] : Retour au menu principal \n " +
                     "[1] : modifier mon profil  \n " +
-                    "[2] : Afficher les états  mes robots \n " +
-                    "[3] : Gérer ma flotte  \n " +
-                    "[4] : Gérer les activités  \n " +
-                    "[5] : Trouver un fournisseur \n " +
-                    "[6] : Voir mes notifications ");
+                    "[2] :  \n " +
+                    "[3] :   \n " +
+                    "[4] :   \n " +
+                    "[5] :   \n " +
+                    "[6] :  ");
             int choix = Integer.parseInt(scanner.nextLine());
 
             switch (choix) {
@@ -42,7 +43,7 @@ public class MenuFournisseur{
                 case 7:
 
                 default:
-                    System.out.println("Choix invalide. Veuillez entrer 1 ou 2.");
+                    System.out.println("Choix invalide. Veuillez entrer un nombre valide.");
             }
         }
     }

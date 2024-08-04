@@ -15,6 +15,25 @@ public class Robot {
 
   private ArrayList<Composante> listeComposantes;
 
+ public Robot(String id, String type, String name, String position, float speed, float batteryLevel) {
+   this.id = id;
+   this.type = type;
+   this.name = name;
+   this.position = position;
+   this.speed = speed;
+   this.batteryLevel = batteryLevel;
+   this.cpu = 0;
+   this.memory = 0;
+   this.active = false;
+   this.listeComposantes = new ArrayList<>();
+
+ }
+
+
+
+  public Robot(){
+  }
+
   // Getters
 
   public ArrayList<Composante> getListeComposantes() {return listeComposantes;}

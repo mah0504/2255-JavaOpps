@@ -77,7 +77,32 @@
       "Activite4": "TERMINEE",
       "Activite5": "EN_COURS"
     },
-    "listeRobots": [],
+    "listeRobots": [
+      {
+        "id": "robot1",
+        "type": "explorer",
+        "name": "Robot Alpha",
+        "position": "A1",
+        "speed": 2.5,
+        "batteryLevel": 75.0,
+        "cpu": 0,
+        "memory": 0,
+        "active": false,
+        "listeComposantes": []
+      },
+      {
+        "id": "robot2",
+        "type": "worker",
+        "name": "Robot Beta",
+        "position": "B2",
+        "speed": 1.8,
+        "batteryLevel": 60.0,
+        "cpu": 0,
+        "memory": 0,
+        "active": false,
+        "listeComposantes": []
+      }
+    ],
     "composantes": {
       "IFT28" : "BRAS"
     },

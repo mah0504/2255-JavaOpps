@@ -32,7 +32,14 @@ public class ControllerFournisseur{
     }
 
     public ArrayList<Fournisseur> getListeFournisseurs(){
-        return listeFournisseurs;
+        try (FileReader reader = new FileReader("src/main/resources/fournisseurs.json")) {
+            Gson gson = new Gson();
+            Type listeFournisseursType = new TypeToken<ArrayList<Fournisseur>>() {}.getType();
+            return gson.fromJson(reader, listeFournisseursType);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 
     private void listeFournisseursToJson(ArrayList<Fournisseur> listeFournisseurs){
