@@ -14,7 +14,6 @@ public class MenuUtilisateur{
     public void afficherMenuUtilisateur(Utilisateur utilisateur) {
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
-
         while (continuer) {
             System.out.println("Menu :");
             System.out.println(" [0] : Retour au menu principal \n " +
@@ -45,7 +44,7 @@ public class MenuUtilisateur{
                     // truc pr les activites
                     break;
                 case 5:
-                    controllerUtilisateur.trouverFournisseur();
+               //     controllerUtilisateur.trouverFournisseur();
                     break;
                 case 6:
                     controllerUtilisateur.voirNotifs();
@@ -69,6 +68,8 @@ public class MenuUtilisateur{
      * acheter une composante.
      *
      */
+
+    // verifier si affchage recherche ou liste ou autre
     public void gererFlotte(){
         Scanner scanner = new Scanner(System.in);
         try {
@@ -106,7 +107,6 @@ public class MenuUtilisateur{
 
     }
 
-
     public void trouverComposante(){
         Scanner scanner = new Scanner(System.in);
         try {
@@ -117,16 +117,15 @@ public class MenuUtilisateur{
                 case 1:
                     // affichage general trv comment ajouter le non general aussi
 
-                    controllerUtilisateur.afficherCompoRecherche(
-                            controllerUtilisateur.trouverComposanteSelonNom() );
+
+                            controllerUtilisateur.trouverComposanteSelonNom() ;
                     break;
                 case 2:
-                    controllerUtilisateur.afficherCompoRecherche(
-                            controllerUtilisateur.trouverComposanteSelonType()) ;
+
+                            controllerUtilisateur.trouverComposanteSelonType() ;
                     break;
                 case 3:
-                    controllerUtilisateur.afficherCompoRecherche(
-                            controllerUtilisateur.trouverComposanteSelonFournisseur());
+                            controllerUtilisateur.trouverComposanteSelonFournisseur();
                     break;
             }
         }catch (Exception e){

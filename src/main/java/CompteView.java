@@ -14,20 +14,15 @@ public class CompteView {
         }
     }
 
-    /**
-     * Récupère le type de Compte (Utilisateur ou Fournisseur)
-     *
-     * @return entier pour représenter le choix
-     *          1 = Utilisateur
-     *          2 = Fournisseur
-     */
-    public int getCompteType(){
+    public void compteType(){
         System.out.println("Rôle : ");
         System.out.println("1:Utilisateur");
         System.out.println("2:Fournisseur");
         System.out.println("3:Quitter");
-        return Integer.parseInt(scanner.nextLine());
     }
+
+
+
 
     public int getActionType(){
         System.out.println("Que souhaitez-vous faire ?");

@@ -12,12 +12,12 @@
     },
     "listeRobots": [],
     "composantes": {
-      "IFT20": "CPU",
-      "IFT26" : "ROUE"
+      "IFT2": "CPU",
+      "IFT1" : "ROUE"
     },
     "pseudo": "aithu",
     "email": "aithu@example.com",
-    "mdp": "motdepasse1",
+    "mdp": "mdp",
     "telephone": "1234567890",
     "confirmed": true
   },
@@ -108,7 +108,7 @@
     },
     "pseudo": "pnom4",
     "email": "pnom4@example.com",
-    "mdp": "motdepasse4",
+    "mdp": "mdp",
     "telephone": "1234567890",
     "confirmed": true
   },

@@ -335,6 +335,10 @@ public class ControllerUtilisateur{
      *
      * @return Le type de composante choisi par l'utilisateur.
      */
+
+
+
+
     public ComposanteType choisirTypeComposante() {
         Scanner scanner = new Scanner(System.in);
         ComposanteType[] types = ComposanteType.values();
@@ -351,6 +355,7 @@ public class ControllerUtilisateur{
                 try {
                     choix = scanner.nextInt();
                     if (choix < 0 || choix >= types.length) {
+
                         System.out.println("Numéro invalide. Veuillez entrer un nombre entre 0 et " + (types.length - 1));
                     }
                 } catch (NumberFormatException e) {
@@ -370,21 +375,29 @@ public class ControllerUtilisateur{
      * @return  La composante choisie par l'utilisateur, ou null si une erreur se produit.
      */
     public FournisseurComposante trouverComposanteSelonType(){
+
         ComposanteType typeRecherche = choisirTypeComposante() ; // la compo choisie par l'utili
+
+
         ArrayList<Fournisseur> Listefournisseurs =controllerFournisseur. getListeFournisseurs();
+
         List<FournisseurComposante> composantesTrouvees = new ArrayList<>();
 
         for (Fournisseur f : Listefournisseurs) {
             for (FournisseurComposante c : f.getComposantes().values()){
 
                 if (c.getComposante().getType() == typeRecherche) {
-                    System.out.println("Nom du fournisseur: " + f.getNomCompagnie() + "\n Id de la composante" +
-                            c.getComposante().getId()  );
-                    composantesTrouvees.add(c);
+                 composantesTrouvees.add(c);
                 }
             }
         }
+
         System.out.println("Veuillez choisir celle que vous voulez ");
+
+        for ( int i=0 ; i<composantesTrouvees.size() ; i++){
+            System.out.println(composantesTrouvees.get(i).getComposante().getNom());
+        }
+
 
         Scanner scanner = new Scanner(System.in);
         try {
@@ -418,43 +431,40 @@ public class ControllerUtilisateur{
 
 
     // selon nom
-    public FournisseurComposante trouverComposanteSelonNom(){
+    public FournisseurComposante trouverComposanteSelonNom() {
         Scanner scanner = new Scanner(System.in);
 
-        try{
-
-            System.out.println("Veuilez entrer le nom de composante que vous recherchez");
+        try {
+            System.out.println("Veuillez entrer le nom de composante que vous recherchez:");
             String nom = scanner.nextLine();
-            // on va dans le json de fournisseurs
-            // on accede a la liste des composantes de chacun
-            // si l'un d'eux a la string recherchee normalisee on imprime ses info
-            boolean trouve = false;
 
-//
+            // Normaliser le nom entré
+            nom = ajusterString(nom);
+
+            // Parcourir la liste des fournisseurs et leurs composantes
             for (Fournisseur fournisseur : listeFournisseurs) {
-                // parcourir la liste des composantes de chaque fournisseur
-
                 for (FournisseurComposante composante : fournisseur.getComposantes().values()) {
-                    if (ajusterString(composante.getComposante().getNom()).equals(ajusterString(nom))) {
-//
-//                        System.out.println("Nom du fournisseur: " + fournisseur.getNomCompagnie());
-//                        System.out.println("ID de la composante: " + composante.getComposante().getId());
-                        // Afficher d'autres informations si nécessaire
-                        trouve = true;
-                        return composante; // return la composante
+                    if (ajusterString(composante.getComposante().getNom()).equals(nom)) {
+                        // Afficher les détails de la composante trouvée
+                        System.out.println("Nom: " + composante.getComposante().getNom());
+                        System.out.println("Description: " + composante.getComposante().getDescription());
+                        System.out.println("Type: " + composante.getComposante().getType());
+                        System.out.println("Prix: " + composante.getComposante().getPrix());
+                        System.out.println("Quantité: " + composante.getQuantite());
 
+                        return composante; // Retourner la composante trouvée
                     }
                 }
             }
-            if (!trouve) {
-                System.out.println("Aucune composante trouvée avec le nom spécifié.");
-            }
 
-        }catch (Exception e ){
+            System.out.println("Aucune composante trouvée avec le nom spécifié.");
+        } catch (Exception e) {
             System.out.println("Veuillez entrer un nom de composante valide !");
         }
+
         return null;
     }
+
 
 
 
@@ -512,10 +522,10 @@ public class ControllerUtilisateur{
      *
      * @param composante La composante dont les informations doivent être affichées.
      */
-    public void afficherCompoRecherche(FournisseurComposante composante){
-        System.out.println("Le nom"+composante.getComposante().getId() + "\n" + "Le Type"
-                +composante.getComposante().getType() ) ;
-    }
+//    public void afficherCompoRecherche(FournisseurComposante composante){
+//        System.out.println("Le nom"+composante.getComposante().getId() + "\n" + "Le Type"
+//                +composante.getComposante().getType() ) ;
+//    }
 
 
     /**
@@ -573,7 +583,18 @@ public class ControllerUtilisateur{
         }
         return null;
     }
-    public void trouverFournisseur(){}
+
+    public void trouverFournisseurSelonNom(){
+        Scanner scanner=new Scanner(System.in);
+        try{
+
+
+
+
+        }catch (Exception e){
+            System.out.println("Veuillez choisir un nom valide !");
+        }
+    }
 
     public void voirNotifs(){}
 
