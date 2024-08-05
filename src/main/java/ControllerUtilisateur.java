@@ -19,7 +19,7 @@ public class ControllerUtilisateur{
     private ControllerRobot controllerRobot;
     private ControllerFournisseur controllerFournisseur;
     private ArrayList<Fournisseur> listeFournisseurs;
-
+    private Fournisseur fournisseurChoisi;
     public ControllerUtilisateur(){
 
         this.listeUtilisateurs = new ArrayList<>();
@@ -253,15 +253,59 @@ public class ControllerUtilisateur{
 
 
     public void enregistrerRobot() {
-        System.out.println("Ca marche 1 "); // debug
-        if( composanteDispo()){
+        if (composanteDispo()) {
+            Robot robot = new Robot();
+            List<Fournisseur> lstFournissAveccpu = choisirFournisType2(ComposanteType.CPU);
+            System.out.println(lstFournissAveccpu);
 
-             for (Fournisseur f :listeFournisseurs){
-        //         for( FournisseurComposante c: f.getComposantes().)
-             }
-            choisirComposanteFlotte();
+            if (!lstFournissAveccpu.isEmpty()) {
+                Scanner scanner = new Scanner(System.in);
+                System.out.println("Veuillez choisir de quel fournisseur vous voulez acheter un robot:");
+
+                try {
+                    // Impression des fournisseurs avec au moins un CPU à vendre
+                    for (int i = 0; i < lstFournissAveccpu.size(); i++) {
+                        System.out.println("[" + i + "] " + lstFournissAveccpu.get(i).getNomCompagnie());
+                    }
+
+                    int choix = scanner.nextInt();
+                    Fournisseur fournisseurChoisi = null;
+
+                    if (choix >= 0 && choix < lstFournissAveccpu.size()) {
+                        fournisseurChoisi = lstFournissAveccpu.get(choix); // Le fournisseur choisi
+                    }
+
+                    if (fournisseurChoisi != null) {
+                        ArrayList<Composante> composantesChoisies = new ArrayList<>();
+
+                        for (FournisseurComposante fc : fournisseurChoisi.getComposantes().values()) {
+                            if (fc.getComposante().getType() == ComposanteType.CPU) {
+                                composantesChoisies.add(fc.getComposante());
+                                break;
+                            }
+                        }
+
+                        choisirComposanteFlotte(); //continuer
+
+                        utilisateur.getListeRobots().add(robot);
+
+                        // Sauvegarder les modifications dans le fichier JSON
+                        listeUtilisateursToJson(listeUtilisateurs);
+
+
+
+                    } else {
+                        System.out.println("Choix invalide.");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace(); // À modifier après
+                }
+            } else {
+                System.out.println("Aucun fournisseur avec un CPU disponible.");
+            }
+        } else {
+            System.out.println("Composants nécessaires non disponibles.");
         }
-
     }
 
     /**
@@ -583,11 +627,10 @@ public class ControllerUtilisateur{
         return null;
     }
 
-    public void trouverFournisseurSelonNom() {
+    public Fournisseur trouverFournisseurSelonNom() {
         Scanner scanner = new Scanner(System.in);
 
         try {
-            // Demander à l'utilisateur d'entrer le nom du fournisseur
             System.out.println("Veuillez entrer le nom du fournisseur que vous recherchez :");
             String nomRecherche = scanner.nextLine();
             String nomRechercheNormalise = ajusterString(nomRecherche);
@@ -625,7 +668,7 @@ public class ControllerUtilisateur{
                 } else {
                     Fournisseur fournisseurChoisi = fournisseursTrouves.get(choix - 1);
                     System.out.println("Fournisseur choisi : " + fournisseurChoisi.getNomCompagnie());
-                    // Vous pouvez maintenant travailler avec le fournisseur choisi
+                    return fournisseurChoisi;
                 }
             }
 
@@ -633,9 +676,10 @@ public class ControllerUtilisateur{
             System.out.println("Veuillez choisir un nom valide !");
             scanner.next(); // Consomme l'entrée invalide
         }
+        return null;
     }
 
-    public void trouverFournisseurSelonType() {
+    public Fournisseur trouverFournisseurSelonType() {
         Scanner scanner = new Scanner(System.in);
 
         // Choisir le type de composant
@@ -676,18 +720,51 @@ public class ControllerUtilisateur{
                 System.out.println("Choix invalide. Veuillez essayer de nouveau.");
             } else {
                 Fournisseur fournisseurChoisi = fournisseursTrouves.get(choix - 1);
-                System.out.println("Fournisseur choisi : " + fournisseurChoisi.getNomCompagnie());
-                // Vous pouvez maintenant travailler avec le fournisseur choisi
+
+                //System.out.println("Fournisseur choisi : " + fournisseurChoisi.getNomCompagnie());
+                return fournisseurChoisi;
+
             }
 
         } catch (Exception e) {
             System.out.println("Veuillez entrer un nombre valide !");
-            scanner.next(); // Consomme l'entrée invalide
+            scanner.next();
         }
+        return null;
     }
 
 
-    public void voirNotifs(){}
+
+// Methode auxiliaire
+    public List<Fournisseur> choisirFournisType2(ComposanteType typeRecherche) {
+        // Récupérer la liste des fournisseurs
+        ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
+
+        // Liste des fournisseurs trouvés
+        List<Fournisseur> fournisseursTrouves = new ArrayList<>();
+
+        // Parcourir la liste des fournisseurs
+        for (Fournisseur f : listeFournisseurs) {
+            boolean hasComposanteType = false;
+            for (FournisseurComposante fc : f.getComposantes().values()) {
+                if (fc.getComposante() != null && fc.getComposante().getType() == typeRecherche) {
+                    hasComposanteType = true;
+                }
+
+                if (hasComposanteType) {
+                    fournisseursTrouves.add(f);
+                }
+
+            }
+
+        }
+
+        return fournisseursTrouves;
+    }
+
+
+    public void voirNotifs(){
+    }
 
 
 }

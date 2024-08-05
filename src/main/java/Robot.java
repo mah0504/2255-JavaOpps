@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class Robot {
   private String id;
@@ -79,4 +80,8 @@ public class Robot {
   public void setActive(boolean active) {this.active = active;}
 
   public void setSupplier(Fournisseur supplier) {this.supplier = supplier;}
+
+    public void setListeComposantes(ArrayList<Composante> listeComposantes) {
+        this.listeComposantes = listeComposantes;
+    }
 }
