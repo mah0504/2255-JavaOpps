@@ -704,6 +704,9 @@ public class ControllerUtilisateur{
 
 
     public void voirNotifs(){
+       for ( Notification n : utilisateur.getNotifis()) {
+           System.out.println(n.toString());
+       }
     }
 
 

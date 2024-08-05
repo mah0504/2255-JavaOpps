@@ -9,7 +9,7 @@ public class Utilisateur extends Compte {
     private Map<String, StatutActivite> activites;
     private ArrayList<Robot> listeRobots ;
     private Map<String, ComposanteType> composantes;
-
+    private ArrayList<Notification> notifs;
     /**
      * Une nouvelle instance de la classe Utilisateur (initialisation par défaut)
      */
@@ -49,6 +49,15 @@ public class Utilisateur extends Compte {
     public void setListeRobots(ArrayList<Robot> listeRobots) {
         this.listeRobots = listeRobots;
     }
+
+    public ArrayList<Notification> getNotifis(){
+        return notifs;
+    }
+
+    public void setNotifs(ArrayList<Notification> notifs) {
+        this.notifs = notifs;
+    }
+
 
     /**
      * Récupère le prenom d'un Utilisateur
