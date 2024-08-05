@@ -277,6 +277,11 @@ public class ControllerUtilisateur{
                 // ajouter les composantes du robot supprimé à l'inventaire de la flotte
             }
             utilisateur.getListeRobots().remove(choix); // enlever le robot
+            utilisateur.setListeRobots(utilisateur.getListeRobots());
+            System.out.println(utilisateur.getListeRobots());
+
+            listeUtilisateursToJson(listeUtilisateurs);
+
 
         } catch (Exception e){
             e.printStackTrace(); // modif apres
