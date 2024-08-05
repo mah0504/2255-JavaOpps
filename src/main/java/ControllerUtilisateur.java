@@ -78,12 +78,10 @@ public class ControllerUtilisateur{
         if (confirmerUtilisateur(pseudo)){
 
             //Initialiser le lien de confirmation
-            String confirmationLien = UUID.randomUUID().toString();
+            String confirmationLien = nouvelUtilisateur.getConfirmationLien();
 
             //Initialiser la Date d'expiration de ce lien
-            LocalDateTime expiration = LocalDateTime.now().plusHours(24);
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-            String DateExpiration = expiration.format(formatter);
+            String DateExpiration = nouvelUtilisateur.getConfirmationLienExpirationDate();
 
             //Assigner les nouvelles valeurs
             nouvelUtilisateur.setConfirmationLien(confirmationLien);
@@ -136,9 +134,12 @@ public class ControllerUtilisateur{
     public boolean confirmerCompte(String email,String confirmationLien) {
         Utilisateur utilisateur = findUserByEmail(email);
         if(utilisateur != null){
+
+            //récupère la date d'expiration du lien de confirmation
             String confirmationDateStr = utilisateur.getConfirmationLienExpirationDate();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
-            LocalDateTime confirmationDate = LocalDateTime.parse(confirmationDateStr, formatter);
+
+            //Convertit le String en une Date
+            LocalDateTime confirmationDate = utilisateur.StrToDate(confirmationDateStr);
 
             if (LocalDateTime.now().isBefore(confirmationDate)) {
                 utilisateur.isConfirmed(true);
@@ -490,7 +491,7 @@ public class ControllerUtilisateur{
 
                     for (int i = 0; i < composantes.size(); i++) {
                         FournisseurComposante composante = composantes.get(i);
-                        System.out.println((i + 1) + ": ID: " + composante.getComposante().getId() + ", Nom: " + composante.getComposante().getNom());
+                        System.out.println((i + 1) + "Nom: " + composante.getComposante().getNom());
                     }
 
                     System.out.println("Veuillez choisir une composante (entrer le numéro correspondant) :");
@@ -535,10 +536,9 @@ public class ControllerUtilisateur{
      */
     public void afficherCompoInfo(FournisseurComposante composante){
 
-        System.out.println("L'Id "+composante.getComposante().getId() + "\n" + "Le Type"
+        System.out.println("Nom : "+composante.getComposante().getNom() + "\n" + "Le Type"
                 +composante.getComposante().getType() +"\n" + "Description :" +
-                composante.getComposante().getDescription() +"\n Prix: " + composante.getComposante().getPrix()
-                + "\n Nom: " + composante.getComposante().getNom()); ;
+                composante.getComposante().getDescription() +"\n Prix: " + composante.getComposante().getPrix());
     }
 
 

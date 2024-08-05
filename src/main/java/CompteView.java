@@ -15,7 +15,7 @@ public class CompteView {
     }
 
     public void compteType(){
-        System.out.println("Rôle : ");
+        System.out.println("\nRôle : ");
         System.out.println("1:Utilisateur");
         System.out.println("2:Fournisseur");
         System.out.println("3:Quitter");
@@ -24,13 +24,12 @@ public class CompteView {
 
 
 
-    public int getActionType(){
-        System.out.println("Que souhaitez-vous faire ?");
+    public void actionType(){
+        System.out.println("\nQue souhaitez-vous faire ?");
         System.out.println("0 : Retour au Menu Principal");
-        System.out.println("1: Se Connecter");
-        System.out.println("2: S'Inscrire");
-        System.out.println("3: Confirmer Inscription");
-        return Integer.parseInt(scanner.nextLine());
+        System.out.println("1: Se connecter");
+        System.out.println("2: S'inscrire");
+        System.out.println("3: Confirmer l'inscription");
     }
 
     /**

@@ -1,0 +1,58 @@
+[
+  {
+    "nomCompagnie": "nomCompagnie1",
+    "composantesFournisseurs": {
+      "IFT20": {
+        "composante": {
+          "nom": "IFT20",
+          "description": "Une composante CPU",
+          "type": "CPU",
+          "prix": 45.0
+        },
+        "quantite": 23
+      },
+      "IFT21": {
+        "composante": {
+          "nom": "IFT21",
+          "description": "Une composante CAMERA",
+          "type": "CAMERA",
+          "prix": 102.0
+        },
+        "quantite": 19
+      }
+    },
+    "pseudo": "compagnie1",
+    "email": "c1@example.com",
+    "mdp": "mdp",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "nomCompagnie": "nomCompagnie2",
+    "composantesFournisseurs": {
+      "IFT26": {
+        "composante": {
+          "nom": "IFT26",
+          "description": "Une composante ROUE",
+          "type": "ROUE",
+          "prix": 50.0
+        },
+        "quantite": 18
+      },
+      "IFT28": {
+        "composante": {
+          "nom": "IFT28",
+          "description": "Une composante BRAS",
+          "type": "BRAS",
+          "prix": 67.0
+        },
+        "quantite": 45
+      }
+    },
+    "pseudo": "compagnie2",
+    "email": "compagnie2@example.com",
+    "mdp": "motdepasse",
+    "telephone": "1234567890",
+    "confirmed": true
+  }
+]
