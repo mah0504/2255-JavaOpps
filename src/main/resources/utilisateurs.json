@@ -62,10 +62,20 @@
         ]
       }
     ],
-    "composantes": {
-      "IFT2": "CPU",
-      "IFT1": "ROUE"
-    },
+    "composantes": [
+      {
+        "nom": "IFT1",
+        "description": "Description de la Composante3",
+        "type": "CPU",
+        "prix": 150.0
+      },
+      {
+        "nom": "IFT2",
+        "description": "Description de la Composante4",
+        "type": "HELICE",
+        "prix": 250.0
+    }
+    ],
     "pseudo": "aithu",
     "email": "aithu@example.com",
     "mdp": "mdp",
@@ -109,10 +119,20 @@
         "listeComposantes": []
       }
     ],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT25": "HAUTPARLEUR"
-    },
+    "composantes": [
+      {
+        "nom": "ROU111",
+        "description": "Description de la Composante3",
+        "type": "ROUE",
+        "prix": 150.0
+      },
+      {
+        "nom": "ALLO332",
+        "description": "Description de la Composante4",
+        "type": "MICRO",
+        "prix": 250.0
+      }
+    ],
     "pseudo": "pnom2",
     "email": "pnom2@example.com",
     "mdp": "motdepasse2",
@@ -131,11 +151,26 @@
       "Activite15": "EN_COURS"
     },
     "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT26": "ROUE",
-      "IFT25": "HAUTPARLEUR"
-    },
+    "composantes": [
+      {
+        "nom": "IFT20",
+        "description": "Description de la Composante1",
+        "type": "CPU",
+        "prix": 100.0
+      },
+      {
+        "nom": "IFT26",
+        "description": "Description de la Composante2",
+        "type": "ROUE",
+        "prix": 200.0
+      },
+      {
+        "nom": "IFT25",
+        "description": "Description de la Composante3",
+        "type": "HAUTPARLEUR",
+        "prix": 300.0
+      }
+    ],
     "pseudo": "pnom3",
     "email": "pnom3@example.com",
     "mdp": "motdepasse3",
@@ -200,10 +235,7 @@
       "Activite10": "EN_COURS"
     },
     "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT21": "CAMERA"
-    },
+    "composantes":[],
     "pseudo": "pnom5",
     "email": "pnom5@example.com",
     "mdp": "motdepasse5",
@@ -222,10 +254,7 @@
       "Activite15": "EN_COURS"
     },
     "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT21": "CAMERA"
-    },
+    "composantes": [],
     "pseudo": "pnom6",
     "email": "pnom6@example.com",
     "mdp": "motdepasse6",
@@ -244,9 +273,7 @@
       "Activite5": "EN_COURS"
     },
     "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU"
-    },
+    "composantes": [],
     "pseudo": "pnom7",
     "email": "pnom7@example.com",
     "mdp": "motdepasse7",
@@ -265,10 +292,7 @@
       "Activite10": "EN_COURS"
     },
     "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT22": "HELICE"
-    },
+    "composantes": [],
     "pseudo": "pnom8",
     "email": "pnom8@example.com",
     "mdp": "motdepasse8",
@@ -287,10 +311,7 @@
       "Activite15": "EN_COURS"
     },
     "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT23": "ECRAN"
-    },
+    "composantes": [],
     "pseudo": "pnom9",
     "email": "pnom9@example.com",
     "mdp": "motdepasse9",
@@ -309,11 +330,26 @@
       "Activite5": "EN_COURS"
     },
     "listeRobots": [],
-    "composantes": {
-      "IFT20": "CPU",
-      "IFT21": "CAMERA",
-      "IFT30": "MICRO"
-    },
+    "composantes": [
+      {
+        "nom": "IFT20",
+        "description": "Une composante CPU",
+        "type": "CPU",
+        "prix": 100.0
+      },
+      {
+        "nom": "IFT21",
+        "description": "Une composante CAMERA",
+        "type": "CAMERA",
+        "prix": 150.0
+      },
+      {
+        "nom": "IFT30",
+        "description": "Une composante MICRO",
+        "type": "MICRO",
+        "prix": 200.0
+      }
+    ],
     "pseudo": "pnom10",
     "email": "pnom10@example.com",
     "mdp": "motdepasse10",
