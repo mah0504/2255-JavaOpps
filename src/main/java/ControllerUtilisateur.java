@@ -224,14 +224,14 @@ public class ControllerUtilisateur{
      * si aucune composante n'a été choisie.
      */
 
-    public ComposanteType choisirComposanteFlotte(){
+    public Composante choisirComposanteFlotte(){
 
-        if (utilisateur.getComposantesFlotte().keySet().isEmpty()) {
+        if (utilisateur.getComposantesFlotte().isEmpty()) {
             System.out.println("Aucune composante disponible dans la flotte.");
             return null;
         }
 
-        for ( String s: utilisateur.getComposantesFlotte().keySet() ){
+        for ( Composante s: utilisateur.getComposantesFlotte() ){
             System.out.println("Veuillez choisir un composante de la flotte :");
             System.out.println(s);
         }
