@@ -224,14 +224,14 @@ public class ControllerUtilisateur{
      * si aucune composante n'a été choisie.
      */
 
-    public Composante choisirComposanteFlotte(){
+    public ComposanteType choisirComposanteFlotte(){
 
         if (utilisateur.getComposantesFlotte().isEmpty()) {
             System.out.println("Aucune composante disponible dans la flotte.");
             return null;
         }
 
-        for ( Composante s: utilisateur.getComposantesFlotte() ){
+        for ( String s: utilisateur.getComposantesFlotte().keySet() ){
             System.out.println("Veuillez choisir un composante de la flotte :");
             System.out.println(s);
         }
@@ -247,66 +247,6 @@ public class ControllerUtilisateur{
     }
 
 
-
-
-
-
-
-    public void enregistrerRobot() {
-        if (composanteDispo()) {
-            Robot robot = new Robot();
-            List<Fournisseur> lstFournissAveccpu = choisirFournisType2(ComposanteType.CPU);
-            System.out.println(lstFournissAveccpu);
-
-            if (!lstFournissAveccpu.isEmpty()) {
-                Scanner scanner = new Scanner(System.in);
-                System.out.println("Veuillez choisir de quel fournisseur vous voulez acheter un robot:");
-
-                try {
-                    // Impression des fournisseurs avec au moins un CPU à vendre
-                    for (int i = 0; i < lstFournissAveccpu.size(); i++) {
-                        System.out.println("[" + i + "] " + lstFournissAveccpu.get(i).getNomCompagnie());
-                    }
-
-                    int choix = scanner.nextInt();
-                    Fournisseur fournisseurChoisi = null;
-
-                    if (choix >= 0 && choix < lstFournissAveccpu.size()) {
-                        fournisseurChoisi = lstFournissAveccpu.get(choix); // Le fournisseur choisi
-                    }
-
-                    if (fournisseurChoisi != null) {
-                        ArrayList<Composante> composantesChoisies = new ArrayList<>();
-
-                        for (FournisseurComposante fc : fournisseurChoisi.getComposantes().values()) {
-                            if (fc.getComposante().getType() == ComposanteType.CPU) {
-                                composantesChoisies.add(fc.getComposante());
-                                break;
-                            }
-                        }
-
-                        choisirComposanteFlotte(); //continuer
-
-                        utilisateur.getListeRobots().add(robot);
-
-                        // Sauvegarder les modifications dans le fichier JSON
-                        listeUtilisateursToJson(listeUtilisateurs);
-
-
-
-                    } else {
-                        System.out.println("Choix invalide.");
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace(); // À modifier après
-                }
-            } else {
-                System.out.println("Aucun fournisseur avec un CPU disponible.");
-            }
-        } else {
-            System.out.println("Composants nécessaires non disponibles.");
-        }
-    }
 
     /**
      * Permet à l'utilisateur de supprimer un robot  qu'il a choisis de sa liste de robots.
@@ -325,7 +265,7 @@ public class ControllerUtilisateur{
             ArrayList<Composante> lstCompo = utilisateur.getListeRobots().get(choix).getListeComposantes();
 
             for (Composante c: lstCompo) {
-                utilisateur.getComposantesFlotte().add(c);
+                utilisateur.getComposantesFlotte().put(c.getNom(),c.getType());
                 // ajouter les composantes du robot supprimé à l'inventaire de la flotte
             }
             utilisateur.getListeRobots().remove(choix); // enlever le robot

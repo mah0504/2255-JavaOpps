@@ -91,7 +91,7 @@ public class MenuUtilisateur{
 
                 switch (choix) {
                     case 1:
-                        controllerUtilisateur.enregistrerRobot();
+                      //  controllerUtilisateur.enregistrerRobot();
                       break;
                     case 2:
                         controllerUtilisateur.supprimerRobot();
