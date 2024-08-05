@@ -28,6 +28,7 @@ public class FournisseurComposante {
         return composante;
     }
 
+
     /**
      * Assigne la composante à un fournisseur
      *

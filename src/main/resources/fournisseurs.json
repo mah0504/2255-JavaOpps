@@ -30,6 +30,12 @@
   {
     "nomCompagnie": "nomCompagnie2",
     "composantesFournisseurs": {
+   "CPU222":{
+    "nom": "CP44",
+    "description": "CPU UNIQUE JSP",
+    "type": "CPU",
+    "prix": 150.0
+  },
       "IFT26": {
         "composante": {
           "nom": "IFT26",

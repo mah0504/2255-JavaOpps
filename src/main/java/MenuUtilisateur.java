@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class MenuUtilisateur{
@@ -45,7 +46,7 @@ public class MenuUtilisateur{
                     // truc pr les activites
                     break;
                 case 5:
-               //     controllerUtilisateur.trouverFournisseur();
+                    trouverFournisseur();
                     break;
                 case 6:
                     controllerUtilisateur.voirNotifs();
@@ -71,41 +72,50 @@ public class MenuUtilisateur{
      */
 
     // verifier si affchage recherche ou liste ou autre
-    public void gererFlotte(){
+
+    public void gererFlotte() {
         Scanner scanner = new Scanner(System.in);
-        try {
-            System.out.println(" Bienvenue dans votre flotte !" +
-                    " \n Veuillez choisir quelle action effectuer: \n" +
-                    "[1] : enregistrer un robot \n " +
-                    "[2] : Supprimer un robot \n " +
-                    "[3] : Trouver une composante \n" +
-                    "[4] :Acheter une composante \n ");
-            int choix = scanner.nextInt();
+        boolean continueMenu = true;
 
-            switch (choix) {
-                case 1:
-                    controllerUtilisateur.enregistrerRobot(new Robot());
-                    break;
-                case 2:
-                    controllerUtilisateur.supprimerRobot();
-                    break;
-                case 3:
-                    trouverComposante();
-                    break;
-                case 4:
-                    controllerUtilisateur.acheterComposante();
-                    break;
+        while (continueMenu) {
+            try {
+                System.out.println("Bienvenue dans votre flotte !" +
+                        "\nVeuillez choisir quelle action effectuer:" +
+                        "\n[1] : enregistrer un robot" +
+                        "\n[2] : Supprimer un robot" +
+                        "\n[3] : Trouver une composante" +
+                        "\n[4] : Acheter une composante" +
+                        "\n[0] : Quitter");
 
-                default:
+                int choix = scanner.nextInt();
 
-                    System.out.println("choisir nbr appropprie.");
-                    break;
+                switch (choix) {
+                    case 1:
+                        controllerUtilisateur.enregistrerRobot();
+                      break;
+                    case 2:
+                        controllerUtilisateur.supprimerRobot();
+                        break;
+                    case 3:
+                        trouverComposante();
+                        break;
+                    case 4:
+                        controllerUtilisateur.acheterComposante();
+                        break;
+                    case 0:
+                        continueMenu = false;
+                        System.out.println("Merci d'avoir utilisé notre service. À bientôt !");
+                        break;
+                    default:
+                        System.out.println("Veuillez choisir un nombre approprié.");
+                        break;
+                }
+
+            } catch (InputMismatchException e) {
+                System.out.println("Veuillez entrer un nombre valide.");
+                scanner.next(); // Consommer l'entrée invalide pour éviter une boucle infinie
             }
-
-        }catch (Exception e){
-            System.out.println(" Veuillez entrer un nombre valide.");
         }
-
     }
 
     public void trouverComposante(){
@@ -134,5 +144,22 @@ public class MenuUtilisateur{
         }
     }
 
+    public void trouverFournisseur(){
 
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Veuillez choisir une option de recherche de fournisseur:\n " +
+                "[1] : Par nom \n [2] : Par type \n ");
+        int choix = scanner.nextInt();
+        switch (choix){
+            case 1:
+                controllerUtilisateur.trouverFournisseurSelonNom();
+                break;
+            case 2:
+                controllerUtilisateur.trouverFournisseurSelonType();
+                break;
+            default:
+                System.out.println("Veuillez choisir correctement 1 ou 2");
+
+        }
+    }
 }

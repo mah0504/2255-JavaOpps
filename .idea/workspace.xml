@@ -4,9 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="rajout du robot supprime">
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="regler bug trouver compoosante :)">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Fournisseur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Fournisseur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/FournisseurComposante.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/FournisseurComposante.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fournisseurs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/FournisseurComposante.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/FournisseurComposante.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fournisseurs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utilisateurs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +38,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
     &quot;JAR Application.2255-JavaOpps-1.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
     &quot;Maven.2255-JavaOpps [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.2255-JavaOpps [package].executor&quot;: &quot;Run&quot;,
@@ -196,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722872571733</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="regler bug trouver compoosante :)">
+      <option name="closed" value="true" />
+      <created>1722874001178</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1722874001178</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,6 +242,7 @@
     <MESSAGE value="Correction Afficheretat rOBOT+ MODIF JSON utilisateurs &#10;-&gt; regler pblm avec supprimer robot ?" />
     <MESSAGE value="correction supprimer robot" />
     <MESSAGE value="rajout du robot supprime" />
-    <option name="LAST_COMMIT_MESSAGE" value="rajout du robot supprime" />
+    <MESSAGE value="regler bug trouver compoosante :)" />
+    <option name="LAST_COMMIT_MESSAGE" value="regler bug trouver compoosante :)" />
   </component>
 </project>
