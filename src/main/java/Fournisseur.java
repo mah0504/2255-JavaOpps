@@ -47,8 +47,6 @@ public class Fournisseur extends Compte{
      * @return composantes La liste des Composantes d'un Fournisseur
      */
     public HashMap<String, FournisseurComposante> getComposantes(){
-        System.out.println(composantesFournisseurs);
-
         return composantesFournisseurs;
     }
 

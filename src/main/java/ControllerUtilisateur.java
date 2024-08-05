@@ -246,11 +246,17 @@ public class ControllerUtilisateur{
         return null;
     }
 
-    // a modifier ofc / continuer
     public void enregistrerRobot(Robot robot) {
+        // au moins une composante dans son inventaire
         if (!composanteDispo()) {
             System.out.println("Composants nécessaires non disponibles.");
-            return;
+        }
+        else{
+            choisirFournisseur(); // celui qui a au moins 1 cpu
+
+
+            listeUtilisateursToJson(listeUtilisateurs); //pr enregistrer les modifs dans
+            // le  fichier json
         }
 
 

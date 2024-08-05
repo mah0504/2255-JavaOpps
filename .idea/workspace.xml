@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="Correction Afficheretat rOBOT+ MODIF JSON utilisateurs &#10;-&gt; regler pblm avec supprimer robot ?">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="rajout du robot supprime">
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Fournisseur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Fournisseur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +27,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Debug&quot;,
     &quot;JAR Application.2255-JavaOpps-1.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
     &quot;Maven.2255-JavaOpps [clean].executor&quot;: &quot;Run&quot;,
     &quot;Maven.2255-JavaOpps [package].executor&quot;: &quot;Run&quot;,
@@ -181,7 +180,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722871135122</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="correction supprimer robot">
+      <option name="closed" value="true" />
+      <created>1722872517503</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1722872517503</updated>
+    </task>
+    <task id="LOCAL-00013" summary="rajout du robot supprime">
+      <option name="closed" value="true" />
+      <created>1722872571733</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1722872571733</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +221,8 @@
     <MESSAGE value="ajout liste des robots" />
     <MESSAGE value="Correction Afficheretat rOBOT" />
     <MESSAGE value="Correction Afficheretat rOBOT+ MODIF JSON utilisateurs &#10;-&gt; regler pblm avec supprimer robot ?" />
-    <option name="LAST_COMMIT_MESSAGE" value="Correction Afficheretat rOBOT+ MODIF JSON utilisateurs &#10;-&gt; regler pblm avec supprimer robot ?" />
+    <MESSAGE value="correction supprimer robot" />
+    <MESSAGE value="rajout du robot supprime" />
+    <option name="LAST_COMMIT_MESSAGE" value="rajout du robot supprime" />
   </component>
 </project>
