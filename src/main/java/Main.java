@@ -11,7 +11,6 @@ public class Main {
         ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur();
         ControllerFournisseur controllerFournisseur = new ControllerFournisseur();
         ControllerRobot controllerRobot= new ControllerRobot();
-    //    MenuUtilisateur menuUtilisateur = new MenuUtilisateur();
 
         MenuCompte menuCompte = new MenuCompte(controllerUtilisateur, controllerFournisseur ,controllerRobot);
         menuCompte.afficherMenu();

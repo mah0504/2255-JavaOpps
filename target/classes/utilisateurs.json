@@ -17,7 +17,20 @@
         "name": "Robot 1",
         "position": "position1",
         "speed": 10,
-        "batteryLevel": 80
+        "batteryLevel": 80,
+        "listeComposantes":[{
+          "nom": "CP44",
+          "description": "CPU UNIQUE JSP",
+          "type": "CPU",
+          "prix": 150.0
+        },
+          {
+            "nom": "KSOS22",
+            "description": "Vroom Vroom ett lol",
+            "type": "ROUE",
+            "prix": 250.0
+          }
+        ]
       },
       {
         "id": "robot2",
@@ -25,7 +38,21 @@
         "name": "Robot 2",
         "position": "position2",
         "speed": 15,
-        "batteryLevel": 90
+        "batteryLevel": 90,
+        "listeComposantes":[{
+          "nom": "CPU223",
+          "description": "Description de la Composante3",
+          "type": "CPU",
+          "prix": 150.0
+        },
+          {
+            "nom": "IFAD32",
+            "description": "Description de la Composante4",
+            "type": "HELICE",
+            "prix": 250.0
+          }
+
+         ]
       }
     ],
     "composantes": {
@@ -56,7 +83,8 @@
         "name": "Robot 3",
         "position": "position3",
         "speed": 12,
-        "batteryLevel": 85
+        "batteryLevel": 85,
+        "listeComposantes": []
       },
       {
         "id": "robot4",
@@ -64,7 +92,9 @@
         "name": "Robot 4",
         "position": "position4",
         "speed": 20,
-        "batteryLevel": 95
+        "batteryLevel": 95,
+        "listeComposantes": []
+
       }
     ],
     "composantes": {

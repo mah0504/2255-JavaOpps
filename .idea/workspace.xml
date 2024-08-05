@@ -4,20 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="ajout liste des robots">
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="Correction Afficheretat rOBOT">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerRobot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerRobot.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MenuCompte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuCompte.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Robot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Robot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControllerRobot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerRobot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MenuCompte.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MenuCompte.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Robot.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Robot.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,7 +169,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722866478257</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Correction Afficheretat rOBOT">
+      <option name="closed" value="true" />
+      <created>1722869346993</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1722869346993</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,6 +200,7 @@
     <MESSAGE value="retirer l'attribut id de l'objet Composante" />
     <MESSAGE value="Update Compte.java" />
     <MESSAGE value="ajout liste des robots" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajout liste des robots" />
+    <MESSAGE value="Correction Afficheretat rOBOT" />
+    <option name="LAST_COMMIT_MESSAGE" value="Correction Afficheretat rOBOT" />
   </component>
 </project>

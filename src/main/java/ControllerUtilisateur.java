@@ -24,10 +24,8 @@ public class ControllerUtilisateur{
 
         this.listeUtilisateurs = new ArrayList<>();
         getListeUtilisateursFromJson();
-     //   this.listeFournisseurs= new ArrayList<>();
         this.controllerFournisseur = new ControllerFournisseur();
         this.listeFournisseurs = controllerFournisseur.getListeFournisseurs();
-
         this.controllerRobot= new ControllerRobot();
     }
 
@@ -158,13 +156,6 @@ public class ControllerUtilisateur{
         }
     }
 
-
-
-
-
-
-
-
     public Utilisateur verifierConnexion(String email, String mdp){
         Utilisateur user = findUserByEmail(email);
         if(user != null && user.getMdp().equals(mdp) && user.getConfirmed()){
@@ -172,7 +163,6 @@ public class ControllerUtilisateur{
         }
         return null;
     }
-
 
     private Utilisateur findUserByEmail(String email) {
         for (Utilisateur utilisateur : listeUtilisateurs) {
@@ -302,6 +292,7 @@ public class ControllerUtilisateur{
      */
     public void afficherEtatsRobots(){
         Scanner scan = new Scanner(System.in);
+
         try {
             System.out.println("Veuillez choisir quel type d'affichage vous voulez: \n " +
                     "[1] : Affichage Général \n [2] : Affichage Complet ");
@@ -310,18 +301,18 @@ public class ControllerUtilisateur{
 
             switch (choix){
                 case 1:
+
                     Robot robotChoisi=choisirRobot();
-               //     System.out.println(robotChoisi);
-
-
-
                     controllerRobot.setRobot(robotChoisi);
-
                     controllerRobot.afficherVueGenerale(robotChoisi);
 
                     break;
                 case 2:
-                    controllerRobot.afficherVueComplete(choisirRobot());
+
+                    Robot robotChoisi1=choisirRobot();
+                    controllerRobot.setRobot(robotChoisi1);
+                    controllerRobot.afficherVueComplete(robotChoisi1);
+
                     break;
                 default:
                     System.out.println("Veuillez entrer un nombre valide !");
@@ -333,8 +324,6 @@ public class ControllerUtilisateur{
             e.printStackTrace(); // modifier apres
         }
 
-        // sinon afficher etat
-
     }
 
 
@@ -344,9 +333,6 @@ public class ControllerUtilisateur{
      *
      * @return Le type de composante choisi par l'utilisateur.
      */
-
-
-
 
     public ComposanteType choisirTypeComposante() {
         Scanner scanner = new Scanner(System.in);
@@ -421,7 +407,6 @@ public class ControllerUtilisateur{
         return null ;
     }
 
-
     /**
      * Normalise  une chaîne de caractères en NFD (Normalization Form D),
      * supprimant les accents et en la mettant en minuscules.
@@ -437,7 +422,6 @@ public class ControllerUtilisateur{
         String normalized = Normalizer.normalize(input, Normalizer.Form.NFD);
         return normalized.replaceAll("\\p{M}", "").toLowerCase();
     }
-
 
     // selon nom
     public FournisseurComposante trouverComposanteSelonNom() {
@@ -473,7 +457,6 @@ public class ControllerUtilisateur{
 
         return null;
     }
-
 
     public FournisseurComposante trouverComposanteSelonFournisseur(){
         Scanner scanner = new Scanner(System.in);
@@ -534,7 +517,6 @@ public class ControllerUtilisateur{
 //                +composante.getComposante().getType() ) ;
 //    }
 
-
     /**
      * Affiche les informations détaillées d'une composante.
      *
@@ -546,8 +528,6 @@ public class ControllerUtilisateur{
                 +composante.getComposante().getType() +"\n" + "Description :" +
                 composante.getComposante().getDescription() +"\n Prix: " + composante.getComposante().getPrix());
     }
-
-
 
     public void acheterComposante(){
         ComposanteType compoChoisie =  choisirTypeComposante();
