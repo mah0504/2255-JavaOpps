@@ -54,6 +54,7 @@ public class ControllerUtilisateur{
 
     public void modifierProfil(){}
 
+
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
@@ -207,7 +208,7 @@ public class ControllerUtilisateur{
      * @return true si au moins une composante est disponible, false sinon.
      */
     public boolean composanteDispo(){
-        if (utilisateur.getComposantesFlotte().size() >0){
+        if (!utilisateur.getComposantesFlotte().isEmpty()){
             return true;
         }
         return false;
@@ -680,27 +681,94 @@ public class ControllerUtilisateur{
         // Récupérer la liste des fournisseurs
         ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
 
+     //   System.out.println(listeFournisseurs);
         // Liste des fournisseurs trouvés
         List<Fournisseur> fournisseursTrouves = new ArrayList<>();
 
-        // Parcourir la liste des fournisseurs
         for (Fournisseur f : listeFournisseurs) {
-            boolean hasComposanteType = false;
+            System.out.println("Examen du fournisseur : " + f.getNomCompagnie());
             for (FournisseurComposante fc : f.getComposantes().values()) {
                 if (fc.getComposante() != null && fc.getComposante().getType() == typeRecherche) {
-                    hasComposanteType = true;
-                }
-
-                if (hasComposanteType) {
+                    System.out.println("Ajout du fournisseur : " + f.getNomCompagnie());
                     fournisseursTrouves.add(f);
+                    break; // Sortir de la boucle interne dès qu'un composant correspondant est trouvé
                 }
-
             }
+        }
 
+        // Imprimer les fournisseurs trouvés
+        System.out.println("Fournisseurs trouvés :");
+        for (Fournisseur fournisseur : fournisseursTrouves) {
+            System.out.println(fournisseur.getNomCompagnie());
         }
 
         return fournisseursTrouves;
+
+
     }
+
+
+
+        public void enregistrerRobot() {
+            Robot robot = new Robot();
+            List<Fournisseur> lstFournissAveccpu = choisirFournisType2(ComposanteType.CPU);
+            System.out.println(lstFournissAveccpu);
+
+           if (!lstFournissAveccpu.isEmpty()) {
+               Scanner scanner = new Scanner(System.in);
+                System.out.println("Veuillez choisir de quel fournisseur vous voulez acheter un robot:");
+
+                try {
+                    // Impression des fournisseurs avec au moins un CPU à vendre
+                    for (int i = 0; i < lstFournissAveccpu.size(); i++) {
+                        System.out.println("[" + i + "] " + lstFournissAveccpu.get(i).getNomCompagnie());
+                    }
+
+                    int choix = scanner.nextInt();
+                    Fournisseur fournisseurChoisi = null;
+
+                    if (choix >= 0 && choix < lstFournissAveccpu.size()) {
+                        fournisseurChoisi = lstFournissAveccpu.get(choix); // Le fournisseur choisi
+                    }
+
+                    if (fournisseurChoisi != null) {
+                        ArrayList<Composante> composantesChoisies = new ArrayList<>();
+
+                        for (FournisseurComposante fc : fournisseurChoisi.getComposantes().values()) {
+                            if (fc.getComposante().getType() == ComposanteType.CPU) {
+                                composantesChoisies.add(fc.getComposante());
+                                break;
+                            }
+                        }
+
+                        // la flotte
+                        for ( int i=0 ; i<composantesChoisies.size(); i++){
+                            robot.getListeComposantes().add(composantesChoisies.get(i));
+                            robot.setListeComposantes(robot.getListeComposantes());
+                        }
+                        // modif le nom ,typw ....
+                        // ajouter le numero de serie aussi ...
+                        utilisateur.getListeRobots().add(robot);
+
+
+                        // Sauvegarder les modifications dans le fichier JSON
+                        listeUtilisateursToJson(listeUtilisateurs);
+
+
+                        // decrementer le stock du fournisseur
+                        // update la fiche du fournissuer json aussi
+                    } else {
+                        System.out.println("Choix invalide.");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace(); // À modifier après
+                }
+            } else {
+                System.out.println("Aucun fournisseur avec un CPU disponible.");
+            }
+        }
+
+
 
 
     public void voirNotifs(){

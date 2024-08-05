@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="correction erreurs ChoisirComposanteFlotte">
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="voirNotifications() de l'utilisateur &#10;+ getter et setter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fournisseurs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/Utilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utilisateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fournisseurs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utilisateurs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -243,7 +244,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722884036365</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="enlever enregistrer robot jusqu'a gestion d&quot;erreurs">
+      <option name="closed" value="true" />
+      <created>1722884938408</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1722884938408</updated>
+    </task>
+    <task id="LOCAL-00020" summary="voirNotifications() de l'utilisateur &#10;+ getter et setter">
+      <option name="closed" value="true" />
+      <created>1722885167395</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1722885167395</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,6 +292,8 @@
     <MESSAGE value="1ere moitie d'enregistrer robot + methodes auxiliaires" />
     <MESSAGE value="modif json + code -&gt; composantes de la flotte en arrayListe pas hashmap" />
     <MESSAGE value="correction erreurs ChoisirComposanteFlotte" />
-    <option name="LAST_COMMIT_MESSAGE" value="correction erreurs ChoisirComposanteFlotte" />
+    <MESSAGE value="enlever enregistrer robot jusqu'a gestion d&quot;erreurs" />
+    <MESSAGE value="voirNotifications() de l'utilisateur &#10;+ getter et setter" />
+    <option name="LAST_COMMIT_MESSAGE" value="voirNotifications() de l'utilisateur &#10;+ getter et setter" />
   </component>
 </project>
