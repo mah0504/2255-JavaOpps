@@ -10,7 +10,24 @@
       "Activite4": "TERMINEE",
       "Activite5": "EN_COURS"
     },
-    "listeRobots": [],
+    "listeRobots": [
+      {
+        "id": "robot1",
+        "type": "type1",
+        "name": "Robot 1",
+        "position": "position1",
+        "speed": 10,
+        "batteryLevel": 80
+      },
+      {
+        "id": "robot2",
+        "type": "type2",
+        "name": "Robot 2",
+        "position": "position2",
+        "speed": 15,
+        "batteryLevel": 90
+      }
+    ],
     "composantes": {
       "IFT2": "CPU",
       "IFT1" : "ROUE"
@@ -32,7 +49,24 @@
       "Activite9": "NON_DEBUTEE",
       "Activite10": "EN_COURS"
     },
-    "listeRobots": [],
+    "listeRobots": [
+      {
+        "id": "robot3",
+        "type": "type3",
+        "name": "Robot 3",
+        "position": "position3",
+        "speed": 12,
+        "batteryLevel": 85
+      },
+      {
+        "id": "robot4",
+        "type": "type4",
+        "name": "Robot 4",
+        "position": "position4",
+        "speed": 20,
+        "batteryLevel": 95
+      }
+    ],
     "composantes": {
       "IFT20": "CPU",
       "IFT25" : "HAUTPARLEUR"
