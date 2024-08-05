@@ -4,15 +4,24 @@ public class ControllerRobot {
     private Robot robot;
 
 
+
+    public void setRobot(Robot robot){
+        this.robot=robot;
+    }
+
     /**
      * Affiche les informations générales du robot, son nom type et niveay de batterie
      * @param robot
      */
     public void afficherVueGenerale(Robot robot) {
+
+
         System.out.println("Nom:" + robot.getName() +"\n" +"Type" +robot.getType() + "\n"
                 +"Niveau de batterie:" + robot.getBatteryLevel());
 
     }
+
+
 
 
     /**

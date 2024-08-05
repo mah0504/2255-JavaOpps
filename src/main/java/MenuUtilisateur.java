@@ -9,6 +9,7 @@ public class MenuUtilisateur{
         this.scanner = new Scanner(System.in);
         this.controllerUtilisateur = controllerUtilisateur;
 
+
     }
 
     public void afficherMenuUtilisateur(Utilisateur utilisateur) {

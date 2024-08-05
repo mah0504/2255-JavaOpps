@@ -13,6 +13,7 @@ public class Robot {
   private Fournisseur supplier;
 
 
+
   private ArrayList<Composante> listeComposantes;
 
  public Robot(String id, String type, String name, String position, float speed, float batteryLevel) {

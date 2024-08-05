@@ -6,13 +6,14 @@ public class MenuCompte {
     private ControllerUtilisateur controllerUtilisateur;
     private MenuUtilisateur menuUtilisateur;
     private ControllerFournisseur controllerFournisseur;
+    private ControllerRobot controllerRobot;
     private MenuFournisseur menuFournisseur;
     private CompteView compteView;
 
-    public MenuCompte(ControllerUtilisateur controllerUtilisateur, ControllerFournisseur controllerFournisseur) {
+    public MenuCompte(ControllerUtilisateur controllerUtilisateur, ControllerFournisseur controllerFournisseur, ControllerRobot controllerRobot) {
         this.controllerUtilisateur =  controllerUtilisateur;
         this.controllerFournisseur = controllerFournisseur;
-
+        this.controllerRobot= controllerRobot;
         this.menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
         this.menuFournisseur= new MenuFournisseur(controllerFournisseur);
 

@@ -20,7 +20,6 @@ public class ControllerUtilisateur{
     private ControllerFournisseur controllerFournisseur;
     private ArrayList<Fournisseur> listeFournisseurs;
 
-
     public ControllerUtilisateur(){
 
         this.listeUtilisateurs = new ArrayList<>();
@@ -29,7 +28,7 @@ public class ControllerUtilisateur{
         this.controllerFournisseur = new ControllerFournisseur();
         this.listeFournisseurs = controllerFournisseur.getListeFournisseurs();
 
-
+        this.controllerRobot= new ControllerRobot();
     }
 
     private void getListeUtilisateursFromJson(){
@@ -186,11 +185,11 @@ public class ControllerUtilisateur{
 
     public Robot choisirRobot (){
         try {
-            for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
+            System.out.println( "Veuillez choisir un robot de votre Flotte par index!");
 
-                System.out.println( "[" + i + "]" +"Veuillez choisir " +
-                        "un robot de votre Flotte par index! \n "
-                        + utilisateur.getListeRobots().get(i).getId() + "\n");
+            for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
+                System.out.println( "[" + i +"]"+
+                        utilisateur.getListeRobots().get(i).getId() + "\n");
             }
 
 
@@ -198,7 +197,8 @@ public class ControllerUtilisateur{
             int choix = scan.nextInt();
 
             // si choix valide , on return le Robot sitié à l'Index choisis pas l'Utilisateur
-            return utilisateur.getListeRobots().get(choix - 1);
+
+            return utilisateur.getListeRobots().get(choix - 1) ;
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Veuillez choisir un nombre valide parmi les options disponibles!");
         } catch (InputMismatchException e) {
@@ -310,7 +310,15 @@ public class ControllerUtilisateur{
 
             switch (choix){
                 case 1:
-                    controllerRobot.afficherVueGenerale(choisirRobot());
+                    Robot robotChoisi=choisirRobot();
+               //     System.out.println(robotChoisi);
+
+
+
+                    controllerRobot.setRobot(robotChoisi);
+
+                    controllerRobot.afficherVueGenerale(robotChoisi);
+
                     break;
                 case 2:
                     controllerRobot.afficherVueComplete(choisirRobot());
@@ -465,8 +473,6 @@ public class ControllerUtilisateur{
 
         return null;
     }
-
-
 
 
     public FournisseurComposante trouverComposanteSelonFournisseur(){

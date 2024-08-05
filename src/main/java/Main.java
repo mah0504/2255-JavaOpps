@@ -10,9 +10,10 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur();
         ControllerFournisseur controllerFournisseur = new ControllerFournisseur();
+        ControllerRobot controllerRobot= new ControllerRobot();
     //    MenuUtilisateur menuUtilisateur = new MenuUtilisateur();
 
-        MenuCompte menuCompte = new MenuCompte(controllerUtilisateur, controllerFournisseur );
+        MenuCompte menuCompte = new MenuCompte(controllerUtilisateur, controllerFournisseur ,controllerRobot);
         menuCompte.afficherMenu();
 
     }
