@@ -8,11 +8,299 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
-public class ControllerFournisseur{
+public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
+
+    private static final String CHEMIN_FIC_JSON = "src/main/resources/fournisseurs.json";
+
+    public ControllerFournisseur(MenuCompte menuCompte, View view) {
+        super(menuCompte, view);
+        this.comptes = getListeFournisseursFromJson();
+    }
+
+    private ArrayList<Fournisseur> getListeFournisseursFromJson(){
+        try(FileReader reader = new FileReader(CHEMIN_FIC_JSON)){
+            Gson gson = new Gson();
+            Type listeFournisseurstype = new TypeToken<ArrayList<Fournisseur>>(){}.getType();
+            return gson.fromJson(reader, listeFournisseurstype);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    private void listeFournisseursToJson(ArrayList<Fournisseur> listeFournisseurs){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try(FileWriter writer = new FileWriter(CHEMIN_FIC_JSON)){
+            gson.toJson(listeFournisseurs, writer);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+
+    public void sInscrire(){
+        Scanner scanner = new Scanner(System.in);
+        String pseudo = super.getPseudoUnique();
+        view.getCompagnieView();
+        String compagnie = scanner.nextLine();
+        String email = super.getEmailUnique();
+        String motDePasse = super.getMdpValid();
+        String telephone = super.getTelephoneValid();
+
+        Fournisseur nouveauSupplier = new Fournisseur(pseudo, email, motDePasse,telephone,compagnie);
+
+        if(isPseudoUnique(pseudo)){
+            super.envoyerMailConfirmation(nouveauSupplier);
+            super.sInscrire(nouveauSupplier);
+            listeFournisseursToJson((ArrayList<Fournisseur>) comptes);
+            System.out.println("Inscription réussie. En attente de la confirmation de l'email .");
+        } else {
+            System.out.println("Échec à la création du compte.");
+        }
+    }
+
+    public void confirmerInscription(){
+
+        Scanner scanner = new Scanner(System.in);
+        view.getEmailView();
+        String email = scanner.nextLine();
+        view.getConfirmationLien();
+        String lienConfirmation = scanner.nextLine();
+
+        Fournisseur supplier = findUserByEmail(email);
+
+        if (supplier != null) {
+            String confirmationDateStr = supplier.getConfirmationLienExpirationDate();
+            LocalDateTime confirmationDate = supplier.StrToDate(confirmationDateStr);
+
+            if (LocalDateTime.now().isBefore(confirmationDate)) {
+                if(supplier.getConfirmationLien().equals(lienConfirmation)){
+                    supplier.isConfirmed(true);
+                    supplier.setConfirmationLien(null);
+                    supplier.setConfirmationLienExpirationDate(null);
+                    listeFournisseursToJson((ArrayList<Fournisseur>) comptes);
+                } else {
+                    view.afficherMessage("Lien de confirmation incorrect.");
+                }
+            } else {
+                comptes.remove(supplier);
+                listeFournisseursToJson((ArrayList<Fournisseur>) comptes);
+                view.afficherMessage("Le lien de confirmation a expiré. Le compte est supprimé");
+            }
+        }
+        view.afficherMessage("Ce compte n'existe pas, entrez un email valide !");
+    }
+
+    public void modifierProfilFournissuer(Fournisseur fournisseur) {
+        boolean continuer = true;
+        Scanner scanner = new Scanner(System.in);
+        while (continuer) {
+            view.actionModifierProfilFournisseur();
+            int choix = Integer.parseInt(scanner.nextLine().trim());
+
+            switch (choix) {
+                case 0:
+                    continuer = false;
+                    break;
+                case 1:
+                    String nvPseudo = super.getPseudoUnique();
+                    fournisseur.setPseudo(nvPseudo);
+                    break;
+                case 2:
+                    view.getCompagnieView();
+                    String nvNomCompagnie = scanner.nextLine();
+                    fournisseur.setNomCompagnie(nvNomCompagnie);
+                    break;
+                case 3:
+                    String nvMdp = super.getMdpValid();
+                    fournisseur.setMdp(nvMdp);
+                    break;
+                case 4:
+                    String nvTelephone = super.getTelephoneValid();
+                    fournisseur.setTelephone(nvTelephone);
+                    break;
+                default :
+                    System.out.println("Choix invalide");
+
+            }
+        }
+
+        for (int i = 0; i < comptes.size(); i++) {
+            if (comptes.get(i).getEmail().equals(fournisseur.getEmail())) {
+                comptes.set(i, fournisseur);
+                break;
+            }
+        }
+        listeFournisseursToJson((ArrayList<Fournisseur>) comptes);
+    }
+
+    public void afficherComposantes(Fournisseur fournisseur) {
+        HashMap<String, FournisseurComposante> composantes = fournisseur.getComposantes();
+        if (composantes.isEmpty()) {
+            System.out.println("Vous n'avez aucune composante");
+        } else {
+            System.out.println("La liste de vos composantes : ");
+            for (Map.Entry<String, FournisseurComposante> entry : composantes.entrySet()) {
+
+                FournisseurComposante fournisseurComposante = entry.getValue();
+                Composante composante = fournisseurComposante.getComposante();
+                int quantite = fournisseurComposante.getQuantite();
+
+                System.out.println("Composante " + entry.getKey() + " : " + composante.getDescription());
+                System.out.println("Type : " + composante.getType());
+                System.out.println("Prix : " + composante.getPrix());
+                System.out.println("Quantité : " + quantite);
+                if(fournisseurComposante.isAvailable()){
+                    System.out.println("Composante " + entry.getKey() + " est disponible");
+                } else {
+                    System.out.println("Composante " + entry.getKey() + " n'est pas disponible");
+                }
+                System.out.println("**********************************************************");
+            }
+        }
+    }
+
+
+    public void enregistrerComposante(Fournisseur fournisseur) {
+        Scanner scanner = new Scanner(System.in);
+        view.afficherMessage("Enregistrement d'une nouvelle composante :");
+        view.getNomComposanteView();
+        String nomComposante = scanner.nextLine();
+        view.getDescriptionComposanteView();
+        String descriptionComposante = scanner.nextLine();
+        view.getTypeComposanteView();
+        ComposanteType type = ComposanteType.valueOf(scanner.nextLine());
+        view.getPrixView();
+        float prix = Float.parseFloat(scanner.nextLine());
+        view.getQuantiteView();
+        int quantite = Integer.parseInt(scanner.nextLine());
+
+        Composante composante = new Composante(nomComposante, descriptionComposante, type, prix);
+        FournisseurComposante fournisseurComposante = new FournisseurComposante(composante, quantite);
+
+        fournisseur.addComposante(fournisseurComposante);
+
+        for (int i = 0; i < comptes.size(); i++) {
+            if (comptes.get(i).getEmail().equals(fournisseur.getEmail())) {
+                comptes.set(i, fournisseur);
+                break;
+            }
+        }
+
+        listeFournisseursToJson((ArrayList<Fournisseur>) comptes);
+        view.afficherMessage("Composante enregistrée avec succès !");
+
+    }
+
+    private void afficherlisteComposantes(Fournisseur fournisseur){
+        System.out.println("Vos composantes : ");
+        for(Map.Entry<String, FournisseurComposante> entry : fournisseur.getComposantes().entrySet()){
+            System.out.println(entry.getKey() + " : " + entry.getValue().getQuantite());
+        }
+    }
+
+    public void supprimerComposante(Fournisseur fournisseur) {
+        Scanner scanner = new Scanner(System.in);
+        view.afficherMessage("Quelle composante souhaitez-vous supprimer ?");
+
+        afficherlisteComposantes(fournisseur);
+
+        view.getNomComposanteView();
+        String nomComposante = scanner.nextLine();
+
+
+        HashMap<String, FournisseurComposante> composantes = fournisseur.getComposantes();
+        if (composantes.containsKey(nomComposante)) {
+            composantes.remove(nomComposante);
+
+            fournisseur.setComposantes(composantes);
+
+            for (int i = 0; i < comptes.size(); i++) {
+                if (comptes.get(i).getEmail().equals(fournisseur.getEmail())) {
+                    comptes.set(i, fournisseur);
+                    break;
+                }
+            }
+
+            listeFournisseursToJson((ArrayList<Fournisseur>) comptes);
+            view.afficherMessage("Composante supprimée avec succès !");
+        } else {
+            view.afficherMessage("Cette  n'existe pas !");
+        }
+    }
+
+    public void modifierComposante(Fournisseur fournisseur) {
+        Scanner scanner = new Scanner(System.in);
+
+        afficherlisteComposantes(fournisseur);
+        System.out.println("Quelle composante souhaitez vous modifier ?");
+        view.getNomComposanteView();
+        String nomComposante = scanner.nextLine();
+
+        HashMap<String, FournisseurComposante> composantes = fournisseur.getComposantes();
+        if (composantes.containsKey(nomComposante)) {
+
+            FournisseurComposante composanteAModifier = composantes.get(nomComposante);
+
+            boolean continuer = true;
+            while (continuer) {
+                view.actionModifierComposante();
+                int choix = Integer.parseInt(scanner.nextLine().trim());
+
+                switch (choix) {
+                    case 0:
+                        continuer = false;
+                        break;
+                    case 1:
+                        FournisseurComposante temp = composanteAModifier;
+                        composantes.remove(composanteAModifier.getComposante().getNom());
+                        view.getNomComposanteView();
+                        String nvNom = scanner.nextLine();
+                        composanteAModifier.getComposante().setNom(nvNom);
+                        composantes.put(nvNom, new FournisseurComposante(new Composante(nvNom, temp.getComposante().getDescription(), temp.getComposante().getType(),temp.getComposante().getPrix()), temp.getQuantite()));
+                        break;
+                    case 2:
+                        view.getDescriptionComposanteView();
+                        String nvDescription = scanner.nextLine();
+                        composanteAModifier.getComposante().setDescription(nvDescription);
+                        break;
+                    case 3:
+                        view.getTypeComposanteView();
+                        ComposanteType nvType = ComposanteType.valueOf(scanner.nextLine().toUpperCase());
+                        composanteAModifier.getComposante().setType(nvType);
+                        break;
+                    case 4:
+                        view.getPrixView();
+                        float nvPrix = Float.parseFloat(scanner.nextLine());
+                        composanteAModifier.getComposante().setPrix(nvPrix);
+                        break;
+                    default:
+                        System.out.println("Choix invalide.");
+                }
+
+                fournisseur.setComposantes(composantes);
+
+                for (int i = 0; i < comptes.size(); i++) {
+                    if (comptes.get(i).getEmail().equals(fournisseur.getEmail())) {
+                        comptes.set(i, fournisseur);
+                        break;
+                    }
+                }
+
+                listeFournisseursToJson((ArrayList<Fournisseur>) comptes);
+                view.afficherMessage("Composante modifiée avec succès !");
+            }
+        } else {
+            view.afficherMessage("Cette composante n'existe pas.");
+        }
+    }
+
+
+}
+
+
 
 /*    private ArrayList<Fournisseur> listeFournisseurs;
     private Fournisseur fournisseur;
@@ -184,4 +472,3 @@ public class ControllerFournisseur{
     public void modifierComposante( ){}
 
  */
-}
