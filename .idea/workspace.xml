@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="modif json">
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="update acheter une composante">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utilisateurs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,22 +50,19 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/2255-JavaOpps-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JAR Application.2255-JavaOpps-1.0-SNAPSHOT.jar" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
+        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,7 +83,9 @@
       <workItem from="1722943359893" duration="2268000" />
       <workItem from="1722948394400" duration="92000" />
       <workItem from="1722948821521" duration="757000" />
-      <workItem from="1722950206126" duration="2745000" />
+      <workItem from="1722952106360" duration="225000" />
+      <workItem from="1722952521717" duration="113000" />
+      <workItem from="1722952689751" duration="79000" />
     </task>
     <task id="LOCAL-00001" summary="changes">
       <option name="closed" value="true" />
@@ -418,13 +415,13 @@
       <option name="project" value="LOCAL" />
       <updated>1722948484239</updated>
     </task>
-    <task id="LOCAL-00042" summary="modif json">
+    <task id="LOCAL-00042" summary="update acheter une composante">
       <option name="closed" value="true" />
-      <created>1722950439946</created>
+      <created>1722952616414</created>
       <option name="number" value="00042" />
       <option name="presentableId" value="LOCAL-00042" />
       <option name="project" value="LOCAL" />
-      <updated>1722950439946</updated>
+      <updated>1722952616414</updated>
     </task>
     <option name="localTasksCounter" value="43" />
     <servers />
@@ -468,7 +465,7 @@
     <MESSAGE value="run 3 + modification de voir Notifications" />
     <MESSAGE value="run 4" />
     <MESSAGE value="update utilisateurs.json" />
-    <MESSAGE value="modif json" />
-    <option name="LAST_COMMIT_MESSAGE" value="modif json" />
+    <MESSAGE value="update acheter une composante" />
+    <option name="LAST_COMMIT_MESSAGE" value="update acheter une composante" />
   </component>
 </project>

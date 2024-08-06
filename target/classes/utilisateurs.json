@@ -37,17 +37,27 @@
         ]
       },
       {
-        "speed": 0.0,
-        "batteryLevel": 0.0,
+        "id": "robot2",
+        "type": "type2",
+        "name": "Robot 2",
+        "position": "position2",
+        "speed": 15.0,
+        "batteryLevel": 90.0,
         "cpu": 0.0,
         "memory": 0.0,
         "active": false,
         "listeComposantes": [
           {
-            "nom": "CP44",
-            "description": "CPU UNIQUE JSP",
+            "nom": "CPU223",
+            "description": "Description de la Composante3",
             "type": "CPU",
             "prix": 150.0
+          },
+          {
+            "nom": "IFAD32",
+            "description": "Description de la Composante4",
+            "type": "HELICE",
+            "prix": 250.0
           }
         ]
       }
@@ -56,8 +66,10 @@
       "IFT2": "CPU",
       "IFT1": "ROUE",
       "IFAD32": "HELICE",
-      "IF": "ROUE"
+      "IF": "ROUE",
+      "IFT21": "CAMERA"
     },
+    "notifs": [],
     "pseudo": "aithu",
     "email": "aithu@example.com",
     "mdp": "mdp",
@@ -105,6 +117,7 @@
       "IFT20": "CPU",
       "IFT25": "HAUTPARLEUR"
     },
+    "notifs": [],
     "pseudo": "pnom2",
     "email": "pnom2@example.com",
     "mdp": "motdepasse2",
@@ -128,6 +141,7 @@
       "IFT26": "ROUE",
       "IFT25": "HAUTPARLEUR"
     },
+    "notifs": [],
     "pseudo": "pnom3",
     "email": "pnom3@example.com",
     "mdp": "motdepasse3",
@@ -174,6 +188,7 @@
     "composantes": {
       "IFT28": "BRAS"
     },
+    "notifs": [],
     "pseudo": "pnom4",
     "email": "pnom4@example.com",
     "mdp": "mdp",
@@ -196,6 +211,7 @@
       "IFT20": "CPU",
       "IFT21": "CAMERA"
     },
+    "notifs": [],
     "pseudo": "pnom5",
     "email": "pnom5@example.com",
     "mdp": "motdepasse5",
@@ -218,6 +234,7 @@
       "IFT20": "CPU",
       "IFT21": "CAMERA"
     },
+    "notifs": [],
     "pseudo": "pnom6",
     "email": "pnom6@example.com",
     "mdp": "motdepasse6",
@@ -239,6 +256,7 @@
     "composantes": {
       "IFT20": "CPU"
     },
+    "notifs": [],
     "pseudo": "pnom7",
     "email": "pnom7@example.com",
     "mdp": "motdepasse7",
@@ -261,6 +279,7 @@
       "IFT20": "CPU",
       "IFT22": "HELICE"
     },
+    "notifs": [],
     "pseudo": "pnom8",
     "email": "pnom8@example.com",
     "mdp": "motdepasse8",
@@ -283,6 +302,7 @@
       "IFT20": "CPU",
       "IFT23": "ECRAN"
     },
+    "notifs": [],
     "pseudo": "pnom9",
     "email": "pnom9@example.com",
     "mdp": "motdepasse9",
@@ -306,6 +326,7 @@
       "IFT21": "CAMERA",
       "IFT30": "MICRO"
     },
+    "notifs": [],
     "pseudo": "pnom10",
     "email": "pnom10@example.com",
     "mdp": "motdepasse10",

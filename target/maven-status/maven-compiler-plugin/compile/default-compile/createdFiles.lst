@@ -2,6 +2,7 @@ ControllerCompte.class
 ControllerRobot.class
 Utilisateur.class
 Compte.class
+ControllerUtilisateur$2.class
 ServiceNotifs.class
 Main.class
 MenuUtilisateur.class
@@ -10,7 +11,6 @@ Notification.class
 CompteView.class
 ControllerUtilisateur$1.class
 Composante.class
-ControllerFournisseur$2.class
 StatutActivite.class
 Organisation.class
 Robotix.class
@@ -22,5 +22,6 @@ View.class
 Robot.class
 Activite.class
 MenuFournisseur.class
+ControllerUtilisateur$3.class
 ControllerUtilisateur.class
 Fournisseur.class
