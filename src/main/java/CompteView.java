@@ -8,11 +8,6 @@ public class CompteView {
         this.scanner = new Scanner(System.in);
     }
 
-    public void fermerScanner() {
-        if (scanner != null) {
-            scanner.close();
-        }
-    }
 
     public void compteType(){
         System.out.println("\nRôle : ");
@@ -104,6 +99,16 @@ public class CompteView {
     public String getConfirmationLien(){
         System.out.println("Entrez la confirmation du lien : ");
         return scanner.nextLine().trim();
+    }
+
+    /**
+     * Ferme le scanner s'il est ouvert et non null
+     *
+     */
+    public void fermerScanner() {
+        if (scanner != null) {
+            scanner.close();
+        }
     }
 
 }
