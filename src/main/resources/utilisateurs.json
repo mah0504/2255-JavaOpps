@@ -62,19 +62,75 @@
         ]
       },
       {
-        "speed": 0.0,
-        "batteryLevel": 0.0,
+        "id": "robot1",
+        "type": "type1",
+        "name": "Robot 1",
+        "position": "position1",
+        "speed": 10.0,
+        "batteryLevel": 80.0,
         "cpu": 0.0,
         "memory": 0.0,
         "active": false,
         "listeComposantes": [
           {
-            "nom": "IFT34",
-            "description": "Une composante CPU",
+            "nom": "CP44",
+            "description": "CPU UNIQUE JSP",
             "type": "CPU",
             "prix": 150.0
           },
           {
+            "nom": "KSOS22",
+            "description": "Vroom Vroom ett lol",
+            "type": "ROUE",
+            "prix": 250.0
+          }
+        ]
+      },
+      {
+        "id": "robot2",
+        "type": "type2",
+        "name": "Robot 2",
+        "position": "position2",
+        "speed": 15.0,
+        "batteryLevel": 90.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": [
+          {
+            "nom": "CPU223",
+            "description": "Description de la Composante3",
+            "type": "CPU",
+            "prix": 150.0
+          },
+          {
+            "nom": "IFAD32",
+            "description": "Description de la Composante4",
+            "type": "HELICE",
+            "prix": 250.0
+          }
+        ]
+      },
+      {
+        "id": "RobotInterme",
+        "type": "type1",
+        "name": "rbt",
+        "position": "En repos",
+        "speed": 20.0,
+        "batteryLevel": 100.0,
+        "cpu": 0.0,
+        "memory": 100.0,
+        "active": false,
+        "listeComposantes": [
+          {
+            "nom": "CPU2",
+            "description": "CPU UNIQUE JSP",
+            "type": "CPU",
+            "prix": 150.0
+          },
+          {
+            "nom": "WESH",
+            "type": "ROUE",
             "prix": 0.0
           }
         ]
@@ -84,8 +140,7 @@
       "IFT2": "CPU",
       "IFT1": "ROUE",
       "IFAD32": "HELICE",
-      "IF": "ROUE",
-      "CPU1": "CPU"
+      "IF": "ROUE"
     },
     "notifs": [],
     "pseudo": "aithu",

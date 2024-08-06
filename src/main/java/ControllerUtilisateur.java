@@ -74,6 +74,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         }
     }
 
+
     /*private void getListeUtilisateursFromJson(){
         try(FileReader reader = new FileReader("src/main/resources/utilisateurs.json")){
             Gson gson = new Gson();
@@ -321,6 +322,40 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
      * @return Le type de la composante choisie par l'utilisateur, ou null
      * si aucune composante n'a été choisie.
      */
+
+
+    private void mettreAJourUtilisateurAvecRobot(Utilisateur utilisateurAvecNouveauRobot) {
+        ArrayList<Utilisateur> listeUtilisateurs = getListeUtilisateursFromJson();
+
+        boolean utilisateurTrouve = false;
+
+        // Trouver l'utilisateur à mettre à jour
+        for (Utilisateur utilisateur : listeUtilisateurs) {
+            if (utilisateur.getPrenom().equals(utilisateurAvecNouveauRobot.getPrenom()) &&
+                    utilisateur.getNom().equals(utilisateurAvecNouveauRobot.getNom())) {
+
+                // Ajouter le nouveau robot à la liste de robots de l'utilisateur
+                utilisateur.getListeRobots().addAll(utilisateurAvecNouveauRobot.getListeRobots());
+                utilisateurTrouve = true;
+                break;
+            }
+        }
+
+        if (!utilisateurTrouve) {
+            // Si l'utilisateur n'est pas trouvé, ajouter le nouvel utilisateur
+            listeUtilisateurs.add(utilisateurAvecNouveauRobot);
+        }
+
+        // Afficher les données pour vérifier avant l'écriture
+        System.out.println("Liste des utilisateurs mise à jour : " + listeUtilisateurs);
+
+        // Écrire la liste mise à jour dans le fichier JSON
+        listeUtilisateursToJson(listeUtilisateurs);
+    }
+
+
+
+
 
     public ComposanteType choisirComposanteFlotte(Utilisateur utilisateur){
 
@@ -790,7 +825,107 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         return null;
     }
 
-    public ComposanteType choisirComposanteFlotte(ComposanteType typeRecherche, Utilisateur utilisateur) {
+
+    public void enregistrerRobot(Utilisateur utilisateur) {
+
+        ArrayList<Composante> nouvellesComposantes = new ArrayList<>();
+
+        List<Fournisseur> lstFournissAveccpu = choisirFournisType2(ComposanteType.CPU);
+        if (!lstFournissAveccpu.isEmpty()) {
+
+
+// definition simple et intermédiaire
+            Robot robot = new Robot("RobotInterme","type1","rbt"
+                    ,"En repos",20,100 );
+
+
+            robot.setListeComposantes(nouvellesComposantes);
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Veuillez choisir de quel fournisseur vous voulez acheter un robot:");
+
+            try {
+                // Impression des fournisseurs avec au moins un CPU à vendre
+                for (int i = 0; i < lstFournissAveccpu.size(); i++) {
+                    System.out.println("[" + i + "] " + lstFournissAveccpu.get(i).getNomCompagnie());
+                }
+
+                int choix = scanner.nextInt();
+
+                if (choix >= 0 && choix < lstFournissAveccpu.size()) {
+                    fournisseurChoisi = lstFournissAveccpu.get(choix); // Le fournisseur choisi
+                }
+
+                if (fournisseurChoisi != null) {
+                    ArrayList<Composante> composantesChoisies = new ArrayList<>();
+
+                    for (FournisseurComposante fc : fournisseurChoisi.getComposantes().values()) {
+                        if (fc.getComposante().getType() == ComposanteType.CPU) {
+                            composantesChoisies.add(fc.getComposante());
+                            break;
+                        }
+                    }
+
+                    ComposanteType typeCompo2 = choisirTypeComposanteFlotte(utilisateur);
+                    Composante composante=choisirComposanteFlotte(typeCompo2,utilisateur);
+
+                    Scanner scanner1=new Scanner(System.in);
+//                    Scanner scanner2=new Scanner(System.in);
+                    try {
+
+                        System.out.println("Veuillez choisir un nom pour votre composante");
+
+                        String nom=scanner1.nextLine();
+
+                        composante.setNom(nom);
+                        composante.setType(typeCompo2);
+                        //  composante.setType();
+                    }catch (InputMismatchException e){
+                        System.out.println("Veuillez entrer un nom valide !");
+                        scanner1.next();
+                    }
+
+                    composantesChoisies.add(composante); // ajout de la 2eme compo ?
+
+                    // pr trv compo , scnnaer dans le meu puis on l'envoie comme param?
+                    // la flotte
+                    for (int i = 0; i < composantesChoisies.size(); i++) {
+                        nouvellesComposantes.add(composantesChoisies.get(i));
+
+                        robot.setListeComposantes(nouvellesComposantes);
+                    }
+                    // modif le nom ,typw ....
+                    // ajouter le numero de serie aussi ...
+
+
+                    robot.setActive(false);
+                    robot.setMemory(100);
+
+                    utilisateur.getListeRobots().add(robot);
+
+                    System.out.println("Vous avez enregistré le robot! Félicitations, Vous " +
+                            "pouvez modifier les spécificités de votre nouveau robot à votre guise " +
+                            "après");
+
+                 //    listeUtilisateursToJson(listeUtilisateurs);
+                    mettreAJourUtilisateurAvecRobot(utilisateur);
+
+                } else {
+                    System.out.println("Choix invalide.");
+                }
+
+
+            } catch (Exception e) {
+                System.out.println("Veuillez entrer un index valide !");
+                scanner.next();
+
+            }
+
+        }
+    }
+
+
+    public Composante choisirComposanteFlotte(ComposanteType typeRecherche, Utilisateur utilisateur) {
         if (utilisateur.getComposantesFlotte().isEmpty()) {
             System.out.println("Aucune composante disponible dans la flotte.");
             return null;
@@ -819,8 +954,14 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         try {
             int choix = scanner.nextInt();
             if (choix >= 0 && choix < composantesDisponibles.size()) {
-                // Retourner le type de la composante choisie
-                return composantesDisponibles.get(choix).getValue();
+                // Retourner la composante choisie
+                String composanteNom = composantesDisponibles.get(choix).getKey();
+                // Créer une instance de Composante avec le constructeur par défaut
+                Composante composante = new Composante();
+                // Définir le nom et le type de la composante
+                composante.setNom(composanteNom);
+                composante.setType(typeRecherche);
+                return composante;
             } else {
                 System.out.println("Choix invalide.");
             }
@@ -832,81 +973,46 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     }
 
 
-    public void enregistrerRobot(Utilisateur utilisateur) {
-        Robot robot = new Robot();
-        ArrayList<Composante> nouvellesComposantes = new ArrayList<>();
-        robot.setListeComposantes(nouvellesComposantes);
-
-        List<Fournisseur> lstFournissAveccpu = choisirFournisType2(ComposanteType.CPU);
-        System.out.println(lstFournissAveccpu);
-
-        if (!lstFournissAveccpu.isEmpty()) {
-            Scanner scanner = new Scanner(System.in);
-            System.out.println("Veuillez choisir de quel fournisseur vous voulez acheter un robot:");
-
-            try {
-                // Impression des fournisseurs avec au moins un CPU à vendre
-                for (int i = 0; i < lstFournissAveccpu.size(); i++) {
-                    System.out.println("[" + i + "] " + lstFournissAveccpu.get(i).getNomCompagnie());
-                }
-
-                int choix = scanner.nextInt();
-
-                if (choix >= 0 && choix < lstFournissAveccpu.size()) {
-                    fournisseurChoisi = lstFournissAveccpu.get(choix); // Le fournisseur choisi
-                }
-
-                if (fournisseurChoisi != null) {
-                    ArrayList<Composante> composantesChoisies = new ArrayList<>();
-
-                    for (FournisseurComposante fc : fournisseurChoisi.getComposantes().values()) {
-                        if (fc.getComposante().getType() == ComposanteType.CPU) {
-                            composantesChoisies.add(fc.getComposante());
-                            break;
-                        }
-                    }
-
-
-
-                    Composante composante=new Composante();
-
-                    //composante.setNom();
-                    // composante.setType();
-
-                    composantesChoisies.add(composante); // ajout de la 2eme compo ?
-
-                    // pr trv compo , scnnaer dans le meu puis on l'envoie comme param?
-                    // la flotte
-                    for (int i = 0; i < composantesChoisies.size(); i++) {
-                        robot.getListeComposantes().add(composantesChoisies.get(i));
-
-
-                        robot.setListeComposantes(robot.getListeComposantes());
-                    }
-                    // modif le nom ,typw ....
-                    // ajouter le numero de serie aussi ...
-                    utilisateur.getListeRobots().add(robot);
-
-
-
-
-                } else {
-                    System.out.println("Choix invalide.");
-                }
-
-
-            } catch (Exception e) {
-                e.printStackTrace(); // À modifier après
-                // }
-            }
-
+    public ComposanteType choisirTypeComposanteFlotte(Utilisateur utilisateur) {
+        // Récupérer les types de composantes disponibles dans la flotte de l'utilisateur
+        Set<ComposanteType> typesDisponibles = new HashSet<>();
+        for (ComposanteType type : utilisateur.getComposantesFlotte().values()) {
+            typesDisponibles.add(type);
         }
+
+        if (typesDisponibles.isEmpty()) {
+            System.out.println("Aucune composante disponible dans la flotte.");
+            return null;
+        }
+
+        // Convertir l'ensemble en tableau pour affichage
+        ComposanteType[] typesArray = typesDisponibles.toArray(new ComposanteType[0]);
+        int choix = -1;
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Choisir type de composante parmi ceux disponibles dans la flotte:");
+        for (int i = 0; i < typesArray.length; i++) {
+            System.out.println(i + ": " + typesArray[i]);
+        }
+
+        while (choix < 0 || choix >= typesArray.length) {
+            System.out.print("Entrez le numéro de la composante choisie: ");
+            try {
+                choix = scanner.nextInt();
+                if (choix < 0 || choix >= typesArray.length) {
+                    System.out.println("Numéro invalide. Veuillez entrer un nombre entre 0 et " + (typesArray.length - 1));
+                }
+            } catch (NumberFormatException e) {
+                System.out.println("Entrée invalide. Veuillez entrer un nombre.");
+            }
+        }
+
+        return typesArray[choix];
     }
 
 
-
     // Methode auxiliaire
-    public List<Fournisseur> choisirFournisType2(ComposanteType typeRecherche) {
+    public List<Fournisseur> choisirFournisType2(ComposanteType typeRecherche){
         // Récupérer la liste des fournisseurs
         //ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
 
