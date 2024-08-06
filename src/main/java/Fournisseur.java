@@ -51,6 +51,15 @@ public class Fournisseur extends Compte{
     }
 
     /**
+     * Assigne un dictionnaire de composantes à un fournisseur
+     *
+     * @param composantes le dictionnaire de FournisseurComposante
+     */
+    public void setComposantes(HashMap<String, FournisseurComposante> composantes){
+        this.composantesFournisseurs = composantes;
+    }
+
+    /**
      * Permet d'ajouter les informations sur une Composante à la liste des
      * Composantes d'un Fournisseur
      *
