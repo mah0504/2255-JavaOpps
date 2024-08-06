@@ -1,6 +1,6 @@
 # README
 
-#Titre du Projet
+## Titre du projet
 2255-JavaOpss/Robotix 
 
 ## Descriptions
@@ -27,37 +27,37 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
         - Confirmer l'inscription
         - Se connecter
                   - Menu Utilisateur
-                        - Modifier son profil
-                        - Gérer sa flotte
-                              - Enregister un Robot
-                              - Supprimer un Robot
-                              - Trouver des composantes
-                                  - par nom
-                                  - par type
-                                  - par fournisseur
-                              - Acheter des composantes
-                        - Gérer ses activités
-                              - Inscription à une activité
-                              - Désinscription à une activité
-                        - Voir l état de ses robots
-                              - Affichage général
-                              - Affichage complet
-                        - Trouver un Fournisseur
-                              - par nom
-                              - par type de composante
-                        - Voir ses notifications
+                    - Modifier son profil
+                    - Gérer sa flotte
+                        - Enregister un Robot
+                        - Supprimer un Robot
+                        - Trouver des composantes
+                            - par nom
+                            - par type
+                            - par fournisseur
+                        - Acheter des composantes
+                    - Gérer ses activités
+                        - Inscription à une activité
+                        - Désinscription à une activité
+                    - Voir l état de ses robots
+                        - Affichage général
+                        - Affichage complet
+                    - Trouver un Fournisseur
+                        - par nom
+                        - par type de composante
+                    - Voir ses notifications
                   
 
     - Profil Fournisseur
         - S inscrire
         - Confirmer l'inscription
         - Se connecter
-            - Menu
-                - Modifier son profil 
-                - Enregistrer une composante
-                - Supprimer une composante
-                - Modifier une composante
-                - Voir ses composantes 
+        - Menu Fournisseur
+            - Modifier son profil 
+            - Enregistrer une composante
+            - Supprimer une composante
+            - Modifier une composante
+            - Voir ses composantes 
 
 #######################################################################################
 ## Organisation des fichiers
