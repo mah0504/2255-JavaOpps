@@ -59,7 +59,6 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
             - Modifier une composante
             - Voir ses composantes 
 
-#######################################################################################
 ## Organisation des fichiers
 
 Le projet est origanisé selon la structure suivante
