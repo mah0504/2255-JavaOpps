@@ -64,7 +64,30 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
 D'abord, il faut télécharger le projet Maven 
 Sur le terminal, entrz les commandes suivantes :
 ```sh
-git clone 
+git clone https://github.com/mah0504/2255-JavaOpps.git
+```
+
+ Puis il faut se diriger vers le répértoire :
+ ```sh
+cd ~/2255-JavaOpps
+```
+dans le répertoire 2255-JavaOpps, il faut préparer le projet :
+```sh
+mvn clean 
+mvn compile
+mvn package
+mvn install
+```
+enfin, on l'éxécute par cette commande : 
+```sh
+java -cp ~/.m2/repository/com/google/code/gson/gson/2.10.1/gson-2.10.1.jar src/main/java/Main.java
+```
+et pour vérifier si les Tests passent 
+```sh
+mvn clean
+```
+
+
 ## Description des données de départ 
 
 Notre code est sensible à l'entrée. Il faut entrer des entiers dans les choix. 

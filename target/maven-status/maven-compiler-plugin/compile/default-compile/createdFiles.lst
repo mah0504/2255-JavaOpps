@@ -22,6 +22,7 @@ View.class
 Robot.class
 Activite.class
 MenuFournisseur.class
+UtilisateurService.class
 ControllerUtilisateur$3.class
 ControllerUtilisateur.class
 Fournisseur.class
