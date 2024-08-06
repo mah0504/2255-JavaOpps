@@ -302,7 +302,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
      *
      * @return true si au moins une composante est disponible, false sinon.
      */
-    public boolean composanteDispo(){
+    public boolean composanteDispo(Utilisateur utilisateur){
         if (!utilisateur.getComposantesFlotte().isEmpty()){
             return true;
         }
@@ -320,7 +320,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
      * si aucune composante n'a été choisie.
      */
 
-    public ComposanteType choisirComposanteFlotte(){
+    public ComposanteType choisirComposanteFlotte(Utilisateur utilisateur){
 
         if (utilisateur.getComposantesFlotte().isEmpty()) {
             System.out.println("Aucune composante disponible dans la flotte.");
@@ -349,7 +349,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
      */
 
-    public  void supprimerRobot() {
+    public  void supprimerRobot(Utilisateur utilisateur) {
         Scanner scanner = new Scanner(System.in);
         try {
             for (int i=0 ; i< utilisateur.getListeRobots().size(); i++) {
@@ -466,11 +466,11 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
         ComposanteType typeRecherche = choisirTypeComposante() ; // la compo choisie par l'utili
 
-        ArrayList<Fournisseur> Listefournisseurs =controllerFournisseur.getListeFournisseurs();
+        //ArrayList<Fournisseur> Listefournisseurs =controllerFournisseur.getListeFournisseurs();
 
         List<FournisseurComposante> composantesTrouvees = new ArrayList<>();
 
-        for (Fournisseur f : Listefournisseurs) {
+        for (Fournisseur f : listeFournisseurs) {
             for (FournisseurComposante c : f.getComposantes().values()){
 
                 if (c.getComposante().getType() == typeRecherche) {
@@ -620,7 +620,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
                 composante.getComposante().getDescription() +"\n Prix: " + composante.getComposante().getPrix());
     }
 
-    public void acheterComposante(){
+    public void acheterComposante(Utilisateur utilisateur){
 
         // ou bien utiliser trouver composante ?
 
@@ -821,7 +821,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
     }
 
-    public ComposanteType choisirComposanteFlotte(ComposanteType typeRecherche) {
+    public ComposanteType choisirComposanteFlotte(ComposanteType typeRecherche, Utilisateur utilisateur) {
         if (utilisateur.getComposantesFlotte().isEmpty()) {
             System.out.println("Aucune composante disponible dans la flotte.");
             return null;
@@ -863,7 +863,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     }
 
 
-    public void enregistrerRobot() {
+    public void enregistrerRobot(Utilisateur utilisateur) {
         Robot robot = new Robot();
         ArrayList<Composante> nouvellesComposantes = new ArrayList<>();
         robot.setListeComposantes(nouvellesComposantes);
