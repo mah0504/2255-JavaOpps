@@ -19,6 +19,15 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         this.comptes = getListeFournisseursFromJson();
     }
 
+    /**
+     * Permet de désérialiser les données du fichier fournisseurs.json
+     * en une liste d'objet Fournisseur
+     *
+     * source : https://www.baeldung.com/gson-list
+     *
+     * @return liste de Fournisseurs
+     * @throws Exception si une erreur survient lors de la lecture du fichier
+     */
     private ArrayList<Fournisseur> getListeFournisseursFromJson(){
         try(FileReader reader = new FileReader(CHEMIN_FIC_JSON)){
             Gson gson = new Gson();
@@ -30,10 +39,21 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         }
     }
 
+    /**
+     * Récupère la liste des fournisseurs
+     * @return liste des Fournisseurs
+     */
     public ArrayList<Fournisseur> getListeFournisseurs(){
         return comptes;
     }
 
+    /**
+     * Convertit une liste d'objet {@link Fournisseur} en un fichier JSON
+     * en la sérialisant
+     *
+     * @param listeFournisseurs liste des fournisseurs à sérialiser
+     * @throws Exception si une erreur survient lors de l'écriture du fichier
+     */
     private void listeFournisseursToJson(ArrayList<Fournisseur> listeFournisseurs){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try(FileWriter writer = new FileWriter(CHEMIN_FIC_JSON)){
@@ -43,7 +63,11 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         }
     }
 
-
+    /**
+     * Permet de s'inscrire en tant que Fournisseur
+     * On récupère les variables d'instances pour créer un objet Forurnisseur
+     * On envoie le mail de confirmation et on met à jour le Json
+     */
     public void sInscrire(){
         Scanner scanner = new Scanner(System.in);
         String pseudo = super.getPseudoUnique();
@@ -65,6 +89,10 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         }
     }
 
+    /**
+     * Permet de confirmer l'inscription par mail de confirmation
+     *
+     */
     public void confirmerInscription(){
 
         Scanner scanner = new Scanner(System.in);
@@ -97,6 +125,12 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         view.afficherMessage("Ce compte n'existe pas, entrez un email valide !");
     }
 
+    /**
+     * Permet de modifier le profil d'un Fournisseur
+     * On considère que l'email ne peut pas être modifié
+     *
+     * @param fournisseur le compte où on effectue les changements
+     */
     public void modifierProfilFournissuer(Fournisseur fournisseur) {
         boolean continuer = true;
         Scanner scanner = new Scanner(System.in);
@@ -140,6 +174,12 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         listeFournisseursToJson((ArrayList<Fournisseur>) comptes);
     }
 
+    /**
+     * Permet d'afficher les composantes que possède un Fournisseur.
+     * Elle donne aussi la quantité qui est disponible
+     *
+     * @param fournisseur le compte qui fait l'affichage
+     */
     public void afficherComposantes(Fournisseur fournisseur) {
         HashMap<String, FournisseurComposante> composantes = fournisseur.getComposantes();
         if (composantes.isEmpty()) {
@@ -166,7 +206,11 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         }
     }
 
-
+    /**
+     * Permet d'enregistrer une composante dans la liste des composantes que possède un Fournisseur
+     *
+     * @param fournisseur le compte su lequel j'enregistre de nouvelles composanates
+     */
     public void enregistrerComposante(Fournisseur fournisseur) {
         Scanner scanner = new Scanner(System.in);
         view.afficherMessage("Enregistrement d'une nouvelle composante :");
@@ -198,6 +242,10 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
 
     }
 
+    /**
+     * Permet d'afficher la liste de composantes que possède un Fournisseur
+     * @param fournisseur le compte qui possède la liste des composantes
+     */
     private void afficherlisteComposantes(Fournisseur fournisseur){
         System.out.println("Vos composantes : ");
         for(Map.Entry<String, FournisseurComposante> entry : fournisseur.getComposantes().entrySet()){
@@ -205,6 +253,11 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         }
     }
 
+    /**
+     * Permet de retirer la composante de la liste des composantes du fournisseur
+     *
+     * @param fournisseur le compte ù on supprime la composante
+     */
     public void supprimerComposante(Fournisseur fournisseur) {
         Scanner scanner = new Scanner(System.in);
         view.afficherMessage("Quelle composante souhaitez-vous supprimer ?");
@@ -235,6 +288,10 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         }
     }
 
+    /**
+     * Permet d'apporter des changements à une composante
+     * @param fournisseur le compte où on peut faire ces modifications sur les Utilisateurs
+     */
     public void modifierComposante(Fournisseur fournisseur) {
         Scanner scanner = new Scanner(System.in);
 
