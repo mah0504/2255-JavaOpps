@@ -70,7 +70,7 @@ public class MenuCompte {
         }
     }*/
 
-    public void afficherMenuPrincipal(){
+    public void afficherMenu(){
         boolean continuer = true;
         while(continuer){
 
