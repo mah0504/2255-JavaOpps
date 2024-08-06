@@ -2,65 +2,276 @@
   {
     "nomCompagnie": "nomCompagnie1",
     "composantesFournisseurs": {
-      "IFT20": {
+      "CPU1": {
         "composante": {
-          "nom": "IFT20",
+          "nom": "CPU1",
           "description": "Une composante CPU",
           "type": "CPU",
           "prix": 45.0
         },
         "quantite": 23
       },
-      "IFT21": {
+      "CAM1": {
         "composante": {
-          "nom": "IFT21",
+          "nom": "CAM1",
           "description": "Une composante CAMERA",
           "type": "CAMERA",
           "prix": 102.0
         },
         "quantite": 19
+      },
+      "MIC1": {
+        "composante": {
+          "nom": "MIC1",
+          "description": "Une composante MICRO",
+          "type": "MICRO",
+          "prix": 70.0
+        },
+        "quantite": 30
+      },
+      "HEL1": {
+        "composante": {
+          "nom": "HEL1",
+          "description": "Une composante HELICE",
+          "type": "HELICE",
+          "prix": 110.0
+        },
+        "quantite": 25
+      },
+      "SCR1": {
+        "composante": {
+          "nom": "SCR1",
+          "description": "Une composante ECRAN",
+          "type": "ECRAN",
+          "prix": 130.0
+        },
+        "quantite": 20
       }
     },
     "pseudo": "compagnie1",
     "email": "c1@example.com",
-    "mdp": "motdepasse",
+    "mdp": "mdp",
     "telephone": "1234567890",
     "confirmed": true
   },
   {
     "nomCompagnie": "nomCompagnie2",
     "composantesFournisseurs": {
-      "IFT28": {
+      "BRAS1": {
         "composante": {
-          "nom": "IFT28",
+          "nom": "BRAS1",
           "description": "Une composante BRAS",
           "type": "BRAS",
           "prix": 67.0
         },
         "quantite": 45
       },
-      "CPU222": {
+      "CPU2": {
         "composante": {
-          "nom": "CP44",
+          "nom": "CPU2",
           "description": "CPU UNIQUE JSP",
           "type": "CPU",
           "prix": 150.0
         },
         "quantite": 10
       },
-      "IFT26": {
+      "ROUE1": {
         "composante": {
-          "nom": "IFT26",
+          "nom": "ROUE1",
           "description": "Une composante ROUE",
           "type": "ROUE",
           "prix": 50.0
         },
         "quantite": 18
+      },
+      "CAM2": {
+        "composante": {
+          "nom": "CAM2",
+          "description": "Une composante CAMERA",
+          "type": "CAMERA",
+          "prix": 105.0
+        },
+        "quantite": 22
+      },
+      "HEL2": {
+        "composante": {
+          "nom": "HEL2",
+          "description": "Une composante HELICE",
+          "type": "HELICE",
+          "prix": 115.0
+        },
+        "quantite": 27
       }
     },
     "pseudo": "compagnie2",
-    "email": "compagnie2@example.com",
-    "mdp": "motdepasse",
+    "email": "ce2@example.com",
+    "mdp": "mdp",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+
+  {
+    "nomCompagnie": "nomCompagnie3",
+    "composantesFournisseurs": {
+      "IFT30": {
+        "composante": {
+          "nom": "IFT30",
+          "description": "Une composante MICRO",
+          "type": "MICRO",
+          "prix": 70.0
+        },
+        "quantite": 30
+      },
+      "IFT31": {
+        "composante": {
+          "nom": "IFT31",
+          "description": "Une composante HELICE",
+          "type": "HELICE",
+          "prix": 110.0
+        },
+        "quantite": 25
+      },
+      "IFT32": {
+        "composante": {
+          "nom": "IFT32",
+          "description": "Une composante ECRAN",
+          "type": "ECRAN",
+          "prix": 130.0
+        },
+        "quantite": 20
+      },
+      "IFT33": {
+        "composante": {
+          "nom": "IFT33",
+          "description": "Une composante BRAS",
+          "type": "BRAS",
+          "prix": 90.0
+        },
+        "quantite": 15
+      },
+      "IFT34": {
+        "composante": {
+          "nom": "IFT34",
+          "description": "Une composante CPU",
+          "type": "CPU",
+          "prix": 150.0
+        },
+        "quantite": 40
+      }
+    },
+    "pseudo": "compagnie3",
+    "email": "c3@example.com",
+    "mdp": "mdp",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "nomCompagnie": "nomCompagnie4",
+    "composantesFournisseurs": {
+      "IFT35": {
+        "composante": {
+          "nom": "IFT35",
+          "description": "Une composante CAMERA",
+          "type": "CAMERA",
+          "prix": 200.0
+        },
+        "quantite": 10
+      },
+      "IFT36": {
+        "composante": {
+          "nom": "IFT36",
+          "description": "Une composante HELICE",
+          "type": "HELICE",
+          "prix": 110.0
+        },
+        "quantite": 25
+      },
+      "IFT37": {
+        "composante": {
+          "nom": "IFT37",
+          "description": "Une composante ECRAN",
+          "type": "ECRAN",
+          "prix": 130.0
+        },
+        "quantite": 20
+      },
+      "IFT38": {
+        "composante": {
+          "nom": "IFT38",
+          "description": "Une composante BRAS",
+          "type": "BRAS",
+          "prix": 90.0
+        },
+        "quantite": 15
+      },
+      "IFT39": {
+        "composante": {
+          "nom": "IFT39",
+          "description": "Une composante CPU",
+          "type": "CPU",
+          "prix": 150.0
+        },
+        "quantite": 40
+      }
+    },
+    "pseudo": "compagnie4",
+    "email": "compagnie4@example.com",
+    "mdp": "mdp",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "nomCompagnie": "nomCompagnie5",
+    "composantesFournisseurs": {
+      "IFT40": {
+        "composante": {
+          "nom": "IFT40",
+          "description": "Une composante MICRO",
+          "type": "MICRO",
+          "prix": 70.0
+        },
+        "quantite": 30
+      },
+      "IFT41": {
+        "composante": {
+          "nom": "IFT41",
+          "description": "Une composante HELICE",
+          "type": "HELICE",
+          "prix": 110.0
+        },
+        "quantite": 25
+      },
+      "IFT42": {
+        "composante": {
+          "nom": "IFT42",
+          "description": "Une composante ECRAN",
+          "type": "ECRAN",
+          "prix": 130.0
+        },
+        "quantite": 20
+      },
+      "IFT43": {
+        "composante": {
+          "nom": "IFT43",
+          "description": "Une composante BRAS",
+          "type": "BRAS",
+          "prix": 90.0
+        },
+        "quantite": 15
+      },
+      "IFT44": {
+        "composante": {
+          "nom": "IFT44",
+          "description": "Une composante CPU",
+          "type": "CPU",
+          "prix": 150.0
+        },
+        "quantite": 40
+      }
+    },
+    "pseudo": "compagnie5",
+    "email": "compagnie5@example.com",
+    "mdp": "mdp",
     "telephone": "1234567890",
     "confirmed": true
   }
