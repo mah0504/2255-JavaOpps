@@ -64,14 +64,14 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
 Le projet est origanisé selon la structure suivante
 
 ├── Exigences/
-│   └── Diagramme de cas d utilisation
+    └── Diagramme de cas d utilisation
 ├── Analyse/
-│   └── Diagrammes d activités
+    └── Diagrammes d activités
 ├── Conception/
-│   ├── Diagramme de classes
-│   └── Diagrammes de séquence
+    ├── Diagramme de classes
+    └── Diagrammes de séquence
 ├── Implémentation/
-│   ├── src
+    ├── src
         ├── main
             ├── java /-- code source de l'application
             └── resources 
@@ -79,14 +79,12 @@ Le projet est origanisé selon la structure suivante
                 ├── META-INF/MANIFEST.MF /-- pour créer l'executable jar
                 ├── utilisateurs.json
                 ├── fournisseurs.json
-                └── activites.json
-                       
+                └── activites.json           
         └── test/java /-- code source des tests 
-        
-│   └── target
+    └── target
         ├── différents dossiers pour la compilation
         └── 2255-JavaOpps-1.0-SNAPSHOT.jar
-│   └── pom.xml
+    └── pom.xml
 ├── rapport/rapport.html
 └── README.md
 ```
