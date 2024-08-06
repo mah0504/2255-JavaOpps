@@ -357,30 +357,6 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
 
 
-    public ComposanteType choisirComposanteFlotte(Utilisateur utilisateur){
-
-        if (utilisateur.getComposantesFlotte().isEmpty()) {
-            System.out.println("Aucune composante disponible dans la flotte.");
-            return null;
-        }
-
-        for ( String s: utilisateur.getComposantesFlotte().keySet() ){
-            System.out.println("Veuillez choisir un composante de la flotte :");
-            System.out.println(s);
-        }
-        Scanner scanner= new Scanner(System.in);
-        try{
-
-            int choix = scanner.nextInt();
-            return utilisateur.getComposantesFlotte().get(choix - 1);
-        }catch (Exception e){
-            e.printStackTrace(); // modifier apres
-        }
-        return null;
-    }
-
-
-
     /**
      * Permet à l'utilisateur de supprimer un robot  qu'il a choisis de sa liste de robots.
 
@@ -688,6 +664,9 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
     }
 
+
+
+
     public Fournisseur choisirFournisseur(){
 
         if (listeFournisseurs.isEmpty()) {
@@ -718,6 +697,16 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         }
         return null;
     }
+
+
+
+    /**
+     * Permet de trouver un fournisseur en fonction de son nom.
+     * L'utilisateur entre un nom, et la méthode retourne une liste de fournisseurs correspondants au nom recherché.
+     * L'utilisateur peut ensuite choisir un fournisseur parmi ceux trouvés.
+     *
+     * @return Le fournisseur choisi par l'utilisateur, ou null si aucun choix valide n'a été fait.
+     */
 
     public Fournisseur trouverFournisseurSelonNom() {
         Scanner scanner = new Scanner(System.in);
@@ -938,6 +927,50 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     }
 
 
+
+
+
+    // Methodes auxiliaires
+    public List<Fournisseur> choisirFournisType2(ComposanteType typeRecherche){
+        // Récupérer la liste des fournisseurs
+        //ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
+
+     //   System.out.println(listeFournisseurs);
+        // Liste des fournisseurs trouvés
+        List<Fournisseur> fournisseursTrouves = new ArrayList<>();
+
+        for (Fournisseur f : listeFournisseurs) {
+            System.out.println("Examen du fournisseur : " + f.getNomCompagnie());
+            for (FournisseurComposante fc : f.getComposantes().values()) {
+                if (fc.getComposante() != null && fc.getComposante().getType() == typeRecherche) {
+                    System.out.println("Ajout du fournisseur : " + f.getNomCompagnie());
+                    fournisseursTrouves.add(f);
+                    break; // Sortir de la boucle interne dès qu'un composant correspondant est trouvé
+                }
+            }
+        }
+
+        // Imprimer les fournisseurs trouvés
+        System.out.println("Fournisseurs trouvés :");
+        for (Fournisseur fournisseur : fournisseursTrouves) {
+            System.out.println(fournisseur.getNomCompagnie());
+        }
+
+        return fournisseursTrouves;
+
+
+    }
+
+
+
+
+    /**
+     * Permet à l'utilisateur de choisir une composante spécifique dans sa flotte en fonction du type recherché.
+     *
+     * @param typeRecherche Le type de composante recherché.
+     * @param utilisateur L'utilisateur dont la flotte de composantes sera consultée.
+     * @return La composante choisie, ou null si aucune composante valide n'est trouvée.
+     */
     public Composante choisirComposanteFlotte(ComposanteType typeRecherche, Utilisateur utilisateur) {
         if (utilisateur.getComposantesFlotte().isEmpty()) {
             System.out.println("Aucune composante disponible dans la flotte.");
@@ -986,6 +1019,12 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     }
 
 
+    /**
+     * Permet à l'utilisateur de choisir un type de composante parmi ceux disponibles dans sa flotte.
+     *
+     * @param utilisateur L'utilisateur dont la flotte de composantes sera consultée.
+     * @return Le type de composante choisi, ou null si aucune composante n'est disponible.
+     */
     public ComposanteType choisirTypeComposanteFlotte(Utilisateur utilisateur) {
         // Récupérer les types de composantes disponibles dans la flotte de l'utilisateur
         Set<ComposanteType> typesDisponibles = new HashSet<>();
@@ -1022,39 +1061,6 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
         return typesArray[choix];
     }
-
-
-    // Methode auxiliaire
-    public List<Fournisseur> choisirFournisType2(ComposanteType typeRecherche){
-        // Récupérer la liste des fournisseurs
-        //ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
-
-     //   System.out.println(listeFournisseurs);
-        // Liste des fournisseurs trouvés
-        List<Fournisseur> fournisseursTrouves = new ArrayList<>();
-
-        for (Fournisseur f : listeFournisseurs) {
-            System.out.println("Examen du fournisseur : " + f.getNomCompagnie());
-            for (FournisseurComposante fc : f.getComposantes().values()) {
-                if (fc.getComposante() != null && fc.getComposante().getType() == typeRecherche) {
-                    System.out.println("Ajout du fournisseur : " + f.getNomCompagnie());
-                    fournisseursTrouves.add(f);
-                    break; // Sortir de la boucle interne dès qu'un composant correspondant est trouvé
-                }
-            }
-        }
-
-        // Imprimer les fournisseurs trouvés
-        System.out.println("Fournisseurs trouvés :");
-        for (Fournisseur fournisseur : fournisseursTrouves) {
-            System.out.println(fournisseur.getNomCompagnie());
-        }
-
-        return fournisseursTrouves;
-
-
-    }
-
     public void voirNotifs(Utilisateur utilisateur){
         if (utilisateur.getNotifis() == null) {
             utilisateur.setNotifs(new ArrayList<>());
@@ -1063,6 +1069,8 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
             System.out.println(n.toString());
         }
     }
+
+
 
     public void modifierProfilUtilisateur(Utilisateur utilisateur) {
         boolean continuer = true;
@@ -1112,6 +1120,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
     /*************************** Méthodes qui permettent de gérer les actvités **********************/
 
+
     /**
      * Permet de désérialiser les données du fichier activites.json
      * en une liste d'objet Activite
@@ -1129,14 +1138,6 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         }
     }
 
-    public void listeActiviteToJson(ArrayList<Activite> listeActivites){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try(FileWriter writer = new FileWriter("src/main/resources/activites.json")){
-            gson.toJson(listeActivites, writer);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }
 
     /**
      * Permet d'afficher la liste de toutes les activités qui sont disponibles et
