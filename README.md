@@ -68,7 +68,7 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
 ├── Conception/
 │   ├── Diagramme de classes
 │   └── Diagrammes de séquence
-├── Implémentation/
+├─ Implémentation/
 │   ├── src
 │   │   ├── main
 │   │   │   ├── java/ -- code source de l'application
