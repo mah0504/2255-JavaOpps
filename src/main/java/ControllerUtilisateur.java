@@ -790,39 +790,6 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         return null;
     }
 
-
-
-// Methode auxiliaire
-    public List<Fournisseur> choisirFournisType2(ComposanteType typeRecherche) {
-        // Récupérer la liste des fournisseurs
-        //ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
-
-     //   System.out.println(listeFournisseurs);
-        // Liste des fournisseurs trouvés
-        List<Fournisseur> fournisseursTrouves = new ArrayList<>();
-
-        for (Fournisseur f : listeFournisseurs) {
-            System.out.println("Examen du fournisseur : " + f.getNomCompagnie());
-            for (FournisseurComposante fc : f.getComposantes().values()) {
-                if (fc.getComposante() != null && fc.getComposante().getType() == typeRecherche) {
-                    System.out.println("Ajout du fournisseur : " + f.getNomCompagnie());
-                    fournisseursTrouves.add(f);
-                    break; // Sortir de la boucle interne dès qu'un composant correspondant est trouvé
-                }
-            }
-        }
-
-        // Imprimer les fournisseurs trouvés
-        System.out.println("Fournisseurs trouvés :");
-        for (Fournisseur fournisseur : fournisseursTrouves) {
-            System.out.println(fournisseur.getNomCompagnie());
-        }
-
-        return fournisseursTrouves;
-
-
-    }
-
     public ComposanteType choisirComposanteFlotte(ComposanteType typeRecherche, Utilisateur utilisateur) {
         if (utilisateur.getComposantesFlotte().isEmpty()) {
             System.out.println("Aucune composante disponible dans la flotte.");
@@ -901,31 +868,31 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
 
 
-                        Composante composante=new Composante();
+                    Composante composante=new Composante();
 
-                     //composante.setNom();
-                       // composante.setType();
+                    //composante.setNom();
+                    // composante.setType();
 
-                        composantesChoisies.add(composante); // ajout de la 2eme compo ?
+                    composantesChoisies.add(composante); // ajout de la 2eme compo ?
 
-                        // pr trv compo , scnnaer dans le meu puis on l'envoie comme param?
-                        // la flotte
-                        for (int i = 0; i < composantesChoisies.size(); i++) {
-                            robot.getListeComposantes().add(composantesChoisies.get(i));
-
-
-                            robot.setListeComposantes(robot.getListeComposantes());
-                        }
-                        // modif le nom ,typw ....
-                        // ajouter le numero de serie aussi ...
-                        utilisateur.getListeRobots().add(robot);
+                    // pr trv compo , scnnaer dans le meu puis on l'envoie comme param?
+                    // la flotte
+                    for (int i = 0; i < composantesChoisies.size(); i++) {
+                        robot.getListeComposantes().add(composantesChoisies.get(i));
 
 
-
-
-                    } else {
-                        System.out.println("Choix invalide.");
+                        robot.setListeComposantes(robot.getListeComposantes());
                     }
+                    // modif le nom ,typw ....
+                    // ajouter le numero de serie aussi ...
+                    utilisateur.getListeRobots().add(robot);
+
+
+
+
+                } else {
+                    System.out.println("Choix invalide.");
+                }
 
 
             } catch (Exception e) {
@@ -934,11 +901,40 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
             }
 
         }
+    }
+
+
+
+    // Methode auxiliaire
+    public List<Fournisseur> choisirFournisType2(ComposanteType typeRecherche) {
+        // Récupérer la liste des fournisseurs
+        //ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
+
+     //   System.out.println(listeFournisseurs);
+        // Liste des fournisseurs trouvés
+        List<Fournisseur> fournisseursTrouves = new ArrayList<>();
+
+        for (Fournisseur f : listeFournisseurs) {
+            System.out.println("Examen du fournisseur : " + f.getNomCompagnie());
+            for (FournisseurComposante fc : f.getComposantes().values()) {
+                if (fc.getComposante() != null && fc.getComposante().getType() == typeRecherche) {
+                    System.out.println("Ajout du fournisseur : " + f.getNomCompagnie());
+                    fournisseursTrouves.add(f);
+                    break; // Sortir de la boucle interne dès qu'un composant correspondant est trouvé
+                }
+            }
         }
 
+        // Imprimer les fournisseurs trouvés
+        System.out.println("Fournisseurs trouvés :");
+        for (Fournisseur fournisseur : fournisseursTrouves) {
+            System.out.println(fournisseur.getNomCompagnie());
+        }
+
+        return fournisseursTrouves;
 
 
-
+    }
 
     public void voirNotifs(Utilisateur utilisateur){
         if (utilisateur.getNotifis() == null) {
