@@ -60,8 +60,9 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
             - Voir ses composantes 
 
 ## Organisation des fichiers
-
+├─ Exi 
 ├── Exigences/
+│    
 │   └── Diagramme de cas d'utilisation
 ├── Analyse/
 │   └── Diagrammes d'activités
