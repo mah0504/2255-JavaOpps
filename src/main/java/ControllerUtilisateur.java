@@ -771,6 +771,12 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         return null;
     }
 
+    /**
+     * Permet de trouver un fournisseur qui propose un composant d'un type donné.
+     * L'utilisateur choisit le type de composant recherché puis un fournisseur parmi ceux qui proposent ce type de composant.
+     *
+     * @return Le fournisseur choisi par l'utilisateur, ou null si aucun fournisseur n'a été choisi.
+     */
     public Fournisseur trouverFournisseurSelonType() {
         Scanner scanner = new Scanner(System.in);
 
@@ -826,6 +832,13 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     }
 
 
+    /**
+     * Enregistre un nouveau robot pour l'utilisateur spécifié.
+     * Cette méthode permet à l'utilisateur de choisir un fournisseur, sélectionner des composants
+     * et créer un nouveau robot. Le robot est ensuite ajouté à la liste de robots de l'utilisateur.
+     *
+     * @param utilisateur L'utilisateur pour lequel le robot sera enregistré.
+     */
     public void enregistrerRobot(Utilisateur utilisateur) {
 
         ArrayList<Composante> nouvellesComposantes = new ArrayList<>();
