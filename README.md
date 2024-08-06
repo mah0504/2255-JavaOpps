@@ -60,13 +60,7 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
             - Voir ses composantes 
 
 ## Organisation des fichiers
-libs
-├── docs
-│   └── gson-2.2.2-javadoc.jar
-├── gson-2.2.2.jar
-├── gson-2.2.2.jar.properties
-└── src
-    └── gson-2.2.2-sources.jar
+
 ├── Exigences/
 │   └── Diagramme de cas d'utilisation
 ├── Analyse/
