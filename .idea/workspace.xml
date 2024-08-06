@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="update View.java">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerCompte.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerCompte.java" afterDir="false" />
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="update MenuUtilisateur">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/MenuFournisseur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuFournisseur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +93,7 @@
       <workItem from="1722797080250" duration="1928000" />
       <workItem from="1722800135855" duration="2428000" />
       <workItem from="1722803972234" duration="1358000" />
-      <workItem from="1722938013886" duration="371000" />
+      <workItem from="1722938013886" duration="2554000" />
     </task>
     <task id="LOCAL-00001" summary="changes">
       <option name="closed" value="true" />
@@ -292,7 +295,71 @@
       <option name="project" value="LOCAL" />
       <updated>1722938332079</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="update ControllerCompte">
+      <option name="closed" value="true" />
+      <created>1722938402747</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1722938402747</updated>
+    </task>
+    <task id="LOCAL-00027" summary="update ControllerFournisseur">
+      <option name="closed" value="true" />
+      <created>1722939586533</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1722939586533</updated>
+    </task>
+    <task id="LOCAL-00028" summary="update ControllerFournisseur">
+      <option name="closed" value="true" />
+      <created>1722939792518</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1722939792518</updated>
+    </task>
+    <task id="LOCAL-00029" summary="update Fournisseur">
+      <option name="closed" value="true" />
+      <created>1722939807588</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1722939807588</updated>
+    </task>
+    <task id="LOCAL-00030" summary="update ControllerCompte">
+      <option name="closed" value="true" />
+      <created>1722940262187</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1722940262187</updated>
+    </task>
+    <task id="LOCAL-00031" summary="update ControllerFournisseur">
+      <option name="closed" value="true" />
+      <created>1722940353547</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1722940353547</updated>
+    </task>
+    <task id="LOCAL-00032" summary="update MenuCompte">
+      <option name="closed" value="true" />
+      <created>1722940426631</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1722940426631</updated>
+    </task>
+    <task id="LOCAL-00033" summary="update MenuUtilisateur">
+      <option name="closed" value="true" />
+      <created>1722940511114</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1722940511114</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,6 +397,11 @@
     <MESSAGE value="update 4" />
     <MESSAGE value="update compte.java" />
     <MESSAGE value="update View.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="update View.java" />
+    <MESSAGE value="update Fournisseur" />
+    <MESSAGE value="update ControllerCompte" />
+    <MESSAGE value="update ControllerFournisseur" />
+    <MESSAGE value="update MenuCompte" />
+    <MESSAGE value="update MenuUtilisateur" />
+    <option name="LAST_COMMIT_MESSAGE" value="update MenuUtilisateur" />
   </component>
 </project>
