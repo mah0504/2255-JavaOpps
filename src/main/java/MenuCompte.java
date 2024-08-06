@@ -30,6 +30,14 @@ public class MenuCompte {
         compteView = new CompteView();
     }*/
 
+    /**
+     * Définit le compte en tant qu'un Utilisateur ou un Fournisseur et affiche le
+     * ménu correspondant. En fonction du cas, le menu spécifique s'affiche, peut-être
+     * une instance de {@link MenuUtilisateur} ou {@link MenuFournisseur}
+     *
+     * @param compte l'objet {@link Compte} à traiter, peut-être une instance {@link Utilisateur}
+     *                ou une instance {@link Fournisseur}
+     */
     public void setCompte(Compte compte){
         if (compte instanceof Utilisateur){
             new MenuUtilisateur((Utilisateur) compte, controllerUtilisateur).afficherMenuUtilisateur();
@@ -39,65 +47,48 @@ public class MenuCompte {
 
     }
 
-    /*public void afficherMenu() {
-        Scanner scanner = new Scanner(System.in);
-        boolean continuer = true;
-        int choix;
-
-        while (continuer) {
-            try {
-                compteView.compteType();
-                choix = scanner.nextInt();
-
-                switch (choix) {
-                    case 1:
-                        afficherMenuUtilisateurConnexion();
-                        break;
-                    case 2:
-                        afficherMenuFournisseurConnexion();
-                        break;
-                    case 3 :
-                        System.out.println("Au Revoir !");
-                        continuer = false;
-                        break;
-                    default:
-                        compteView.AfficherMessage("Choix invalide, réessayez!");
-                }
-            } catch (InputMismatchException e) {
-                System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
-                scanner.next(); // Clear the invalid input
-            }
-        }
-    }*/
-
+    /**
+     * Permet d'afficher les options pour le rôle.
+     * 0 = Quitter L'application
+     * 1 = Les différentes actions en tant qu'Utilisateur
+     * 2 = Les différentes actions en tant qe Fournisseur
+     */
     public void afficherMenu(){
         boolean continuer = true;
         while(continuer){
+            try{
+                view.home();
+                int choix = Integer.parseInt(scanner.nextLine());
 
-            view.home();
-            int choix = Integer.parseInt(scanner.nextLine());
+                switch (choix){
+                    case 1:
+                        afficherMenuUtilisateurConnexion();
+                        break;
+                    case 2 :
+                        afficherMenuFournisseurConnexion();
+                        break;
+                    case 0 :
+                        view.afficherMessage("Au Revoir !");
+                        continuer = false;
+                        break;
+                    default:
+                        System.out.println("Choix invalide. Veuillez réessayez !");
 
-            switch (choix){
-                case 1:
-                    afficherMenuUtilisateurConnexion();
-                    break;
-                case 2 :
-                    afficherMenuFournisseurConnexion();
-                    break;
-                case 0 :
-                    view.afficherMessage("Au Revoir !");
-                    continuer = false;
-                    break;
-                default:
-                    System.out.println("Choix invalide. Veuillez réessayez !");
-
+                }
+            } catch (InputMismatchException e){
+                System.out.println(e.getMessage());
+                scanner.next();
             }
         }
     }
 
-
-
-
+    /**
+     * Permet d'afficher les options du menu de connexion pour l'utilisateur
+     * 0 = Retour en arrière
+     * 1 = Se connecter et puis mène vers le menu spécifique pour l'utilisateur
+     * 2 = S'Inscrire
+     * 3 = Confirmer l'inscription
+     */
     public void afficherMenuUtilisateurConnexion() {
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
@@ -131,6 +122,13 @@ public class MenuCompte {
         }
     }
 
+    /**
+     * Permet d'afficher les options du menu de connexion pour le fournisseur
+     * 0 = Retour en arrière
+     * 1 = Se connecter et puis mène vers le menu spécifique pour le fournisseur
+     * 2 = S'Inscrire
+     * 3 = Confirmer l'inscription
+     */
     public void afficherMenuFournisseurConnexion() {
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
@@ -163,115 +161,5 @@ public class MenuCompte {
             }
         }
     }
-
-    /*public void creerUtilisateur() {
-        String pseudo = getPseudoUnique();
-        String nom = compteView.getNom();
-        String prenom = compteView.getPrenom();
-        String email = getEmailUnique();
-        String motDePasse = getMdpValid();
-        String telephone = getTelephoneValid();
-
-        controllerUtilisateur.creerUtilisateur(pseudo, email, motDePasse, telephone, prenom, nom);
-
-    }
-
-    public void connecterUtilisateur() {
-        String email = compteView.getEmail();
-        String mdp = compteView.getMotDePasse();
-
-        Utilisateur utilisateur = controllerUtilisateur.verifierConnexion(email, mdp);
-        if (utilisateur != null) {
-            compteView.AfficherMessage("Connexion réussie !");
-            controllerUtilisateur.setUtilisateur(utilisateur);
-            menuUtilisateur.afficherMenuUtilisateur(utilisateur);
-        } else {
-            compteView.AfficherMessage("Email ou mot de passe incorrect");
-        }
-    }
-
-    public void confirmerUtilisateur() {
-        String email = compteView.getEmail();
-        String confirmationLien = compteView.getConfirmationLien();
-
-        boolean success = controllerUtilisateur.confirmerCompte(email,confirmationLien);
-        if (success) {
-            compteView.AfficherMessage("Compte confirmé avec succès !");
-        } else {
-            compteView.AfficherMessage("Échec de la confirmation du compte.");
-        }
-    }
-
-    public void creerFournisseur() {
-        String pseudo = getPseudoUnique();
-        String nomCompagnie = compteView.getCompagnie();
-        String email = getEmailUnique();
-        String motDePasse = getMdpValid();
-        String telephone = getTelephoneValid();
-
-        controllerFournisseur.creerFournisseur(pseudo, email, motDePasse, telephone, nomCompagnie);
-    }
-
-    public void connecterFournisseur() {
-        String email = compteView.getEmail();
-        String mdp = compteView.getMotDePasse();
-
-        Fournisseur fournisseur = controllerFournisseur.verifierConnexion(email, mdp);
-        if (fournisseur != null) {
-            compteView.AfficherMessage("Connexion réussie !");
-            controllerFournisseur.setFournisseur(fournisseur);
-            menuFournisseur.afficherMenuFournisseur();
-        } else {
-            compteView.AfficherMessage("Email ou mot de passe incorrect");
-        }
-    }
-
-    public void confirmerFournisseur() {
-        String email = compteView.getEmail();
-        String confirmationLien = compteView.getConfirmationLien();
-        boolean success = controllerFournisseur.confirmerCompte(email, confirmationLien);
-        if (success) {
-            compteView.AfficherMessage("Compte confirmé avec succès !");
-        } else {
-            compteView.AfficherMessage("Échec de la confirmation du compte.");
-        }
-    }
-
-    public String getPseudoUnique(){
-        String pseudo = compteView.getPseudo();
-        while (!controllerUtilisateur.isPseudoUnique(pseudo) || !controllerFournisseur.isPseudoUnique(pseudo)) {
-            compteView.AfficherMessage("Ce pseudo existe déjà, réessayez !");
-            pseudo = compteView.getPseudo();
-        }
-        return pseudo;
-    }
-
-    private String getEmailUnique() {
-        String email = compteView.getEmail();
-        while (!controllerUtilisateur.isEmailUnique(email) || !controllerFournisseur.isEmailUnique(email)) {
-            compteView.AfficherMessage("Cet email existe déjà, réessayez !");
-            email = compteView.getEmail();
-        }
-        return email;
-    }
-
-    private String getMdpValid() {
-        String mdp = compteView.getMotDePasse();
-        while (!controllerUtilisateur.isMdpValide(mdp)) {
-            compteView.AfficherMessage("Le mot de passe doit avoir au moins 8 caractères.");
-            mdp = compteView.getMotDePasse();
-        }
-        return mdp;
-    }
-
-    private String getTelephoneValid() {
-        String telephone = compteView.getTelephone();
-        while (!controllerUtilisateur.isTelephoneValide(telephone)) {
-            compteView.AfficherMessage("Le numéro de téléphone n'est pas valide.");
-            telephone = compteView.getTelephone();
-        }
-        return telephone;
-    }*/
-
 
 }
