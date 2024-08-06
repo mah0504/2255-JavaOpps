@@ -66,7 +66,8 @@
       "IFT2": "CPU",
       "IFT1": "ROUE",
       "IFAD32": "HELICE",
-      "IF": "ROUE"},
+      "IF": "ROUE"
+    },
     "notifs": [],
     "pseudo": "aithu",
     "email": "aithu@example.com",
