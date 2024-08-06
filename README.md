@@ -60,7 +60,21 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
             - Voir ses composantes 
 
 ## Organisation des fichiers
-
+```ada
+/ 
+├── Exigences/
+│   ├── Rapport du devoir1
+│   └── Diagramme de cas d'utilisation
+├── Analyse/
+│   ├── Rapport du devoir2
+│   └── Diagrammes d'activités
+├── Conception/
+│   ├── Diagramme de classes
+│   └── Diagrammes de séquence
+├── Implémentation/
+│   ├── Code source de l'application/ -- code source
+└── README.md
+```
 ├── Exigences/
 │   └── Diagramme de cas d'utilisation
 ├── Analyse/
