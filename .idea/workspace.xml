@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="update utilisateurs.json">
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="modif json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fournisseurs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utilisateurs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,14 +69,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.15989.150" />
-        <option value="bundled-js-predefined-1d06a55b98c1-91d5c284f522-JavaScript-IU-241.15989.150" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -98,6 +88,7 @@
       <workItem from="1722943359893" duration="2268000" />
       <workItem from="1722948394400" duration="92000" />
       <workItem from="1722948821521" duration="757000" />
+      <workItem from="1722950206126" duration="2745000" />
     </task>
     <task id="LOCAL-00001" summary="changes">
       <option name="closed" value="true" />
@@ -427,7 +418,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722948484239</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL-00042" summary="modif json">
+      <option name="closed" value="true" />
+      <created>1722950439946</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1722950439946</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -445,7 +444,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="correction supprimer robot" />
     <MESSAGE value="rajout du robot supprime" />
     <MESSAGE value="regler bug trouver compoosante :)" />
     <MESSAGE value="choisir fournisseur : &#10;selon nom et type &#10;-&gt; java doc" />
@@ -470,6 +468,7 @@
     <MESSAGE value="run 3 + modification de voir Notifications" />
     <MESSAGE value="run 4" />
     <MESSAGE value="update utilisateurs.json" />
-    <option name="LAST_COMMIT_MESSAGE" value="update utilisateurs.json" />
+    <MESSAGE value="modif json" />
+    <option name="LAST_COMMIT_MESSAGE" value="modif json" />
   </component>
 </project>
