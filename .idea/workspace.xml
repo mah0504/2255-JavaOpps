@@ -7,9 +7,7 @@
     <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="update utilisateurs.json">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fournisseurs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,17 +52,6 @@
       <option name="JAR_PATH" value="$PROJECT_DIR$/target/2255-JavaOpps-1.0-SNAPSHOT.jar" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="JAR Application.2255-JavaOpps-1.0-SNAPSHOT.jar" />
@@ -98,6 +85,7 @@
       <workItem from="1722943359893" duration="2268000" />
       <workItem from="1722948394400" duration="92000" />
       <workItem from="1722948821521" duration="757000" />
+      <workItem from="1722952106360" duration="225000" />
     </task>
     <task id="LOCAL-00001" summary="changes">
       <option name="closed" value="true" />

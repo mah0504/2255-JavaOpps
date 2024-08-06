@@ -370,7 +370,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
             utilisateur.setListeRobots(utilisateur.getListeRobots());
             System.out.println(utilisateur.getListeRobots());
 
-            listeUtilisateursToJson(listeUtilisateurs);
+            listeUtilisateursToJson((ArrayList<Utilisateur>) comptes);
 
 
         } catch (Exception e){
@@ -643,7 +643,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
         // comment acceder a l'inventaire du fournisseur pr voir?
 
-        listeUtilisateursToJson(listeUtilisateurs);
+        listeUtilisateursToJson((ArrayList<Utilisateur>) comptes);
         System.out.println("Composante achetée avec succès !");
         // trouver fournisseurs selon composante
         //choisir fournisseur
