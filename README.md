@@ -61,42 +61,28 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
 
 ## Organisation des fichiers
 
-Le projet est origanisé selon la structure suivante
-
-/ -- Racine du projet
-├── exigences/ -- Dossier contenant les artefacts de l'exigence (diagramme de cas d'utilisation) 
-├── analyse/ -- Dossier contenant les artefacts de l'analyse (diagramme d'activités) 
-├── conception/ -- Dossier contenant les artefacts de la conception (diagramme de classes et diagramme de séquence) 
-├── application/ -- Dossier contenant tous les artefacts de l'implémentation 
-│   ├── doc/ -- Dossier contentant la documentation de l'application générée avec Javadoc 
-│   ├── src/ -- Dossier contentant le code source de l'application
-│   ├── test/ -- Dossier contentant les tests unitaires JUnit
-│   └── robotix.jar
-└── README.md
-└── rapport.html
-
-├─ Exigences/
-    └── Diagramme de cas d utilisation
+├── Exigences/
+│   └── Diagramme de cas d'utilisation
 ├── Analyse/
-    └── Diagrammes d activités
+│   └── Diagrammes d'activités
 ├── Conception/
-    ├── Diagramme de classes
-    └── Diagrammes de séquence
+│   ├── Diagramme de classes
+│   └── Diagrammes de séquence
 ├── Implémentation/
-    ├── src
-        ├── main
-            ├── java /-- code source de l'application
-            └── resources 
-                ├── javaDoc
-                ├── META-INF/MANIFEST.MF /-- pour créer l'executable jar
-                ├── utilisateurs.json
-                ├── fournisseurs.json
-                └── activites.json           
-        └── test/java /-- code source des tests 
-    └── target
-        ├── différents dossiers pour la compilation
-        └── 2255-JavaOpps-1.0-SNAPSHOT.jar
-    └── pom.xml
+│   ├── src
+│   │   ├── main
+│   │   │   ├── java/ -- code source de l'application
+│   │   │   └── resources
+│   │   │       ├── javaDoc
+│   │   │       ├── META-INF/MANIFEST.MF -- pour créer l'exécutable jar
+│   │   │       ├── utilisateurs.json
+│   │   │       ├── fournisseurs.json
+│   │   │       └── activites.json
+│   │   └── test/java/ -- code source des tests
+│   └── target
+│       ├── différents dossiers pour la compilation
+│       └── 2255-JavaOpps-1.0-SNAPSHOT.jar
+│   └── pom.xml
 ├── rapport/rapport.html
 └── README.md
-```
+
