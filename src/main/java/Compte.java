@@ -128,7 +128,6 @@ public abstract class Compte {
      * @return le lien de confirmation
      */
     public String getConfirmationLien(){
-        String confirmationLien = UUID.randomUUID().toString();
         return confirmationLien;
     }
 
@@ -138,6 +137,7 @@ public abstract class Compte {
      * @param confirmationLien le lien de confirmation à vérifier
      */
     public void setConfirmationLien(String confirmationLien){
+
         this.confirmationLien = confirmationLien;
     }
 
