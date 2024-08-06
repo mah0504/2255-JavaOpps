@@ -63,11 +63,11 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
 
 Notre code est sensible à l'entrée. Il faut entrer des entiers dans les choix. 
 
-Pour tester une connexion Utilisateur :
+* Pour tester une connexion Utilisateur :
     - email : pnom2@example.com
     - mot de passe : motdepasse2
     
-Pour tester une connexion Fournisseur 
+* Pour tester une connexion Fournisseur 
     - email : c1@example.com
     - mot de passe : motdepasse1
 
