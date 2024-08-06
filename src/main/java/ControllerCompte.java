@@ -11,11 +11,4 @@ import java.lang.reflect.Type;
 import java.util.*;
 public abstract class ControllerCompte<T extends Compte>{
 
-    public ControllerCompte(){}
-
-    public abstract boolean activateCompte(Compte compte);
-
-    public abstract boolean deactivateCompte(Compte compte);
-
-    public abstract boolean confirmCompte(Compte compte);
 }
