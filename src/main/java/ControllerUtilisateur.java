@@ -39,6 +39,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         super(menuCompte, view);
         this.comptes = getListeUtilisateursFromJson();
         this.activites = getListeActivitesfromJson();
+        this.listeFournisseurs = getListeFournisseurs();
     }
 
     private ArrayList<Utilisateur> getListeUtilisateursFromJson(){
@@ -46,6 +47,17 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
             Gson gson = new Gson();
             Type listeUtilisateurstype = new TypeToken<ArrayList<Utilisateur>>(){}.getType();
             return gson.fromJson(reader, listeUtilisateurstype);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    private ArrayList<Fournisseur> getListeFournisseurs(){
+        try(FileReader reader = new FileReader("src/main/resources/fournisseurs.json")){
+            Gson gson = new Gson();
+            Type listeFournisseurstype = new TypeToken<ArrayList<Fournisseur>>(){}.getType();
+            return gson.fromJson(reader, listeFournisseurstype);
         }catch(Exception e){
             e.printStackTrace();
             return new ArrayList<>();
@@ -257,7 +269,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         return null;
     }*/
 
-    public Robot choisirRobot (){
+    public Robot choisirRobot (Utilisateur utilisateur){
         try {
             System.out.println( "Veuillez choisir un robot de votre Flotte par index!");
 
@@ -371,7 +383,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
      * un affichage général ou un affichage complet. L'utilisateur choisit le robot pour lequel
      * il souhaite voir l'état, puis le type d'affichage souhaité.
      */
-    public void afficherEtatsRobots(){
+    public void afficherEtatsRobots(Utilisateur utilisateur){
         Scanner scan = new Scanner(System.in);
 
         try {
@@ -383,14 +395,14 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
             switch (choix){
                 case 1:
 
-                    Robot robotChoisi=choisirRobot();
+                    Robot robotChoisi=choisirRobot(utilisateur);
                     controllerRobot.setRobot(robotChoisi);
                     controllerRobot.afficherVueGenerale(robotChoisi);
 
                     break;
                 case 2:
 
-                    Robot robotChoisi1=choisirRobot();
+                    Robot robotChoisi1=choisirRobot(utilisateur);
                     controllerRobot.setRobot(robotChoisi1);
                     controllerRobot.afficherVueComplete(robotChoisi1);
 
@@ -647,7 +659,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         else {
         //    System.out.println("Nombre de fournisseurs disponibles : " + listeFournisseurs.size());
             for (Fournisseur c : listeFournisseurs) {
-                System.out.println("Fournisseur : " + c);
+                System.out.println("Fournisseur : " + c.getNomCompagnie());
             }
             Scanner scanner=new Scanner(System.in);
 
@@ -679,7 +691,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
             String nomRechercheNormalise = ajusterString(nomRecherche);
 
             // Récupérer la liste des fournisseurs
-            ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
+            //ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
 
             // Liste des fournisseurs trouvés
             List<Fournisseur> fournisseursTrouves = new ArrayList<>();
@@ -729,7 +741,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         ComposanteType typeRecherche = choisirTypeComposante(); // méthode pour choisir le type
 
         // Récupérer la liste des fournisseurs
-        ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
+        //ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
 
         // Liste des fournisseurs qui ont le type de composant recherché
         List<Fournisseur> fournisseursTrouves = new ArrayList<>();
@@ -781,7 +793,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 // Methode auxiliaire
     public List<Fournisseur> choisirFournisType2(ComposanteType typeRecherche) {
         // Récupérer la liste des fournisseurs
-        ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
+        //ArrayList<Fournisseur> listeFournisseurs = controllerFournisseur.getListeFournisseurs();
 
      //   System.out.println(listeFournisseurs);
         // Liste des fournisseurs trouvés

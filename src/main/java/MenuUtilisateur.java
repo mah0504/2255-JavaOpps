@@ -90,7 +90,7 @@ public class MenuUtilisateur{
                     controllerUtilisateur.gererActivites(utilisateur);
                     break;
                 case 3:
-                    controllerUtilisateur.afficherEtatsRobots();
+                    controllerUtilisateur.afficherEtatsRobots(utilisateur);
                     break;
                 case 4:
                     gererFlotte();
