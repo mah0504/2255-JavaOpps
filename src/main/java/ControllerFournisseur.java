@@ -30,6 +30,10 @@ public class ControllerFournisseur extends ControllerCompte<Fournisseur>{
         }
     }
 
+    public ArrayList<Fournisseur> getListeFournisseurs(){
+        return comptes;
+    }
+
     private void listeFournisseursToJson(ArrayList<Fournisseur> listeFournisseurs){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try(FileWriter writer = new FileWriter(CHEMIN_FIC_JSON)){
