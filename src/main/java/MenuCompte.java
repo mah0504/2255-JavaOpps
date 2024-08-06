@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class MenuCompte {
 
+    private Scanner scanner = new Scanner(System.in);
+
     private View view;
     private ControllerUtilisateur controllerUtilisateur;
     private ControllerFournisseur controllerFournisseur;
@@ -37,7 +39,7 @@ public class MenuCompte {
 
     }
 
-    public void afficherMenu() {
+    /*public void afficherMenu() {
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
         int choix;
@@ -66,7 +68,33 @@ public class MenuCompte {
                 scanner.next(); // Clear the invalid input
             }
         }
+    }*/
+
+    public void afficherMenuPrincipal(){
+        boolean continuer = true;
+        while(continuer){
+
+            view.home();
+            int choix = Integer.parseInt(scanner.nextLine());
+
+            switch (choix){
+                case 1:
+                    afficherMenuUtilisateurConnexion();
+                    break;
+                case 2 :
+                    afficherMenuFournisseurConnexion();
+                    break;
+                case 0 :
+                    view.afficherMessage("Au Revoir !");
+                    continuer = false;
+                    break;
+                default:
+                    System.out.println("Choix invalide. Veuillez réessayez !");
+
+            }
+        }
     }
+
 
 
 
