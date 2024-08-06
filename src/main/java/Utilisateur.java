@@ -46,20 +46,6 @@ public class Utilisateur extends Compte {
                 " , Activites : " + activites + " ]";
     }
 
-
-    public void setListeRobots(ArrayList<Robot> listeRobots) {
-        this.listeRobots = listeRobots;
-    }
-
-    public ArrayList<Notification> getNotifis(){
-        return notifs;
-    }
-
-    public void setNotifs(ArrayList<Notification> notifs) {
-        this.notifs = notifs;
-    }
-
-
     /**
      * Récupère le prenom d'un Utilisateur
      *
@@ -168,5 +154,34 @@ public class Utilisateur extends Compte {
      * @return listeRobots la liste des Robots
      */
     public ArrayList<Robot> getListeRobots(){return listeRobots;}
+
+    /**
+     * Assigne une liste à l'utilisateur
+     *
+     * @param listeRobots la nouvelle liste de Robots
+     */
+    public void setListeRobots(ArrayList<Robot> listeRobots) {
+        this.listeRobots = listeRobots;
+    }
+
+    /**
+     * Récupère les Notifications de L'utilisateur
+     *
+     * @return notifs une liste de notifications
+     */
+    public ArrayList<Notification> getNotifis(){
+        return notifs;
+    }
+
+    /**
+     * Assigne une nouvelle liste de notifications à l'utilisateur
+     *
+     * @param notifs la nouvelle Liste de notifications
+     */
+    public void setNotifs(ArrayList<Notification> notifs) {
+        this.notifs = notifs;
+    }
+
+
 
 }
