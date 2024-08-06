@@ -1,1 +1,233 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>IFT2255 E24 DM1</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<h1 style="text-align: center;">IFT 2255 - Été 2024 - Devoir 2</h1>
 
+<h2>En-tête</h2>
+<p><span style="font-weight: bold;">Nom de l'équipe: </span>Équipe Java Opps 🎀❤️</p>
+<p><a href="https://github.com/mah0504/2255-JavaOpps">Lien vers dépôt GitHub</a></p>
+
+<h2>Identification de l'équipe</h2>
+<p><span style="font-weight: bold;">Nom: </span>Maha Amhaouch<br>
+    <span style="font-weight: bold;">Matricule: </span>20272882<br>
+    <span style="font-weight: bold;">Courriel: </span>maha.amhaouch@umontreal.ca<br>
+    <span style="font-weight: bold;">Temps mis: </span>25 heures
+</p>
+<p><span style="font-weight: bold;">Nom: </span>Sabrina Aoude<br>
+    <span style="font-weight: bold;">Matricule: </span>20279873<br>
+    <span style="font-weight: bold;">Courriel: </span>sabrina.aoude@umontreal.ca<br>
+    <span style="font-weight: bold;">Temps mis: </span>25 heures
+</p>
+<p><span style="font-weight: bold;">Nom: </span>Chaimaa Dannane<br>
+    <span style="font-weight: bold;">Matricule: </span>20139572<br>
+    <span style="font-weight: bold;">Courriel: </span>chaimaa.dannane@umontreal.ca<br>
+    <span style="font-weight: bold;">Temps mis: </span>25 heures
+</p>
+
+<h2>Distribution des tâches pour le DM3</h2>
+<table>
+    <thead>
+    <tr>
+        <th class="first_col">Tâche</th>
+        <th>Maha</th>
+        <th>Sabrina</th>
+        <th>Chaimaa</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td class="first_col">Diagramme de classe</td>
+        <td>30%</td>
+        <td>40%</td>
+        <td>30%</td>
+    </tr>
+    <tr>
+        <td class="first_col">Diagrammes de séquence</td>
+        <td>25%</td>
+        <td>50%</td>
+        <td>25%</td>
+    </tr>
+    <tr>
+        <td class="first_col">Code</td>
+        <td>40%</td>
+        <td>20%</td>
+        <td>40%</td>
+    </tr>
+    <tr>
+        <td class="first_col">Tests</td>
+        <td>33%</td>
+        <td>33%</td>
+        <td>33%</td>
+    </tr>
+    <tr>
+        <td class="first_col">Documentation</td>
+        <td>50%</td>
+        <td>0%</td>
+        <td>50%</td>
+    </tr>
+    </tbody>
+</table>
+
+<h2>Hypothèses</h2>
+
+<h2>Exigences et Analyse</h2>
+
+
+<h5> Glossaire:</h5>
+<dl>
+    <dt><strong>Action</strong></dt>
+    <dd>Opération spécifique qu’un robot peut exécuter s’il a les composantes nécessaires. Elles sont créées indépendamment des robots et peuvent être assignées aux tâches. Le robot peut bouger (déplacement, stationnement), diffuser des sons, parler, écouter, afficher du texte ou des graphiques, etc.</dd>
+
+    <dt><strong>Activité</strong></dt>
+    <dd>Ensemble de tâches liées entre elles qui contribuent à la réalisation d'un objectif plus large. L’utilisateur peut participer à des activités individuelles ou collaboratives avec sa flotte de robots.</dd>
+
+    <dt><strong>Composante</strong></dt>
+    <dd>Partie identifiable d’un robot telles que CPU (Wi-Fi, Bluetooth), roues, bras, hélice, caméra, haut-parleur, micro et écran. Certaines composantes sont essentielles pour réaliser certaines actions.</dd>
+
+    <dt><strong>Création</strong></dt>
+    <dd>Activité où l’utilisateur peut créer des objets virtuels en utilisant des outils numériques tels que les logiciels de conception assistée par ordinateur (CAO) et en créer des réels avec l’impression 3D.</dd>
+
+    <dt><strong>Éducation</strong></dt>
+    <dd>Activité où les robots sont utilisés pour enseigner à l’utilisateur différentes compétences telles que les langues, la programmation, les mathématiques, les sciences et l’histoire.</dd>
+
+    <dt><strong>Énergie</strong></dt>
+    <dd>Différence entre la quantité d'énergie fournie par le robot (énergie utile) et la quantité d'énergie utilisée pour le faire fonctionner (énergie consommée). Ce rapport vise à réduire les coûts et à optimiser la façon dont les ressources sont exploitées.</dd>
+
+    <dt><strong>État</strong></dt>
+    <dd>Conditions actuelles d’un robot telles que sa position, sa vitesse, le niveau de sa batterie, sa consommation CPU et mémoire.</dd>
+
+    <dt><strong>Flotte</strong></dt>
+    <dd>Ensemble de robots regroupés pour réaliser de façon collaborative différentes activités. La gestion d’une flotte nécessite la planification des missions, la configuration des différentes composantes et une mise en œuvre efficace du système.</dd>
+
+    <dt><strong>Fournisseur</strong></dt>
+    <dd>Client qui vend aux utilisateurs les robots et les composantes. Il fournit le numéro de série des robots et les fils de connexion. Il est associé à une compagnie et a une capacité de fabrication. Il est identifié dans le système par un nom unique.</dd>
+
+    <dt><strong>Inventaire</strong></dt>
+    <dd>Mécanisme d’inventorisation des robots et des composantes disponibles, permettant leur suivi et gestion efficace. Il fournit pour chaque robot des détails tels que son numéro de série, son nom, son type et ses métriques.</dd>
+
+    <dt><strong>Jeu</strong></dt>
+    <dd>Activité ludique où les participants (utilisateurs) sont offerts des défis et des règles et s’engagent le plus souvent dans une compétition.</dd>
+
+    <dt><strong>Métrique</strong></dt>
+    <dd>Indicateur ou ratio quantitatif qui est utilisé pour mesurer et surveiller la performance (disponibilité, état et utilisation généraux) d’un robot ou d’une flotte. Elle communique des informations qui aident l’utilisateur à gérer les ressources et prendre des décisions.</dd>
+
+    <dt><strong>Numéro de série</strong></dt>
+    <dd>Identifiant (numéro séquentiel ou UUID) propre et unique du CPU que possède chaque robot. L'unicité de l'identification permet de faciliter le suivi des robots au sein du système.</dd>
+
+    <dt><strong>Robot</strong></dt>
+    <dd>Outil programmable pour réaliser des tâches de manière autonome et traiter de l’information (commandes, instructions). Il doit avoir au moins un CPU et une autre composante. La conception d’un robot dépend de son rôle dans le système.</dd>
+
+    <dt><strong>Système</strong></dt>
+    <dd>Ensemble des composantes qui, par le biais de tâches, interagissent pour atteindre un objectif cible. Dans le cas de Robotix, cela se traduit principalement par l'utilisation de robots, d'interfaces, de capteurs et au moyen des utilisateurs.</dd>
+
+    <dt><strong>Tâche</strong></dt>
+    <dd>Séquence d'actions réalisées dans un ordre. L’utilisateur peut les créer, les affecter à ses robots et les planifier (horaire spécifique, action déclencheur) pour qu’elles soient réalisées sans son intervention.</dd>
+
+    <dt><strong>Usage</strong></dt>
+    <dd>Évolution périodique des données recueillies par les capteurs d’un robot. Permet de suivre l’activité d’un robot.</dd>
+
+    <dt><strong>Utilisateur</strong></dt>
+    <dd>Client qui souhaite trouver un fournisseur, enregistrer ses robots, les contrôler (tâches, activités) ou en faire le suivi (métriques, anomalies, intervention). Il est identifié dans le système par un pseudo unique.</dd>
+</dl>
+
+
+
+
+<h5>Analyse</h5>
+<p>Les systèmes de gestion de la flotte (robots et composantes), les capteurs, le logiciel et
+    les données seront informatisées. Les données seront stockées sur le cloud dans des structures de données
+    et sur des disques durs d’ordinateurs ou sur des mémoires internes de téléphones,
+    avec des ajouts réguliers de stockage afin de faciliter le partage et les modifications entre plusieurs utilisateurs.
+    Le matériel nécessaire est constitué de robots, composantes (flotte), capteurs, supports pour le logiciel
+    (ordinateurs, téléphones, tablettes) et un serveur cloud (ou base de données).
+    Robotix interagira avec les capteurs, fournisseurs et banques pour assurer des achats sécurisés
+    et un contrôle des composantes. Les utilisateurs communiqueront avec Robotix via des lignes de commandes
+    et notifications, et ce, à l’aide d’une interface intuitive et fluide.</p>
+
+<br><br>
+
+
+
+<h5>Diagramme de cas d'utilisation</h5>
+<!-- Ajoutez le diagramme de cas d'utilisation -->
+
+<h5>Diagramme d'activités UML</h5>
+
+<h5>Diagramme d'activité principal
+    <a href="diagramme_activites/diagramme_principal.vpp">Lien vers le fichier Visual Paradigm</a>
+</h5>
+<img src="diagramme_activites/diagramme_principal.svg" alt="Diagramme d'activité principal" height="800vh" width="1050vw" />
+<h5>Diagramme d'activité pour Créer/Ajouter/Supprimer une Action
+    <a href="diagramme_activites/CreerSuppAjouter_action.vpp">Lien vers le fichier .vpp</a>
+</h5>
+<h5>Diagramme d'activité pour Créer/Ajouter/Supprimer une Tâche
+    <a href="Analyse/Diagrammes des activites/CreerAjouterSupp_tache.vpp">Lien vers le fichier .vpp</a>
+</h5>
+<h5>Diagramme d'activité pour inscription à une Activité
+    <a href="diagramme_activites/inscription_activite.vpp">Lien vers le fichier .vpp</a>
+</h5>
+<h5>Diagramme d'activité pour acheter une composante
+    <a href="diagramme_activites/acheter_composante.vpp">Lien vers le fichier .vpp</a>
+</h5>
+<h5>Diagramme d'activité pour enregistrer un robot
+    <a href="diagramme_activites/enregistrer_robot.vpp">Lien vers le fichier .vpp</a>
+</h5>
+
+
+
+
+
+<h2>Conception (révisée)</h2>
+
+
+<h5>Diagramme de classe UML</h5>
+
+<a href="conception/diagramme_classes.vpp">Lien vers le fichier .vpp</a>
+
+<h5>Diagrammes de séquence UML</h5>
+
+<h5>Diagramme de séquence pour inscription à une Activité
+    <a href="diagramme_sequences/inscription_actvite.vpp">Lien vers le fichier .vpp</a>
+</h5>
+<img src="diagramme_sequences/inscription_actvite.svg" alt="Diagramme de séquence pour inscription à une Activité" height="800vh" width="1050vw" />
+<h5>Diagramme de séquence pour acheter une composante
+    <a href="diagramme_sequences/acheter_composante.vpp">Lien vers le fichier .vpp</a>
+</h5>
+<img src="diagramme_sequences/acheter_composante.svg" alt="Diagramme de séquence pour acheter une composante" height="800vh" width="1050vw" />
+<h5>Diagramme de séquence pour enregistrer un robot
+    <a href="Conception/Diagramme des sequences/enregistrer_robot.vpp">Lien vers le fichier .vpp</a>
+</h5>
+<img src="Conception/Diagramme des sequences/enregistrer_robot.svg" alt="Diagramme de séquence pour enregistrer un robot" height="800vh" width="1050vw" />
+
+
+
+
+
+
+<h2>Application</h2>
+
+<p><a href="lien_vers_application_executable">Lien vers l'application (exécutable)</a></p>
+
+
+
+
+
+
+<h2>Documentation</h2>
+
+<p><a href="lien_vers_dossier_javadoc">Lien vers la documentation JavaDoc</a></p>
+<p>Voir le README et le code pour plus d'informations</p>
+
+<h2>Tests</h2>
+<!-- Ajouter capture d'écran des tests qui fonctionnent -->
+
+<h2>Bilan des tests</h2>
+<!-- Ajouter capture d'écran des tests qui fonctionnent -->
+
+</body>
+</html>
