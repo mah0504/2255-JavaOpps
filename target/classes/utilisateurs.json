@@ -35,13 +35,28 @@
             "prix": 250.0
           }
         ]
+      },
+      {
+        "speed": 0.0,
+        "batteryLevel": 0.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": [
+          {
+            "nom": "CP44",
+            "description": "CPU UNIQUE JSP",
+            "type": "CPU",
+            "prix": 150.0
+          }
+        ]
       }
     ],
     "composantes": {
       "IFT2": "CPU",
       "IFT1": "ROUE",
-      "CPU223": "CPU",
-      "IFAD32": "HELICE"
+      "IFAD32": "HELICE",
+      "IF": "ROUE"
     },
     "pseudo": "aithu",
     "email": "aithu@example.com",

@@ -4,16 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="voirNotifications() de l'utilisateur &#10;+ getter et setter">
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="correction json -&gt; erreur">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fournisseurs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utilisateur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fournisseurs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utilisateurs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -260,7 +257,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722885167395</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="correction json -&gt; erreur">
+      <option name="closed" value="true" />
+      <created>1722900311910</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1722900311910</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,6 +299,7 @@
     <MESSAGE value="correction erreurs ChoisirComposanteFlotte" />
     <MESSAGE value="enlever enregistrer robot jusqu'a gestion d&quot;erreurs" />
     <MESSAGE value="voirNotifications() de l'utilisateur &#10;+ getter et setter" />
-    <option name="LAST_COMMIT_MESSAGE" value="voirNotifications() de l'utilisateur &#10;+ getter et setter" />
+    <MESSAGE value="correction json -&gt; erreur" />
+    <option name="LAST_COMMIT_MESSAGE" value="correction json -&gt; erreur" />
   </component>
 </project>

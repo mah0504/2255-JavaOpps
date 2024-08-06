@@ -91,6 +91,7 @@ public class MenuUtilisateur{
 
                 switch (choix) {
                     case 1:
+                    //    controllerUtilisateur.choisirComposanteFlotte(ComposanteType.ROUE);
                         controllerUtilisateur.enregistrerRobot();
                       break;
                     case 2:
