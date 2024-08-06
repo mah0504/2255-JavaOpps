@@ -23,13 +23,22 @@
     },
     "pseudo": "compagnie1",
     "email": "c1@example.com",
-    "mdp": "mdp",
+    "mdp": "motdepasse",
     "telephone": "1234567890",
     "confirmed": true
   },
   {
     "nomCompagnie": "nomCompagnie2",
     "composantesFournisseurs": {
+      "IFT28": {
+        "composante": {
+          "nom": "IFT28",
+          "description": "Une composante BRAS",
+          "type": "BRAS",
+          "prix": 67.0
+        },
+        "quantite": 45
+      },
       "CPU222": {
         "composante": {
           "nom": "CP44",
@@ -47,15 +56,6 @@
           "prix": 50.0
         },
         "quantite": 18
-      },
-      "IFT28": {
-        "composante": {
-          "nom": "IFT28",
-          "description": "Une composante BRAS",
-          "type": "BRAS",
-          "prix": 67.0
-        },
-        "quantite": 45
       }
     },
     "pseudo": "compagnie2",

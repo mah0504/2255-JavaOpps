@@ -40,6 +40,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         this.comptes = getListeUtilisateursFromJson();
         this.activites = getListeActivitesfromJson();
         this.listeFournisseurs = getListeFournisseurs();
+        this.controllerRobot = new ControllerRobot();
     }
 
     private ArrayList<Utilisateur> getListeUtilisateursFromJson(){
@@ -270,6 +271,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     }*/
 
     public Robot choisirRobot (Utilisateur utilisateur){
+        int choix = -1;
         try {
             System.out.println( "Veuillez choisir un robot de votre Flotte par index!");
 
@@ -280,11 +282,11 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
 
             Scanner scan = new Scanner(System.in);
-            int choix = scan.nextInt();
+            choix = scan.nextInt();
 
             // si choix valide , on return le Robot sitié à l'Index choisis pas l'Utilisateur
 
-            return utilisateur.getListeRobots().get(choix - 1) ;
+            //return utilisateur.getListeRobots().get(choix - 1) ;
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Veuillez choisir un nombre valide parmi les options disponibles!");
         } catch (InputMismatchException e) {
@@ -293,7 +295,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
             e.printStackTrace(); // modif apre
             System.out.println("Veuillez choisir un nombre  !");
         }
-        return null;
+        return utilisateur.getListeRobots().get(choix) ;
     }
 
 
