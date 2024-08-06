@@ -50,7 +50,7 @@
     },
     "pseudo": "compagnie1",
     "email": "c1@example.com",
-    "mdp": "mdp",
+    "mdp": "motdepasse1",
     "telephone": "1234567890",
     "confirmed": true
   },
@@ -105,7 +105,7 @@
     },
     "pseudo": "compagnie2",
     "email": "ce2@example.com",
-    "mdp": "mdp",
+    "mdp": "motdepasse2",
     "telephone": "1234567890",
     "confirmed": true
   },
@@ -161,7 +161,7 @@
     },
     "pseudo": "compagnie3",
     "email": "c3@example.com",
-    "mdp": "mdp",
+    "mdp": "motdepasse3",
     "telephone": "1234567890",
     "confirmed": true
   },
@@ -216,7 +216,7 @@
     },
     "pseudo": "compagnie4",
     "email": "compagnie4@example.com",
-    "mdp": "mdp",
+    "mdp": "motdepasse4",
     "telephone": "1234567890",
     "confirmed": true
   },
@@ -271,7 +271,7 @@
     },
     "pseudo": "compagnie5",
     "email": "compagnie5@example.com",
-    "mdp": "mdp",
+    "mdp": "motdepasse5",
     "telephone": "1234567890",
     "confirmed": true
   }
