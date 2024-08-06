@@ -938,10 +938,13 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
 
 
-    public void voirNotifs(){
-       for ( Notification n : utilisateur.getNotifis()) {
-           System.out.println(n.toString());
-       }
+    public void voirNotifs(Utilisateur utilisateur){
+        if (utilisateur.getNotifis() == null) {
+            utilisateur.setNotifs(new ArrayList<>());
+        }
+        for ( Notification n : utilisateur.getNotifis()) {
+            System.out.println(n.toString());
+        }
     }
 
     public void modifierProfilUtilisateur(Utilisateur utilisateur) {

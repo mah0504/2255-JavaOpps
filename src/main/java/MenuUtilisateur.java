@@ -102,7 +102,7 @@ public class MenuUtilisateur{
                     controllerUtilisateur.choisirFournisseur();
                     break;
                 case 7:
-                    controllerUtilisateur.voirNotifs();
+                    controllerUtilisateur.voirNotifs(utilisateur);
                     break;
                 default:
                     System.out.println("Choix invalide. Veuillez entrer nombre valide dan la borne.");

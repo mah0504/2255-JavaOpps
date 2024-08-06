@@ -15,6 +15,7 @@ public class Utilisateur extends Compte {
      */
     public Utilisateur(){
         this.listeRobots = new ArrayList<>();
+        this.notifs = new ArrayList<>();
         this.listeRobots=getListeRobots();
 
     }
