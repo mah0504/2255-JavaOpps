@@ -93,7 +93,7 @@ public class MenuUtilisateur{
                     controllerUtilisateur.afficherEtatsRobots(utilisateur);
                     break;
                 case 4:
-                    gererFlotte();
+                    gererFlotte(utilisateur);
                     break;
                 case 5:
                     trouverFournisseur();
@@ -123,7 +123,7 @@ public class MenuUtilisateur{
 
     // verifier si affchage recherche ou liste ou autre
 
-    public void gererFlotte() {
+    public void gererFlotte(Utilisateur utilisateur) {
         Scanner scanner = new Scanner(System.in);
         boolean continueMenu = true;
 
@@ -142,16 +142,16 @@ public class MenuUtilisateur{
                 switch (choix) {
                     case 1:
                     //    controllerUtilisateur.choisirComposanteFlotte(ComposanteType.ROUE);
-                        controllerUtilisateur.enregistrerRobot();
+                        controllerUtilisateur.enregistrerRobot(utilisateur);
                       break;
                     case 2:
-                        controllerUtilisateur.supprimerRobot();
+                        controllerUtilisateur.supprimerRobot(utilisateur);
                         break;
                     case 3:
                         trouverComposante();
                         break;
                     case 4:
-                        controllerUtilisateur.acheterComposante();
+                        controllerUtilisateur.acheterComposante(utilisateur);
                         break;
                     case 0:
                         continueMenu = false;

@@ -4,14 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="run 2">
+    <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="run 4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/utilisateurs.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Utilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utilisateur.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +96,7 @@
       <workItem from="1722800135855" duration="2428000" />
       <workItem from="1722803972234" duration="1358000" />
       <workItem from="1722938013886" duration="2822000" />
-      <workItem from="1722943359893" duration="1410000" />
+      <workItem from="1722943359893" duration="2268000" />
     </task>
     <task id="LOCAL-00001" summary="changes">
       <option name="closed" value="true" />
@@ -403,7 +402,23 @@
       <option name="project" value="LOCAL" />
       <updated>1722944286755</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="run 3 + modification de voir Notifications">
+      <option name="closed" value="true" />
+      <created>1722944926415</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1722944926415</updated>
+    </task>
+    <task id="LOCAL-00040" summary="run 4">
+      <option name="closed" value="true" />
+      <created>1722945338505</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1722945338505</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,8 +436,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="ajout liste des robots" />
-    <MESSAGE value="Correction Afficheretat rOBOT" />
     <MESSAGE value="Correction Afficheretat rOBOT+ MODIF JSON utilisateurs &#10;-&gt; regler pblm avec supprimer robot ?" />
     <MESSAGE value="correction supprimer robot" />
     <MESSAGE value="rajout du robot supprime" />
@@ -446,6 +459,8 @@
     <MESSAGE value="update ControllerUtilisateur" />
     <MESSAGE value="update main" />
     <MESSAGE value="run 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="run 2" />
+    <MESSAGE value="run 3 + modification de voir Notifications" />
+    <MESSAGE value="run 4" />
+    <option name="LAST_COMMIT_MESSAGE" value="run 4" />
   </component>
 </project>
