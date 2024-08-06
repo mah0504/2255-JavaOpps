@@ -848,5 +848,6 @@ public class ControllerUtilisateur{
        }
     }
 
+    public void modifierProfil(){}
 
 }
