@@ -58,7 +58,13 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
             - Supprimer une composante
             - Modifier une composante
             - Voir ses composantes
-              
+         
+
+## Instructions pour installer le projet
+D'abord, il faut télécharger le projet Maven 
+Sur le terminal, entrz les commandes suivantes :
+```sh
+git clone 
 ## Description des données de départ 
 
 Notre code est sensible à l'entrée. Il faut entrer des entiers dans les choix. 
