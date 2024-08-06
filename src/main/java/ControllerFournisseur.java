@@ -14,7 +14,7 @@ import java.util.UUID;
 
 public class ControllerFournisseur{
 
-    private ArrayList<Fournisseur> listeFournisseurs;
+/*    private ArrayList<Fournisseur> listeFournisseurs;
     private Fournisseur fournisseur;
 
 
@@ -182,4 +182,6 @@ public class ControllerFournisseur{
     public void supprimerComposante(){}
 
     public void modifierComposante( ){}
+
+ */
 }
