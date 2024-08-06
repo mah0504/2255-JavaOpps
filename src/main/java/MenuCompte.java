@@ -3,21 +3,38 @@ import java.util.Scanner;
 
 public class MenuCompte {
 
+    private View view;
     private ControllerUtilisateur controllerUtilisateur;
-    private MenuUtilisateur menuUtilisateur;
     private ControllerFournisseur controllerFournisseur;
+
+    private MenuUtilisateur menuUtilisateur;
     private ControllerRobot controllerRobot;
     private MenuFournisseur menuFournisseur;
     private CompteView compteView;
 
-    public MenuCompte(ControllerUtilisateur controllerUtilisateur, ControllerFournisseur controllerFournisseur, ControllerRobot controllerRobot) {
+    public MenuCompte(View view) {
+        this.view = view;
+        this.controllerUtilisateur = new ControllerUtilisateur(this, view);
+        this.controllerFournisseur = new ControllerFournisseur(this, view);
+    }
+
+    /*public MenuCompte(ControllerUtilisateur controllerUtilisateur, ControllerFournisseur controllerFournisseur, ControllerRobot controllerRobot) {
         this.controllerUtilisateur =  controllerUtilisateur;
         this.controllerFournisseur = controllerFournisseur;
         this.controllerRobot= controllerRobot;
-        this.menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
-        this.menuFournisseur= new MenuFournisseur(controllerFournisseur);
+        //this.menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
+        //this.menuFournisseur= new MenuFournisseur(controllerFournisseur);
 
         compteView = new CompteView();
+    }*/
+
+    public void setCompte(Compte compte){
+        if (compte instanceof Utilisateur){
+            new MenuUtilisateur((Utilisateur) compte, controllerUtilisateur).afficherMenuUtilisateur();
+        } else if (compte instanceof Fournisseur){
+            new MenuFournisseur((Fournisseur) compte, controllerFournisseur).afficherMenuFournisseur();
+        }
+
     }
 
     public void afficherMenu() {
@@ -56,29 +73,28 @@ public class MenuCompte {
     public void afficherMenuUtilisateurConnexion() {
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
-        int choix;
 
         while (continuer) {
             try {
-                compteView.actionType();
-                choix = scanner.nextInt();
+                view.homeCompte();
+                int choix = Integer.parseInt(scanner.nextLine());
 
                 switch (choix) {
                     case 0:
-                        compteView.AfficherMessage("Retour au Menu Principal");
+                        view.afficherMessage("Retour au Menu Principal");
                         continuer = false;
                         break;
                     case 1:
-                        connecterUtilisateur();
+                        controllerUtilisateur.seConnecter();
                         break;
                     case 2:
-                        creerUtilisateur();
+                        controllerUtilisateur.sInscrire();
                         break;
                     case 3:
-                        confirmerUtilisateur();
+                        controllerUtilisateur.confirmerInscription();
                         break;
                     default:
-                        compteView.AfficherMessage("Choix invalide, réeessayez!");
+                        compteView.AfficherMessage("Choix invalide, réessayez!");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
@@ -90,29 +106,28 @@ public class MenuCompte {
     public void afficherMenuFournisseurConnexion() {
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
-        int choix;
 
         while (continuer) {
             try {
-                compteView.actionType();
-                choix = scanner.nextInt();
+                view.homeCompte();
+                int choix = Integer.parseInt(scanner.nextLine());
 
                 switch (choix) {
                     case 0:
-                        compteView.AfficherMessage("Retour au Menu Principal");
+                        view.afficherMessage("Retour au Menu Principal");
                         continuer = false;
                         break;
                     case 1:
-                        connecterFournisseur();
+                        controllerFournisseur.seConnecter();
                         break;
                     case 2:
-                        creerFournisseur();
+                        controllerFournisseur.sInscrire();
                         break;
                     case 3:
-                        confirmerFournisseur();
+                        controllerFournisseur.confirmerInscription();
                         break;
                     default:
-                        compteView.AfficherMessage("Choix invalide, réessayez !");
+                        view.afficherMessage("Choix invalide, réessayez !");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
@@ -121,7 +136,7 @@ public class MenuCompte {
         }
     }
 
-    public void creerUtilisateur() {
+    /*public void creerUtilisateur() {
         String pseudo = getPseudoUnique();
         String nom = compteView.getNom();
         String prenom = compteView.getPrenom();
@@ -228,7 +243,7 @@ public class MenuCompte {
             telephone = compteView.getTelephone();
         }
         return telephone;
-    }
+    }*/
 
 
 }
