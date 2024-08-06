@@ -67,9 +67,11 @@ Notre code est sensible à l'entrée. Il faut entrer des entiers dans les choix.
     - email : pnom2@example.com
     - mot de passe : motdepasse2
     
-* Pour tester une connexion Fournisseur 
+* Pour tester une connexion Fournisseur :
     - email : c1@example.com
     - mot de passe : motdepasse1
+ 
+  Des options sont suggérées pour le reste des entrées et sinon, c'est une nouvelle entrée. 
 
 ## Organisation des fichiers
 ```ada
