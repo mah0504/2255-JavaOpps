@@ -25,7 +25,7 @@ public abstract class ControllerCompte<T extends Compte>{
         String motDePasse = scanner.nextLine();
 
         for (T compte : comptes) {
-            if (verifierConnexion(compte.getEmail(),compte.getMdp())) {
+            if (verifierConnexion(email, motDePasse)) {
                 menuCompte.setCompte(compte);
                 return;
             }
