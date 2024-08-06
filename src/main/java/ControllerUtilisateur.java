@@ -12,7 +12,11 @@ import java.util.*;
 import java.util.UUID;
 import java.time.LocalDateTime;
 
-public class ControllerUtilisateur{
+public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
+
+    private View view;
+    private static final String CHEMIN_FIC_JSON = "src/main/resources/utilisateurs.json";
+    protected ArrayList<Activite> activites;
 
     private Utilisateur utilisateur;
     private ArrayList<Utilisateur> listeUtilisateurs;
@@ -20,16 +24,44 @@ public class ControllerUtilisateur{
     private ControllerFournisseur controllerFournisseur;
     private ArrayList<Fournisseur> listeFournisseurs;
     private Fournisseur fournisseurChoisi;
-    public ControllerUtilisateur(){
+
+
+    /*public ControllerUtilisateur(){
 
         this.listeUtilisateurs = new ArrayList<>();
         getListeUtilisateursFromJson();
         this.controllerFournisseur = new ControllerFournisseur();
         this.listeFournisseurs = controllerFournisseur.getListeFournisseurs();
         this.controllerRobot= new ControllerRobot();
+    }*/
+
+    public ControllerUtilisateur(MenuCompte menuCompte, View view) {
+        super(menuCompte, view);
+        this.comptes = getListeUtilisateursFromJson();
+        this.activites = getListeActivitesfromJson();
     }
 
-    private void getListeUtilisateursFromJson(){
+    private ArrayList<Utilisateur> getListeUtilisateursFromJson(){
+        try(FileReader reader = new FileReader(CHEMIN_FIC_JSON)){
+            Gson gson = new Gson();
+            Type listeUtilisateurstype = new TypeToken<ArrayList<Utilisateur>>(){}.getType();
+            return gson.fromJson(reader, listeUtilisateurstype);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    private void listeUtilisateursToJson(ArrayList<Utilisateur> listeUtilisateurs){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try(FileWriter writer = new FileWriter(CHEMIN_FIC_JSON)){
+            gson.toJson(listeUtilisateurs, writer);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /*private void getListeUtilisateursFromJson(){
         try(FileReader reader = new FileReader("src/main/resources/utilisateurs.json")){
             Gson gson = new Gson();
             Type listeUtilisateurstype = new TypeToken<ArrayList<Utilisateur>>(){}.getType();
@@ -37,28 +69,80 @@ public class ControllerUtilisateur{
         }catch(Exception e){
             e.printStackTrace();
         }
-    }
+    }*/
 
     public ArrayList<Utilisateur> getListeUtilisateurs(){
         return listeUtilisateurs;
     }
 
-    private void listeUtilisateursToJson(ArrayList<Utilisateur> listeUtilisateurs){
+    /*private void listeUtilisateursToJson(ArrayList<Utilisateur> listeUtilisateurs){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try(FileWriter writer = new FileWriter("src/main/resources/utilisateurs.json")){
             gson.toJson(listeUtilisateurs, writer);
         }catch(Exception e){
             e.printStackTrace();
         }
-    }
-
+    }*/
 
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
 
-    public boolean confirmerUtilisateur(String pseudo){
+    public void sInscrire(){
+        Scanner scanner = new Scanner(System.in);
+        String pseudo = super.getPseudoUnique();
+        view.getNomView();
+        String nom = scanner.nextLine();
+        view.getPrenomView();
+        String prenom = scanner.nextLine();
+        String email = super.getEmailUnique();
+        String motDePasse = super.getMdpValid();
+        String telephone = super.getTelephoneValid();
+        Utilisateur nouveauUser = new Utilisateur(pseudo,email,motDePasse,telephone,nom,prenom);
+
+        if(isPseudoUnique(pseudo)){
+            super.envoyerMailConfirmation(nouveauUser);
+            super.sInscrire(nouveauUser);
+            listeUtilisateursToJson((ArrayList<Utilisateur>) comptes);
+            System.out.println("Inscription réussie. En attente de la confirmation de l'email .");
+        } else {
+            System.out.println("Échec à la création du compte.");
+        }
+    }
+
+    public void confirmerInscription(){
+        Scanner scanner = new Scanner(System.in);
+        view.getEmailView();
+        String email = scanner.nextLine();
+        view.getConfirmationLien();
+        String lienConfirmation = scanner.nextLine().trim();
+
+        Utilisateur user = findUserByEmail(email);
+
+        if (user != null) {
+            String confirmationDateStr = user.getConfirmationLienExpirationDate();
+            LocalDateTime confirmationDate = user.StrToDate(confirmationDateStr);
+
+            if (LocalDateTime.now().isBefore(confirmationDate)) {
+                if(user.getConfirmationLien().equals(lienConfirmation)){
+                    user.isConfirmed(true);
+                    user.setConfirmationLien(null);
+                    user.setConfirmationLienExpirationDate(null);
+                    listeUtilisateursToJson((ArrayList<Utilisateur>) comptes);
+                } else {
+                    view.afficherMessage("Lien de confirmation incorrect.");
+                }
+            } else {
+                comptes.remove(user);
+                listeUtilisateursToJson((ArrayList<Utilisateur>) comptes);
+                view.afficherMessage("Le lien de confirmation a expiré. Le compte est supprimé");
+            }
+        }
+        view.afficherMessage("Ce compte n'existe pas, entrez un email valide !");
+    }
+
+    /**public boolean confirmerUtilisateur(String pseudo){
         boolean confirme = true;
         for (Utilisateur utilisateur : listeUtilisateurs) {
             if (utilisateur.getPseudo().equals(pseudo)) {
@@ -67,9 +151,9 @@ public class ControllerUtilisateur{
             }
         }
         return confirme;
-    }
+    }*/
 
-    public void creerUtilisateur(String pseudo, String nom, String prenom, String email, String mdp, String telephone) {
+    /*public void creerUtilisateur(String pseudo, String nom, String prenom, String email, String mdp, String telephone) {
         Utilisateur nouvelUtilisateur = new Utilisateur(pseudo, nom, prenom, email, mdp, telephone);
 
         if (confirmerUtilisateur(pseudo)){
@@ -162,16 +246,16 @@ public class ControllerUtilisateur{
             return user;
         }
         return null;
-    }
+    }*/
 
-    private Utilisateur findUserByEmail(String email) {
+    /*private Utilisateur findUserByEmail(String email) {
         for (Utilisateur utilisateur : listeUtilisateurs) {
             if (utilisateur.getEmail().equals(email)) {
                 return utilisateur;
             }
         }
         return null;
-    }
+    }*/
 
     public Robot choisirRobot (){
         try {
@@ -370,7 +454,7 @@ public class ControllerUtilisateur{
 
         ComposanteType typeRecherche = choisirTypeComposante() ; // la compo choisie par l'utili
 
-        ArrayList<Fournisseur> Listefournisseurs =controllerFournisseur. getListeFournisseurs();
+        ArrayList<Fournisseur> Listefournisseurs =controllerFournisseur.getListeFournisseurs();
 
         List<FournisseurComposante> composantesTrouvees = new ArrayList<>();
 
@@ -848,6 +932,183 @@ public class ControllerUtilisateur{
        }
     }
 
-    public void modifierProfil(){}
+    public void modifierProfilUtilisateur(Utilisateur utilisateur) {
+        boolean continuer = true;
+        Scanner scanner = new Scanner(System.in);
+        while (continuer) {
+            view.actionModifierProfilUtilisateur();
+            int choix = Integer.parseInt(scanner.nextLine().trim());
+
+            switch (choix) {
+                case 0:
+                    continuer = false;
+                    break;
+                case 1:
+                    String nvPseudo = super.getPseudoUnique();
+                    utilisateur.setPseudo(nvPseudo);
+                    break;
+                case 2:
+                    view.getNomView();
+                    String nvNom = scanner.nextLine();
+                    utilisateur.setNom(nvNom);
+                    break;
+                case 3:
+                    view.getPrenomView();
+                    String nvPrenom = scanner.nextLine();
+                    utilisateur.setPrenom(nvPrenom);
+                    break;
+                case 4:
+                    String nvMdp = super.getMdpValid();
+                    utilisateur.setMdp(nvMdp);
+                    break;
+                case 5:
+                    String nvTelephone = super.getTelephoneValid();
+                    utilisateur.setTelephone(nvTelephone);
+                    break;
+
+            }
+        }
+
+        for (int i = 0; i < comptes.size(); i++) {
+            if (comptes.get(i).getEmail().equals(utilisateur.getEmail())) {
+                comptes.set(i, utilisateur);
+                break;
+            }
+        }
+        listeUtilisateursToJson((ArrayList<Utilisateur>) comptes);
+    }
+
+    /*************************** Méthodes qui permettent de gérer les actvités **********************/
+
+    /**
+     * Permet de désérialiser les données du fichier activites.json
+     * en une liste d'objet Activite
+     *
+     * source : https://www.baeldung.com/gson-list
+     */
+    private ArrayList<Activite> getListeActivitesfromJson(){
+        try(FileReader reader = new FileReader("src/main/resources/activites.json")){
+            Gson gson = new Gson();
+            Type listeActivitesType = new TypeToken<ArrayList<Activite>>(){}.getType();
+            return gson.fromJson(reader, listeActivitesType);
+        }catch(Exception e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
+    }
+
+    public void listeActiviteToJson(ArrayList<Activite> listeActivites){
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        try(FileWriter writer = new FileWriter("src/main/resources/activites.json")){
+            gson.toJson(listeActivites, writer);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Permet d'afficher la liste de toutes les activités qui sont disponibles et
+     * auxquelles l'utilisateur n'est pas inscrit
+     */
+    private void afficherlisteActivites(Utilisateur utilisateur){
+        System.out.println("Choisissez une activité : ");
+        //vérifier si l'utilisateur n'est pas déjà inscrit à l'activité
+        for(Activite activite : activites){
+            if(!utilisateur.getActivites().containsKey(activite.getNom())){
+                System.out.println(activite.toString());
+            }
+        }
+    }
+
+    /**
+     * Permet d'afficher toutes les activités auxquelles l'utilisateur est inscrit
+     */
+    private void afficherActivitesUtilisateur(Utilisateur utilisateur){
+        System.out.println("Vos activités : ");
+        for(Map.Entry<String, StatutActivite> entry : utilisateur.getActivites().entrySet()){
+            System.out.println(entry.getKey() + " : " + entry.getValue());
+        }
+    }
+
+    /**
+     * Vérifie si une activité est disponible et/ou existe par recherche par nom
+     *
+     * @param nomActivite le nom de l'activité à vérifier
+     *
+     * @return {@code true} si l'activité est diponible, {@code false} sinon
+     */
+    private boolean isAvailable(String nomActivite){
+        for(Activite activite : activites){
+            if(activite.getNom().equals(nomActivite)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Permet de s'inscrire à une activité à laquelle on n'est pas déjà inscrit.
+     * Initilaise le statut de cette activité à NON_DEBUTEE
+     * Met à jour le dictionnaire des activitées de l'utilisateur
+     *
+     * @param nomActivite le nom de l'activité à laquelle on souhaite s'inscrire
+     */
+    private void sInscrireActivite(String nomActivite, Utilisateur utilisateur){
+        if (isAvailable(nomActivite)){
+            utilisateur.ajouterActivite(nomActivite, StatutActivite.NON_DEBUTEE);
+            System.out.println("Vous êtes inscrit  l'activité : " + nomActivite);
+        } else {
+            System.out.println("Cette activité n'existe pas ou est invalide") ;
+        }
+    }
+
+    /**
+     * Permet de se désinscrire d'une activité à laquelle on est déjà inscrit.
+     * Met à jour le dictionnaire des activitées de l'utilisateur
+     *
+     * @param nomActivite le nom de l'activité à laquelle on souhaite se désinscrire
+     */
+    private void desinscrireActivite(String nomActivite, Utilisateur utilisateur){
+        if(utilisateur.getActivites().containsKey(nomActivite)){
+            utilisateur.supprimerActivite(nomActivite);
+            System.out.println("Vous êtes désincrit de l'activité : " + nomActivite);
+        }else {
+            System.out.println("Vous n'êtes pas inscrit à cette activité ");
+        }
+    }
+
+    /**
+     * Permet de gérer la logique derrière l'action de gérer les activités
+     *
+     */
+    public void gererActivites(Utilisateur user){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Voulez-vous vous inscrire ou vous désinscrire d'une activité ?");
+        System.out.println("[1] : Inscription à une activité");
+        System.out.println("[2] : Désincription à une activité");
+        String choix = scanner.nextLine().trim().toLowerCase();
+
+        switch (choix) {
+            case "1":
+                afficherlisteActivites(user);
+                System.out.println("Choisissez l'activité auquelle vous voulez vous inscrire :");
+                String nomActivite1 = scanner.nextLine().trim();
+                sInscrireActivite(nomActivite1, user);
+
+                break;
+
+            case "2":
+                afficherActivitesUtilisateur(user);
+                System.out.println("Choisissez l'activité auquelle vous voulez vous désinscrire :");
+                String nomActivite2 = scanner.nextLine().trim();
+                desinscrireActivite(nomActivite2, user);
+                break;
+
+            default:
+                System.out.println("Choix invalide.");
+        }
+
+    }
+
 
 }
