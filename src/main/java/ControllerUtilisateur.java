@@ -52,7 +52,6 @@ public class ControllerUtilisateur{
         }
     }
 
-    public void modifierProfil(){}
 
 
     public void setUtilisateur(Utilisateur utilisateur) {

@@ -6,15 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="9889aa2a-1fd4-494a-8712-9c846f99fbb5" name="Changes" comment="voirNotifications() de l'utilisateur &#10;+ getter et setter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/CompteView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/CompteView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ControllerUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/MenuUtilisateur.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fournisseurs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ControllerUtilisateur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/MenuUtilisateur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Utilisateur.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Utilisateur.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/fournisseurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/fournisseurs.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/utilisateurs.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/utilisateurs.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,6 +92,7 @@
       <workItem from="1722797080250" duration="1928000" />
       <workItem from="1722800135855" duration="2428000" />
       <workItem from="1722803972234" duration="1358000" />
+      <workItem from="1722903545789" duration="221000" />
     </task>
     <task id="LOCAL-00001" summary="changes">
       <option name="closed" value="true" />
