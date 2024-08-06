@@ -75,6 +75,33 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     }
 
 
+    public void AfficherListeFournisseur(Fournisseur fournisseur){
+        System.out.println("Nom du fournisseur:" +fournisseur.getNomCompagnie() );
+        for (FournisseurComposante f: fournisseur.getComposantes().values() ){
+            System.out.println("Type composante dispo chez lui : " + f);
+        }
+    }
+
+
+    public void AfficherFicheFournisseur(Fournisseur fournisseur) {
+        // Affiche les informations de base du fournisseur
+        System.out.println("Nom du fournisseur: " + fournisseur.getNomCompagnie());
+        System.out.println("Email du fournisseur: " + fournisseur.getEmail()); // Ajout de l'adresse email
+        System.out.println("Détails du fournisseur:");
+
+        // Affiche les détails des composantes fournies
+        for (Map.Entry<String, FournisseurComposante> entry : fournisseur.getComposantes().entrySet()) {
+            FournisseurComposante f = entry.getValue();
+            System.out.println("Composante: " + f.getComposante().getNom());
+            System.out.println("  Type: " + f.getComposante().getType());
+            System.out.println("  Description: " + f.getComposante().getDescription());
+            System.out.println("  Prix: " + f.getComposante().getPrix());
+            System.out.println("  Quantité disponible: " + f.getQuantite());
+            System.out.println();
+        }
+    }
+
+
     /*private void getListeUtilisateursFromJson(){
         try(FileReader reader = new FileReader("src/main/resources/utilisateurs.json")){
             Gson gson = new Gson();
@@ -616,10 +643,10 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
      *
      * @param composante La composante dont les informations doivent être affichées.
      */
-//    public void afficherCompoRecherche(FournisseurComposante composante){
-//        System.out.println("Le nom"+composante.getComposante().getId() + "\n" + "Le Type"
-//                +composante.getComposante().getType() ) ;
-//    }
+    public void afficherCompoRecherche(FournisseurComposante composante){
+        System.out.println("Le nom"+composante.getComposante().getNom() + "\n" + "Le Type"
+                +composante.getComposante().getType() ) ;
+    }
 
     /**
      * Affiche les informations détaillées d'une composante.
