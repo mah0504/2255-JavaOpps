@@ -63,7 +63,7 @@ d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
 
 Le projet est origanisé selon la structure suivante
 
-├── Exigences/
+├─ Exigences/
     └── Diagramme de cas d utilisation
 ├── Analyse/
     └── Diagrammes d activités
