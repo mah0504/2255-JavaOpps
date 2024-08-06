@@ -7,105 +7,71 @@ public class MenuUtilisateur{
     private Utilisateur utilisateur;
     private ControllerUtilisateur controllerUtilisateur;
 
+    /**
+     * Crée une instance pour la classe MenuUtilisateur.
+     * Elle permet d'initialiser le scanner aussi
+     *
+     * @param utilisateur l'utilisateur associé à ce menu.
+     * @param controllerUtilisateur le {@link ControllerUtilisateur} qui permet de gérer la
+     *                              logique entre les options du menu et les actions que peut faire
+     *                              un {@link Utilisateur}
+     */
     public MenuUtilisateur(Utilisateur utilisateur,ControllerUtilisateur controllerUtilisateur){
         this.scanner = new Scanner(System.in);
         this.utilisateur = utilisateur;
         this.controllerUtilisateur = controllerUtilisateur;
-
-
     }
 
-
-    /*public void afficherMenuUtilisateur(Utilisateur utilisateur) {
-        Scanner scanner = new Scanner(System.in);
-        boolean continuer = true;
-        while (continuer) {
-            System.out.println("Menu :");
-            System.out.println(" [0] : Retour au menu principal \n " +
-                    "[1] : modifier mon profil  \n " +
-                    "[2] : Afficher les états  mes robots \n " +
-                    "[3] : Gérer ma flotte  \n " +
-                    "[4] : Gérer les activités  \n " +
-                    "[5] : Trouver un fournisseur \n " +
-                    "[6] : Voir mes notifications \n" +
-                    "[7] : Choisir fournisseur ");
-            int choix = Integer.parseInt(scanner.nextLine());
-
-            switch (choix) {
-                case 0:
-                    continuer = false;
-                    break;
-                case 1:
-                    controllerUtilisateur.modifierProfil();
-                    break;
-                case 2:
-                    controllerUtilisateur.afficherEtatsRobots();
-                    break;
-                case 3:
-                    gererFlotte();
-                    break;
-                case 4:
-                    //  controllerUtilisateur.
-                    // truc pr les activites
-                    break;
-                case 5:
-                    trouverFournisseur();
-                    break;
-                case 6:
-                    controllerUtilisateur.voirNotifs();
-                    break;
-                case 7:
-                    controllerUtilisateur.choisirFournisseur();
-                    //juste pr tester
-                    break;
-                default:
-                    System.out.println("Choix invalide. Veuillez entrer nombre valide dan la borne.");
-            }
-        }
-    }*/
-
+    /**
+     * Permet d'afficher les options du Menu Fournisseur
+     */
     public void afficherMenuUtilisateur(){
         Scanner scanner = new Scanner(System.in);
         boolean continuer = true;
         while (continuer) {
-            System.out.println("Que souhaitez-vous faire ?");
-            System.out.println("0 : Se déconnecter (Retour au Menu Principal)");
-            System.out.println("1 : Modifier le profil");
-            System.out.println("2 : Gérer mes activités");
-            System.out.println("3 : Afficher l'état de mes robots");
-            System.out.println("4 : Gérer ma flotte");
-            System.out.println("5 : Trouver un fournisseur");
-            System.out.println("6 : Choisir un fournisseur");
-            System.out.println("7 : Voir mes notifications");
-            int choix = Integer.parseInt(scanner.nextLine());
+            try{
+                System.out.println("Que souhaitez-vous faire ?");
+                System.out.println("0 : Se déconnecter (Retour au Menu Principal)");
+                System.out.println("1 : Modifier le profil");
+                System.out.println("2 : Gérer mes activités");
+                System.out.println("3 : Afficher l'état de mes robots");
+                System.out.println("4 : Gérer ma flotte");
+                System.out.println("5 : Trouver un fournisseur");
+                System.out.println("6 : Choisir un fournisseur");
+                System.out.println("7 : Voir mes notifications");
+                int choix = Integer.parseInt(scanner.nextLine());
 
-            switch (choix) {
-                case 0:
-                    continuer = false;
-                    break;
-                case 1:
-                    controllerUtilisateur.modifierProfilUtilisateur(utilisateur);
-                    break;
-                case 2:
-                    controllerUtilisateur.gererActivites(utilisateur);
-                    break;
-                case 3:
-                    controllerUtilisateur.afficherEtatsRobots(utilisateur);
-                    break;
-                case 4:
-                    gererFlotte(utilisateur);
-                    break;
-                case 5:
-                    trouverFournisseur();
-                    break;
-                case 6:
-                    controllerUtilisateur.choisirFournisseur();
-                    break;
-                case 7:
-                    controllerUtilisateur.voirNotifs(utilisateur);
-                    break;
-                default:
-                    System.out.println("Choix invalide. Veuillez entrer nombre valide dan la borne.");
+                switch (choix) {
+                    case 0:
+                        continuer = false;
+                        break;
+                    case 1:
+                        controllerUtilisateur.modifierProfilUtilisateur(utilisateur);
+                        break;
+                    case 2:
+                        controllerUtilisateur.gererActivites(utilisateur);
+                        break;
+                    case 3:
+                        controllerUtilisateur.afficherEtatsRobots(utilisateur);
+                        break;
+                    case 4:
+                        gererFlotte(utilisateur);
+                        break;
+                    case 5:
+                        trouverFournisseur();
+                        break;
+                    case 6:
+                        controllerUtilisateur.choisirFournisseur();
+                        break;
+                    case 7:
+                        controllerUtilisateur.voirNotifs(utilisateur);
+                        break;
+                    default:
+                        System.out.println("Choix invalide. Veuillez entrer nombre valide dan la borne.");
+                }
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                scanner.next();
             }
         }
     }
@@ -120,9 +86,7 @@ public class MenuUtilisateur{
      * acheter une composante.
      *
      */
-
     // verifier si affchage recherche ou liste ou autre
-
     public void gererFlotte(Utilisateur utilisateur) {
         Scanner scanner = new Scanner(System.in);
         boolean continueMenu = true;
