@@ -19,6 +19,7 @@ public class ControllerRobotTest {
         robot.setCpu(2.5f);
         robot.setMemory(8.0f);
         controller.setRobot(robot);
+
     }
 
 

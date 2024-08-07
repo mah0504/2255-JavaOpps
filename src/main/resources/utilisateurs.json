@@ -110,30 +110,6 @@
             "prix": 250.0
           }
         ]
-      },
-      {
-        "id": "RobotInterme",
-        "type": "type1",
-        "name": "rbt",
-        "position": "En repos",
-        "speed": 20.0,
-        "batteryLevel": 100.0,
-        "cpu": 0.0,
-        "memory": 100.0,
-        "active": false,
-        "listeComposantes": [
-          {
-            "nom": "CPU2",
-            "description": "CPU UNIQUE JSP",
-            "type": "CPU",
-            "prix": 150.0
-          },
-          {
-            "nom": "WESH",
-            "type": "ROUE",
-            "prix": 0.0
-          }
-        ]
       }
     ],
     "composantes": {
@@ -143,8 +119,8 @@
       "IF": "ROUE"
     },
     "notifs": [],
-    "pseudo": "aithu",
-    "email": "aithu@example.com",
+    "pseudo": "maha",
+    "email": "maha@example.com",
     "mdp": "mdp",
     "telephone": "1234567890",
     "confirmed": true
@@ -191,8 +167,8 @@
       "IFT25": "HAUTPARLEUR"
     },
     "notifs": [],
-    "pseudo": "pnom2",
-    "email": "pnom2@example.com",
+    "pseudo": "sabrina",
+    "email": "sabrina@example.com",
     "mdp": "motdepasse2",
     "telephone": "1234567890",
     "confirmed": true
