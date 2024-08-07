@@ -120,9 +120,10 @@ Notre code est sensible à l'entrée. Il faut entrer des entiers dans les choix.
 │   │   │       ├── META-INF/MANIFEST.MF -- pour créer l'exécutable jar
 │   │   │       ├── utilisateurs.json
 │   │   │       ├── fournisseurs.json
-│   │   │       ├── activites.json
-│   │   │       └── Capture_ecran_tests
-│   │   └── test/java/ -- code source des tests
+│   │   │       └── activites.json
+│   │   └── test
+            ├── java -- code source des tests 
+│   │   │   └── resources --  Capture_ecran_tests
 │   └── target
 │       ├── différents dossiers pour la compilation
 │       └── 2255-JavaOpps-1.0-SNAPSHOT.jar
