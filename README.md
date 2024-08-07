@@ -111,22 +111,22 @@ Notre code est sensible à l'entrée. Il faut entrer des entiers dans les choix.
 ├── Conception/
 │   ├── Diagramme de classes
 │   └── Diagrammes de séquence
-├── Implémentation/
-│   ├── src
-│   │   ├── main
+├── Application/
+│   ├── src/
+│   │   ├── main/
 │   │   │   ├── java/ -- code source de l'application
-│   │   │   └── resources
+│   │   │   └── resources/
 │   │   │       ├── javaDoc
 │   │   │       ├── META-INF/MANIFEST.MF -- pour créer l'exécutable jar
 │   │   │       ├── utilisateurs.json
 │   │   │       ├── fournisseurs.json
 │   │   │       └── activites.json
-│   │   └── test
-            ├── java -- code source des tests 
+│   │   └── test/
+│   │   │   ├── java/ -- code source des tests 
 │   │   │   └── resources --  Capture_ecran_tests
 │   └── target
-│       ├── différents dossiers pour la compilation
-│       └── 2255-JavaOpps-1.0-SNAPSHOT.jar
+│   │   ├── différents dossiers pour la compilation
+│   │   └── 2255-JavaOpps-1.0-SNAPSHOT.jar
 │   └── pom.xml
 ├── rapport/rapport.html
 └── README.md
