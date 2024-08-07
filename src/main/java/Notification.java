@@ -87,5 +87,8 @@ public class Notification {
     public boolean isLue() {
         return lue;
     }
+    public void setLue(boolean lue) {
+        this.lue = lue;
+    }
 
 }
