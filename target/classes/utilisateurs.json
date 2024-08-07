@@ -193,7 +193,7 @@
     "notifs": [],
     "pseudo": "pnom3",
     "email": "pnom3@example.com",
-    "mdp": "motdepasse3",
+    "mdp": "motdepasse",
     "telephone": "1234567890",
     "confirmed": true
   },
@@ -238,8 +238,8 @@
       "IFT28": "BRAS"
     },
     "notifs": [],
-    "pseudo": "pnom4",
-    "email": "pnom4@example.com",
+    "pseudo": "aithu",
+    "email": "aithu@example.com",
     "mdp": "mdp",
     "telephone": "1234567890",
     "confirmed": true
