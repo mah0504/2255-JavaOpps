@@ -42,4 +42,34 @@ public class CompteTest {
         assertNotNull(expirationDate);
 
     }
+
+    @Test
+    public void TestEnvoyerMailConfirmation_DateExpiration() {
+        Utilisateur user = new Utilisateur("pseudo", "pseudo@example.com", "motdepasse", "1234567890", "prenom", "nom");
+
+        envoyerMailConfirmation(user);
+        String DateExpiration = user.getConfirmationLienExpirationDate();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+        LocalDateTime expirationDate = LocalDateTime.parse(DateExpiration, formatter);
+
+        LocalDateTime now = LocalDateTime.now();
+        assertTrue(expirationDate.isAfter(now));
+    }
+
+    @Test
+    public void TestEnvoyerMailConfirmation_mailConfirmation() {
+
+        Utilisateur user = new Utilisateur("pseudo", "pseudo@example.com", "motdepasse", "1234567890", "prenom", "nom");
+
+        envoyerMailConfirmation(user);
+        String confirmationLien = user.getConfirmationLien();
+
+        try{
+            UUID uuid_test = UUID.fromString(confirmationLien);
+            assertTrue(uuid_test.toString().equals(confirmationLien));
+        } catch (Exception e){
+            assertTrue(false);
+        }
+
+    }
 }
