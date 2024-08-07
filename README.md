@@ -120,7 +120,8 @@ Notre code est sensible à l'entrée. Il faut entrer des entiers dans les choix.
 │   │   │       ├── META-INF/MANIFEST.MF -- pour créer l'exécutable jar
 │   │   │       ├── utilisateurs.json
 │   │   │       ├── fournisseurs.json
-│   │   │       └── activites.json
+│   │   │       ├── activites.json
+│   │   │       └── Capture_ecran_tests
 │   │   └── test/java/ -- code source des tests
 │   └── target
 │       ├── différents dossiers pour la compilation
