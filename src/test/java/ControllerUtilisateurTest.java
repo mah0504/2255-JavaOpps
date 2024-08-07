@@ -21,7 +21,6 @@ public class ControllerUtilisateurTest {
         View view = new View();
         ControllerUtilisateur controllerUtilisateur = new ControllerUtilisateur(menuCompte, view);
 
-        // Redirection de la sortie standard
         ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
 

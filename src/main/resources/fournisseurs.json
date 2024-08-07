@@ -101,7 +101,17 @@
           "prix": 115.0
         },
         "quantite": 27
+      },
+      "IFT5": {
+        "composante": {
+          "nom": "IFT35",
+          "description": "Une composante MICRO",
+          "type": "MICRO",
+          "prix": 70.0
+        },
+        "quantite": 30
       }
+
     },
     "pseudo": "compagnie2",
     "email": "ce2@example.com",
@@ -267,6 +277,15 @@
           "prix": 150.0
         },
         "quantite": 40
+      },
+      "IFT45": {
+        "composante": {
+          "nom": "IFT45",
+          "description": "Une composante CAMÉRA",
+          "type": "CAMÉRA",
+          "prix": 85.0
+        },
+        "quantite": 50
       }
     },
     "pseudo": "compagnie5",
