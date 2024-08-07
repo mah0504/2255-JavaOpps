@@ -13,7 +13,7 @@ certains bugs persistent comment la sensibilité aux entrées du clavier et trai
 ou l'implémentation d'une méthode abstraite pour lire et écrire dans un Json. 
 
 En ce qui concerne la configuration du Maven, nous avons choisi de stocker nos données dans des fichiers Json et
-d'utiliser des tests d'assertation (True ou False) avec la librairie Junit.
+d'utiliser des tests d'assertation avec la librairie Junit.
 
 
 ## Fonctionnalités
