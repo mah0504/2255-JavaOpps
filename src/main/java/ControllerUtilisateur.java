@@ -1197,7 +1197,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
      *
      * @return {@code true} si l'activité est diponible, {@code false} sinon
      */
-    private boolean isAvailable(String nomActivite){
+    public boolean isAvailable(String nomActivite){
         for(Activite activite : activites){
             if(activite.getNom().equals(nomActivite)){
                 return true;
