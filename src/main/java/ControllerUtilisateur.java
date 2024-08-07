@@ -28,6 +28,7 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
 
     public ControllerUtilisateur(MenuCompte menuCompte, View view) {
         super(menuCompte, view);
+        this.view = view;
         this.comptes = getListeUtilisateursFromJson();
         this.activites = getListeActivitesfromJson();
         this.listeFournisseurs = getListeFournisseurs();
