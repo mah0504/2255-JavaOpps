@@ -119,8 +119,8 @@
       "IF": "ROUE"
     },
     "notifs": [],
-    "pseudo": "aithu",
-    "email": "aithu@example.com",
+    "pseudo": "maha",
+    "email": "maha@example.com",
     "mdp": "mdp",
     "telephone": "1234567890",
     "confirmed": true
@@ -167,8 +167,8 @@
       "IFT25": "HAUTPARLEUR"
     },
     "notifs": [],
-    "pseudo": "pnom2",
-    "email": "pnom2@example.com",
+    "pseudo": "sabrina",
+    "email": "sabrina@example.com",
     "mdp": "motdepasse2",
     "telephone": "1234567890",
     "confirmed": true
