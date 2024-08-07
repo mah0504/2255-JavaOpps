@@ -69,7 +69,7 @@ git clone https://github.com/mah0504/2255-JavaOpps.git
 
  Puis il faut se diriger vers le répértoire :
  ```sh
-cd ~/2255-JavaOpps
+cd ~/2255-JavaOpps/Application
 ```
 dans le répertoire 2255-JavaOpps, il faut préparer le projet :
 ```sh
