@@ -93,8 +93,8 @@ mvn clean
 Notre code est sensible à l'entrée. Il faut entrer des entiers dans les choix. 
 
 * Pour tester une connexion Utilisateur :
-    - email : pnom2@example.com
-    - mot de passe : motdepasse2
+    - email : aithu@example.com
+    - mot de passe : motdepasse
     
 * Pour tester une connexion Fournisseur :
     - email : c1@example.com

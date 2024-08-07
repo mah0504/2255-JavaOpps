@@ -12,23 +12,12 @@ public class MenuCompte {
     private MenuUtilisateur menuUtilisateur;
     private ControllerRobot controllerRobot;
     private MenuFournisseur menuFournisseur;
-    private CompteView compteView;
 
     public MenuCompte(View view) {
         this.view = view;
         this.controllerUtilisateur = new ControllerUtilisateur(this, view);
         this.controllerFournisseur = new ControllerFournisseur(this, view);
     }
-
-    /*public MenuCompte(ControllerUtilisateur controllerUtilisateur, ControllerFournisseur controllerFournisseur, ControllerRobot controllerRobot) {
-        this.controllerUtilisateur =  controllerUtilisateur;
-        this.controllerFournisseur = controllerFournisseur;
-        this.controllerRobot= controllerRobot;
-        //this.menuUtilisateur = new MenuUtilisateur(controllerUtilisateur);
-        //this.menuFournisseur= new MenuFournisseur(controllerFournisseur);
-
-        compteView = new CompteView();
-    }*/
 
     /**
      * Définit le compte en tant qu'un Utilisateur ou un Fournisseur et affiche le
@@ -113,7 +102,7 @@ public class MenuCompte {
                         controllerUtilisateur.confirmerInscription();
                         break;
                     default:
-                        compteView.AfficherMessage("Choix invalide, réessayez!");
+                        view.afficherMessage("Choix invalide, réessayez!");
                 }
             } catch (InputMismatchException e) {
                 System.out.println("Erreur: Veuillez entrer un nombre entier valide.");
