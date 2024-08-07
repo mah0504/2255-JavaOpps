@@ -26,6 +26,7 @@ public class ActiviteTest {
         assertTrue(isAvailable(activites, "Activite1"));
     }
 
+    @Test
     public void testisAvailable_allFalse(){
         ArrayList<Activite> activites = new ArrayList<>();
         activites.add(new Activite("Activite1", "Description1"));
@@ -35,11 +36,11 @@ public class ActiviteTest {
         assertFalse(isAvailable(activites, "Activite5"));
     }
 
+    @Test
     public void testisAvailable_vide(){
         ArrayList<Activite> activites = new ArrayList<>();
 
         assertFalse(isAvailable(activites, "Activite1"));
     }
-
 
 }
