@@ -1,0 +1,385 @@
+[
+  {
+    "prenom": "prenom1",
+    "nom": "nom1",
+    "points": 0.0,
+    "activites": {
+      "Activite1": "NON_DEBUTEE",
+      "Activite2": "EN_COURS",
+      "Activite3": "TERMINEE",
+      "Activite4": "TERMINEE",
+      "Activite5": "EN_COURS"
+    },
+    "listeRobots": [
+      {
+        "id": "robot1",
+        "type": "type1",
+        "name": "Robot 1",
+        "position": "position1",
+        "speed": 10.0,
+        "batteryLevel": 80.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": [
+          {
+            "nom": "CP44",
+            "description": "CPU UNIQUE JSP",
+            "type": "CPU",
+            "prix": 150.0
+          },
+          {
+            "nom": "KSOS22",
+            "description": "Vroom Vroom ett lol",
+            "type": "ROUE",
+            "prix": 250.0
+          }
+        ]
+      },
+      {
+        "id": "robot2",
+        "type": "type2",
+        "name": "Robot 2",
+        "position": "position2",
+        "speed": 15.0,
+        "batteryLevel": 90.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": [
+          {
+            "nom": "CPU223",
+            "description": "Description de la Composante3",
+            "type": "CPU",
+            "prix": 150.0
+          },
+          {
+            "nom": "IFAD32",
+            "description": "Description de la Composante4",
+            "type": "HELICE",
+            "prix": 250.0
+          }
+        ]
+      },
+      {
+        "id": "robot1",
+        "type": "type1",
+        "name": "Robot 1",
+        "position": "position1",
+        "speed": 10.0,
+        "batteryLevel": 80.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": [
+          {
+            "nom": "CP44",
+            "description": "CPU UNIQUE JSP",
+            "type": "CPU",
+            "prix": 150.0
+          },
+          {
+            "nom": "KSOS22",
+            "description": "Vroom Vroom ett lol",
+            "type": "ROUE",
+            "prix": 250.0
+          }
+        ]
+      },
+      {
+        "id": "robot2",
+        "type": "type2",
+        "name": "Robot 2",
+        "position": "position2",
+        "speed": 15.0,
+        "batteryLevel": 90.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": [
+          {
+            "nom": "CPU223",
+            "description": "Description de la Composante3",
+            "type": "CPU",
+            "prix": 150.0
+          },
+          {
+            "nom": "IFAD32",
+            "description": "Description de la Composante4",
+            "type": "HELICE",
+            "prix": 250.0
+          }
+        ]
+      }
+    ],
+    "composantes": {
+      "IFT2": "CPU",
+      "IFT1": "ROUE",
+      "IFAD32": "HELICE",
+      "IF": "ROUE"
+    },
+    "notifs": [],
+    "pseudo": "maha",
+    "email": "maha@example.com",
+    "mdp": "mdp",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom2",
+    "nom": "nom2",
+    "points": 0.0,
+    "activites": {
+      "Activite6": "NON_DEBUTEE",
+      "Activite7": "TERMINEE",
+      "Activite8": "TERMINEE",
+      "Activite9": "NON_DEBUTEE",
+      "Activite10": "EN_COURS"
+    },
+    "listeRobots": [
+      {
+        "id": "robot3",
+        "type": "type3",
+        "name": "Robot 3",
+        "position": "position3",
+        "speed": 12.0,
+        "batteryLevel": 85.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": []
+      },
+      {
+        "id": "robot4",
+        "type": "type4",
+        "name": "Robot 4",
+        "position": "position4",
+        "speed": 20.0,
+        "batteryLevel": 95.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": []
+      }
+    ],
+    "composantes": {
+      "IFT20": "CPU",
+      "IFT25": "HAUTPARLEUR"
+    },
+    "notifs": [],
+    "pseudo": "sabrina",
+    "email": "sabrina@example.com",
+    "mdp": "motdepasse2",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom3",
+    "nom": "nom3",
+    "points": 0.0,
+    "activites": {
+      "Activite11": "NON_DEBUTEE",
+      "Activite12": "EN_COURS",
+      "Activite13": "EN_COURS",
+      "Activite14": "TERMINEE",
+      "Activite15": "EN_COURS"
+    },
+    "listeRobots": [],
+    "composantes": {
+      "IFT20": "CPU",
+      "IFT26": "ROUE",
+      "IFT25": "HAUTPARLEUR"
+    },
+    "notifs": [],
+    "pseudo": "pnom3",
+    "email": "pnom3@example.com",
+    "mdp": "motdepasse",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom4",
+    "nom": "nom4",
+    "points": 0.0,
+    "activites": {
+      "Activite1": "NON_DEBUTEE",
+      "Activite2": "EN_COURS",
+      "Activite3": "TERMINEE",
+      "Activite4": "TERMINEE",
+      "Activite5": "EN_COURS"
+    },
+    "listeRobots": [
+      {
+        "id": "robot1",
+        "type": "explorer",
+        "name": "Robot Alpha",
+        "position": "A1",
+        "speed": 2.5,
+        "batteryLevel": 75.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": []
+      },
+      {
+        "id": "robot2",
+        "type": "worker",
+        "name": "Robot Beta",
+        "position": "B2",
+        "speed": 1.8,
+        "batteryLevel": 60.0,
+        "cpu": 0.0,
+        "memory": 0.0,
+        "active": false,
+        "listeComposantes": []
+      }
+    ],
+    "composantes": {
+      "IFT28": "BRAS"
+    },
+    "notifs": [],
+    "pseudo": "aithu",
+    "email": "aithu@example.com",
+    "mdp": "mdp",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom5",
+    "nom": "nom5",
+    "points": 0.0,
+    "activites": {
+      "Activite6": "NON_DEBUTEE",
+      "Activite7": "TERMINEE",
+      "Activite8": "TERMINEE",
+      "Activite9": "NON_DEBUTEE",
+      "Activite10": "EN_COURS"
+    },
+    "listeRobots": [],
+    "composantes": {
+      "IFT20": "CPU",
+      "IFT21": "CAMERA"
+    },
+    "notifs": [],
+    "pseudo": "pnom5",
+    "email": "pnom5@example.com",
+    "mdp": "motdepasse5",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom6",
+    "nom": "nom6",
+    "points": 0.0,
+    "activites": {
+      "Activite11": "NON_DEBUTEE",
+      "Activite12": "EN_COURS",
+      "Activite13": "EN_COURS",
+      "Activite14": "TERMINEE",
+      "Activite15": "EN_COURS"
+    },
+    "listeRobots": [],
+    "composantes": {
+      "IFT20": "CPU",
+      "IFT21": "CAMERA"
+    },
+    "notifs": [],
+    "pseudo": "pnom6",
+    "email": "pnom6@example.com",
+    "mdp": "motdepasse6",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom7",
+    "nom": "nom7",
+    "points": 0.0,
+    "activites": {
+      "Activite1": "NON_DEBUTEE",
+      "Activite2": "EN_COURS",
+      "Activite3": "TERMINEE",
+      "Activite4": "TERMINEE",
+      "Activite5": "EN_COURS"
+    },
+    "listeRobots": [],
+    "composantes": {
+      "IFT20": "CPU"
+    },
+    "notifs": [],
+    "pseudo": "pnom7",
+    "email": "pnom7@example.com",
+    "mdp": "motdepasse7",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom8",
+    "nom": "nom8",
+    "points": 0.0,
+    "activites": {
+      "Activite6": "NON_DEBUTEE",
+      "Activite7": "TERMINEE",
+      "Activite8": "TERMINEE",
+      "Activite9": "NON_DEBUTEE",
+      "Activite10": "EN_COURS"
+    },
+    "listeRobots": [],
+    "composantes": {
+      "IFT20": "CPU",
+      "IFT22": "HELICE"
+    },
+    "notifs": [],
+    "pseudo": "pnom8",
+    "email": "pnom8@example.com",
+    "mdp": "motdepasse8",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom9",
+    "nom": "nom9",
+    "points": 0.0,
+    "activites": {
+      "Activite11": "NON_DEBUTEE",
+      "Activite12": "EN_COURS",
+      "Activite13": "EN_COURS",
+      "Activite14": "TERMINEE",
+      "Activite15": "EN_COURS"
+    },
+    "listeRobots": [],
+    "composantes": {
+      "IFT20": "CPU",
+      "IFT23": "ECRAN"
+    },
+    "notifs": [],
+    "pseudo": "pnom9",
+    "email": "pnom9@example.com",
+    "mdp": "motdepasse9",
+    "telephone": "1234567890",
+    "confirmed": true
+  },
+  {
+    "prenom": "prenom10",
+    "nom": "nom10",
+    "points": 0.0,
+    "activites": {
+      "Activite1": "NON_DEBUTEE",
+      "Activite2": "EN_COURS",
+      "Activite3": "TERMINEE",
+      "Activite4": "TERMINEE",
+      "Activite5": "EN_COURS"
+    },
+    "listeRobots": [],
+    "composantes": {
+      "IFT20": "CPU",
+      "IFT21": "CAMERA",
+      "IFT30": "MICRO"
+    },
+    "notifs": [],
+    "pseudo": "pnom10",
+    "email": "pnom10@example.com",
+    "mdp": "motdepasse10",
+    "telephone": "1234567890",
+    "confirmed": true
+  }
+]
