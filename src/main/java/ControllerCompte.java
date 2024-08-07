@@ -210,7 +210,7 @@ public abstract class ControllerCompte<T extends Compte>{
      * @param mdp le mot de passe associé à l'email
      * @return {@code true} si la connexion est vérifiée, {@code false} sinon
      */
-    private boolean verifierConnexion(String email, String mdp){
+    public boolean verifierConnexion(String email, String mdp){
         T compte = findUserByEmail(email);
         if(compte != null && compte.getMdp().equals(mdp) && compte.getConfirmed()){
             return true;

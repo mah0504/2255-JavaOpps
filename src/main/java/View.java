@@ -8,6 +8,10 @@ public class View {
   public View() {
   }
 
+  /**
+   * Cette classe Permet l'affichage des menus et des options à l'utilisateur ou au fournisseur.
+   * Elle gère une partie des interactions entre l'humain et la machine
+   */
 
   public void home(){
     System.out.println("Bienvenue à Robotix");
