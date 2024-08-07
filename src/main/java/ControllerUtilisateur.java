@@ -26,15 +26,6 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     private Fournisseur fournisseurChoisi;
 
 
-    /*public ControllerUtilisateur(){
-
-        this.listeUtilisateurs = new ArrayList<>();
-        getListeUtilisateursFromJson();
-        this.controllerFournisseur = new ControllerFournisseur();
-        this.listeFournisseurs = controllerFournisseur.getListeFournisseurs();
-        this.controllerRobot= new ControllerRobot();
-    }*/
-
     public ControllerUtilisateur(MenuCompte menuCompte, View view) {
         super(menuCompte, view);
         this.comptes = getListeUtilisateursFromJson();
@@ -43,6 +34,15 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         this.controllerRobot = new ControllerRobot();
     }
 
+    /**
+     * Permet de désérialiser les données du fichier fournisseurs.json
+     * en une liste d'objet Fournisseur
+     *
+     * source : https://www.baeldung.com/gson-list
+     *
+     * @return liste de Fournisseurs
+     * @throws Exception si une erreur survient lors de la lecture du fichier
+     */
     private ArrayList<Utilisateur> getListeUtilisateursFromJson(){
         try(FileReader reader = new FileReader(CHEMIN_FIC_JSON)){
             Gson gson = new Gson();
@@ -54,6 +54,15 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         }
     }
 
+    /**
+     * Permet de désérialiser les données du fichier fournisseurs.json
+     * en une liste d'objet Fournisseur
+     *
+     * source : https://www.baeldung.com/gson-list
+     *
+     * @return liste de Fournisseurs
+     * @throws Exception si une erreur survient lors de la lecture du fichier
+     */
     private ArrayList<Fournisseur> getListeFournisseurs(){
         try(FileReader reader = new FileReader("src/main/resources/fournisseurs.json")){
             Gson gson = new Gson();
@@ -65,6 +74,13 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         }
     }
 
+    /**
+     * Convertit une liste d'objet {@link Utilisateur} en un fichier JSON
+     * en la sérialisant
+     *
+     * @param listeUtilisateurs liste des fournisseurs à sérialiser
+     * @throws Exception si une erreur survient lors de l'écriture du fichier
+     */
     private void listeUtilisateursToJson(ArrayList<Utilisateur> listeUtilisateurs){
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         try(FileWriter writer = new FileWriter(CHEMIN_FIC_JSON)){
@@ -101,35 +117,21 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         }
     }
 
-
-    /*private void getListeUtilisateursFromJson(){
-        try(FileReader reader = new FileReader("src/main/resources/utilisateurs.json")){
-            Gson gson = new Gson();
-            Type listeUtilisateurstype = new TypeToken<ArrayList<Utilisateur>>(){}.getType();
-            listeUtilisateurs = gson.fromJson(reader, listeUtilisateurstype);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }*/
-
+    /**
+     * Récupère la liste des Utilisateurs
+     * @return liste des Utilisateurs
+     */
     public ArrayList<Utilisateur> getListeUtilisateurs(){
         return listeUtilisateurs;
     }
-
-    /*private void listeUtilisateursToJson(ArrayList<Utilisateur> listeUtilisateurs){
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        try(FileWriter writer = new FileWriter("src/main/resources/utilisateurs.json")){
-            gson.toJson(listeUtilisateurs, writer);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-    }*/
-
 
     public void setUtilisateur(Utilisateur utilisateur) {
         this.utilisateur = utilisateur;
     }
 
+    /**
+     * Permet de s'inscrire
+     */
     public void sInscrire(){
         Scanner scanner = new Scanner(System.in);
         String pseudo = super.getPseudoUnique();
@@ -152,6 +154,9 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         }
     }
 
+    /**
+     * Permet de confirmer l'inscription
+     */
     public void confirmerInscription(){
         Scanner scanner = new Scanner(System.in);
         view.getEmailView();
@@ -182,121 +187,6 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
         }
         view.afficherMessage("Ce compte n'existe pas, entrez un email valide !");
     }
-
-    /**public boolean confirmerUtilisateur(String pseudo){
-        boolean confirme = true;
-        for (Utilisateur utilisateur : listeUtilisateurs) {
-            if (utilisateur.getPseudo().equals(pseudo)) {
-                confirme = false;
-                break;
-            }
-        }
-        return confirme;
-    }*/
-
-    /*public void creerUtilisateur(String pseudo, String nom, String prenom, String email, String mdp, String telephone) {
-        Utilisateur nouvelUtilisateur = new Utilisateur(pseudo, nom, prenom, email, mdp, telephone);
-
-        if (confirmerUtilisateur(pseudo)){
-
-            //Initialiser le lien de confirmation
-            String confirmationLien = nouvelUtilisateur.getConfirmationLien();
-
-            //Initialiser la Date d'expiration de ce lien
-            String DateExpiration = nouvelUtilisateur.getConfirmationLienExpirationDate();
-
-            //Assigner les nouvelles valeurs
-            nouvelUtilisateur.setConfirmationLien(confirmationLien);
-            nouvelUtilisateur.setConfirmationLienExpirationDate(DateExpiration);
-
-            listeUtilisateurs.add(nouvelUtilisateur);
-            listeUtilisateursToJson(listeUtilisateurs);
-
-            //Envoyer le mail de confirmation
-            envoyerEmailConfirmation(nouvelUtilisateur.getEmail(), confirmationLien);
-
-            System.out.println("Inscription réussie. En attente de la confirmation de l'email .");
-        } else {
-            System.out.println("Échec à la création du compte.");
-        }
-    }
-
-    public boolean isPseudoUnique(String pseudo){
-        for(Utilisateur utilisateur : listeUtilisateurs){
-            if(utilisateur.getPseudo().equals(pseudo)){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean isEmailUnique(String email){
-        for(Utilisateur utilisateur : listeUtilisateurs){
-            if(utilisateur.getEmail().equals(email)){
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public boolean isMdpValide(String mdp){
-        return mdp.length() > 7;
-    }
-
-    public boolean isTelephoneValide(String telephone){
-        return telephone.length() == 10;
-    }
-
-    private void envoyerEmailConfirmation(String email, String confirmationLien) {
-
-        System.out.println("Email de confirmation envoyé à : " + email);
-        System.out.println("Lien de confirmation : " + confirmationLien);
-    }
-
-    public boolean confirmerCompte(String email,String confirmationLien) {
-        Utilisateur utilisateur = findUserByEmail(email);
-        if(utilisateur != null){
-
-            //récupère la date d'expiration du lien de confirmation
-            String confirmationDateStr = utilisateur.getConfirmationLienExpirationDate();
-
-            //Convertit le String en une Date
-            LocalDateTime confirmationDate = utilisateur.StrToDate(confirmationDateStr);
-
-            if (LocalDateTime.now().isBefore(confirmationDate)) {
-                utilisateur.isConfirmed(true);
-                utilisateur.setConfirmationLien(null);
-                utilisateur.setConfirmationLienExpirationDate(null);
-                listeUtilisateursToJson(listeUtilisateurs);
-                return true;
-            } else {
-                listeUtilisateurs.remove(utilisateur);
-                listeUtilisateursToJson(listeUtilisateurs);
-                System.out.println("Le lien de confirmation a expiré. Inscription annulée.");
-                return false;
-            }
-        }else {
-            System.out.println("Lien de confirmation invalide.");
-            return false;
-        }
-    }
-
-    public Utilisateur verifierConnexion(String email, String mdp){
-        Utilisateur user = findUserByEmail(email);
-        if(user != null && user.getMdp().equals(mdp) && user.getConfirmed()){
-            return user;
-        }
-        return null;
-    }*/
-
-    /*private Utilisateur findUserByEmail(String email) {
-        for (Utilisateur utilisateur : listeUtilisateurs) {
-            if (utilisateur.getEmail().equals(email)) {
-                return utilisateur;
-            }
-        }
-        return null;
-    }*/
 
     public Robot choisirRobot (Utilisateur utilisateur){
         int choix = -1;
@@ -1098,7 +988,12 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     }
 
 
-
+    /**
+     * Permet de modifier le profil d'un Utilisateur
+     * et de mettre à jour le Json
+     *
+     * @param utilisateur utilisateur dont le profil est modifié
+     */
     public void modifierProfilUtilisateur(Utilisateur utilisateur) {
         boolean continuer = true;
         Scanner scanner = new Scanner(System.in);
@@ -1146,7 +1041,6 @@ public class ControllerUtilisateur extends ControllerCompte<Utilisateur>{
     }
 
     /*************************** Méthodes qui permettent de gérer les actvités **********************/
-
 
     /**
      * Permet de désérialiser les données du fichier activites.json
