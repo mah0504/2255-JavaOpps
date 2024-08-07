@@ -8,12 +8,10 @@ Main.class
 MenuUtilisateur.class
 ControllerFournisseur$1.class
 Notification.class
-CompteView.class
 ControllerUtilisateur$1.class
 Composante.class
 StatutActivite.class
 Organisation.class
-Robotix.class
 MenuCompte.class
 ControllerFournisseur.class
 FournisseurComposante.class
