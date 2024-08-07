@@ -94,7 +94,7 @@ Notre code est sensible à l'entrée. Il faut entrer des entiers dans les choix.
 
 * Pour tester une connexion Utilisateur :
     - email : aithu@example.com
-    - mot de passe : motdepasse
+    - mot de passe : mdp
     
 * Pour tester une connexion Fournisseur :
     - email : c1@example.com
