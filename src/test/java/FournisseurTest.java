@@ -24,14 +24,11 @@ public class FournisseurTest {
 
     @Test
     public void testAddComposante() {
-        // Ajouter une composante
         fournisseur.addComposante(fournisseurComposante);
 
         // Vérifier si la composante a été ajoutée
         HashMap<String, FournisseurComposante> composantes = fournisseur.getComposantes();
         assertTrue(composantes.containsKey("Composante A"), "La composante devrait être présente dans la liste.");
-
-        // Vérifier les détails de la composante ajoutée
 
     }
 }
